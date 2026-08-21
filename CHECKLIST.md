@@ -237,6 +237,10 @@ published prices cross-checked against your own ad artwork, policy pages reviewe
 response times measured, automated accessibility structure checks, SEO metadata verified per route, structured
 data parsed and validated, status codes checked, 404 verified, full customer-journey walkthrough.
 **N/A:** search functionality, payment and booking flows, email notifications, analytics events.
+**Slow network: Done.** Emulated Regular 3G (400kbps, 400ms latency) against the live site: DOMContentLoaded
+at 3.2s, product cards and prices painted at 3.3s, and all 15 WhatsApp order links usable immediately because
+the catalogue is server-rendered rather than fetched.
+
 **Cross-browser: Done.** The full cart journey was run on Chromium 151, Firefox 153 and WebKit 26.5 (the Safari
 and iOS engine) at 390px. All three gave identical results: 84px header logo, 350px footer mark, zero overflow,
 gift bag opens, badge increments, Escape closes, the bag survives a reload, and the WhatsApp link carries the

@@ -5,6 +5,9 @@ import { brand, products } from '@/lib/site';
 
 const KEY = 'gwp.giftbag.v1';
 
+/** Safe wa.me URL ceiling. Beyond this some clients silently truncate. */
+const MAX_WA_URL = 1900;
+
 /** Reads the saved bag. Returns [] for unusable or absent storage. */
 function readStored() {
   try {
@@ -84,25 +87,59 @@ export default function CartProvider({ children }) {
   const subtotal = priced.reduce((n, i) => n + i.price * i.qty, 0);
   const hasUnpriced = items.some((i) => !i.price);
 
-  /** One WhatsApp message for the whole bag. Prices only where confirmed. */
+  /**
+   * One WhatsApp message for the whole bag.
+   *
+   * Long bags are summarised rather than truncated. A wa.me URL past roughly
+   * 2000 characters is silently cut short by some Android browsers and by
+   * WhatsApp's own handler, which would deliver an incomplete order without
+   * anyone noticing. Past that point we send the item count and totals and
+   * ask to confirm the full list in chat.
+   */
   const waHref = useMemo(() => {
     if (!items.length) return null;
-    const lines_ = items.map((i) => {
+
+    const line = (i) => {
       const unit = i.price ? `${brand.currency}${i.price.toFixed(2)}` : 'price on request';
       const qty = i.qty > 1 ? ` x${i.qty}` : '';
-      return `• ${i.name}${qty} (${i.spec}) — ${unit}`;
-    });
-    let msg = `Hi Gifted with Purpose! I'd like to order:\n\n${lines_.join('\n')}`;
-    if (priced.length) {
-      msg += `\n\nSubtotal for the priced items: ${brand.currency}${subtotal.toFixed(2)}`;
+      return `\u2022 ${i.name}${qty} (${i.spec}) \u2014 ${unit}`;
+    };
+
+    const build = (body) => {
+      let msg = `Hi Gifted with Purpose! I'd like to order:\n\n${body}`;
+      if (priced.length) {
+        msg += `\n\nSubtotal for the priced items: ${brand.currency}${subtotal.toFixed(2)}`;
+      }
+      if (hasUnpriced) {
+        msg += `\n\nPlease confirm the price for the items marked "price on request".`;
+      }
+      if (items.some((i) => i.personalised)) {
+        msg += `\n\nPersonalisation details (names/spelling): `;
+      }
+      return msg;
+    };
+
+    const full = build(items.map(line).join('\n'));
+    const url = (m) => `https://wa.me/${brand.wa_number}?text=${encodeURIComponent(m)}`;
+    if (url(full).length <= MAX_WA_URL) return url(full);
+
+    // Fit as many itemised lines as the limit allows, then summarise the rest.
+    const summarise = (keptItems) => {
+      const rest = items.slice(keptItems.length);
+      const restQty = rest.reduce((n, i) => n + i.qty, 0);
+      return [
+        ...keptItems.map(line),
+        `\u2022 ...and ${rest.length} more design${rest.length === 1 ? '' : 's'} (${restQty} item${restQty === 1 ? '' : 's'}) \u2014 I'll confirm the full list in chat`,
+      ].join('\n');
+    };
+
+    // Grow the itemised list only while the *final* message still fits.
+    const kept = [];
+    for (const i of items) {
+      if (url(build(summarise([...kept, i]))).length > MAX_WA_URL) break;
+      kept.push(i);
     }
-    if (hasUnpriced) {
-      msg += `\n\nPlease confirm the price for the items marked "price on request".`;
-    }
-    if (items.some((i) => i.personalised)) {
-      msg += `\n\nPersonalisation details (names/spelling): `;
-    }
-    return `https://wa.me/${brand.wa_number}?text=${encodeURIComponent(msg)}`;
+    return url(build(summarise(kept)));
   }, [items, priced.length, subtotal, hasUnpriced]);
 
   const value = { items, count, subtotal, hasUnpriced, waHref, add, setQty, remove, clear, open, setOpen };

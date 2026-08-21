@@ -91,3 +91,11 @@ Debug | React error 418 hydration mismatch | live sequence add, reload, navigate
 Fix | Hydration-safe cart state | components/CartProvider.js | useSyncExternalStore so server and first client render both produce an empty bag | 0 hydration errors across 3 runs local and 1 live | console capture | Done
 Verify | Cart behaviour after refactor | live | add 2, reload, client-side navigate | badge 2, subtotal N$450.00, persists, 0 console errors | live check | Pass
 Audit | ESLint final | repo | npx eslint . | 0 errors, 0 warnings | eslint output | Pass
+Audit | React 18 against Next 16 peer range | package.json | read next peerDependencies | react ^18.2.0 explicitly supported, no React 19 only APIs in use | peer check | Pass
+Audit | Slow 3G behaviour | live, 400kbps 400ms latency | CDP network emulation | DOMContentLoaded 3.2s, products painted 3.3s, 15 WhatsApp links usable immediately | emulation run | Pass
+Audit | Storage failure modes | live, 7 scenarios | init script overriding Storage prototype | private mode setItem throw, getItem throw, corrupt JSON, wrong shape, stale product id, negative qty: cart works in all, 0 errors | scenario run | Pass
+Audit | Quantity edge cases | live | decrement past zero, increment to 12 | empties correctly with a working Keep browsing exit, 12 x N$250 = N$3000.00 exact | edge run | Pass
+Audit | WhatsApp URL length on a full bag | live, 27 products x9 | measure wa.me url | 3670 chars, past the ~2000 safe limit where some Android browsers and WhatsApp truncate silently | length probe | Findings
+Fix | Cap the WhatsApp message with a summary fallback | components/CartProvider.js | itemise while the final message fits, then summarise the remainder | worst case 3670 to 1781 chars | length probe | Done
+Debug | First cap attempt still exceeded the limit | components/CartProvider.js | probe line was shorter than the real summary line | measured against the final message instead of a placeholder | 1903 to 1781 | Fixed
+Verify | Cap across bag sizes | local and live | 1, 5, 12, 27x9, 27x99 items | all within 1900 chars, subtotal preserved, normal orders still fully itemised | length probe | Pass
