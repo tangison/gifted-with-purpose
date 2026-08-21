@@ -48,3 +48,13 @@ Build | Human-readable sitemap | app/sitemap-page/page.js | linked from footer a
 Audit | axe-core on the two new pages | /brand, /sitemap-page | axe.run wcag2a-21aa | 0 violations | axe run | Pass
 Audit | Lighthouse /brand | live | lighthouse 12 mobile | perf 96, a11y 100, bp 100, CLS 0, SEO 69 | /tmp/lh-brand.json | Pass
 Note | /brand SEO 69 | live | is-crawlable audit | sole failure is the intentional noindex on an internal reference page | lh-brand.json | Accepted
+Build | Error boundary | app/error.js | recoverable, reset + WhatsApp fallback | catches runtime throw, both actions present | boundary test | Done
+Build | Fatal error boundary | app/global-error.js | inline styles, replaces document | builds, no layout dependency | build log | Done
+Build | Loading state | app/loading.js | skeletons matching card geometry | no layout shift on swap | build log | Done
+Verify | Error boundary catches a real crash | temporary /boomtest route | client component throwing after mount | boundary rendered, retry + WhatsApp present, credit intact | err-boundary.png | Pass
+Build | Remove temporary test route | app/boomtest | rm -rf, rebuild, live check | /boomtest returns 404 live | live check | Done
+Docs | PRODUCT.md, BRAND.md, BUILD_PLAN.md, CONTENT_PLAN.md | repo root | written from what was actually built | all five required docs present | ls | Done
+Build | Tangison Studio credit | components/Footer.js | linked to studio.tangison.com | present on all 16 rendered pages | live grep | Done
+Audit | axe-core after adding the credit | 16 routes live | axe.run wcag2a-21aa | 6 violations, all .ftr-credit contrast 3.06:1 | axe run | Findings
+Fix | Credit link contrast | app/site.css | taupe #A19088 to muted #6B6259 | 3.06:1 to 5.97:1 | contrast calc | Done
+Audit | axe-core rerun, same tool same config | 16 routes live | axe.run | 0 violations | axe rerun | Pass

@@ -58,6 +58,14 @@ export default function Footer() {
           <span className="flag">
             <NaFlag /> Made with love in Namibia
           </span>
+          <a
+            className="ftr-credit"
+            href="https://studio.tangison.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Made by Tangison Studio
+          </a>
         </div>
       </div>
     </footer>

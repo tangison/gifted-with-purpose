@@ -706,3 +706,21 @@ a.ccard:hover{border-color:var(--taupe)}
   .brand-logo-row{grid-template-columns:repeat(3,1fr)}
   .swatches{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ---------- loading skeletons ---------- */
+.sk{background:#F3EAEE;border-radius:var(--r-sm);position:relative;overflow:hidden}
+.sk-title{height:34px;width:min(320px,70%);margin-bottom:14px;border-radius:var(--r-sm)}
+.sk-line{height:14px;width:100%;margin-bottom:9px}
+.sk-btn{height:40px;width:100%;margin-top:8px}
+.card-media .ar.sk{border-radius:0}
+@media (prefers-reduced-motion:no-preference){
+  .sk::after{
+    content:"";position:absolute;inset:0;transform:translateX(-100%);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);
+    animation:sk-sweep 1.4s ease-in-out infinite;
+  }
+  @keyframes sk-sweep{100%{transform:translateX(100%)}}
+}
+
+.ftr-credit{color:var(--muted);font-size:12.5px;text-decoration:underline;text-underline-offset:2px}
+.ftr-credit:hover{color:var(--ink)}
