@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import ProductCard from '@/components/ProductCard';
+import Disclosure from '@/components/Disclosure';
 import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, SITE_URL } from '@/lib/site';
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function HomePage() {
 
   return (
     <main id="main">
-      <section className="hero">
+      <section className="hero pat pat-sparkle pat-fade">
         <div className="wrap hero-in">
           <div className="hero-copy">
             <h1>
@@ -47,7 +48,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sec" id="collections">
+      <section className="sec pat pat-confetti pat-fade" id="collections">
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
@@ -102,7 +103,11 @@ export default function HomePage() {
             <h2>Our featured designs</h2>
             <p>Real products, photographed by us. Tap any photo to see it larger.</p>
           </div>
-          <div className="grid">
+          <div className="rail-head">
+            <p className="rail-hint">Swipe to browse</p>
+            <Link href="/shop">View all {products.length} &rarr;</Link>
+          </div>
+          <div className="rail">
             {feat.map((p, i) => (
               <ProductCard key={p.id} product={p} priority={i < 2} />
             ))}
@@ -189,13 +194,15 @@ export default function HomePage() {
               purpose. What started as gifts for the people closest to us grew into something we now get to make for
               you.
             </p>
-            <p>
-              Every tumbler, mug and cup is printed to order — which means the name, the verse or the affirmation on it
-              is chosen for one specific person. That&rsquo;s the whole point.
-            </p>
-            <p>
-              <strong>Thank you for supporting our business!</strong>
-            </p>
+            <Disclosure summary="More about how we work">
+              <p>
+                Every tumbler, mug and cup is printed to order, which means the name, the verse or the affirmation on
+                it is chosen for one specific person. That is the whole point.
+              </p>
+              <p style={{ marginTop: 8 }}>
+                <strong>Thank you for supporting our business!</strong>
+              </p>
+            </Disclosure>
             <ul className="about-pills">
               <li>
                 <NaFlag /> Made with love in Namibia
@@ -214,7 +221,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sec sec-blush" id="how">
+      <section className="sec sec-blush pat pat-hearts pat-fade" id="how">
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
@@ -226,15 +233,21 @@ export default function HomePage() {
           <div className="steps">
             <div className="step">
               <h3>Pick your design</h3>
-              <p>Browse the collections and find the one that fits the person you&rsquo;re gifting.</p>
+              <Disclosure summary="What this means">
+                <p>Browse the collections and find the one that fits the person you&rsquo;re gifting.</p>
+              </Disclosure>
             </div>
             <div className="step">
               <h3>Tap &ldquo;Order on WhatsApp&rdquo;</h3>
-              <p>Your message opens already filled in with the product name and price — just hit send.</p>
+              <Disclosure summary="What this means">
+                <p>Your message opens already filled in with the product name and price, so all you do is press send.</p>
+              </Disclosure>
             </div>
             <div className="step">
               <h3>We confirm the details</h3>
-              <p>We&rsquo;ll confirm the name to print, availability, payment and how to get it to you.</p>
+              <Disclosure summary="What this means">
+                <p>We&rsquo;ll confirm the name to print, availability, payment and how to get it to you.</p>
+              </Disclosure>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 26 }}>

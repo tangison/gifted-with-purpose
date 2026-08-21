@@ -113,3 +113,13 @@ Fix | Use accent_ink for colour blocks | app/site.css | darker per-collection in
 Debug | New /shop grid broke heading order | app/shop/ShopClient.js | lighthouse heading-order | a11y 98 | lighthouse | Fixed
 Fix | Accessible section heading on shop grid | app/shop/ShopClient.js | sr-only h2 | a11y back to 100 | lighthouse | Done
 Audit | Re-audit after remediation | live | axe + lighthouse | 0 violations / 17 routes, /shop 89/100/100/100 CLS 0 | AUDIT.md | Pass
+Audit | Identify the logo wordmark typeface | logo SVG | rasterise at 400dpi, crop letterforms, render 6 Google candidates at matched cap height | Fraunces at SOFT=100 WONK=1 matches: flared terminals, splayed R leg, heavy low contrast. The generic look was Fraunces at DEFAULT axes, not the wrong family | /tmp/fontcompare.png, /tmp/match.png | Done
+Fix | Swap display face to the correct instance | app/fonts.css | self-host Fraunces Soft 600/900 latin subsets, 33KB total | family now "Fraunces Soft" | live computed style | Done
+Fix | Hero to semibold with optical alignment | app/site.css | weight 600, negative margin tuned against measured drift | drift .045em to .0125em: 0.42px mobile, 0.77px tablet and desktop | measured | Done
+Debug | Desktop hero was centred, not inline | app/site.css | measured left edges: sub at 467px vs h1 at 29px | root cause: centred hero-in on desktop | left-aligned editorial column | measured | Fixed
+Build | Spacing scale tokens | app/site.css | --s-1 to --s-8, 6px to 168px | sections 46px to 80px mobile, 70px to 120px desktop | grep | Done
+Build | Brand pattern fields | public/assets/patterns | 4 SVGs from BRAND.md motifs, logo palette only, under 600 bytes each | sparkle, confetti, hearts, teal | file sizes | Done
+Build | Slider rail for featured products | app/page.js | scroll-snap peek rail, 78% mobile to 30% desktop | replaces a 7-card wall | live | Done
+Build | Copy behind accordions | app/page.js | how-it-works steps and about detail | titles visible, prose collapsed | live | Done
+Debug | New rail link failed contrast | live | axe on 17 routes | 3.85:1 light pink on white | changed to #B32359 | axe | Fixed
+Audit | Re-audit after typography and layout pass | live | axe + lighthouse | 0 violations / 17 routes; / 91 perf, /shop 92, both 100 a11y, CLS 0 | lhf-*.json | Pass
