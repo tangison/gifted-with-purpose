@@ -10,10 +10,10 @@ decisions I had to make while building. Please confirm each one.
 
 | # | Item | What the site does today | What I need from you |
 |---|---|---|---|
-| 1 | **WhatsApp country code** | Every button links to `wa.me/264814076649` (+264 Namibia, assumed from your `0814076649`) | Confirm this is the correct international number. If the business WhatsApp is a different line, tell me the number. |
+| 1 | ~~WhatsApp country code~~ | **CONFIRMED.** +264 is correct. The number now displays as +264 81 407 6649 sitewide. | Done |
 | 2 | **Delivery / shipping** | No shipping claims anywhere. The FAQ says *"Delivery details are being confirmed — please ask us on WhatsApp."* | Your delivery areas and costs (or confirm "collection / arrange on WhatsApp only"). |
 | 3 | **Returns / exchanges** | No returns policy is stated anywhere on the site. | Your policy wording, especially for personalised items. |
-| 4 | **Facebook & Instagram links** | Icons are present but not linked. Clicking shows "link isn't connected yet — message us on WhatsApp." | The actual profile URLs. Your flyer has QR codes but the URLs aren't readable from the image. |
+| 4 | **Facebook & Instagram links** | STILL OUTSTANDING. You said "use the urls" but no URLs came through in the message. Icons link to /contact, which explains they are not published yet. | Paste the two profile URLs as plain text and this is a one-line change. |
 | 5 | **Domain & hosting** | Nothing deployed. Runs locally only. | Where this should live. **I will not deploy anywhere public until you say so in writing.** |
 
 ---

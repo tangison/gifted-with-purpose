@@ -80,7 +80,7 @@ export default function ContactPage() {
               </span>
               <span>
                 <h3>WhatsApp us</h3>
-                <p>{brand.phone_local} — tap to open a chat</p>
+                <p>{brand.phone_intl} — tap to open a chat</p>
               </span>
             </a>
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
               </span>
               <span>
                 <h3>Call us</h3>
-                <p>{brand.phone_local}</p>
+                <p>{brand.phone_intl}</p>
               </span>
             </a>
 

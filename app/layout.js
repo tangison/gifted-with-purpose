@@ -133,6 +133,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-NA">
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/patterns/hero-texture@sm.jpg"
+          media="(max-width: 899px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/patterns/hero-texture.jpg"
+          media="(min-width: 900px)"
+          fetchPriority="high"
+        />
         <link rel="preload" href="/assets/fonts/Fraunces-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/Poppins-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/Poppins-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

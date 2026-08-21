@@ -146,7 +146,7 @@ export default function Header() {
               <Icon name="wa" /> Chat on WhatsApp
             </a>
             <small>
-              {brand.phone_local} · {brand.location}
+              {brand.phone_intl} · {brand.location}
             </small>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function LegalPage({ title, sub, updated, children }) {
           <p className="sub">{sub}</p>
           <h1>{title}</h1>
           <p>
-            Geneveve Gift Shop t/a Gifted with Purpose · {brand.location} · WhatsApp {brand.phone_local}
+            Geneveve Gift Shop t/a Gifted with Purpose · {brand.location} · WhatsApp {brand.phone_intl}
           </p>
           <ul className="stats">
             <li>Last updated: {updated}</li>
@@ -31,7 +31,7 @@ export default function LegalPage({ title, sub, updated, children }) {
             <div>
               <h4>Questions about this policy?</h4>
               <p>
-                Message us on WhatsApp at {brand.phone_local} and we will answer directly.{' '}
+                Message us on WhatsApp at {brand.phone_intl} and we will answer directly.{' '}
                 <a href={wa(`Hi Gifted with Purpose! I have a question about your ${title.toLowerCase()}.`)} target="_blank" rel="noopener noreferrer">
                   Open a chat
                 </a>

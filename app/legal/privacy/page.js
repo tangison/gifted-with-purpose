@@ -63,7 +63,7 @@ export default function Privacy() {
       <h2>Your rights</h2>
       <p>
         You can ask us what information we hold about you from our WhatsApp conversation, ask us to correct it, or ask
-        us to delete it. Message us on WhatsApp at {brand.phone_local} and we will action it.
+        us to delete it. Message us on WhatsApp at {brand.phone_intl} and we will action it.
       </p>
 
       <h2>Changes</h2>
@@ -74,7 +74,7 @@ export default function Privacy() {
 
       <h2>Contact</h2>
       <p>
-        Geneveve Gift Shop t/a Gifted with Purpose, {brand.location}. WhatsApp or call {brand.phone_local}.
+        Geneveve Gift Shop t/a Gifted with Purpose, {brand.location}. WhatsApp or call {brand.phone_intl}.
       </p>
     </LegalSections>
     </LegalPage>

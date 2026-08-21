@@ -22,7 +22,7 @@ export default function Footer() {
           <Link href="/faq">FAQ</Link>
           <Link href="/contact">Contact</Link>
           <a href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
-            WhatsApp {brand.phone_local}
+            WhatsApp {brand.phone_intl}
           </a>
         </nav>
 

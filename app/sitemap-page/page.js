@@ -20,7 +20,7 @@ export default function SitemapPage() {
           </nav>
           <p className="sub">Everything in one place</p>
           <h1>Sitemap</h1>
-          <p>Every page on this site. If you cannot find something, message us on WhatsApp {brand.phone_local}.</p>
+          <p>Every page on this site. If you cannot find something, message us on WhatsApp {brand.phone_intl}.</p>
         </div>
       </section>
 

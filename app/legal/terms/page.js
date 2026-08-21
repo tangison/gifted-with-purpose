@@ -17,7 +17,7 @@ export default function Terms() {
       <h2>Who we are</h2>
       <p>
         This website is operated by Geneveve Gift Shop, trading as Gifted with Purpose, based in {brand.location}. You
-        can reach us on WhatsApp or by phone at {brand.phone_local}.
+        can reach us on WhatsApp or by phone at {brand.phone_intl}.
       </p>
 
       <h2>This website is a catalogue, not a shop checkout</h2>

@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <main id="main">
-      <section className="hero pat pat-sparkle pat-fade">
+      <section className="hero">
         <div className="wrap hero-in">
           <div className="hero-copy">
             <h1>
@@ -304,7 +304,7 @@ export default function HomePage() {
               </span>
               <span>
                 <h3>WhatsApp</h3>
-                <p>{brand.phone_local} — fastest way to reach us</p>
+                <p>{brand.phone_intl} — fastest way to reach us</p>
               </span>
             </a>
             <a className="ccard" href={`tel:+${brand.wa_number}`}>
@@ -313,7 +313,7 @@ export default function HomePage() {
               </span>
               <span>
                 <h3>Call us</h3>
-                <p>{brand.phone_local}</p>
+                <p>{brand.phone_intl}</p>
               </span>
             </a>
             <div className="ccard">

@@ -123,3 +123,14 @@ Build | Slider rail for featured products | app/page.js | scroll-snap peek rail,
 Build | Copy behind accordions | app/page.js | how-it-works steps and about detail | titles visible, prose collapsed | live | Done
 Debug | New rail link failed contrast | live | axe on 17 routes | 3.85:1 light pink on white | changed to #B32359 | axe | Fixed
 Audit | Re-audit after typography and layout pass | live | axe + lighthouse | 0 violations / 17 routes; / 91 perf, /shop 92, both 100 a11y, CLS 0 | lhf-*.json | Pass
+Confirm | Namibian dialling code | client message | +264 confirmed correct | phone_intl added as "+264 81 407 6649", displayed sitewide | data/site.json | Done
+Build | Hero background image | public/assets/patterns | generated abstract craft texture in brand palette, no products or people | 29KB mobile / 65KB desktop | file sizes | Done
+Debug | Hero image never loaded | app/page.js | computed ::before showed sparkle-blush.svg, hero-texture requests NONE | root cause: .pat-sparkle also targets ::before and overrode the hero layer | removed the conflicting class | measured | Fixed
+Verify | Hero texture visibility | live | pixel std dev of a clean right-hand strip | 5.58 to 14.09 mobile and 18.14 desktop against a 17.65 source | measured | Pass
+Fix | Hard band across hero text | app/site.css | cover + vertical mask + .85 opacity | soft edges, no band | screenshot | Done
+Build | All buttons fully rounded | app/site.css | 999px on btn, burger, cart, tabs, qty, social, close | 11 pill radii | grep | Done
+Fix | CTA labels wrapped to 3 lines | app/site.css | white-space:nowrap + row layout on desktop | 49px single line both breakpoints | measured | Done
+Fix | Category left border to shadow | app/site.css | coloured drop shadow keyed to each accent | .cat::after removed | grep | Done
+Debug | Hero image cost performance | live | lighthouse | 91 to 86, LCP 3.0 to 3.9s | preload with media queries + recompress | 88, LCP 3.4s | Fixed
+Audit | Re-audit after visual pass | live | axe 17 routes + lighthouse | 0 violations, / at 88 perf, 100 a11y, CLS 0 | lhh2.json | Pass
+Blocked | Social profile URLs | client message | user said "use the urls" but no URLs were included | still unresolved, icons point to /contact | NEEDS_CONFIRMATION.md | Blocked
