@@ -162,6 +162,7 @@ export default function CollectionPage({ params }) {
             </div>
           )}
 
+          <h2 className="sr-only">{c.name} products</h2>
           <div className="grid">
             {ps.map((p, i) => (
               <ProductCard key={p.id} product={p} priority={i < 2} />

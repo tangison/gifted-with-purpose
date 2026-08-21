@@ -44,16 +44,6 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="hero-art">
-            <Image
-              className="hero-badge"
-              src="/assets/logos/gifted-with-purpose-logo.svg"
-              alt="Gifted with Purpose — Thoughtful, Meaningful, Yours"
-              width={330}
-              height={327}
-              priority
-            />
-          </div>
         </div>
       </section>
 

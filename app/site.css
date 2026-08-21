@@ -159,8 +159,6 @@ ul{margin:0;padding:0;list-style:none}
     linear-gradient(180deg,#FEF1F6 0%, #FFF9FB 58%);
 }
 .hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
-.hero-art{display:none}
-.hero-badge{display:none}
 .hero h1{font-size:clamp(31px,8.6vw,54px);letter-spacing:-.03em;margin-bottom:12px}
 .hero h1 em{font-style:normal;color:var(--cat-pink)}
 .hero-tag{
@@ -308,19 +306,6 @@ ul{margin:0;padding:0;list-style:none}
 .card-soon h3{font-size:17px;margin-bottom:6px}
 .card-soon p{font-size:13px;color:var(--muted);max-width:26ch;margin-bottom:14px}
 
-/* ---------- filter chips ---------- */
-.chips{
-  display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;
-  scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity;
-}
-.chips::-webkit-scrollbar{display:none}
-.chip{
-  flex:none;border:1.5px solid var(--line);background:#fff;color:var(--body);
-  padding:9px 16px;border-radius:var(--r-sm);font-size:14px;font-weight:600;white-space:nowrap;
-  scroll-snap-align:start;transition:.18s ease;
-}
-.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.chip:hover{border-color:var(--hot-pink)}
 
 /* ---------- about ---------- */
 .about-grid{display:grid;gap:24px}
@@ -536,8 +521,7 @@ a.ccard:hover{border-color:var(--taupe)}
   .hero{padding:56px 0 64px}
   .hero-in{display:block;text-align:center;max-width:64ch;margin-inline:auto}
   .hero-copy{order:1}
-  .hero-art{display:none}
-
+  
   .hero-sub{margin-inline:auto}
   .hero-cta{justify-content:center}
 
@@ -685,3 +669,9 @@ a.ccard:hover{border-color:var(--taupe)}
 }
 
 .eyebrow svg{width:14px;height:14px;fill:currentColor;flex:none}
+
+/* Visually hidden but available to assistive tech and to the heading outline. */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}

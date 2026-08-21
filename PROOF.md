@@ -30,3 +30,12 @@ Audit | axe-core with cart drawer open | /collections/inspire | axe.run | 0 viol
 Audit | Responsive overflow | 320/375/414/768/1024/1280/1440 | scrollWidth vs innerWidth | 0 overflow at every width | a_resp.py | Pass
 Audit | Broken images after full scroll | / and /collections/encourage | naturalWidth check | 0 broken, 0 HTTP>=400 | recheck | Pass
 Audit | Production build | repo | npx next build | 18/18 static pages | build log | Pass
+Audit | Lighthouse mobile, first run | live / and /collections/encourage | lighthouse 12, simulated throttling | perf 95/92, CLS 0/0.158, a11y 100/98 | /tmp/lh-*.json | Findings
+Debug | CLS 0.158 on collection pages | app/fonts.css | PerformanceObserver layout-shift, real browser | root cause: font-display swap reflow on cold load | shift trace | Fixed
+Fix | font-display swap to optional, 10 faces | app/fonts.css | replace + preload 4 critical faces | CLS 0 on both routes | lh2-*.json | Done
+Debug | Heading order h1 to h3 on collection pages | app/collections/[slug]/page.js | lighthouse heading-order audit | root cause: product grid had no h2 | audit detail | Fixed
+Fix | Accessible section heading above product grid | collections/[slug] + .sr-only | sr-only h2 | a11y 98 to 100 | lh2-col.json | Done
+Audit | Lighthouse mobile, rerun same tool same config | live, both routes | lighthouse 12 | 95/94 perf, 100 a11y, 100 bp, 100 seo, CLS 0 | lh2-*.json | Pass
+Build | Remove hidden hero logo still preloaded in DOM | app/page.js | delete markup, not display:none | one logo request saved | grep hero-art = 0 | Done
+Build | Remove dead .chips/.chip filter CSS | app/site.css | selector sweep vs JSX | 659 chars removed | grep = 0 | Done
+Docs | Reconcile README and CHECKLIST with the cart | README.md, CHECKLIST.md | rewrite sections 9, 18, 6 | docs match shipped build | git diff | Done

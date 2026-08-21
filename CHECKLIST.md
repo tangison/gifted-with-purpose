@@ -90,8 +90,8 @@ in Chromium device emulation, not on physical handsets.
 | Captions/transcripts | N/A | No audio or video. |
 | Reduced motion respected | Done | `prefers-reduced-motion` disables animation and reveals. |
 | Semantic HTML | Done | `header/nav/main/section/article/footer`, `details/summary` FAQ. |
-| Tested with tools | Partial | Automated structural checks written for this build. No axe-core or screen-reader pass yet. |
-| WCAG | Partial | Meets the checks above, including 2.5.8 target size. Not formally audited to AA. |
+| Tested with tools | Done | axe-core (WCAG 2.1 AA) run on all 14 routes and with the gift bag open: zero violations, verified live. No screen-reader pass yet. |
+| WCAG | Done | Zero axe-core violations against wcag2a, wcag2aa, wcag21a and wcag21aa on every route, live. Contrast failures found and fixed: WhatsApp button 1.98:1 to 6.58:1, pink CTA 3.86:1 to 5.79:1, category labels 1.87:1 to 5.46-7.03:1, legal links 3.71:1 to 6.12:1. |
 
 ## 7. Search engine optimisation
 
@@ -117,9 +117,11 @@ testimonials, statistics and case studies — none supplied, and inventing them 
 
 **Done:** one primary CTA per page, CTA above the fold, logically repeated, clear button wording, click-to-call,
 WhatsApp integration as the core mechanic, response-time expectation stated ("usually same day"), trust indicators
-beside CTAs, obvious next step, no distractions from the primary action. **N/A:** enquiry forms, booking engine,
-form-field reduction, thank-you redirects — WhatsApp replaces the form entirely. **Blocked:** form-submission
-tracking, campaign landing pages and A/B testing of headlines all require analytics.
+beside CTAs, obvious next step, no distractions from the primary action. A gift bag lets a visitor collect
+several designs and send them as one WhatsApp message, which is the multi-item path the single-product buttons
+could not cover. **N/A:** enquiry forms, booking engine, form-field reduction, thank-you redirects — WhatsApp
+replaces the form entirely. **Blocked:** form-submission tracking, campaign landing pages and A/B testing of
+headlines all require analytics.
 
 ## 10. Trust and credibility
 
@@ -196,9 +198,12 @@ and address are intentionally omitted from schema rather than invented.
 **Mostly N/A** — this is a catalogue with WhatsApp ordering, the model stated in PRODUCT.md.
 **Done:** clear product categories, accurate descriptions, high-quality images, prices displayed where confirmed,
 Product schema with Offers, customer support channel, customer information protected by collecting none.
+**Done since the last audit:** a gift bag that collects multiple items, holds quantities, persists across
+reloads and sends the whole order as one WhatsApp message with a subtotal for the priced items.
 **N/A:** secure checkout, payment methods, delivery calculation, order confirmation emails, payment tracking,
-abandoned-cart recovery, revenue tracking. **Partial:** stock availability is confirmed per enquiry rather than
-shown live. Returns and delivery policy remain outstanding from you.
+revenue tracking — there is no payment gateway, by design. **Partial:** stock availability is confirmed per
+enquiry rather than shown live; abandoned-bag recovery is impossible without analytics and an identity.
+Returns and delivery policy remain outstanding from you.
 
 ## 19. Hosting and infrastructure
 

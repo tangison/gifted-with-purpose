@@ -11,7 +11,7 @@ a Namibian mother–daughter personalised-gifts business.
 ## Stack
 
 Next.js 14 (App Router) · React 18 · plain CSS · no UI framework · no third-party runtime scripts.
-All 18 routes are prerendered as static HTML.
+All 18 routes are prerendered as static HTML. The gift bag is client-side only (localStorage).
 
 ## Run locally
 
@@ -57,6 +57,20 @@ To mark a product as unpriced: set `"price": null` and it renders "Price on requ
 27 products across 5 collections. **11 have confirmed prices** taken from the client's own ad artwork;
 **16 show "Price on request"**. Every product card opens WhatsApp pre-filled with its name, spec and price.
 
+## Gift bag (cart)
+
+A cart that batches an order instead of taking payment. `components/CartProvider.js` holds
+`[{id, qty}]` in `localStorage` under `gwp.giftbag.v1` and resolves product facts from
+`data/site.json` on every render, so a price edit is never served from stale storage.
+
+"Send bag on WhatsApp" composes one message listing each item, quantity, spec and unit price,
+plus a subtotal **for the priced items only**. Unpriced items are listed as "price on request"
+and the message asks for a quote. If any item is personalised, the message ends with a prompt
+for the name to print.
+
+There is no payment, no shipping calculation and no stock count, because none of those are
+confirmed. See `NEEDS_CONFIRMATION.md`.
+
 ## Environment
 
 | Variable | Purpose |
@@ -83,3 +97,4 @@ Vercel keeps every deployment immutable, so rollback is instant from the dashboa
 - Teacher Appreciation palette isolated to that collection, per BRAND.md §3
 - Zero cookies, zero analytics, zero third-party requests
 - Security headers including CSP and HSTS, verified on the live site
+- WCAG 2.1 AA: zero axe-core violations across all 14 routes, verified on the live site
