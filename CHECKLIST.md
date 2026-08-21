@@ -90,7 +90,7 @@ in Chromium device emulation, not on physical handsets.
 | Not relying on colour alone | Done | Icons and text labels accompany colour. |
 | Accessible buttons and menus | Done | `aria-expanded`, `aria-controls`, `aria-modal`, `aria-current`. |
 | Captions/transcripts | N/A | No audio or video. |
-| Reduced motion respected | Done | `prefers-reduced-motion` disables animation and reveals. |
+| Reduced motion respected | Done | Verified live: every transition collapses to 1e-06s under `prefers-reduced-motion: reduce`, and there are zero infinite animations in either mode. |
 | Semantic HTML | Done | `header/nav/main/section/article/footer`, `details/summary` FAQ. |
 | Tested with tools | Done | axe-core (WCAG 2.1 AA) run on all 14 routes and with the gift bag open: zero violations, verified live. No screen-reader pass yet. |
 | WCAG | Done | Zero axe-core violations against wcag2a, wcag2aa, wcag21a and wcag21aa on every route, live. Contrast failures found and fixed: WhatsApp button 1.98:1 to 6.58:1, pink CTA 3.86:1 to 5.79:1, category labels 1.87:1 to 5.46-7.03:1, legal links 3.71:1 to 6.12:1. |
@@ -163,7 +163,11 @@ surface minimised with no user content and a strict CSP, secure headers configur
 in the client, no secrets in the repo (verified before push), no file uploads, Git version control with full
 history.
 **Partial:** rate limiting and spam protection are not configured because there is no form or API endpoint to
-abuse. **Blocked (your responsibility):** strong passwords and MFA on the GitHub, Vercel and Google accounts;
+abuse. **Dependency and secret scanning: Done.** `npm audit` on production dependencies reports zero vulnerabilities.
+A scan of the full git history for token, key and credential patterns returns zero matches, and no `.env`,
+`.pem` or credential file has ever been committed. `depcheck` reports no unused or missing dependencies:
+the top-level `sharp` was removed because Next 16 bundles its own patched build.
+**Blocked (your responsibility):** strong passwords and MFA on the GitHub, Vercel and Google accounts;
 automated backup policy beyond Git; monitoring and incident response.
 
 ## 14. Forms and lead handling

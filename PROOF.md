@@ -58,3 +58,16 @@ Build | Tangison Studio credit | components/Footer.js | linked to studio.tangiso
 Audit | axe-core after adding the credit | 16 routes live | axe.run wcag2a-21aa | 6 violations, all .ftr-credit contrast 3.06:1 | axe run | Findings
 Fix | Credit link contrast | app/site.css | taupe #A19088 to muted #6B6259 | 3.06:1 to 5.97:1 | contrast calc | Done
 Audit | axe-core rerun, same tool same config | 16 routes live | axe.run | 0 violations | axe rerun | Pass
+Audit | npm audit, production deps | repo | npm audit --omit=dev | 1 critical + 2 high in next@14.2.15 and sharp | audit output | Findings
+Audit | Secret scan, full git history | all commits | git log -p grep for token patterns | 0 secrets | scan output | Pass
+Audit | Unused dependencies (Ponytail) | repo | depcheck | sharp unused at top level | depcheck output | Findings
+Fix | Upgrade Next 14.2.15 to 16.3.2 | package.json | npm i next@16.3.2 | critical resolved | npm audit | Done
+Debug | Collection pages rendered 0 products after upgrade | app/collections/[slug] | curl server HTML, 0 article tags | root cause: Next 16 made params a Promise, read synchronously | server HTML | Fixed
+Fix | Await params in page and generateMetadata | app/collections/[slug]/page.js | async + await params | 9 articles, prices and Offers restored | server HTML | Done
+Fix | Remove redundant top-level sharp | package.json | npm remove sharp | Next 16 bundles patched sharp 0.35.3; AVIF still served | live image check | Done
+Audit | npm audit rerun, same command | repo | npm audit --omit=dev | found 0 vulnerabilities | audit output | Pass
+Audit | Full route sweep on Next 16 | 16 routes local | playwright | all clean, correct card counts per collection | sweep output | Pass
+Audit | axe-core on Next 16 | 16 routes live | axe.run wcag2a-21aa | 0 violations | axe run | Pass
+Audit | Reduced-motion compliance | live | computed styles under both preferences | transitions 1e-06s under reduce, 0 infinite animations | motion check | Pass
+Audit | Structured data validation | 8 live routes | required-field check per schema type | 0 issues across 9 schema types | schema check | Pass
+Audit | Lighthouse on Next 16 | live, 2 routes | lighthouse 12 mobile | 95 and 96 perf, 100 a11y, 100 bp, 100 seo, CLS 0 | lh16-*.json | Pass

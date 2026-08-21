@@ -10,7 +10,7 @@ Full build. Not a demo. Deployed to production on Vercel with client authorisati
 
 | Decision | Choice | Alternative set aside |
 |---|---|---|
-| Framework | Next.js 14 App Router | The original build was static HTML. Migrated on request. |
+| Framework | Next.js 16.3.2 App Router | Started on 14.2.15; upgraded after a security audit found a critical advisory. Safe because the site uses no middleware, Server Actions, API routes or i18n, which is where most Next advisories land. |
 | Rendering | All routes prerendered static | SSR was unnecessary; no per-request data exists. |
 | Styling | Plain CSS with custom properties | Tailwind would add a build dependency for no gain at this size. |
 | State | React context plus localStorage | A state library is unjustified for one cart. |

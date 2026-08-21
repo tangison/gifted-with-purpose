@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const c = collectionBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const c = collectionBySlug(slug);
   if (!c) return {};
   const ps = productsIn(c.slug);
   const priced = ps.filter((p) => p.price).map((p) => p.price);
@@ -45,8 +46,9 @@ const EXTRA = {
   },
 };
 
-export default function CollectionPage({ params }) {
-  const c = collectionBySlug(params.slug);
+export default async function CollectionPage({ params }) {
+  const { slug } = await params;
+  const c = collectionBySlug(slug);
   if (!c) notFound();
 
   const ps = productsIn(c.slug);
