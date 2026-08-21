@@ -5,6 +5,7 @@ import { Icon, Ruler, Expand } from './Icons';
 import { collectionBySlug, priceLabel, waProduct, img, imgSm } from '@/lib/site';
 import { useLightbox } from './LightboxProvider';
 import { useCart } from './CartProvider';
+import Disclosure from './Disclosure';
 
 export default function ProductCard({ product: p, priority = false }) {
   const c = collectionBySlug(p.collection);
@@ -55,7 +56,6 @@ export default function ProductCard({ product: p, priority = false }) {
           <Ruler />
           {p.spec}
         </p>
-        <p className="desc">{p.desc}</p>
 
         {p.includes && (
           <ul style={{ display: 'flex', flexWrap: 'wrap', gap: 5, margin: '2px 0 0' }}>
@@ -70,13 +70,6 @@ export default function ProductCard({ product: p, priority = false }) {
           </ul>
         )}
 
-        {p.licensed && (
-          <p className="note">
-            Character artwork is printed onto a purchasable blank cup. We are not affiliated with, or endorsed by, any
-            character brand.
-          </p>
-        )}
-
         <div className="price-row">
           {pl ? (
             <span className="price">{pl}</span>
@@ -88,6 +81,16 @@ export default function ProductCard({ product: p, priority = false }) {
             </span>
           )}
         </div>
+
+        <Disclosure summary="Details">
+          <p>{p.desc}</p>
+          {p.licensed && (
+            <p style={{ marginTop: 8 }}>
+              Character artwork is printed onto a purchasable blank cup. We are not affiliated with, or endorsed
+              by, any character brand.
+            </p>
+          )}
+        </Disclosure>
 
         <div className="card-actions">
           <button className="btn btn-add btn-sm btn-block" data-in={inBag} onClick={() => add(p.id)}>

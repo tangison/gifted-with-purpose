@@ -8,6 +8,7 @@ export default function Footer() {
     <footer className="ftr" id="contact">
       <div className="wrap ftr-in">
         <nav className="ftr-nav" aria-label="Collections">
+          <Link href="/shop">Shop all</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}
@@ -64,7 +65,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Made by Tangison Studio
+            Site designed and built by Tangison Studio
           </a>
         </div>
       </div>

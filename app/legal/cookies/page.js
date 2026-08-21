@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LegalPage from '@/components/LegalPage';
+import LegalSections from '@/components/LegalSections';
 
 export const metadata = {
   title: 'Cookie Policy',
@@ -11,6 +12,7 @@ export const metadata = {
 export default function Cookies() {
   return (
     <LegalPage title="Cookie policy" sub="Legal" updated="21 August 2026">
+      <LegalSections>
       <h2>We do not use cookies</h2>
       <p>
         This website sets no cookies. We have not installed analytics, advertising pixels, heatmaps, session recording,
@@ -56,6 +58,7 @@ export default function Cookies() {
         See also our <Link href="/legal/privacy">privacy policy</Link> and{' '}
         <Link href="/legal/terms">terms and conditions</Link>.
       </p>
+    </LegalSections>
     </LegalPage>
   );
 }

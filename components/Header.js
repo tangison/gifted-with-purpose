@@ -57,6 +57,9 @@ export default function Header() {
             <Link href="/" aria-current={cur('/')}>
               Home
             </Link>
+            <Link href="/shop" aria-current={cur('/shop')}>
+              Shop
+            </Link>
             {collections.map((c) => (
               <Link key={c.slug} href={`/collections/${c.slug}`} aria-current={cur(`/collections/${c.slug}`)}>
                 {c.name}
@@ -108,6 +111,13 @@ export default function Header() {
             <Link href="/" aria-current={cur('/')}>
               <i className="dot" style={{ background: 'var(--ink)' }} />
               Home
+            </Link>
+            <Link href="/shop" aria-current={cur('/shop')}>
+              <i className="dot" style={{ background: 'var(--cat-pink)' }} />
+              Shop all
+              <small style={{ marginLeft: 'auto', color: 'var(--muted)', fontWeight: 500, fontSize: '12.5px' }}>
+                27 designs
+              </small>
             </Link>
             {collections.map((c) => (
               <Link key={c.slug} href={`/collections/${c.slug}`} aria-current={cur(`/collections/${c.slug}`)}>

@@ -99,3 +99,17 @@ Audit | WhatsApp URL length on a full bag | live, 27 products x9 | measure wa.me
 Fix | Cap the WhatsApp message with a summary fallback | components/CartProvider.js | itemise while the final message fits, then summarise the remainder | worst case 3670 to 1781 chars | length probe | Done
 Debug | First cap attempt still exceeded the limit | components/CartProvider.js | probe line was shorter than the real summary line | measured against the final message instead of a placeholder | 1903 to 1781 | Fixed
 Verify | Cap across bag sizes | local and live | 1, 5, 12, 27x9, 27x99 items | all within 1900 chars, subtotal preserved, normal orders still fully itemised | length probe | Pass
+Audit | Impeccable 5-dimension audit | live site | measured scan, not source reading | 16/20: theming 2, anti-patterns 2 | AUDIT.md | Findings
+Fix | Kill gradient backgrounds | app/site.css | flat colour blocks | 6 gradients to 0 decorative (1 functional shimmer) | served CSS | Done
+Fix | Remove glassmorphism | app/site.css | solid + hairline border | 5 backdrop-filter to 0 | served CSS | Done
+Fix | Tokenise hard-coded colours | app/site.css | promote literals to tokens | 35 to 43 tokens, 0 repeated literals | grep | Done
+Build | Unified /shop with category tabs | app/shop | client filter over server-rendered grid | 27 products, 6 tabs, filters 27 to 7 | live check | Done
+Build | Progressive disclosure on product cards | components/Disclosure.js | native details | 206px saved per card, ~5500px across the grid | measured | Done
+Build | Legal pages as disclosures | components/LegalSections.js | split on h2 | 18 sections on /legal/privacy | live check | Done
+Build | Colour-blocked collection headers | app/site.css | accent_ink block | each collection visually distinct | screenshot | Done
+Build | Tangison Studio construction credit | components/Footer.js | linked, all pages | "Site designed and built by Tangison Studio" | live grep | Done
+Debug | Remediation introduced contrast failures | live | axe on 17 routes | white on light accents 1.78-2.01:1, stat pills 4.22:1 | axe output | Fixed
+Fix | Use accent_ink for colour blocks | app/site.css | darker per-collection ink | 5.92-7.99:1 with white | contrast calc | Done
+Debug | New /shop grid broke heading order | app/shop/ShopClient.js | lighthouse heading-order | a11y 98 | lighthouse | Fixed
+Fix | Accessible section heading on shop grid | app/shop/ShopClient.js | sr-only h2 | a11y back to 100 | lighthouse | Done
+Audit | Re-audit after remediation | live | axe + lighthouse | 0 violations / 17 routes, /shop 89/100/100/100 CLS 0 | AUDIT.md | Pass

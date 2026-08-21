@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LegalPage from '@/components/LegalPage';
+import LegalSections from '@/components/LegalSections';
 import { brand } from '@/lib/site';
 
 export const metadata = {
@@ -12,6 +13,7 @@ export const metadata = {
 export default function Terms() {
   return (
     <LegalPage title="Terms and conditions" sub="Legal" updated="21 August 2026">
+      <LegalSections>
       <h2>Who we are</h2>
       <p>
         This website is operated by Geneveve Gift Shop, trading as Gifted with Purpose, based in {brand.location}. You
@@ -89,6 +91,7 @@ export default function Terms() {
         Please also read our <Link href="/legal/privacy">privacy policy</Link> and{' '}
         <Link href="/legal/cookies">cookie policy</Link>.
       </p>
+    </LegalSections>
     </LegalPage>
   );
 }

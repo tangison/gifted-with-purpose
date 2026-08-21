@@ -39,8 +39,8 @@ export default function HomePage() {
               >
                 <Icon name="wa" /> Order on WhatsApp
               </a>
-              <Link className="btn btn-ghost" href="#collections">
-                Browse the collections <Chev />
+              <Link className="btn btn-ghost" href="/shop">
+                Shop all designs <Chev />
               </Link>
             </div>
           </div>
@@ -108,8 +108,8 @@ export default function HomePage() {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 26 }}>
-            <Link className="btn btn-ghost" href="#collections">
-              See all collections <Chev />
+            <Link className="btn btn-ghost" href="/shop">
+              Shop all {products.length} designs <Chev />
             </Link>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import LegalPage from '@/components/LegalPage';
+import LegalSections from '@/components/LegalSections';
 import { brand } from '@/lib/site';
 
 export const metadata = {
@@ -11,6 +12,7 @@ export const metadata = {
 export default function Privacy() {
   return (
     <LegalPage title="Privacy policy" sub="Legal" updated="21 August 2026">
+      <LegalSections>
       <h2>The short version</h2>
       <p>
         This website does not collect any personal information about you. There are no forms, no accounts, no cookies,
@@ -74,6 +76,7 @@ export default function Privacy() {
       <p>
         Geneveve Gift Shop t/a Gifted with Purpose, {brand.location}. WhatsApp or call {brand.phone_local}.
       </p>
+    </LegalSections>
     </LegalPage>
   );
 }
