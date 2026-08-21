@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from './Icons';
 import { brand, collections, wa } from '@/lib/site';
 import { CartButton } from './CartDrawer';
@@ -12,15 +12,13 @@ const ASK = 'Hi Gifted with Purpose! I saw your website and I have a question.';
 
 export default function Header() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [openFor, setOpenFor] = useState(null);
+  const open = openFor === pathname;
+  const setOpen = useCallback((v) => setOpenFor(v ? pathname : null), [pathname]);
   const burgerRef = useRef(null);
   const panelRef = useRef(null);
 
   const cur = (href) => (pathname === href ? 'page' : undefined);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -39,7 +37,7 @@ export default function Header() {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
-  }, [open]);
+  }, [open, setOpen]);
 
   return (
     <>

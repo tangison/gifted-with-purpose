@@ -27,6 +27,10 @@ export default function GlobalError({ error, reset }) {
         }}
       >
         <main style={{ maxWidth: '32rem' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- this boundary
+              replaces the document when the app has failed, so next/image and its
+              runtime cannot be relied on here. The asset is an SVG, so there is
+              nothing for the optimiser to do anyway. */}
           <img
             src="/assets/logos/gifted-with-purpose-logo.svg"
             alt="Gifted with Purpose"

@@ -15,7 +15,8 @@ export default function sitemap() {
   ];
   return [
     ...staticRoutes.map((r) => ({
-      url: `${SITE_URL}${r.url}`,
+      // '/' would emit a trailing slash the canonical tag does not use
+      url: r.url === '/' ? SITE_URL : `${SITE_URL}${r.url}`,
       lastModified: now,
       changeFrequency: r.changeFrequency,
       priority: r.priority,

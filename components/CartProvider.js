@@ -1,56 +1,72 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import { brand, products } from '@/lib/site';
 
 const KEY = 'gwp.giftbag.v1';
+
+/** Reads the saved bag. Returns [] for unusable or absent storage. */
+function readStored() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(KEY) || '[]');
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((l) => l && l.qty > 0 && products.some((p) => p.id === l.id));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * True only after the client has hydrated. The server and the first client
+ * render must produce identical markup, so the bag starts empty on both and
+ * the stored contents are applied once hydration is complete.
+ */
+const subscribeNoop = () => () => {};
+const useHydrated = () =>
+  useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  );
 const Ctx = createContext(null);
 export const useCart = () => useContext(Ctx);
 
 export default function CartProvider({ children }) {
   // lines: [{ id, qty }] — product facts always resolved from site.json, never stored stale
-  const [lines, setLines] = useState([]);
+  const hydrated = useHydrated();
+  const [stored, setStored] = useState(null);
+  const lines = useMemo(() => (hydrated ? stored ?? readStored() : []), [hydrated, stored]);
+  const setLines = setStored; // stable: setState identity never changes
   const [open, setOpen] = useState(false);
-  const [ready, setReady] = useState(false);
-
+  // Persist only once the user has actually changed the bag, so a page view
+  // never rewrites storage with a value it just read.
   useEffect(() => {
+    if (stored === null) return;
     try {
-      const raw = localStorage.getItem(KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) {
-          setLines(parsed.filter((l) => products.some((p) => p.id === l.id) && l.qty > 0));
-        }
-      }
+      localStorage.setItem(KEY, JSON.stringify(stored));
     } catch {
-      /* corrupt storage is not worth crashing over */
+      /* private mode or quota exceeded */
     }
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready) return;
-    try {
-      localStorage.setItem(KEY, JSON.stringify(lines));
-    } catch {
-      /* private mode / quota */
-    }
-  }, [lines, ready]);
+  }, [stored]);
 
   const add = useCallback((id) => {
-    setLines((ls) => {
+    setLines((prev) => {
+      const ls = prev ?? readStored();
       const hit = ls.find((l) => l.id === id);
       return hit ? ls.map((l) => (l.id === id ? { ...l, qty: l.qty + 1 } : l)) : [...ls, { id, qty: 1 }];
     });
     setOpen(true);
-  }, []);
+  }, [setLines]);
 
   const setQty = useCallback((id, qty) => {
-    setLines((ls) => (qty <= 0 ? ls.filter((l) => l.id !== id) : ls.map((l) => (l.id === id ? { ...l, qty } : l))));
-  }, []);
+    setLines((prev) => {
+      const ls = prev ?? readStored();
+      return qty <= 0 ? ls.filter((l) => l.id !== id) : ls.map((l) => (l.id === id ? { ...l, qty } : l));
+    });
+  }, [setLines]);
 
-  const remove = useCallback((id) => setLines((ls) => ls.filter((l) => l.id !== id)), []);
-  const clear = useCallback(() => setLines([]), []);
+  const remove = useCallback((id) => setLines((prev) => (prev ?? readStored()).filter((l) => l.id !== id)), [setLines]);
+  const clear = useCallback(() => setLines([]), [setLines]);
 
   const items = useMemo(
     () =>
@@ -89,6 +105,6 @@ export default function CartProvider({ children }) {
     return `https://wa.me/${brand.wa_number}?text=${encodeURIComponent(msg)}`;
   }, [items, priced.length, subtotal, hasUnpriced]);
 
-  const value = { items, count, subtotal, hasUnpriced, waHref, add, setQty, remove, clear, open, setOpen, ready };
+  const value = { items, count, subtotal, hasUnpriced, waHref, add, setQty, remove, clear, open, setOpen };
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -79,3 +79,15 @@ Audit | Keyboard-only journey | live and local | real Tab traversal, no forced f
 Audit | Gift bag by keyboard | local | Enter to open, Tab x14, Escape | opens, focus enters, trapped across 14 tabs, Esc closes and restores focus to trigger | keyboard test | Pass
 Audit | Mobile drawer by keyboard | local 390px | Enter to open, Tab x8, Escape | all 8 stops inside drawer and ringed, Esc closes and restores focus | keyboard test | Pass
 Note | 11 elements appeared to lack a focus ring | probe using forced .focus() | compared against real Tab traversal | false positive: :focus-visible only fires for keyboard input, and the elements were in the closed drawer | keyboard test | Rejected
+Audit | Sitemap vs noindex conflict | live | compare sitemap URLs against robots meta | 0 conflicts, /brand correctly excluded | sitemap check | Pass
+Audit | Canonical vs sitemap agreement | live, 14 URLs | compare each loc against its canonical | homepage mismatched: sitemap had trailing slash, canonical did not | curl compare | Findings
+Fix | Align sitemap homepage entry to the canonical | app/sitemap.js | emit origin without trailing slash | 14 of 14 match | live compare | Done
+Audit | Dead npm script after Next 16 | package.json | next --help | 'next lint' removed in Next 16, script would fail | help output | Findings
+Fix | Replace next lint with eslint flat config | eslint.config.mjs, package.json | eslint 9 + eslint-config-next 16 native flat export | lint runs | eslint output | Done
+Audit | ESLint first run | repo | npx eslint . | 2 errors, 2 warnings | eslint output | Findings
+Fix | setState inside effect in CartProvider | components/CartProvider.js | removed the redundant ready flag | error cleared | eslint | Done
+Fix | setState inside effect in Header | components/Header.js | drawer state derived from pathname, effect deleted | error cleared | eslint | Done
+Debug | React error 418 hydration mismatch | live sequence add, reload, navigate | reproduced 3 of 3 runs | root cause: lazy initialiser read localStorage during render while the server rendered an empty bag | console capture | Fixed
+Fix | Hydration-safe cart state | components/CartProvider.js | useSyncExternalStore so server and first client render both produce an empty bag | 0 hydration errors across 3 runs local and 1 live | console capture | Done
+Verify | Cart behaviour after refactor | live | add 2, reload, client-side navigate | badge 2, subtotal N$450.00, persists, 0 console errors | live check | Pass
+Audit | ESLint final | repo | npx eslint . | 0 errors, 0 warnings | eslint output | Pass

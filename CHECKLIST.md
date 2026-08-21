@@ -227,6 +227,10 @@ formal staging environment all need your domain and account decisions.
 
 ## 20. Quality assurance
 
+**Linting: Done.** `next lint` was removed in Next 16, so the npm script was dead. Replaced with ESLint 9 flat
+config using `eslint-config-next`'s native export. The first run found two genuine React errors, both fixed, and
+a hydration mismatch was traced and fixed on top of that. `npx eslint .` now reports 0 errors and 0 warnings.
+
 **Done and evidenced:** every page tested, all internal links resolve, navigation tested, responsive at
 320/390/768/1440, spelling and grammar reviewed, phone number verified consistent across every page and link,
 published prices cross-checked against your own ad artwork, policy pages reviewed, image quality inspected, live
