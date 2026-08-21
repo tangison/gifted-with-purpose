@@ -4,13 +4,19 @@
     "legal": "Geneveve Gift Shop",
     "tagline": "Thoughtful. Meaningful. Yours.",
     "subline": "Beautiful personalized gifts made with love.",
-    "location": "Namibia",
+    "location": "Windhoek, Namibia",
     "made_in": "Made with love in Namibia",
     "phone_local": "081 407 6649",
     "phone_raw": "0814076649",
     "wa_number": "264814076649",
     "currency": "N$",
-    "phone_intl": "+264 81 407 6649"
+    "phone_intl": "+264 81 407 6649",
+    "city": "Windhoek",
+    "facebook": "https://www.facebook.com/Giftedwithpurpose",
+    "instagram": "https://www.instagram.com/giftedwithpurpose_2024/",
+    "instagram_handle": "@giftedwithpurpose_2024",
+    "facebook_name": "Giftedwithpurpose",
+    "owner": "Geneveve"
   },
   "collections": [
     {
@@ -217,21 +223,23 @@
       "id": "you-are-loved-mug",
       "name": "You Are Loved Mug",
       "collection": "encourage",
-      "price": null,
+      "price": 120,
       "spec": "Stainless steel mug",
       "image": "life-you-are-loved-mug",
       "shot": "life",
-      "desc": "Sticky-note style lettering in bright primary colours — a desk mug that says the quiet part out loud."
+      "desc": "Sticky-note style lettering in bright primary colours — a desk mug that says the quiet part out loud.",
+      "price_source": "WhatsApp catalogue: 11oz Mug Designs"
     },
     {
       "id": "take-care-of-your-mind-mug",
       "name": "Take Care Of Your Mind",
       "collection": "encourage",
-      "price": null,
+      "price": 120,
       "spec": "Stainless steel handle mug",
       "image": "life-take-care-of-your-mind-mug",
       "shot": "life",
-      "desc": "Retro daisies, lightning bolts and checkerboard hearts around a mental-wellness reminder. You are your home."
+      "desc": "Retro daisies, lightning bolts and checkerboard hearts around a mental-wellness reminder. You are your home.",
+      "price_source": "WhatsApp catalogue: 11oz Mug Designs"
     },
     {
       "id": "okay-to-make-mistakes",
@@ -322,34 +330,37 @@
       "id": "kids-character-sippy-pastel",
       "name": "Kids Character Sippy Cup",
       "collection": "celebrate",
-      "price": null,
+      "price": 230,
       "spec": "Kids sippy cup with handles and straw lid",
       "image": "life-character-kids-bottle-pink",
       "shot": "life",
       "licensed": true,
-      "desc": "A printed character design on a pastel-striped kids bottle. Character prints are applied to purchasable blanks."
+      "desc": "A printed character design on a pastel-striped kids bottle. Character prints are applied to purchasable blanks.",
+      "price_source": "WhatsApp catalogue: Sippy Cups"
     },
     {
       "id": "kids-character-sippy-learning",
       "name": "Kids Learning Sippy Cup",
       "collection": "celebrate",
-      "price": null,
+      "price": 230,
       "spec": "Kids sippy cup with handles",
       "image": "life-character-sippy-learning",
       "shot": "life",
       "licensed": true,
-      "desc": "A bright learning-themed character print with rainbows and letters, on a twin-handle sippy cup."
+      "desc": "A bright learning-themed character print with rainbows and letters, on a twin-handle sippy cup.",
+      "price_source": "WhatsApp catalogue: Sippy Cups"
     },
     {
       "id": "kids-character-sippy-mouse",
       "name": "Kids Character Sippy Cup — red bow",
       "collection": "celebrate",
-      "price": null,
+      "price": 230,
       "spec": "Kids sippy cup with handles",
       "image": "life-character-sippy-mouse",
       "shot": "life",
       "licensed": true,
-      "desc": "A classic cartoon character print in red and pink on a twin-handle sippy cup."
+      "desc": "A classic cartoon character print in red and pink on a twin-handle sippy cup.",
+      "price_source": "WhatsApp catalogue: Sippy Cups"
     },
     {
       "id": "kids-character-can-blue",
@@ -393,6 +404,35 @@
       "Wallets",
       "Mousepads",
       "Deskpads"
+    ]
+  },
+  "catalogue_prices": {
+    "note": "Read from the client's own WhatsApp Business catalogue, 22 Aug 2026.",
+    "items": [
+      {
+        "name": "Sippy Cups",
+        "price": 230
+      },
+      {
+        "name": "20oz Skinny Tumbler Designs",
+        "price": 250
+      },
+      {
+        "name": "11oz Mug Designs",
+        "price": 120
+      },
+      {
+        "name": "Mother's Day Tumblers",
+        "price": 250
+      },
+      {
+        "name": "Mother's Day Mugs",
+        "price": 120
+      },
+      {
+        "name": "Frosted Mugs",
+        "price": 120
+      }
     ]
   }
 }

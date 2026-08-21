@@ -134,3 +134,11 @@ Fix | Category left border to shadow | app/site.css | coloured drop shadow keyed
 Debug | Hero image cost performance | live | lighthouse | 91 to 86, LCP 3.0 to 3.9s | preload with media queries + recompress | 88, LCP 3.4s | Fixed
 Audit | Re-audit after visual pass | live | axe 17 routes + lighthouse | 0 violations, / at 88 perf, 100 a11y, CLS 0 | lhh2.json | Pass
 Blocked | Social profile URLs | client message | user said "use the urls" but no URLs were included | still unresolved, icons point to /contact | NEEDS_CONFIRMATION.md | Blocked
+Confirm | Social URLs, city, prices | client WhatsApp Business screenshots | read directly from the images | facebook.com/Giftedwithpurpose, instagram.com/giftedwithpurpose_2024, Windhoek, six catalogue prices | screenshots | Done
+Fix | Five products moved off "price on request" | data/site.json | matched to the client's own catalogue lines | priced 11 to 16 of 27 | data | Done
+Build | Off-canvas drawer with imagery | components/Drawer.js | 132px logo, per-collection product thumbnail, live count, tinted shadow | 5 tiles, 5 thumbs loaded, 101px logo at 390px | measured | Done
+Build | Scroll to top | components/ScrollTop.js | appears past 2 viewports, clears the sticky bar, reduced-motion aware | returns scrollY to 0 | measured | Done
+Fix | Real social links | components/Footer.js, Drawer.js | replaced /contact placeholders | both resolve to the live profiles | measured | Done
+Audit | axe with the drawer OPEN | live | a state a normal page-load audit never reaches | 0 violations, focus trapped across 12 tabs, Escape closes | axe | Pass
+Audit | axe with scroll-top visible | live | color-contrast + button-name | 0 violations | axe | Pass
+Audit | Full re-audit | live 17 routes | axe wcag2a-21aa | 0 violations | axe | Pass

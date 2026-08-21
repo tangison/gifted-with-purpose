@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import LightboxProvider from '@/components/LightboxProvider';
 import CartProvider from '@/components/CartProvider';
 import CartDrawer from '@/components/CartDrawer';
+import ScrollTop from '@/components/ScrollTop';
 import SiteEffects, { StickyWa } from '@/components/SiteEffects';
 import { SITE_URL, brand, products } from '@/lib/site';
 
@@ -167,6 +168,7 @@ export default function RootLayout({ children }) {
             <Footer />
             <StickyWa />
             <CartDrawer />
+            <ScrollTop />
           </LightboxProvider>
         </CartProvider>
         <SiteEffects />

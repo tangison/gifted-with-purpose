@@ -13,7 +13,7 @@ decisions I had to make while building. Please confirm each one.
 | 1 | ~~WhatsApp country code~~ | **CONFIRMED.** +264 is correct. The number now displays as +264 81 407 6649 sitewide. | Done |
 | 2 | **Delivery / shipping** | No shipping claims anywhere. The FAQ says *"Delivery details are being confirmed — please ask us on WhatsApp."* | Your delivery areas and costs (or confirm "collection / arrange on WhatsApp only"). |
 | 3 | **Returns / exchanges** | No returns policy is stated anywhere on the site. | Your policy wording, especially for personalised items. |
-| 4 | **Facebook & Instagram links** | STILL OUTSTANDING. You said "use the urls" but no URLs came through in the message. Icons link to /contact, which explains they are not published yet. | Paste the two profile URLs as plain text and this is a one-line change. |
+| 4 | ~~Facebook & Instagram links~~ | **RESOLVED** from your WhatsApp Business profile screenshot: facebook.com/Giftedwithpurpose and instagram.com/giftedwithpurpose_2024. Both now live in the footer and drawer. | Done |
 | 5 | **Domain & hosting** | Nothing deployed. Runs locally only. | Where this should live. **I will not deploy anywhere public until you say so in writing.** |
 
 ---
@@ -36,7 +36,7 @@ You confirmed I could use prices legible in your own studio ads. Published price
 | Pray On It (600ml) | N$250.00 | Studio ad |
 | Grow in Grace (600ml) | N$250.00 | Studio ad |
 
-**16 other products show "Price on request via WhatsApp"** because no price appears in any
+**11 other products show "Price on request via WhatsApp"** because no price appears in any
 supplied asset. No price was guessed. Send me a price list and I'll fill them in.
 
 ---
@@ -92,3 +92,26 @@ Per `SYSTEM.md`, none of these exist anywhere on the site:
 - ❌ No claim of partnership with any character brand
 - ❌ No analytics, tracking pixels, cookies or third-party scripts
 - ❌ No deployment to any public domain
+
+
+## Resolved from the WhatsApp Business screenshots (22 Aug 2026)
+
+- **City**: Windhoek, Namibia. Previously only "Namibia" sitewide.
+- **Socials**: Facebook `Giftedwithpurpose` (898 likes), Instagram `@giftedwithpurpose_2024` (412 followers).
+- **Five more prices** taken from your own WhatsApp catalogue, so 16 of 27 products are now priced:
+  mugs at N$120 (11oz Mug Designs) and kids sippy cups at N$230 (Sippy Cups).
+
+### Catalogue lines on WhatsApp that are NOT yet on the website
+
+Your WhatsApp catalogue lists these; the site has no photography for them, so they are not
+published rather than invented:
+
+| Catalogue line | Price |
+|---|---|
+| Mother's Day Tumblers | N$250.00 |
+| Mother's Day Mugs | N$120.00 |
+| Frosted Mugs | N$120.00 |
+| 20oz Skinny Tumbler Designs (design sheet) | N$250.00 |
+
+Send photos of these and they become real product cards. The Mother's Day lines would also make
+a natural seasonal collection alongside Teacher Appreciation.

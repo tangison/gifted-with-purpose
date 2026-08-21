@@ -30,12 +30,12 @@ export default function Footer() {
           <a href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <Icon name="wa" />
           </a>
-          <Link href="/contact#social" aria-label="Facebook — link to be confirmed">
+          <a href={brand.facebook} target="_blank" rel="noopener noreferrer" aria-label="Gifted with Purpose on Facebook">
             <Icon name="fb" />
-          </Link>
-          <Link href="/contact#social" aria-label="Instagram — link to be confirmed">
+          </a>
+          <a href={brand.instagram} target="_blank" rel="noopener noreferrer" aria-label="Gifted with Purpose on Instagram">
             <Icon name="ig" />
-          </Link>
+          </a>
         </div>
 
         <nav className="ftr-legal" aria-label="Legal">
