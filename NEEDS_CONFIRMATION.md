@@ -1,0 +1,94 @@
+# Needs your confirmation before launch
+
+Everything on the site right now comes from your own supplied assets. Nothing below has been
+invented — these are the gaps flagged as **missing / to confirm** in `PRODUCT.md`, plus the
+decisions I had to make while building. Please confirm each one.
+
+---
+
+## 1. Blocking before any public launch
+
+| # | Item | What the site does today | What I need from you |
+|---|---|---|---|
+| 1 | **WhatsApp country code** | Every button links to `wa.me/264814076649` (+264 Namibia, assumed from your `0814076649`) | Confirm this is the correct international number. If the business WhatsApp is a different line, tell me the number. |
+| 2 | **Delivery / shipping** | No shipping claims anywhere. The FAQ says *"Delivery details are being confirmed — please ask us on WhatsApp."* | Your delivery areas and costs (or confirm "collection / arrange on WhatsApp only"). |
+| 3 | **Returns / exchanges** | No returns policy is stated anywhere on the site. | Your policy wording, especially for personalised items. |
+| 4 | **Facebook & Instagram links** | Icons are present but not linked. Clicking shows "link isn't connected yet — message us on WhatsApp." | The actual profile URLs. Your flyer has QR codes but the URLs aren't readable from the image. |
+| 5 | **Domain & hosting** | Nothing deployed. Runs locally only. | Where this should live. **I will not deploy anywhere public until you say so in writing.** |
+
+---
+
+## 2. Prices — exactly what is published
+
+You confirmed I could use prices legible in your own studio ads. Published prices:
+
+| Product | Price | Source |
+|---|---|---|
+| Teacher Appreciation set | N$150.00 | Teacher flyer |
+| You Are Enough (450ml glass, bamboo lid) | N$160.00 | Studio ad |
+| Daily Positive Affirmations (400ml) | N$200.00 | Studio ad |
+| Self Love (355ml) | N$230.00 | Studio ad |
+| Sy is beklee met krag / Spreuke 31 (355ml wine) | N$230.00 | Studio ad |
+| It's Okay To Feel Your Feelings (450ml) | N$230.00 | Studio ad |
+| Just Vibin' and Survivin' (450ml) | N$230.00 | Studio ad |
+| God Says You Are (600ml) | N$250.00 | Studio ad |
+| Progress Over Perfection (600ml) | N$250.00 | Studio ad |
+| Pray On It (600ml) | N$250.00 | Studio ad |
+| Grow in Grace (600ml) | N$250.00 | Studio ad |
+
+**16 other products show "Price on request via WhatsApp"** because no price appears in any
+supplied asset. No price was guessed. Send me a price list and I'll fill them in.
+
+---
+
+## 3. Product names I wrote (please correct any)
+
+Your lifestyle photos had no captions, so I named products from the printed artwork itself.
+These are descriptive placeholders, not confirmed SKU names:
+
+- *Grow in Grace* (600ml floral — the wrap reads "grow ... RA...", partially hidden in the photo. **Please confirm the full wording.**)
+- *Take Care Of Your Mind*, *It's Okay To Make Mistakes*, *Choose Joy*, *Weekly Goals*, *You Are Loved Mug*
+- *Personalised Name Bottle — kittens* / *Personalised Name Tumbler — cats* (photographed with the names "Jay" and "Jayden")
+- *Old School Vibes* (from ASSET_MANIFEST)
+
+## 4. Product descriptions
+
+Every description is written from what is visibly printed on the item in your photo. None claim
+materials, capacities, dishwasher/heat safety or origin beyond the size text shown in your own
+ads. Please read them and correct anything inaccurate.
+
+---
+
+## 5. Decisions I made (say the word and I'll change any of them)
+
+1. **Catalog + WhatsApp only.** No cart, no checkout, no payment gateway, no accounts — per the
+   assumption stated in `PRODUCT.md`. Confirm this is still right.
+2. **Licensed character products** (PAW Patrol / Skye, Minnie, Sonic, Ms. Rachel prints) are shown
+   in the Kids collection, labelled generically, never in hero or marketing imagery, with a visible
+   disclaimer that you are independent and not affiliated or endorsed. Per your instruction. If you'd
+   rather remove them entirely, that's one line of data.
+3. **Teacher Appreciation palette stays isolated** to that collection only, per BRAND.md §3.
+4. **Afrikaans product text is untouched** — "Sy is beklee met krag en waarheid / Spreuke 31" is
+   printed as designed and never auto-translated.
+5. **The "About Us" wording** is kept to your flyer's claim: a mother–daughter team, made with love
+   in Namibia. No extra staff, no founding date, no invented backstory.
+6. **The team photo** is cropped from your own social flyer. If you have a higher-resolution
+   original, send it — the crop is soft at large sizes.
+7. **Studio ad crops.** Your studio ads are landscape (1200×628) with the price, size and phone
+   number burnt in. For portrait product cards I cropped in tight on the product; the price and
+   spec are shown as real text instead. The full uncropped ad is still what opens in the lightbox
+   on the Teacher flyer. If you'd rather show the complete ad artwork everywhere, I can switch.
+
+---
+
+## 6. What was deliberately NOT built
+
+Per `SYSTEM.md`, none of these exist anywhere on the site:
+
+- ❌ No invented prices, shipping costs, delivery times or return policy
+- ❌ No testimonials, reviews, star ratings or review counts
+- ❌ No fabricated or AI-generated product photography
+- ❌ No AI-regenerated logo — your vector `gifted-with-purpose-logo.svg` is used as supplied
+- ❌ No claim of partnership with any character brand
+- ❌ No analytics, tracking pixels, cookies or third-party scripts
+- ❌ No deployment to any public domain
