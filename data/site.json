@@ -20,7 +20,12 @@
       "accent_soft": "#FFEFF4",
       "icon": "heart",
       "blurb": "Daily reminders you can hold in your hands. Affirmation drinkware for the person who needs to hear that they are enough — including you.",
-      "bullets": ["Daily reminders", "Positive affirmations", "Mental wellness gifts"]
+      "bullets": [
+        "Daily reminders",
+        "Positive affirmations",
+        "Mental wellness gifts"
+      ],
+      "accent_ink": "#B32359"
     },
     {
       "slug": "inspire",
@@ -30,7 +35,12 @@
       "accent_soft": "#EAF8F6",
       "icon": "cross",
       "blurb": "Scripture-inspired designs in English and Afrikaans, for every season of faith. Carry the verse that carries you.",
-      "bullets": ["Scripture inspired", "Faith filled", "Encouragement for every season"]
+      "bullets": [
+        "Scripture inspired",
+        "Faith filled",
+        "Encouragement for every season"
+      ],
+      "accent_ink": "#1F6F66"
     },
     {
       "slug": "celebrate",
@@ -40,7 +50,12 @@
       "accent_soft": "#FFF6E6",
       "icon": "star",
       "blurb": "Bright, personalised sippy cups and bottles built for small hands and big personalities. Add their name and watch their face.",
-      "bullets": ["Fun & colorful", "Personalized", "Perfect for little ones"]
+      "bullets": [
+        "Fun & colorful",
+        "Personalized",
+        "Perfect for little ones"
+      ],
+      "accent_ink": "#8A5A05"
     },
     {
       "slug": "teacher-appreciation",
@@ -51,7 +66,12 @@
       "icon": "apple",
       "seasonal": true,
       "blurb": "A ready-to-give bundle for the teacher who shaped your child's year. Glass, pencil case and gift bag, wrapped and ready.",
-      "bullets": ["Complete gift set", "Ready to hand over", "Show your appreciation today"]
+      "bullets": [
+        "Complete gift set",
+        "Ready to hand over",
+        "Show your appreciation today"
+      ],
+      "accent_ink": "#1F4E9C"
     },
     {
       "slug": "everyday",
@@ -61,7 +81,12 @@
       "accent_soft": "#FBEFEF",
       "icon": "sparkle",
       "blurb": "Retro graffiti, bold colour and a bit of attitude. For the desk, the road trip and the gym bag.",
-      "bullets": ["Retro & bold", "Everyday carry", "Great just-because gifts"]
+      "bullets": [
+        "Retro & bold",
+        "Everyday carry",
+        "Great just-because gifts"
+      ],
+      "accent_ink": "#8A3A3C"
     }
   ],
   "products": [
@@ -181,7 +206,11 @@
       "shot": "flyer",
       "featured": true,
       "desc": "\"Teachers plant seeds of knowledge that grow forever.\" A complete three-piece set that arrives ready to hand over on the last day of term.",
-      "includes": ["Libby glass", "Pencil case", "Gift bag"]
+      "includes": [
+        "Libby glass",
+        "Pencil case",
+        "Gift bag"
+      ]
     },
     {
       "id": "you-are-loved-mug",
@@ -356,6 +385,13 @@
   ],
   "coming_soon": {
     "note": "Confirmed by the client as the next product lines, no photography supplied yet.",
-    "items": ["T-shirts", "Caps", "Bags", "Wallets", "Mousepads", "Deskpads"]
+    "items": [
+      "T-shirts",
+      "Caps",
+      "Bags",
+      "Wallets",
+      "Mousepads",
+      "Deskpads"
+    ]
   }
 }

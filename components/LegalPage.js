@@ -26,7 +26,7 @@ export default function LegalPage({ title, sub, updated, children }) {
       <section className="sec">
         <div className="wrap legal" style={{ maxWidth: 780 }}>
           {children}
-          <div className="confirm rv" style={{ marginTop: 30 }}>
+          <div className="confirm" style={{ marginTop: 30 }}>
             <Icon name="sparkle" />
             <div>
               <h4>Questions about this policy?</h4>

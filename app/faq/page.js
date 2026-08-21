@@ -94,7 +94,7 @@ export default function FaqPage() {
             ))}
           </div>
 
-          <div className="soon-wrap rv" style={{ marginTop: 34 }}>
+          <div className="soon-wrap" style={{ marginTop: 34 }}>
             <h2 style={{ fontSize: 23 }}>Still not sure?</h2>
             <p>Ask us anything — we would rather answer a question than have you guess.</p>
             <a

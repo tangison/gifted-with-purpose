@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from './Icons';
 import { brand, collections, wa } from '@/lib/site';
+import { CartButton } from './CartDrawer';
 
 const ASK = 'Hi Gifted with Purpose! I saw your website and I have a question.';
 
@@ -47,15 +48,11 @@ export default function Header() {
           <Link className="brand" href="/">
             <Image
               src="/assets/logos/gifted-with-purpose-logo.svg"
-              alt="Gifted with Purpose logo"
-              width={42}
-              height={42}
+              alt="Gifted with Purpose — Thoughtful, Meaningful, Yours"
+              width={84}
+              height={84}
               priority
             />
-            <span className="brand-tx">
-              <b>Gifted with Purpose</b>
-              <span>Thoughtful. Meaningful. Yours.</span>
-            </span>
           </Link>
 
           <nav className="nav-desk" aria-label="Main navigation">
@@ -75,10 +72,13 @@ export default function Header() {
             </Link>
           </nav>
 
-          <a className="hdr-wa" href={wa(ASK)} target="_blank" rel="noopener noreferrer">
-            <Icon name="wa" />
-            <span>WhatsApp us</span>
-          </a>
+          <div className="hdr-actions">
+            <a className="hdr-wa" href={wa(ASK)} target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+              <Icon name="wa" />
+              <span>WhatsApp us</span>
+            </a>
+            <CartButton />
+          </div>
 
           <button
             ref={burgerRef}

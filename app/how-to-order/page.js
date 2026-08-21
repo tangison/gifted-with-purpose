@@ -77,14 +77,14 @@ export default function HowToOrderPage() {
         <div className="wrap" style={{ maxWidth: 860 }}>
           <div className="steps">
             {STEPS.map((s, i) => (
-              <div className="step rv" key={s.name} id={`step-${i + 1}`}>
+              <div className="step" key={s.name} id={`step-${i + 1}`}>
                 <h3>{s.name}</h3>
                 <p>{s.text}</p>
               </div>
             ))}
           </div>
 
-          <div className="confirm rv" style={{ marginTop: 28 }}>
+          <div className="confirm" style={{ marginTop: 28 }}>
             <Icon name="sparkle" />
             <div>
               <h4>What is not on this site yet</h4>
@@ -95,7 +95,7 @@ export default function HowToOrderPage() {
             </div>
           </div>
 
-          <div className="soon-wrap rv" style={{ marginTop: 30 }}>
+          <div className="soon-wrap" style={{ marginTop: 30 }}>
             <h2 style={{ fontSize: 24 }}>Ready to start?</h2>
             <p>Send us a message and tell us who the gift is for.</p>
             <a

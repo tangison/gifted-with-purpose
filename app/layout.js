@@ -3,6 +3,8 @@ import './site.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import LightboxProvider from '@/components/LightboxProvider';
+import CartProvider from '@/components/CartProvider';
+import CartDrawer from '@/components/CartDrawer';
 import SiteEffects, { StickyWa } from '@/components/SiteEffects';
 import { SITE_URL, brand, products } from '@/lib/site';
 
@@ -139,12 +141,15 @@ export default function RootLayout({ children }) {
         <a className="skip" href="#main">
           Skip to content
         </a>
-        <LightboxProvider>
-          <Header />
-          {children}
-          <Footer />
-          <StickyWa />
-        </LightboxProvider>
+        <CartProvider>
+          <LightboxProvider>
+            <Header />
+            {children}
+            <Footer />
+            <StickyWa />
+            <CartDrawer />
+          </LightboxProvider>
+        </CartProvider>
         <SiteEffects />
       </body>
     </html>

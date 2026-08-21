@@ -46,7 +46,7 @@ export default function AboutPage() {
 
       <section className="sec">
         <div className="wrap about-grid">
-          <div className="about-photo rv">
+          <div className="about-photo">
             <Image
               src="/assets/products/about-team-photo.jpg"
               alt="The mother–daughter team behind Gifted with Purpose"
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <Icon name="heart" />
             </span>
           </div>
-          <div className="about-copy rv">
+          <div className="about-copy">
             <p className="script">Our story</p>
             <h2>Gifted with Purpose</h2>
             <p>
@@ -98,24 +98,24 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="heart" /> What we stand for
+              What we stand for
             </span>
             <h2>Thoughtful. Meaningful. Yours.</h2>
             <p>Three words on our logo, and the actual brief for every design we print.</p>
           </div>
           <div className="steps" style={{ counterReset: 'none' }}>
-            <div className="step rv" style={{ paddingLeft: 20 }}>
+            <div className="step" style={{ paddingLeft: 20 }}>
               <h3>Thoughtful</h3>
               <p>
                 A gift should sound like the person giving it. We&rsquo;ll help you get the wording right before
                 anything is printed.
               </p>
             </div>
-            <div className="step rv" style={{ paddingLeft: 20 }}>
+            <div className="step" style={{ paddingLeft: 20 }}>
               <h3>Meaningful</h3>
               <p>Affirmations, scripture, names, inside jokes — the things people keep on their desk for years.</p>
             </div>
-            <div className="step rv" style={{ paddingLeft: 20 }}>
+            <div className="step" style={{ paddingLeft: 20 }}>
               <h3>Yours</h3>
               <p>Printed to order, one at a time. Not something they&rsquo;ll see on a shelf somewhere else.</p>
             </div>
@@ -137,7 +137,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="gift" /> Start here
+              Start here
             </span>
             <h2>Browse the collections</h2>
           </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
             {collections.map((o) => (
               <Link
                 key={o.slug}
-                className="cat rv"
-                style={{ '--c': o.accent, '--cs': o.accent_soft }}
+                className="cat"
+                style={{ '--c': o.accent, '--cs': o.accent_soft, '--ci': o.accent_ink }}
                 href={`/collections/${o.slug}`}
               >
                 <div className="cat-ico">

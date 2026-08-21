@@ -97,7 +97,7 @@ export default function CollectionPage({ params }) {
   };
 
   return (
-    <main id="main" style={{ '--accent': c.accent, '--accent-soft': c.accent_soft }}>
+    <main id="main" style={{ '--accent': c.accent, '--accent-soft': c.accent_soft, '--accent-ink': c.accent_ink }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
 
@@ -134,7 +134,7 @@ export default function CollectionPage({ params }) {
         <div className="wrap">
           {c.seasonal && (
             <div
-              className="confirm rv"
+              className="confirm"
               style={{ marginBottom: 22, background: '#EAF1FB', borderColor: '#C9DBF5' }}
             >
               <Icon name="apple" />
@@ -149,7 +149,7 @@ export default function CollectionPage({ params }) {
           )}
 
           {hasLicensed && (
-            <div className="confirm rv" style={{ marginBottom: 22 }}>
+            <div className="confirm" style={{ marginBottom: 22 }}>
               <Icon name="sparkle" />
               <div>
                 <h4>About our character designs</h4>
@@ -169,7 +169,7 @@ export default function CollectionPage({ params }) {
             {extra && <SoonCard {...extra} />}
           </div>
 
-          <div className="soon-wrap rv" style={{ marginTop: 36 }}>
+          <div className="soon-wrap" style={{ marginTop: 36 }}>
             <h2 style={{ fontSize: 23 }}>Don&rsquo;t see exactly what you want?</h2>
             <p>
               We print to order. Send us the wording, the name or the verse and we&rsquo;ll tell you what&rsquo;s
@@ -193,7 +193,7 @@ export default function CollectionPage({ params }) {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="gift" /> Keep browsing
+              Keep browsing
             </span>
             <h2>Other collections</h2>
           </div>
@@ -203,8 +203,8 @@ export default function CollectionPage({ params }) {
               .map((o) => (
                 <Link
                   key={o.slug}
-                  className="cat rv"
-                  style={{ '--c': o.accent, '--cs': o.accent_soft }}
+                  className="cat"
+                  style={{ '--c': o.accent, '--cs': o.accent_soft, '--ci': o.accent_ink }}
                   href={`/collections/${o.slug}`}
                 >
                   <div className="cat-ico">

@@ -14,36 +14,6 @@ export default function SiteEffects() {
   }, []);
 
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll('.rv'));
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!('IntersectionObserver' in window) || reduce) {
-      els.forEach((el) => el.classList.add('in'));
-      return;
-    }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en, i) => {
-          if (!en.isIntersecting) return;
-          const el = en.target;
-          setTimeout(() => el.classList.add('in'), Math.min(i * 55, 220));
-          io.unobserve(el);
-        });
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.06 }
-    );
-    els.forEach((el) => io.observe(el));
-
-    // Safety net so content is never left invisible.
-    const t = setTimeout(() => els.forEach((el) => el.classList.add('in')), 2600);
-    return () => {
-      clearTimeout(t);
-      io.disconnect();
-    };
-  }, [pathname]);
-
-  useEffect(() => {
     const bar = document.getElementById('stickyWa');
     if (!bar) return;
     const onScroll = () => {

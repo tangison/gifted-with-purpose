@@ -70,7 +70,7 @@ export default function ContactPage() {
         <div className="wrap">
           <div className="contact-grid">
             <a
-              className="ccard rv"
+              className="ccard"
               href={wa('Hi Gifted with Purpose! I would like to place an order.')}
               target="_blank"
               rel="noopener noreferrer"
@@ -84,7 +84,7 @@ export default function ContactPage() {
               </span>
             </a>
 
-            <a className="ccard rv" href={`tel:+${brand.wa_number}`}>
+            <a className="ccard" href={`tel:+${brand.wa_number}`}>
               <span className="ci" style={{ background: 'var(--cat-pink)' }}>
                 <Icon name="phone" />
               </span>
@@ -94,7 +94,7 @@ export default function ContactPage() {
               </span>
             </a>
 
-            <div className="ccard rv">
+            <div className="ccard">
               <span className="ci" style={{ background: 'var(--cat-teal)' }}>
                 <Icon name="pin" />
               </span>
@@ -104,7 +104,7 @@ export default function ContactPage() {
               </span>
             </div>
 
-            <div className="ccard rv">
+            <div className="ccard">
               <span className="ci" style={{ background: 'var(--gold)' }}>
                 <Icon name="gift" />
               </span>
@@ -115,7 +115,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="confirm rv" style={{ marginTop: 26 }} id="social">
+          <div className="confirm" style={{ marginTop: 26 }} id="social">
             <Icon name="sparkle" />
             <div>
               <h4>Our social links are not connected yet</h4>
@@ -126,9 +126,9 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="soon-wrap rv" style={{ marginTop: 30 }}>
+          <div className="soon-wrap" style={{ marginTop: 30 }}>
             <span className="eyebrow">
-              <Icon name="wa" /> Ready when you are
+              Ready when you are
             </span>
             <h2>Tell us who the gift is for</h2>
             <p>

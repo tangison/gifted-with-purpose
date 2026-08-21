@@ -50,7 +50,7 @@ export default function NotFound() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="gift" /> Try these
+              Try these
             </span>
             <h2>Browse our collections</h2>
           </div>
@@ -58,8 +58,8 @@ export default function NotFound() {
             {collections.map((o) => (
               <Link
                 key={o.slug}
-                className="cat rv in"
-                style={{ '--c': o.accent, '--cs': o.accent_soft }}
+                className="cat"
+                style={{ '--c': o.accent, '--cs': o.accent_soft, '--ci': o.accent_ink }}
                 href={`/collections/${o.slug}`}
               >
                 <div className="cat-ico">

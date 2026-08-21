@@ -4,15 +4,18 @@ import Image from 'next/image';
 import { Icon, Ruler, Expand } from './Icons';
 import { collectionBySlug, priceLabel, waProduct, img, imgSm } from '@/lib/site';
 import { useLightbox } from './LightboxProvider';
+import { useCart } from './CartProvider';
 
 export default function ProductCard({ product: p, priority = false }) {
   const c = collectionBySlug(p.collection);
   const pl = priceLabel(p);
   const { open } = useLightbox();
+  const { add, items } = useCart();
+  const inBag = items.some((i) => i.id === p.id);
   const contain = p.shot === 'studio' || p.shot === 'flyer';
 
   return (
-    <article className="card rv" style={{ '--accent': c.accent, '--accent-soft': c.accent_soft }}>
+    <article className="card" style={{ '--accent': c.accent, '--accent-soft': c.accent_soft, '--accent-ink': c.accent_ink }}>
       <div className={`card-media${contain ? ' contain' : ''}`}>
         <div className="ar">
           <Image
@@ -86,9 +89,14 @@ export default function ProductCard({ product: p, priority = false }) {
           )}
         </div>
 
-        <a className="btn btn-wa btn-sm btn-block" href={waProduct(p)} target="_blank" rel="noopener noreferrer">
-          <Icon name="wa" /> Order on WhatsApp
-        </a>
+        <div className="card-actions">
+          <button className="btn btn-add btn-sm btn-block" data-in={inBag} onClick={() => add(p.id)}>
+            {inBag ? 'Added to bag' : 'Add to gift bag'}
+          </button>
+          <a className="btn btn-wa btn-sm btn-block" href={waProduct(p)} target="_blank" rel="noopener noreferrer">
+            <Icon name="wa" /> Order this now
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -96,7 +104,7 @@ export default function ProductCard({ product: p, priority = false }) {
 
 export function SoonCard({ title, body, msg }) {
   return (
-    <article className="card card-soon rv">
+    <article className="card card-soon">
       <div className="ico">
         <Icon name="gift" />
       </div>

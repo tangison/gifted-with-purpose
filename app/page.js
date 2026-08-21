@@ -11,9 +11,6 @@ export const metadata = {
   alternates: { canonical: '/' },
 };
 
-const STRIP =
-  "Personalised drinkware   ✦   Made with love in Namibia   ✦   Order on WhatsApp   ✦   Self love · Faith · Kids   ✦   Thoughtful. Meaningful. Yours.   ✦   ";
-
 export default function HomePage() {
   const feat = featured();
   const tset = products.find((p) => p.id === 'teacher-appreciation-set');
@@ -21,9 +18,6 @@ export default function HomePage() {
   return (
     <main id="main">
       <section className="hero">
-        <span className="blob blob-a" />
-        <span className="blob blob-b" />
-        <span className="blob blob-c" />
         <div className="wrap hero-in">
           <div className="hero-copy">
             <h1>
@@ -49,17 +43,6 @@ export default function HomePage() {
                 Browse the collections <Chev />
               </Link>
             </div>
-            <ul className="hero-trust">
-              <li>
-                <Check /> Mother–daughter run
-              </li>
-              <li>
-                <Check /> Personalised with any name
-              </li>
-              <li>
-                <Check /> English &amp; Afrikaans designs
-              </li>
-            </ul>
           </div>
           <div className="hero-art">
             <Image
@@ -74,18 +57,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="strip" aria-hidden="true">
-        <div className="strip-track">
-          <span>{STRIP.repeat(2)}</span>
-          <span>{STRIP.repeat(2)}</span>
-        </div>
-      </div>
-
       <section className="sec" id="collections">
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="gift" /> Shop by collection
+              Shop by collection
             </span>
             <h2>Find the one that fits them</h2>
             <p>
@@ -99,8 +75,8 @@ export default function HomePage() {
               return (
                 <Link
                   key={c.slug}
-                  className="cat rv"
-                  style={{ '--c': c.accent, '--cs': c.accent_soft }}
+                  className="cat"
+                  style={{ '--c': c.accent, '--cs': c.accent_soft, '--ci': c.accent_ink }}
                   href={`/collections/${c.slug}`}
                 >
                   <span className="count">
@@ -131,7 +107,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="sparkle" /> Most loved
+              Most loved
             </span>
             <h2>Our featured designs</h2>
             <p>Real products, photographed by us. Tap any photo to see it larger.</p>
@@ -153,12 +129,12 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="apple" /> Seasonal collection
+              Seasonal collection
             </span>
             <h2>Teacher Appreciation</h2>
             <p>A complete, ready-to-give set for the teacher who shaped your child&rsquo;s year.</p>
           </div>
-          <div className="season-card rv">
+          <div className="season-card">
             <div className="pic">
               <Image
                 src="/assets/products/flyer-teacher-appreciation.jpg"
@@ -203,7 +179,7 @@ export default function HomePage() {
 
       <section className="sec" id="about">
         <div className="wrap about-grid">
-          <div className="about-photo rv">
+          <div className="about-photo">
             <Image
               src="/assets/products/about-team-photo.jpg"
               alt="The mother–daughter team behind Gifted with Purpose"
@@ -215,7 +191,7 @@ export default function HomePage() {
               <Icon name="heart" />
             </span>
           </div>
-          <div className="about-copy rv">
+          <div className="about-copy">
             <p className="script">About us</p>
             <h2>A mother–daughter team, making gifts with purpose</h2>
             <p>
@@ -252,21 +228,21 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="wa" /> How it works
+              How it works
             </span>
             <h2>From &ldquo;I like that&rdquo; to ordered, in one tap</h2>
             <p>No cart, no checkout, no account. You message us and we handle it personally.</p>
           </div>
           <div className="steps">
-            <div className="step rv">
+            <div className="step">
               <h3>Pick your design</h3>
               <p>Browse the collections and find the one that fits the person you&rsquo;re gifting.</p>
             </div>
-            <div className="step rv">
+            <div className="step">
               <h3>Tap &ldquo;Order on WhatsApp&rdquo;</h3>
               <p>Your message opens already filled in with the product name and price — just hit send.</p>
             </div>
-            <div className="step rv">
+            <div className="step">
               <h3>We confirm the details</h3>
               <p>We&rsquo;ll confirm the name to print, availability, payment and how to get it to you.</p>
             </div>
@@ -281,9 +257,9 @@ export default function HomePage() {
 
       <section className="sec" id="soon">
         <div className="wrap">
-          <div className="soon-wrap rv">
+          <div className="soon-wrap">
             <span className="eyebrow">
-              <Icon name="sparkle" /> Coming soon
+              Coming soon
             </span>
             <h2>More than drinkware</h2>
             <p>
@@ -313,13 +289,13 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow">
-              <Icon name="pin" /> Contact
+              Contact
             </span>
             <h2>Let&rsquo;s make something meaningful</h2>
             <p>We&rsquo;re a small team and we answer our own messages — usually the same day.</p>
           </div>
           <div className="contact-grid">
-            <a className="ccard rv" href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
+            <a className="ccard" href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
               <span className="ci" style={{ background: 'var(--wa)' }}>
                 <Icon name="wa" />
               </span>
@@ -328,7 +304,7 @@ export default function HomePage() {
                 <p>{brand.phone_local} — fastest way to reach us</p>
               </span>
             </a>
-            <a className="ccard rv" href={`tel:+${brand.wa_number}`}>
+            <a className="ccard" href={`tel:+${brand.wa_number}`}>
               <span className="ci" style={{ background: 'var(--cat-pink)' }}>
                 <Icon name="phone" />
               </span>
@@ -337,7 +313,7 @@ export default function HomePage() {
                 <p>{brand.phone_local}</p>
               </span>
             </a>
-            <div className="ccard rv">
+            <div className="ccard">
               <span className="ci" style={{ background: 'var(--cat-teal)' }}>
                 <Icon name="pin" />
               </span>
@@ -346,7 +322,7 @@ export default function HomePage() {
                 <p>{brand.location} — made with love, right here</p>
               </span>
             </div>
-            <Link className="ccard rv" href="/faq">
+            <Link className="ccard" href="/faq">
               <span className="ci" style={{ background: 'var(--lavender)' }}>
                 <Icon name="sparkle" />
               </span>
