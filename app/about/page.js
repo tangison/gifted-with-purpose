@@ -33,13 +33,13 @@ export default function AboutPage() {
           </nav>
           <p className="sub">About us</p>
           <h1>
-            Made by two people who
+            A kitchen table,
             <br />
-            actually know your name
+            a printer, and your name
           </h1>
           <p>
-            We&rsquo;re a proud mother–daughter team creating personalized gifts made with love and purpose, right here
-            in Namibia.
+            Gifted with Purpose is a mother and daughter in Windhoek. Everything you see was printed on our own
+            equipment, photographed on our own table.
           </p>
         </div>
       </section>
@@ -61,20 +61,18 @@ export default function AboutPage() {
           </div>
           <div className="about-copy">
             <p className="script">Our story</p>
-            <h2>Gifted with Purpose</h2>
+            <h2>How this started</h2>
             <p>
-              We&rsquo;re a proud <strong>mother–daughter team</strong> creating personalized gifts made with love and
-              purpose.
+              We started making these for people we know. Birthdays, a friend going through a hard year, a teacher at
+              the end of term. Then their friends asked. That is the whole origin story.
             </p>
             <p>
-              Everything we make is printed to order. That means the affirmation, the scripture or the name on the cup
-              was chosen for one specific person — a daughter starting a hard year, a friend who needs reminding that
-              she&rsquo;s enough, a teacher finishing a long term, a little one who wants their own name on their
-              bottle.
+              Nothing is printed before it is ordered. That is not a production choice, it is the point: the wording on
+              the cup was picked for one person, by someone who knows them.
             </p>
             <p>
-              We work mostly in drinkware today — stainless steel tumblers, wine tumblers, glass tumblers with bamboo
-              lids, mugs and kids&rsquo; sippy cups — in English and in Afrikaans.
+              Today that means stainless steel tumblers, wine tumblers, glass with bamboo lids, mugs and kids&rsquo;
+              sippy cups, in English and Afrikaans.
             </p>
             <p>
               <strong>Thank you for supporting our business!</strong>

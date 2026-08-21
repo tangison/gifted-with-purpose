@@ -142,3 +142,11 @@ Fix | Real social links | components/Footer.js, Drawer.js | replaced /contact pl
 Audit | axe with the drawer OPEN | live | a state a normal page-load audit never reaches | 0 violations, focus trapped across 12 tabs, Escape closes | axe | Pass
 Audit | axe with scroll-top visible | live | color-contrast + button-name | 0 violations | axe | Pass
 Audit | Full re-audit | live 17 routes | axe wcag2a-21aa | 0 violations | axe | Pass
+Build | Product card redesigned as an editorial ticket | components/ProductCard.js | vertical collection spine, index numeral, price punched on the photo, perforated tear line to the stub | 27 tickets, 27 spines, sequential numerals | screenshot | Done
+Debug | Ticket buttons overflowed the card edge | app/site.css | global btn white-space:nowrap blocked btn-block from shrinking | scoped override plus shorter labels | 0 wrapped buttons, 0 page overflow | measured | Fixed
+Debug | Price tag collided with the language flag | app/site.css | flags moved to the top of the photo | 0 collisions across 27 cards | measured | Fixed
+Debug | Spine clipped the left edge of the photo | app/site.css | spine was overlaid on the image | media given a left inset so the spine is a margin element | screenshot | Fixed
+Copy | Homepage rewritten | app/page.js | specificity, Namibian place names, real prices | headline, tagline, all section heads and step copy | live | Done
+Copy | Collection blurbs and bullets rewritten | data/site.json | second person, concrete, no marketing abstraction | 5 collections | live | Done
+Copy | Shop, contact, about, how-to-order rewritten | 4 route files | named Geneveve and Windhoek, removed generic phrasing | live | Done
+Audit | Re-audit after card and copy work | live 17 routes | axe wcag2a-21aa + lighthouse | 0 violations, /shop 92 perf, 100 a11y, 100 bp, 100 seo, CLS 0 | lhs.json | Pass

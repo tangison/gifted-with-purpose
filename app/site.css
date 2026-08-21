@@ -961,3 +961,110 @@ a.ccard:hover{border-color:var(--taupe)}
 .to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media(min-width:900px){.to-top{bottom:24px;right:24px}}
 @media (prefers-reduced-motion:reduce){.to-top{transition:none}}
+
+/* ================= product ticket ================= */
+.tkt{
+  position:relative;display:flex;flex-direction:column;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:0 1px 2px rgba(60,40,45,.04), 0 10px 26px -18px var(--accent);
+  transition:box-shadow .22s ease,border-color .22s ease;
+}
+.tkt:hover{
+  border-color:var(--accent-ink);
+  box-shadow:0 2px 6px rgba(60,40,45,.06), 0 20px 44px -20px var(--accent);
+}
+.tkt-media{position:relative;background:var(--surface-2);overflow:hidden;line-height:0;padding-left:26px}
+.tkt-media .ar{position:relative;width:100%;padding-bottom:106%}
+.tkt-media .ar img{position:absolute;inset:0;width:100%;height:100%}
+.tkt-media.contain{background:var(--surface)}
+
+/* collection name running up the left spine */
+.tkt-spine{
+  position:absolute;left:0;top:0;bottom:0;width:26px;z-index:2;
+  display:grid;place-items:center;background:var(--accent-ink);
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:var(--f-body);font-weight:700;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:#fff;line-height:1;
+}
+/* index numeral, gives the grid rhythm */
+.tkt-no{
+  position:absolute;top:10px;right:12px;z-index:2;
+  font-family:var(--f-display);font-weight:600;font-size:13px;
+  color:var(--ink);opacity:.42;font-variant-numeric:tabular-nums;
+}
+/* price punched onto the photo */
+.tkt-price{
+  position:absolute;left:34px;bottom:10px;z-index:2;
+  background:var(--ink);color:#fff;padding:6px 12px;border-radius:999px;
+  font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:-.01em;
+  box-shadow:0 4px 14px -6px rgba(0,0,0,.5);
+}
+.tkt-price-ask{
+  background:var(--surface);color:var(--ink);border:1.5px solid var(--ink);
+  font-family:var(--f-body);font-size:13px;font-weight:600;
+}
+.tkt-flags{position:absolute;left:34px;top:10px;z-index:2;display:flex;flex-wrap:wrap;gap:5px;max-width:calc(100% - 78px)}
+.tkt-flags span{
+  font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 9px;border-radius:999px;font-family:var(--f-body);
+}
+.flag-lang{background:var(--teal);color:#0A3A35}
+.flag-pers{background:var(--gold);color:#4A3407}
+
+/* perforated tear line between photo and stub */
+.tkt-perf{
+  position:relative;height:12px;background:var(--surface);
+  border-top:1px dashed var(--line);
+}
+.tkt-perf::before,.tkt-perf::after{
+  content:"";position:absolute;top:-7px;width:14px;height:14px;border-radius:50%;
+  background:var(--cream);border:1px solid var(--line);
+}
+.tkt-perf::before{left:-8px}
+.tkt-perf::after{right:-8px}
+
+.tkt-stub{display:flex;flex-direction:column;flex:1;gap:var(--s-2);padding:0 var(--s-3) var(--s-3)}
+.tkt-stub h3{
+  font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.2;
+  letter-spacing:-.015em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;min-height:2.4em;
+}
+.tkt-spec{font-size:12.5px;color:var(--muted);line-height:1.4}
+.tkt-inc{display:flex;flex-wrap:wrap;gap:5px;margin:0}
+.tkt-inc li{
+  font-size:11.5px;background:var(--accent-soft);color:var(--ink);
+  padding:4px 9px;border-radius:999px;font-weight:500;
+}
+.tkt-ask{
+  font-size:11.5px;color:var(--muted);line-height:1.45;
+  padding:8px 10px;border-radius:var(--r-md);background:var(--surface-2);
+}
+.tkt-actions{display:grid;gap:8px;margin-top:auto;padding-top:var(--s-1);min-width:0}
+.tkt-actions .btn{
+  width:100%;min-width:0;padding-inline:10px;font-size:13.5px;
+  white-space:nowrap;text-align:center;line-height:1.2;
+}
+.tkt-actions .btn svg{flex:none}
+
+/* coming-soon ticket */
+.tkt-soon{
+  border-style:dashed;border-color:#EBD3DC;background:var(--surface-2);
+  align-items:center;justify-content:center;min-height:320px;box-shadow:none;
+}
+.tkt-soon:hover{box-shadow:none;border-color:var(--taupe)}
+.tkt-soon-in{text-align:center;padding:var(--s-4) var(--s-3);display:grid;gap:var(--s-2);justify-items:center}
+.tkt-soon-mark{
+  width:46px;height:46px;border-radius:999px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--line);
+  font-family:var(--f-display);font-size:24px;font-weight:600;color:var(--cat-pink);line-height:1;
+}
+.tkt-soon h3{font-family:var(--f-display);font-weight:600;font-size:17px}
+.tkt-soon p{font-size:13px;color:var(--muted);max-width:26ch}
+
+@media(min-width:900px){
+  .tkt-media{padding-left:30px}
+  .tkt-media .ar{padding-bottom:112%}
+  .tkt-spine{width:30px;font-size:10.5px}
+  .tkt-price{left:40px}
+  .tkt-flags{left:40px}
+}

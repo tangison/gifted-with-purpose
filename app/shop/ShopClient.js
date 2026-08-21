@@ -60,7 +60,7 @@ export default function ShopClient() {
           </h2>
           <div className="grid" id="shop-grid" role="tabpanel">
             {shown.map((p, i) => (
-              <ProductCard key={p.id} product={p} priority={i < 2} />
+              <ProductCard key={p.id} product={p} priority={i < 2} index={i} />
             ))}
           </div>
         </div>

@@ -174,7 +174,7 @@ export default async function CollectionPage({ params }) {
           <h2 className="sr-only">{c.name} products</h2>
           <div className="grid">
             {ps.map((p, i) => (
-              <ProductCard key={p.id} product={p} priority={i < 2} />
+              <ProductCard key={p.id} product={p} priority={i < 2} index={i} />
             ))}
             {extra && <SoonCard {...extra} />}
           </div>

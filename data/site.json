@@ -26,10 +26,10 @@
       "accent": "#E8407A",
       "accent_soft": "#FFEFF4",
       "icon": "heart",
-      "blurb": "Daily reminders you can hold in your hands. Affirmation drinkware for the person who needs to hear that they are enough — including you.",
+      "blurb": "For the one who is holding a lot right now. Affirmation drinkware she will actually use at her desk, every day, for years.",
       "bullets": [
         "Daily reminders",
-        "Positive affirmations",
+        "Something she keeps",
         "Mental wellness gifts"
       ],
       "accent_ink": "#B32359"
@@ -41,11 +41,11 @@
       "accent": "#3FB6A8",
       "accent_soft": "#EAF8F6",
       "icon": "cross",
-      "blurb": "Scripture-inspired designs in English and Afrikaans, for every season of faith. Carry the verse that carries you.",
+      "blurb": "Scripture she already knows, on something she reaches for every morning. English and Afrikaans, printed exactly as designed.",
       "bullets": [
         "Scripture inspired",
-        "Faith filled",
-        "Encouragement for every season"
+        "English and Afrikaans",
+        "For every season"
       ],
       "accent_ink": "#1F6F66"
     },
@@ -56,11 +56,11 @@
       "accent": "#F0A93A",
       "accent_soft": "#FFF6E6",
       "icon": "star",
-      "blurb": "Bright, personalised sippy cups and bottles built for small hands and big personalities. Add their name and watch their face.",
+      "blurb": "His name, her name, printed big. Sippy cups and bottles that survive a school bag and come back for more.",
       "bullets": [
-        "Fun & colorful",
-        "Personalized",
-        "Perfect for little ones"
+        "Their name printed on it",
+        "Made for small hands",
+        "Survives the school bag"
       ],
       "accent_ink": "#8A5A05"
     },
@@ -72,11 +72,11 @@
       "accent_soft": "#EAF1FB",
       "icon": "apple",
       "seasonal": true,
-      "blurb": "A ready-to-give bundle for the teacher who shaped your child's year. Glass, pencil case and gift bag, wrapped and ready.",
+      "blurb": "The last week of term, sorted. Glass, pencil case and gift bag in one box, ready to hand over.",
       "bullets": [
-        "Complete gift set",
+        "Three pieces, one box",
         "Ready to hand over",
-        "Show your appreciation today"
+        "End of term sorted"
       ],
       "accent_ink": "#1F4E9C"
     },
@@ -87,11 +87,11 @@
       "accent": "#A64C4E",
       "accent_soft": "#FBEFEF",
       "icon": "sparkle",
-      "blurb": "Retro graffiti, bold colour and a bit of attitude. For the desk, the road trip and the gym bag.",
+      "blurb": "Retro graffiti and loud colour. For the desk, the road trip and the person who does not want a matching set.",
       "bullets": [
-        "Retro & bold",
+        "Retro and loud",
         "Everyday carry",
-        "Great just-because gifts"
+        "Just because"
       ],
       "accent_ink": "#8A3A3C"
     }

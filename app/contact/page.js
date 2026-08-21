@@ -52,11 +52,11 @@ export default function ContactPage() {
             <Chev />
             <span aria-current="page">Contact</span>
           </nav>
-          <p className="sub">Get in touch</p>
-          <h1>Talk to us directly</h1>
+          <p className="sub">Talk to Geneveve</p>
+          <h1>One message, one person</h1>
           <p>
-            There is no contact form here on purpose. WhatsApp reaches us fastest and keeps your order in one thread,
-            so nothing gets lost.
+            No contact form on purpose. WhatsApp keeps your whole order in one thread, so the spelling of a name never
+            gets lost between emails.
           </p>
           <ul className="stats">
             <li>We answer our own messages</li>
@@ -130,10 +130,10 @@ export default function ContactPage() {
             <span className="eyebrow">
               Ready when you are
             </span>
-            <h2>Tell us who the gift is for</h2>
+            <h2>Start with who it is for</h2>
             <p>
-              Send us the name, the wording or the verse you want printed and we will confirm the design, the price and
-              how soon we can have it ready.
+              Send the name, the wording or the verse. We will come back with the design, the price and how soon it can
+              be in your hands.
             </p>
             <a
               className="btn btn-wa"

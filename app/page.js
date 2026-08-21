@@ -22,14 +22,14 @@ export default function HomePage() {
         <div className="wrap hero-in">
           <div className="hero-copy">
             <h1>
-              Gifts that say the thing
+              Her name on it.
               <br />
-              <em>you can&rsquo;t always say.</em>
+              <em>Her verse on it.</em>
             </h1>
-            <p className="hero-tag">Thoughtful. Meaningful. Yours.</p>
+            <p className="hero-tag">Printed to order in Windhoek</p>
             <p className="hero-sub">
-              Beautiful personalized gifts made with love — affirmation tumblers, faith-based drinkware and kids&rsquo;
-              cups, printed by a mother–daughter team right here in Namibia.
+              Tumblers, mugs and kids&rsquo; cups printed with the name, the scripture or the affirmation you choose.
+              Made by a mother and daughter in Windhoek. From N$120, ordered on WhatsApp.
             </p>
             <div className="hero-cta">
               <a
@@ -54,10 +54,10 @@ export default function HomePage() {
             <span className="eyebrow">
               Shop by collection
             </span>
-            <h2>Find the one that fits them</h2>
+            <h2>Who are you buying for?</h2>
             <p>
-              Every design is printed to order on quality stainless steel, glass and ceramic drinkware. Tap a collection
-              to see what&rsquo;s available right now.
+              Five collections, 27 designs, every one printed after you order it. Pick the person and we will show you
+              what fits.
             </p>
           </div>
           <div className="cats">
@@ -100,8 +100,8 @@ export default function HomePage() {
             <span className="eyebrow">
               Most loved
             </span>
-            <h2>Our featured designs</h2>
-            <p>Real products, photographed by us. Tap any photo to see it larger.</p>
+            <h2>What people order most</h2>
+            <p>Photographed on our own table, not a stock library. Tap any photo to see the print up close.</p>
           </div>
           <div className="rail-head">
             <p className="rail-hint">Swipe to browse</p>
@@ -109,7 +109,7 @@ export default function HomePage() {
           </div>
           <div className="rail">
             {feat.map((p, i) => (
-              <ProductCard key={p.id} product={p} priority={i < 2} />
+              <ProductCard key={p.id} product={p} priority={i < 2} index={i} />
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 26 }}>
@@ -127,7 +127,7 @@ export default function HomePage() {
               Seasonal collection
             </span>
             <h2>Teacher Appreciation</h2>
-            <p>A complete, ready-to-give set for the teacher who shaped your child&rsquo;s year.</p>
+            <p>Glass, pencil case and gift bag in one box. Nothing left to wrap the night before.</p>
           </div>
           <div className="season-card">
             <div className="pic">
@@ -188,11 +188,10 @@ export default function HomePage() {
           </div>
           <div className="about-copy">
             <p className="script">About us</p>
-            <h2>A mother–daughter team, making gifts with purpose</h2>
+            <h2>Two people, one printer, every order checked twice</h2>
             <p>
-              We&rsquo;re a proud <strong>mother–daughter team</strong> creating personalized gifts made with love and
-              purpose. What started as gifts for the people closest to us grew into something we now get to make for
-              you.
+              We are a <strong>mother and daughter in Windhoek</strong>. This started as gifts for people we know, and
+              the orders kept coming, so now we make them for you too.
             </p>
             <Disclosure summary="More about how we work">
               <p>
@@ -227,26 +226,26 @@ export default function HomePage() {
             <span className="eyebrow">
               How it works
             </span>
-            <h2>From &ldquo;I like that&rdquo; to ordered, in one tap</h2>
-            <p>No cart, no checkout, no account. You message us and we handle it personally.</p>
+            <h2>You message us. We do the rest.</h2>
+            <p>No account, no card details on a website. Geneveve answers the messages herself.</p>
           </div>
           <div className="steps">
             <div className="step">
-              <h3>Pick your design</h3>
+              <h3>Choose the design</h3>
               <Disclosure summary="What this means">
-                <p>Browse the collections and find the one that fits the person you&rsquo;re gifting.</p>
+                <p>Browse all 27 designs, or tell us the wording you want and we will check what is possible.</p>
               </Disclosure>
             </div>
             <div className="step">
-              <h3>Tap &ldquo;Order on WhatsApp&rdquo;</h3>
+              <h3>Send the message</h3>
               <Disclosure summary="What this means">
-                <p>Your message opens already filled in with the product name and price, so all you do is press send.</p>
+                <p>The message opens already written, with the design, the size and the price in it. Press send.</p>
               </Disclosure>
             </div>
             <div className="step">
-              <h3>We confirm the details</h3>
+              <h3>We confirm before we print</h3>
               <Disclosure summary="What this means">
-                <p>We&rsquo;ll confirm the name to print, availability, payment and how to get it to you.</p>
+                <p>Spelling of the name, the price, payment and how it reaches you. Nothing is printed until you say yes.</p>
               </Disclosure>
             </div>
           </div>
@@ -264,7 +263,7 @@ export default function HomePage() {
             <span className="eyebrow">
               Coming soon
             </span>
-            <h2>More than drinkware</h2>
+            <h2>Coming past drinkware</h2>
             <p>
               {comingSoon.note} Message us if you&rsquo;d like to be told first when these go live.
             </p>
@@ -294,8 +293,8 @@ export default function HomePage() {
             <span className="eyebrow">
               Contact
             </span>
-            <h2>Let&rsquo;s make something meaningful</h2>
-            <p>We&rsquo;re a small team and we answer our own messages — usually the same day.</p>
+            <h2>Tell us who it is for</h2>
+            <p>Two of us, both in Windhoek. Messages are usually answered the same day.</p>
           </div>
           <div className="contact-grid">
             <a className="ccard" href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">

@@ -33,11 +33,11 @@ export default function ShopPage() {
             <Chev />
             <span aria-current="page">Shop</span>
           </nav>
-          <p className="sub">Everything we make</p>
-          <h1>Shop all designs</h1>
+          <p className="sub">The full catalogue</p>
+          <h1>Every design we print</h1>
           <p>
-            Every design in one place. Filter by collection, then send your gift bag to us in a single WhatsApp
-            message.
+            Filter by who you are buying for. Add as many as you like to one gift bag and send it to us in a single
+            WhatsApp message.
           </p>
           <ul className="stats">
             <li>{products.length} designs</li>

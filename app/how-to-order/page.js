@@ -65,9 +65,9 @@ export default function HowToOrderPage() {
             <span aria-current="page">How to order</span>
           </nav>
           <p className="sub">Ordering</p>
-          <h1>How to order</h1>
+          <h1>How ordering works</h1>
           <p>
-            No cart, no checkout, no account. You message us on WhatsApp and we handle your order personally from
+            No account, no card details on a website. You message us on WhatsApp and Geneveve handles it from
             there.
           </p>
         </div>
