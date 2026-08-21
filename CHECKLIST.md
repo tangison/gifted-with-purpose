@@ -82,8 +82,8 @@ in Chromium device emulation, not on physical handsets.
 |---|---|---|
 | Colour contrast | Done | Body `#2A2A2A` on light; dark footer. |
 | Alt text on meaningful images | Done | Verified: zero images missing `alt`. Decorative SVGs `aria-hidden`. |
-| Keyboard accessible | Done | Drawer and lightbox trap, close on Escape, restore focus. |
-| Visible focus states | Done | 3px pink outline. |
+| Keyboard accessible | Done | Verified by real Tab traversal, not forced focus: skip link is the first stop and jumps to `#main`; the gift bag and drawer both open with Enter, trap focus, close on Escape and restore focus to the trigger. |
+| Visible focus states | Done | 3px pink outline, confirmed present on every element reached by real keyboard traversal. |
 | Structured headings | Done | Exactly one `h1` per route, verified. |
 | Form labels | N/A | No forms. |
 | Meaningful link text | Done | No "click here". |
@@ -150,7 +150,9 @@ server response, restrained animation, explicit image dimensions to prevent layo
 ## 12. Technical SEO
 
 **Done:** fully server-rendered and crawlable, every public page indexable, valid status codes including a true
-404, no redirect chains, no duplicate URL variations, canonical tags, structured data, logical internal linking,
+404. An audit found unknown collection slugs returning HTTP 200 with the 404 page body and an indexable robots
+tag, which would have let search engines index unlimited junk URLs; `dynamicParams = false` now restricts the
+route to the five real collections, and bogus slugs return a genuine 404 with `noindex`. no redirect chains, no duplicate URL variations, canonical tags, structured data, logical internal linking,
 breadcrumbs with schema, no orphan pages, descriptive slugs, Open Graph and Twitter Card metadata.
 **N/A:** pagination, hreflang — single locale, product-level Afrikaans only, per BRAND.md §6.
 **Blocked:** crawl-error monitoring and 301 mapping of removed pages need Search Console and a live domain history.

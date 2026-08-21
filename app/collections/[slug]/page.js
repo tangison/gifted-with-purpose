@@ -8,6 +8,13 @@ export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
 }
 
+/**
+ * Only the five real collections exist. Without this, Next renders any slug on
+ * demand, which returned the 404 page body with an HTTP 200 status and an
+ * indexable robots tag, so search engines could index unlimited junk URLs.
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const c = collectionBySlug(slug);

@@ -71,3 +71,11 @@ Audit | axe-core on Next 16 | 16 routes live | axe.run wcag2a-21aa | 0 violation
 Audit | Reduced-motion compliance | live | computed styles under both preferences | transitions 1e-06s under reduce, 0 infinite animations | motion check | Pass
 Audit | Structured data validation | 8 live routes | required-field check per schema type | 0 issues across 9 schema types | schema check | Pass
 Audit | Lighthouse on Next 16 | live, 2 routes | lighthouse 12 mobile | 95 and 96 perf, 100 a11y, 100 bp, 100 seo, CLS 0 | lh16-*.json | Pass
+Audit | Unknown dynamic slug handling | live /collections/<bogus> | curl status + body inspection | HTTP 200 with 404 body and an indexable robots tag | curl output | Findings
+Fix | dynamicParams = false on the collection route | app/collections/[slug]/page.js | export const dynamicParams = false | bogus slugs now return real 404 and noindex | live check | Done
+Verify | Real collections unaffected | 5 live collection pages | article count + status | 200 with 9/9/8/2/2 products | live check | Pass
+Verify | Path traversal attempt | live /collections/%2e%2e | curl -L | edge normalises to homepage, no traversal, no path leakage | curl output | Pass
+Audit | Keyboard-only journey | live and local | real Tab traversal, no forced focus | skip link first, jumps to #main; every stop has a visible ring | keyboard test | Pass
+Audit | Gift bag by keyboard | local | Enter to open, Tab x14, Escape | opens, focus enters, trapped across 14 tabs, Esc closes and restores focus to trigger | keyboard test | Pass
+Audit | Mobile drawer by keyboard | local 390px | Enter to open, Tab x8, Escape | all 8 stops inside drawer and ringed, Esc closes and restores focus | keyboard test | Pass
+Note | 11 elements appeared to lack a focus ring | probe using forced .focus() | compared against real Tab traversal | false positive: :focus-visible only fires for keyboard input, and the elements were in the closed drawer | keyboard test | Rejected
