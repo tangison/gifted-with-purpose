@@ -48,10 +48,10 @@ export const metadata = {
       'Personalised tumblers, mugs and kids’ cups made with love in Namibia. Order on WhatsApp.',
     images: [
       {
-        url: '/assets/products/studio-god-says-you-are-600ml.jpg',
-        width: 1000,
-        height: 1120,
-        alt: 'Personalised 600ml tumbler by Gifted with Purpose',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Gifted with Purpose — personalised gifts made with love in Namibia',
       },
     ],
   },
@@ -59,11 +59,14 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Gifted with Purpose — Personalised Gifts in Namibia',
     description: 'Personalised tumblers, mugs and kids’ cups made with love in Namibia.',
-    images: ['/assets/products/studio-god-says-you-are-600ml.jpg'],
+    images: ['/og-image.jpg'],
   },
   icons: {
-    icon: '/assets/logos/gifted-with-purpose-logo.svg',
-    apple: '/assets/logos/gifted-with-purpose-logo.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/assets/logos/gifted-with-purpose-logo.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
   },
   category: 'shopping',
 };

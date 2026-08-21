@@ -41,6 +41,8 @@ Nothing below is marked Done unless it is actually verifiable on the live site.
 | Cookie policy | Done | `/legal/cookies` — states plainly that no cookies are set. |
 | Refund / delivery / cancellation policy | Partial | Not published because no policy was supplied. Terms state openly that these are confirmed per order. |
 | Custom 404 | Done | `/nope` returns a real 404 with recovery links. |
+| Human-readable sitemap | Done | `/sitemap-page`, linked from the footer. |
+| Brand guide page | Done | `/brand`, deliberately `noindex` as internal reference. |
 | Thank-you / confirmation pages | N/A | Conversion completes inside WhatsApp, not on the site. |
 
 ## 3. Brand and visual design
@@ -94,6 +96,10 @@ in Chromium device emulation, not on physical handsets.
 | WCAG | Done | Zero axe-core violations against wcag2a, wcag2aa, wcag21a and wcag21aa on every route, live. Contrast failures found and fixed: WhatsApp button 1.98:1 to 6.58:1, pink CTA 3.86:1 to 5.79:1, category labels 1.87:1 to 5.46-7.03:1, legal links 3.71:1 to 6.12:1. |
 
 ## 7. Search engine optimisation
+
+**Since the last pass:** a web app manifest, a 1200x630 Open Graph image built from the real logo and a real
+product photo (it was previously a portrait product shot at 0.89 ratio, which social platforms cropped badly),
+plus `favicon.ico`, a 180px Apple touch icon and 192/512px PNG icons, all rasterised from the supplied SVG.
 
 **Done:** unique titles and meta descriptions per route, one `h1` each, H2/H3 structure, clean slugs, descriptive
 alt text, descriptive image filenames, internal linking between collections, no duplicate content, original copy,
@@ -221,8 +227,11 @@ published prices cross-checked against your own ad artwork, policy pages reviewe
 response times measured, automated accessibility structure checks, SEO metadata verified per route, structured
 data parsed and validated, status codes checked, 404 verified, full customer-journey walkthrough.
 **N/A:** search functionality, payment and booking flows, email notifications, analytics events.
-**Partial:** cross-browser testing covered Chromium only; Safari and Firefox not verified. Physical device testing
-not performed.
+**Cross-browser: Done.** The full cart journey was run on Chromium 151, Firefox 153 and WebKit 26.5 (the Safari
+and iOS engine) at 390px. All three gave identical results: 84px header logo, 350px footer mark, zero overflow,
+gift bag opens, badge increments, Escape closes, the bag survives a reload, and the WhatsApp link carries the
+right number. Fraunces resolved on every engine, so the self-hosted fonts work outside Chromium.
+**Partial:** physical device testing not performed; the above is engine-level, not hardware.
 
 ## 21. Launch requirements
 
@@ -273,8 +282,8 @@ a maintenance arrangement between us.
 | SEO configuration | Done. |
 | Analytics configuration | Blocked — awaiting authorisation. |
 | Security configuration | Done — headers, CSP, HSTS verified live. |
-| Accessibility review | Partial — structural review done, formal AA audit not. |
-| Performance audit | Partial — response times measured, Lighthouse not run here. |
+| Accessibility review | Done — axe-core WCAG 2.1 AA, zero violations on every route including `/brand` and `/sitemap-page`, verified live. Screen-reader pass still outstanding. |
+| Performance audit | Done — Lighthouse mobile on live routes: 94 to 96 performance, 100 accessibility, 100 best practices, CLS 0. |
 | Browser/device testing report | Partial — Chromium across four viewports. |
 | Launch checklist | Done — this document. |
 | Client training | Blocked — happy to walk you through it. |

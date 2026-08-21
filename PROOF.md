@@ -39,3 +39,12 @@ Audit | Lighthouse mobile, rerun same tool same config | live, both routes | lig
 Build | Remove hidden hero logo still preloaded in DOM | app/page.js | delete markup, not display:none | one logo request saved | grep hero-art = 0 | Done
 Build | Remove dead .chips/.chip filter CSS | app/site.css | selector sweep vs JSX | 659 chars removed | grep = 0 | Done
 Docs | Reconcile README and CHECKLIST with the cart | README.md, CHECKLIST.md | rewrite sections 9, 18, 6 | docs match shipped build | git diff | Done
+Audit | Cross-browser cart journey | live, Chromium 151 / Firefox 153 / WebKit 26.5 | playwright, 390px | identical on all three: logo 84, ftr 350, overflow 0, badge, persist, Esc, wa link | /tmp/xbrowser.py | Pass
+Build | Open Graph image was portrait 1000x1120 (ratio 0.89) | public/og-image.jpg | compose real logo + real product at 1200x630 | ratio 1.91, 74KB | og-image.jpg | Done
+Build | Web app manifest | app/manifest.js | Next metadata route | 200 application/manifest+json | live check | Done
+Build | Raster icons from the supplied SVG | public/ | convert at density 400 | favicon.ico 48, apple 180, png 192 and 512 | live 200s | Done
+Build | Brand guide page (mandatory per brief) | app/brand/page.js | logo rules, palette, type, voice, motion | 200, noindex by intent | live check | Done
+Build | Human-readable sitemap | app/sitemap-page/page.js | linked from footer and XML sitemap | 200 | live check | Done
+Audit | axe-core on the two new pages | /brand, /sitemap-page | axe.run wcag2a-21aa | 0 violations | axe run | Pass
+Audit | Lighthouse /brand | live | lighthouse 12 mobile | perf 96, a11y 100, bp 100, CLS 0, SEO 69 | /tmp/lh-brand.json | Pass
+Note | /brand SEO 69 | live | is-crawlable audit | sole failure is the intentional noindex on an internal reference page | lh-brand.json | Accepted

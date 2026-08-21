@@ -8,6 +8,7 @@ export default function sitemap() {
     { url: '/how-to-order', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/faq', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/contact', priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/sitemap-page', priority: 0.3, changeFrequency: 'monthly' },
     { url: '/legal/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { url: '/legal/terms', priority: 0.3, changeFrequency: 'yearly' },
     { url: '/legal/cookies', priority: 0.3, changeFrequency: 'yearly' },
