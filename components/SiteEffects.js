@@ -31,7 +31,7 @@ export default function SiteEffects() {
 
 export function StickyWa() {
   return (
-    <div className="sticky-wa" id="stickyWa" data-show="false">
+    <aside className="sticky-wa" id="stickyWa" data-show="false" aria-label="Quick order">
       <a
         className="btn btn-wa"
         href={wa('Hi Gifted with Purpose! I would like to place an order.')}
@@ -40,6 +40,6 @@ export function StickyWa() {
       >
         <Icon name="wa" /> Order on WhatsApp
       </a>
-    </div>
+    </aside>
   );
 }

@@ -148,7 +148,7 @@ export default async function CollectionPage({ params }) {
             >
               <Icon name="apple" />
               <div>
-                <h4>Seasonal collection</h4>
+                <h2>Seasonal collection</h2>
                 <p style={{ color: '#274E86' }}>
                   This set is offered around the school calendar. Message us to check current availability before term
                   ends.
@@ -161,7 +161,7 @@ export default async function CollectionPage({ params }) {
             <div className="confirm" style={{ marginBottom: 22 }}>
               <Icon name="sparkle" />
               <div>
-                <h4>About our character designs</h4>
+                <h2>About our character designs</h2>
                 <p>
                   Character artwork shown in this collection is printed onto purchasable blank cups. Gifted with Purpose
                   is an independent small business and is not affiliated with, endorsed by, or licensed by any character

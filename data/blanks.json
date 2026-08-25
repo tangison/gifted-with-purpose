@@ -1,0 +1,255 @@
+{
+ "note": "The physical items. Prices trace to the client's own WhatsApp Business catalogue (22 Aug 2026) or to prices printed in the client's own supplied artwork. Any item without such evidence has price null and must read 'Price on request'. Do not invent numbers.",
+ "items": [
+  {
+   "id": "mug-11oz",
+   "name": "11oz Mug",
+   "short": "Mug",
+   "price": 120,
+   "price_source": "WhatsApp Business catalogue: 11oz Mug Designs, N$120",
+   "spec": "11oz stainless steel handle mug",
+   "capacity": "11oz",
+   "audience": "adult",
+   "wrap": "full wrap around the body, handle left clear",
+   "photo": "life-take-care-of-your-mind-mug",
+   "shot": "life",
+   "blurb": "The everyday one. Coffee at a desk, tea at a kitchen table, and it comes back to the same hand every morning.",
+   "care": [
+    "Hand wash",
+    "Not for the microwave",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "design",
+    "fliptop",
+    "sippy"
+   ],
+   "best_for": [
+    "affirmations",
+    "faith",
+    "teacher",
+    "selfcare"
+   ],
+   "order": 1,
+   "photo_w": 554,
+   "photo_h": 1200
+  },
+  {
+   "id": "tumbler-20oz",
+   "name": "20oz Skinny Tumbler",
+   "short": "Tumbler",
+   "price": 250,
+   "price_source": "WhatsApp Business catalogue: 20oz Skinny Tumbler Designs, N$250",
+   "spec": "20oz insulated stainless steel tumbler with lid and straw",
+   "capacity": "600ml",
+   "audience": "adult",
+   "wrap": "full wrap, top to bottom",
+   "photo": "studio-god-says-you-are-600ml",
+   "shot": "studio",
+   "blurb": "The one that goes to work and comes home still cold. Tall, insulated, and the biggest canvas we print on.",
+   "care": [
+    "Hand wash",
+    "Keeps cold longer than it keeps hot",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "design"
+   ],
+   "best_for": [
+    "faith",
+    "affirmations",
+    "floral",
+    "personalised"
+   ],
+   "order": 2,
+   "photo_w": 1000,
+   "photo_h": 1120
+  },
+  {
+   "id": "sippy-cup",
+   "name": "Kids Sippy Cup",
+   "short": "Sippy cup",
+   "price": 230,
+   "price_source": "WhatsApp Business catalogue: Sippy Cups, N$230",
+   "spec": "Insulated kids sippy cup with two handles and a straw lid",
+   "capacity": "12oz",
+   "audience": "kids",
+   "wrap": "full wrap between the handles",
+   "photo": "life-character-sippy-learning",
+   "shot": "life",
+   "blurb": "Two handles, a straw lid and their name printed big enough to end the argument over whose cup it is.",
+   "care": [
+    "Hand wash",
+    "Handles and lid come off",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "sippy",
+    "design"
+   ],
+   "best_for": [
+    "kids",
+    "characters",
+    "school",
+    "personalised"
+   ],
+   "order": 3,
+   "photo_w": 554,
+   "photo_h": 1200
+  },
+  {
+   "id": "kids-fliptop",
+   "name": "Kids Flip-Top Bottle",
+   "short": "Flip-top bottle",
+   "price": null,
+   "price_source": null,
+   "spec": "Insulated kids water bottle with a flip-top lid and carry handle",
+   "capacity": "12oz",
+   "audience": "kids",
+   "wrap": "full wrap around the body",
+   "photo": "life-character-kids-bottle-pink",
+   "shot": "life",
+   "blurb": "School bag bottle. Flip lid so it opens one-handed, carry loop so it clips on, and a wrap that survives the term.",
+   "care": [
+    "Hand wash",
+    "Lid and straw come apart for cleaning",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "fliptop",
+    "design"
+   ],
+   "best_for": [
+    "kids",
+    "school",
+    "characters",
+    "animals"
+   ],
+   "order": 4,
+   "photo_w": 462,
+   "photo_h": 1000
+  },
+  {
+   "id": "frosted-mug",
+   "name": "Frosted Mug",
+   "short": "Frosted mug",
+   "price": 120,
+   "price_source": "WhatsApp Business catalogue: Frosted Mugs, N$120",
+   "spec": "Frosted glass mug with a handle",
+   "capacity": "11oz",
+   "audience": "adult",
+   "wrap": "printed panel on the frosted glass",
+   "photo": null,
+   "shot": null,
+   "blurb": "Frosted glass, so the print reads softer and the light comes through it.",
+   "care": [
+    "Hand wash",
+    "Glass, so treat it like glass"
+   ],
+   "accepts": [
+    "design"
+   ],
+   "best_for": [
+    "floral",
+    "affirmations",
+    "faith"
+   ],
+   "order": 5,
+   "photo_pending": true,
+   "photo_w": null,
+   "photo_h": null
+  },
+  {
+   "id": "wine-tumbler",
+   "name": "Wine Tumbler",
+   "short": "Wine tumbler",
+   "price": null,
+   "price_source": null,
+   "spec": "Stainless steel stemless wine tumbler with a lid",
+   "capacity": "355ml",
+   "audience": "adult",
+   "wrap": "full wrap around the body",
+   "photo": "studio-spreuke31-wine-355ml",
+   "shot": "studio",
+   "blurb": "Stemless, lidded and short enough to live on a bedside table. Popular with the Afrikaans scripture prints.",
+   "care": [
+    "Hand wash",
+    "Lid is push-fit",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "design"
+   ],
+   "best_for": [
+    "faith",
+    "afrikaans",
+    "floral"
+   ],
+   "order": 6,
+   "photo_w": 1000,
+   "photo_h": 1120
+  },
+  {
+   "id": "can-tumbler",
+   "name": "Can Tumbler",
+   "short": "Can tumbler",
+   "price": null,
+   "price_source": null,
+   "spec": "Stainless steel can-shaped tumbler with a straw lid",
+   "capacity": "355ml",
+   "audience": "adult",
+   "wrap": "full wrap around the can",
+   "photo": "life-spreuke31-can",
+   "shot": "life",
+   "blurb": "Can shape, straw lid, fits a cup holder. The one people pick when they want something that does not look like a mug.",
+   "care": [
+    "Hand wash",
+    "Straw and lid come off",
+    "Print sits under a protective coat"
+   ],
+   "accepts": [
+    "design"
+   ],
+   "best_for": [
+    "retro",
+    "affirmations",
+    "faith",
+    "fun"
+   ],
+   "order": 7,
+   "photo_w": 554,
+   "photo_h": 1200
+  },
+  {
+   "id": "glass-tumbler",
+   "name": "Glass Tumbler with Bamboo Lid",
+   "short": "Glass tumbler",
+   "price": null,
+   "price_source": null,
+   "spec": "Glass tumbler with a bamboo lid and a glass straw",
+   "capacity": "450ml",
+   "audience": "adult",
+   "wrap": "printed panel on the glass",
+   "photo": "studio-you-are-enough-glass-450ml",
+   "shot": "studio",
+   "blurb": "Glass and bamboo. The print shows through from both sides, so it reads as much like an object as a gift.",
+   "care": [
+    "Hand wash",
+    "Bamboo lid must not soak",
+    "Glass, so treat it like glass"
+   ],
+   "accepts": [
+    "design"
+   ],
+   "best_for": [
+    "floral",
+    "affirmations",
+    "selfcare",
+    "teacher"
+   ],
+   "order": 8,
+   "photo_w": 1000,
+   "photo_h": 1120
+  }
+ ]
+}

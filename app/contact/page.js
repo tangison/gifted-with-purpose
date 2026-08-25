@@ -69,6 +69,7 @@ export default function ContactPage() {
 
       <section className="sec">
         <div className="wrap">
+          <h2 className="sr-only">Ways to reach us</h2>
           <div className="contact-grid">
             <a
               className="ccard"
@@ -128,7 +129,7 @@ export default function ContactPage() {
           <div className="confirm" style={{ marginTop: 26 }} id="social">
             <Icon name="sparkle" />
             <div>
-              <h4>Our social links are not connected yet</h4>
+              <h3>Our social links are not connected yet</h3>
               <p>
                 We are on Facebook and Instagram, but the profile links have not been published on this site yet.
                 Message us on WhatsApp and we will send them to you directly.

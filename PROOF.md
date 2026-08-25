@@ -160,3 +160,30 @@ Build | WhatsApp order form | app/contact/OrderForm.js | structured fields compo
 Debug | 141 orphaned list items on /designs | app/designs/DesignGallery.js | axe listitem violation | root cause: role=tabpanel on the ul overrode list semantics | moved role to a wrapper div | axe | Fixed
 Audit | axe across 18 routes after the build | live | wcag2a to wcag21aa | 0 violations | axe | Pass
 Verify | Live asset delivery | live | curl on sample designs | 200 image/webp on all sampled | curl | Pass
+
+---
+
+## Phase 12 — Unify shop and designs into one catalogue (25 Aug 2026)
+
+| Phase | Action | Target | Command or method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| 12.0 | Fetch the bar, not a memory of it | casetify.com, papier.com | Scrapling `Fetcher.get` + Playwright screenshots at 1440 and 390 | Both HTTP 200. Casetify card verbatim: `Orchidia \| iPhone 17 Pro Max \| Impact Case MagSafe \| $64`. Papier: `Cornflower · £23.00 · Hardback Lined Notebook · 2 bindings`, "154 designs" counter, 4 filter chips | `/home/user/bar/*.png`, `bar.json` | Done |
+| 12.1 | Review all 141 designs by eye | `public/assets/designs` | 4 contact sheets rendered with PIL, read individually | Found 34 placeholder alt texts, 1 wrong scripture reference, 1 unflagged brand | `/home/user/bar/sheet-*.png` | Done |
+| 12.2 | Correct scripture reference | `design-33` | Read the artwork | Was "1 Peter 3:18", artwork reads **2 Peter 3:18** | `sheet-design-a.png` | Fixed |
+| 12.3 | Flag unlicensed brand | `design-19` | Read the artwork | Real cola label, now `licensed: true` with disclaimer | `sheet-design-a.png` | Fixed |
+| 12.4 | Rewrite design metadata | `data/designs.json` | `scripts/build_designs.py` | 141 items with name, alt, 24 themes, `licensed` (49), `personalisable` (11), `photo_upload` (12), intrinsic sizes | `python3 scripts/build_designs.py` | Done |
+| 12.5 | Create the priced item layer | `data/blanks.json` | Hand-written from the WhatsApp catalogue | 8 items, 4 priced from the catalogue, 4 explicitly `null` | `data/blanks.json` | Done |
+| 12.6 | Join the two halves | `lib/catalog.js` | `blanksForDesign`, `designsForBlank`, `priceFromDesign`, `searchDesigns`, `relatedDesigns` | No function can produce a price that is not in `blanks.json` | `lib/catalog.js` | Done |
+| 12.7 | Build the new routes | `/shop/[blank]` ×8, `/designs/[id]` ×141, `/create` | `next build` | 172 routes prerendered | build log | Done |
+| 12.8 | Verify served HTML, not status codes | 177 routes | `scripts/verify_routes.py` | Each design page must contain its own name, reference and price table; each item page its spec and price | `ALL PASS` ×3 | Done |
+| 12.9 | Bug: custom option unreachable | `/create` | verify_routes | "Ask us to draw one" was hidden until an item was picked, so it was invisible to crawlers and undecided visitors | Fixed, re-ran the exact failing check | Fixed |
+| 12.10 | Bug: wrong default item | `/designs/sippy-18` | `scripts/verify_flow.py` | Cheapest-first sorting preselected a mug for a sippy-cup wrap. Now the item the art was drawn for comes first | Fixed, `FLOWS PASS` ×3 | Fixed |
+| 12.11 | Drive the real flows in Chromium | `/create`, `/designs/[id]` | `scripts/verify_flow.py` | 3 × 11oz Mug = N$360.00 in the composed wa.me URL; unpriced item emits "please confirm" and **no N$ figure**; empty submit shows 2 errors | `FLOWS PASS` ×3 | Done |
+| 12.12 | axe-core sweep | 19 routes × 2 viewports + 6 interactive states | `scripts/verify_a11y.py` | Found **31 violations**. Fixed: `role="alert"` on a `<ul>` (my own regression, same class as the earlier tabpanel bug), sticky bar outside a landmark, 4 heading-order breaks | Re-ran: **0 violations** | Fixed |
+| 12.13 | Responsive sweep | 6 routes × 7 widths | `scripts/verify_a11y.py` | Found 2 overflows I introduced plus 1 pre-existing (`.btn` `nowrap` at 320px) | **0 overflow** at 320/375/414/768/1024/1280/1440 | Fixed |
+| 12.14 | Bug: CLS 0.125 | `/shop/sippy-cup` | Lighthouse | I hardcoded `width={900} height={900}` on photos that are 554×1200. Browser reserved a square, image reflowed the page | Measured every asset, wrote real dimensions into the data. **CLS 0.125 → 0, perf 74 → 96** | Fixed |
+| 12.15 | Blind A/B vs the bar | `/designs` at 1440 | Screenshot next to `papier-collection-d.png` | Ours lost: 0 designs above the fold vs Papier's 4, 24 chips in 3 rows vs 4, first 4 cards near-identical, nav wrapped to 2 rows | Fixed all four: interleaved batches, 6 chips + "All 24 filters", compact header, trimmed nav. **8 cards above the fold** | Fixed |
+| 12.16 | Lighthouse mobile | 7 routes | lighthouse 12, simulated throttling | `/shop` 98, `/designs` 98, `/create` 98, `/designs/design-33` 96, `/shop/sippy-cup` 96, `/shop/mug-11oz` 96, `/` 85. **All 100 a11y / 100 BP / 100 SEO. CLS 0 everywhere except `/` at 0.001** | `/tmp/l_*.json` | Done |
+| 12.17 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, 0 warnings, **0 vulnerabilities** | terminal | Done |
+
+**Not fixed, stated plainly:** `/` scores 85 on mobile performance. The cause is the pre-existing hero background image, not this turn's work. Every page built this turn scores 96 or higher.

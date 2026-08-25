@@ -115,3 +115,54 @@ published rather than invented:
 
 Send photos of these and they become real product cards. The Mother's Day lines would also make
 a natural seasonal collection alongside Teacher Appreciation.
+
+---
+
+## 6. The item / design split (added 25 Aug 2026)
+
+The site now separates **items** (few, priced) from **designs** (many, free choice), which is how
+the business actually works. Confirmed with you on 25 Aug 2026:
+
+- Any design can go on any item that fits it. **The item sets the price.**
+- Custom artwork is **quoted per job**. No number is published anywhere.
+
+### Item prices published
+
+| Item | Price | Source |
+|---|---|---|
+| 11oz Mug | N$120.00 | WhatsApp Business catalogue |
+| Frosted Mug | N$120.00 | WhatsApp Business catalogue |
+| Kids Sippy Cup | N$230.00 | WhatsApp Business catalogue |
+| 20oz Skinny Tumbler | N$250.00 | WhatsApp Business catalogue |
+
+### Item prices still missing (each reads "Price on request")
+
+| Item | Why it is blank |
+|---|---|
+| Kids Flip-Top Bottle | Not in the catalogue screenshots. 30 designs are drawn for it, so this is the most valuable gap to close. |
+| Wine Tumbler | Not in the catalogue screenshots. |
+| Can Tumbler | Not in the catalogue screenshots. |
+| Glass Tumbler with Bamboo Lid | A N$160 glass tumbler appears in a studio ad, but I cannot confirm it is this same item, so it is not applied. |
+
+**Send me these four numbers and every design page updates automatically.**
+
+### Photography still missing
+
+- **Frosted Mug** has a confirmed price but no photograph. Its page and cards show a "photo coming
+  soon" placeholder rather than a stand-in image.
+
+### Corrections made from reading the artwork
+
+| What | Was | Now | Evidence |
+|---|---|---|---|
+| Grow In Grace verse | 1 Peter 3:18 | **2 Peter 3:18** | The verse is printed on the sheet itself |
+| Cola label design (DESIGN-19) | Not flagged | Flagged as licensed, disclaimer shown | It is a real drinks brand label |
+| 34 sippy-cup designs | Alt text read "full-wrap character design, option 22" | Real descriptions written from the images | Contact sheet review |
+
+### Still to decide
+
+- **Do the 141 designs each have a name you use?** I wrote a short name for every one from the
+  artwork (for example "Grow In Grace", "Namibia", "Badass Bestie"). Correct any that are wrong.
+- **Which designs may not be reprinted?** 49 of 141 show third-party characters or brands. They are
+  listed generically with a visible independence disclaimer and kept out of all marketing imagery.
+  Say the word and I will remove any or all of them.

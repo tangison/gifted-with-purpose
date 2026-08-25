@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from './Icons';
-import { brand, collections, wa } from '@/lib/site';
+import { brand, wa } from '@/lib/site';
 import { CartButton } from './CartDrawer';
 import Drawer from './Drawer';
 
@@ -64,11 +64,9 @@ export default function Header() {
             <Link href="/designs" aria-current={cur('/designs')}>
               Designs
             </Link>
-            {collections.map((c) => (
-              <Link key={c.slug} href={`/collections/${c.slug}`} aria-current={cur(`/collections/${c.slug}`)}>
-                {c.name}
-              </Link>
-            ))}
+            <Link href="/create" aria-current={cur('/create')}>
+              Make your own
+            </Link>
             <Link href="/about" aria-current={cur('/about')}>
               Our Story
             </Link>

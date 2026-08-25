@@ -1,17 +1,29 @@
 import Link from 'next/link';
-import { Chev } from '@/components/Icons';
-import ShopClient from './ShopClient';
-import { products, collections, brand, SITE_URL } from '@/lib/site';
+import Image from 'next/image';
+import { Chev, Icon } from '@/components/Icons';
+import { SITE_URL, brand } from '@/lib/site';
+import {
+  blanks,
+  designs,
+  designsForBlank,
+  blankPriceLabel,
+  money,
+} from '@/lib/catalog';
 
 export const metadata = {
-  title: 'Shop All Personalised Gifts',
+  title: 'Shop the Items',
   description:
-    'Every Gifted with Purpose design in one place: affirmation tumblers, faith-based drinkware, kids’ cups and teacher gifts. Filter by collection and order on WhatsApp.',
+    'Mugs, tumblers, kids sippy cups and flip-top bottles, printed to order in Windhoek. Pick the item, then pick any of 141 designs or send us your own. Prices from N$120.',
   alternates: { canonical: '/shop' },
+  openGraph: {
+    title: 'Shop the Items | Gifted with Purpose',
+    description: 'Pick the item, then pick the design. Printed to order in Windhoek.',
+    url: `${SITE_URL}/shop`,
+  },
 };
 
 export default function ShopPage() {
-  const priced = products.filter((p) => p.price).map((p) => p.price);
+  const priced = blanks.filter((b) => b.price != null).map((b) => b.price);
 
   const breadcrumb = {
     '@context': 'https://schema.org',
@@ -22,35 +34,111 @@ export default function ShopPage() {
     ],
   };
 
+  const list = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Gifted with Purpose items',
+    numberOfItems: blanks.length,
+    itemListElement: blanks.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      url: `${SITE_URL}/shop/${b.id}`,
+    })),
+  };
+
   return (
     <main id="main">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(list) }} />
 
-      <section className="cblock" style={{ '--accent': 'var(--ink)' }}>
+      <section className="cblock cblock-tight" style={{ '--accent-ink': '#B32359' }}>
         <div className="wrap">
           <nav className="crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <Chev />
             <span aria-current="page">Shop</span>
           </nav>
-          <p className="sub">The full catalogue</p>
-          <h1>Every design we print</h1>
-          <p>
-            Filter by who you are buying for. Add as many as you like to one gift bag and send it to us in a single
-            WhatsApp message.
+          <div className="cb-head">
+            <p className="sub">Step one of two</p>
+            <h1>Pick the item</h1>
+            <p>
+              {blanks.length} items, {designs.length} designs, from {brand.currency}
+              {Math.min(...priced).toFixed(2)}. The item sets the price. The design is yours to choose.
+            </p>
+          </div>
+          <p className="cblock-cta">
+            <Link href="/designs" className="btn btn-ghost">
+              Or start from the design
+            </Link>
           </p>
-          <ul className="stats">
-            <li>{products.length} designs</li>
-            <li>{collections.length} collections</li>
-            <li>
-              From {brand.currency}
-              {Math.min(...priced).toFixed(2)}
-            </li>
-          </ul>
         </div>
       </section>
 
-      <ShopClient />
+      <section className="sec">
+        <div className="wrap">
+          <h2 className="sr-only">Items we print on</h2>
+          <ul className="blanks">
+            {blanks.map((b, i) => {
+              const n = designsForBlank(b).length;
+              return (
+                <li key={b.id}>
+                  <Link href={`/shop/${b.id}`} className="blank">
+                    <span className="blank-media">
+                      {b.photo ? (
+                        <Image
+                          src={`/assets/products/${b.photo}@sm.jpg`}
+                          alt={`${b.name}, ${b.spec}`}
+                          fill
+                          sizes="(min-width:1000px) 300px, 46vw"
+                          priority={i < 2}
+                          style={{ objectFit: b.shot === 'studio' ? 'contain' : 'cover' }}
+                        />
+                      ) : (
+                        <span className="blank-nophoto">
+                          <Icon name="cup" />
+                          Photo coming soon
+                        </span>
+                      )}
+                    </span>
+                    <span className="blank-body">
+                      <span className="blank-top">
+                        <b className="blank-name">{b.name}</b>
+                        <span className={`blank-price${b.price == null ? ' ask' : ''}`}>
+                          {blankPriceLabel(b)}
+                        </span>
+                      </span>
+                      <span className="blank-spec">{b.spec}</span>
+                      <span className="blank-n">
+                        {n} design{n === 1 ? '' : 's'} fit this
+                        <Chev />
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="shop-next">
+            <div>
+              <h2>Then pick the design</h2>
+              <p>
+                Every design in the library can go on the item you choose. If you have something else in mind, we draw
+                it for you and quote the artwork per job.
+              </p>
+            </div>
+            <p className="shop-next-cta">
+              <Link href="/designs" className="btn btn-primary">
+                <Icon name="grid" /> Browse {designs.length} designs
+              </Link>
+              <Link href="/create" className="btn btn-ghost">
+                Build it step by step
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

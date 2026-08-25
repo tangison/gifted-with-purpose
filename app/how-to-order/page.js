@@ -75,6 +75,7 @@ export default function HowToOrderPage() {
 
       <section className="sec">
         <div className="wrap" style={{ maxWidth: 860 }}>
+          <h2 className="sr-only">The steps</h2>
           <div className="steps">
             {STEPS.map((s, i) => (
               <div className="step" key={s.name} id={`step-${i + 1}`}>

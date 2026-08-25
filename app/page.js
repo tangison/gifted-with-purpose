@@ -4,6 +4,7 @@ import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import ProductCard from '@/components/ProductCard';
 import Disclosure from '@/components/Disclosure';
 import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, SITE_URL } from '@/lib/site';
+import { blanks, designs, blankPriceLabel, money } from '@/lib/catalog';
 
 export const metadata = {
   title: 'Personalised Gifts in Namibia — Tumblers, Mugs & Kids’ Cups',
@@ -28,8 +29,9 @@ export default function HomePage() {
             </h1>
             <p className="hero-tag">Printed to order in Windhoek</p>
             <p className="hero-sub">
-              Tumblers, mugs and kids&rsquo; cups printed with the name, the scripture or the affirmation you choose.
-              Made by a mother and daughter in Windhoek. From N$120, ordered on WhatsApp.
+              Pick the cup. Pick the design. We print it. {designs.length} designs ready to go, or we draw you a new
+              one. Made by a mother and daughter in Windhoek, from {brand.currency}
+              {Math.min(...blanks.filter((b) => b.price != null).map((b) => b.price))}.
             </p>
             <div className="hero-cta">
               <a
@@ -40,10 +42,67 @@ export default function HomePage() {
               >
                 <Icon name="wa" /> Order on WhatsApp
               </a>
-              <Link className="btn btn-ghost" href="/shop">
-                Shop all designs <Chev />
+              <Link className="btn btn-ghost" href="/create">
+                Make your own <Chev />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec how2">
+        <div className="wrap">
+          <div className="sec-head center">
+            <span className="eyebrow">How it works</span>
+            <h2>Two choices, one message</h2>
+            <p>
+              The item sets the price. The design is yours to pick, and there is no extra charge for choosing a
+              different one.
+            </p>
+          </div>
+
+          <ol className="h2-steps">
+            <li>
+              <span className="h2-n">1</span>
+              <h3>Pick the item</h3>
+              <p>
+                {blanks.length} to choose from: mugs, tumblers, sippy cups and kids bottles. From {brand.currency}
+                {Math.min(...blanks.filter((b) => b.price != null).map((b) => b.price))}.
+              </p>
+              <Link href="/shop">See the items <Chev /></Link>
+            </li>
+            <li>
+              <span className="h2-n">2</span>
+              <h3>Pick the design</h3>
+              <p>
+                {designs.length} ready-made designs, filtered by what fits your item. Or describe your own and we draw
+                it, quoted per job.
+              </p>
+              <Link href="/designs">Browse the designs <Chev /></Link>
+            </li>
+            <li>
+              <span className="h2-n">3</span>
+              <h3>Send it on WhatsApp</h3>
+              <p>
+                Your choices arrive as one message with the reference and the price written out. Geneveve replies to
+                confirm before anything is made.
+              </p>
+              <Link href="/create">Start building <Chev /></Link>
+            </li>
+          </ol>
+
+          <div className="h2-strip">
+            <p className="h2-strip-lead">Print it on</p>
+            <ul>
+              {blanks.map((b) => (
+                <li key={b.id}>
+                  <Link href={`/shop/${b.id}`}>
+                    <b>{b.name}</b>
+                    <span className={b.price == null ? 'ask' : undefined}>{blankPriceLabel(b)}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -54,9 +113,9 @@ export default function HomePage() {
             <span className="eyebrow">
               Shop by collection
             </span>
-            <h2>Who are you buying for?</h2>
+            <h2>Or start from who it is for</h2>
             <p>
-              Five collections, 27 designs, every one printed after you order it. Pick the person and we will show you
+              Five collections of pieces we have already made and photographed. Pick the person and we will show you
               what fits.
             </p>
           </div>

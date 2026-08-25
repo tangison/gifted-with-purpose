@@ -43,16 +43,16 @@ export default function Drawer({ open, onClose, panelRef, current }) {
         <div className="dw-scroll">
           <Link className="dw-hero" href="/shop" aria-current={cur('/shop')}>
             <span className="dw-hero-tx">
-              <b>Shop all designs</b>
-              <small>{products.length} designs across {collections.length} collections</small>
+              <b>Pick the item</b>
+              <small>Mugs, tumblers and kids cups, from N$120</small>
             </span>
             <Chev />
           </Link>
 
           <Link className="dw-hero" href="/designs" style={{ background: '#1F6F66', marginTop: 'var(--s-2)' }}>
             <span className="dw-hero-tx">
-              <b>Pick your design</b>
-              <small>141 prints to choose from</small>
+              <b>Pick the design</b>
+              <small>141 designs, any of them on any item</small>
             </span>
             <Chev />
           </Link>
@@ -86,6 +86,7 @@ export default function Drawer({ open, onClose, panelRef, current }) {
           <nav className="dw-links" aria-label="Pages">
             <Link href="/" aria-current={cur('/')}>Home</Link>
             <Link href="/about" aria-current={cur('/about')}>Our Story</Link>
+            <Link href="/create" aria-current={cur('/create')}>Make your own</Link>
             <Link href="/how-to-order" aria-current={cur('/how-to-order')}>How to order</Link>
             <Link href="/faq" aria-current={cur('/faq')}>FAQ</Link>
             <Link href="/contact" aria-current={cur('/contact')}>Contact</Link>

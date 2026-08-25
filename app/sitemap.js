@@ -1,4 +1,5 @@
 import { SITE_URL, collections } from '@/lib/site';
+import { designs, blanks } from '@/lib/catalog';
 
 export default function sitemap() {
   const now = new Date();
@@ -6,6 +7,7 @@ export default function sitemap() {
     { url: '/', priority: 1.0, changeFrequency: 'weekly' },
     { url: '/shop', priority: 0.95, changeFrequency: 'weekly' },
     { url: '/designs', priority: 0.9, changeFrequency: 'weekly' },
+    { url: '/create', priority: 0.9, changeFrequency: 'monthly' },
     { url: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/how-to-order', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/faq', priority: 0.7, changeFrequency: 'monthly' },
@@ -27,7 +29,19 @@ export default function sitemap() {
       url: `${SITE_URL}/collections/${c.slug}`,
       lastModified: now,
       changeFrequency: 'weekly',
+      priority: 0.85,
+    })),
+    ...blanks.map((b) => ({
+      url: `${SITE_URL}/shop/${b.id}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
       priority: 0.9,
+    })),
+    ...designs.map((d) => ({
+      url: `${SITE_URL}/designs/${d.id}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     })),
   ];
 }

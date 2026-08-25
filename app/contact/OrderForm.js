@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { Icon } from '@/components/Icons';
 import { brand, collections } from '@/lib/site';
@@ -147,7 +148,7 @@ export default function OrderForm() {
           aria-describedby="of-design-help"
         />
         <p className="ofm-help" id="of-design-help">
-          Found one you like on the <a href="/designs">pick your design</a> page? Put its reference here.
+          Found one you like on the <Link href="/designs">pick your design</Link> page? Put its reference here.
         </p>
       </div>
 

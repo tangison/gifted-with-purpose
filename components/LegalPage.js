@@ -29,7 +29,7 @@ export default function LegalPage({ title, sub, updated, children }) {
           <div className="confirm" style={{ marginTop: 30 }}>
             <Icon name="sparkle" />
             <div>
-              <h4>Questions about this policy?</h4>
+              <h2>Questions about this policy?</h2>
               <p>
                 Message us on WhatsApp at {brand.phone_intl} and we will answer directly.{' '}
                 <a href={wa(`Hi Gifted with Purpose! I have a question about your ${title.toLowerCase()}.`)} target="_blank" rel="noopener noreferrer">
