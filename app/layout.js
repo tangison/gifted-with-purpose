@@ -8,6 +8,7 @@ import CartDrawer from '@/components/CartDrawer';
 import ScrollTop from '@/components/ScrollTop';
 import SiteEffects, { StickyWa } from '@/components/SiteEffects';
 import { SITE_URL, brand, products } from '@/lib/site';
+import { priceRange } from '@/lib/catalog';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -98,7 +99,7 @@ function schema() {
     telephone: `+${brand.wa_number}`,
     logo: `${SITE_URL}/assets/logos/gifted-with-purpose-logo.svg`,
     image: `${SITE_URL}/assets/products/studio-god-says-you-are-600ml.jpg`,
-    priceRange: 'N$150 - N$250',
+    priceRange,
     currenciesAccepted: 'NAD',
     address: { '@type': 'PostalAddress', addressCountry: 'NA' },
     areaServed: { '@type': 'Country', name: 'Namibia' },

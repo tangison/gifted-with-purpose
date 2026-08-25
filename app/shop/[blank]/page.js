@@ -7,6 +7,7 @@ import {
   blanks,
   blankById,
   designsForBlank,
+  shapesForBlank,
   blankPriceLabel,
   money,
 } from '@/lib/catalog';
@@ -44,6 +45,7 @@ export default async function BlankPage({ params }) {
 
   const fits = designsForBlank(b);
   const others = blanks.filter((x) => x.id !== b.id);
+  const shapesHere = shapesForBlank(b);
 
   const breadcrumb = {
     '@context': 'https://schema.org',
@@ -179,7 +181,34 @@ export default async function BlankPage({ params }) {
         </div>
       </section>
 
-      <section className="sec">
+      {shapesHere.length > 0 && (
+        <section className="sec">
+          <div className="wrap">
+            <h2 className="dp-h2">The bare container</h2>
+            <p className="dp-lead">
+              {shapesHere.length === 1
+                ? 'This is the unprinted blank this item is printed on, with the maker\u2019s own measurements.'
+                : `These are the unprinted blanks closest to this item, with the maker\u2019s own measurements.`}{' '}
+              Nothing on the blank range is priced yet.
+            </p>
+            <ul className="fits">
+              {shapesHere.map((sh) => (
+                <li key={sh.id}>
+                  <Link href={`/blanks/${sh.id}`} className="fit">
+                    <span className="fit-name">{sh.name}</span>
+                    <span className="fit-spec">
+                      {sh.capacity} &middot; {sh.sku_label} &middot; print {sh.print_area || 'on request'}
+                    </span>
+                    <span className="fit-price ask">Price on request</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="sec sec-alt">
         <div className="wrap">
           <h2 className="dp-h2">Other items</h2>
           <ul className="fits">

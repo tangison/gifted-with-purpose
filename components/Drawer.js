@@ -87,6 +87,7 @@ export default function Drawer({ open, onClose, panelRef, current }) {
             <Link href="/" aria-current={cur('/')}>Home</Link>
             <Link href="/about" aria-current={cur('/about')}>Our Story</Link>
             <Link href="/create" aria-current={cur('/create')}>Make your own</Link>
+            <Link href="/blanks" aria-current={cur('/blanks')}>Blank range</Link>
             <Link href="/how-to-order" aria-current={cur('/how-to-order')}>How to order</Link>
             <Link href="/faq" aria-current={cur('/faq')}>FAQ</Link>
             <Link href="/contact" aria-current={cur('/contact')}>Contact</Link>

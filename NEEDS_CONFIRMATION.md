@@ -166,3 +166,61 @@ the business actually works. Confirmed with you on 25 Aug 2026:
 - **Which designs may not be reprinted?** 49 of 141 show third-party characters or brands. They are
   listed generically with a visible independence disclaimer and kept out of all marketing imagery.
   Say the word and I will remove any or all of them.
+
+---
+
+## 7. The blank range (added 25 Aug 2026)
+
+You sent nine photographs of unlabelled containers and a list of seven sizes. All nine are now
+on the site at **/blanks**, each with its own page, linked into the shop in both directions.
+
+### What I did with the size list, and why
+
+Your list read: `320ml, 300ml, 355ml, 200ml, 600ml, 355ml, 400ml`. That is **seven sizes against
+nine photographs**, and the order does not line up with the codes printed on the images. Rather
+than guess, I read the SKU code off each photograph and looked every one up on Titan-Jet's own
+site. The capacities below are the maker's published figures.
+
+| Photograph | Code on image | What it actually is (maker's own name) | Capacity |
+|---|---|---|---|
+| Handled mug, clear slide lid | SB8000 A | 12oz White Stainless Steel Coffee Mug | 12oz |
+| Squat rounded tumbler | SB8009 F | 12oz White Stainless Steel Gin Tumblers | 12oz |
+| Straight tumbler, domed lid | SB8005 A | 15oz White Stainless Steel Skinny Tumbler | 15oz |
+| Tall slim tumbler, clear lid | SB859 A | 20oz White Stainless Steel Skinny Tumbler | 20oz |
+| Tall slim tumbler, black flip lid | SB8072 F | 20oz White Stainless Steel Hot and Cold Skinny Tumbler | 20oz |
+| Small soda can, ring pull | SB889 F | 250ml White Stainless Steel Can | 250ml |
+| Tall can, ring pull | SB890 A | 400ml White Stainless Steel Can | 400ml |
+| Kids bottle, blue and yellow lid | SB856 F | 300ml Yellow Cap Stainless Steel Sippy Cup | 300ml |
+| Kids cup, two clear handles | SB893 F | 320ml White Stainless Steel Straight Baby Sippy Cup | 320ml |
+
+**Two things I need you to confirm:**
+
+1. **The sizes do not match your list.** Your list has 355ml, 200ml and 600ml, and none of the
+   nine containers is any of those. It also has 300ml, 320ml and 400ml, which do match. Were the
+   355 / 200 / 600 sizes meant for **different** containers you have not sent photographs of? Or
+   were some of those numbers approximate?
+2. **SB893 has two codes.** Your photograph is labelled **SB893 F**. The maker's own product page
+   lists the same cup as **SP893**. I have published both on the page so nobody orders the wrong
+   thing. Tell me which one you quote to customers and I will lead with it.
+
+### No prices are published for any of them
+
+**None of these nine has a price on the site.** Every one reads "Price on request" and the
+enquiry button opens WhatsApp pre-filled with the shape, the code and the size. I have not
+guessed a single figure, and I have not marked up the supplier's trade price.
+
+**Send me your selling price for any of the nine and that page starts quoting it immediately.**
+
+### One thing worth knowing about SB8072
+
+The maker states it ships with a **plastic** straw, not a metal one, and the straw has to be
+pushed into the lid for the mouthpiece to work. That is printed on the page so nobody is
+surprised. Tell me if your stock differs.
+
+### A pricing error this work uncovered
+
+While building the blank pages I found that the site's structured data had been telling Google
+the business price range was **"N$150 - N$250"** since well before this turn. Your cheapest
+confirmed item is the **N$120** mug, so the entry price was being overstated by N$30 in search
+results. It is now calculated from your real catalogue instead of typed in, so it cannot drift
+again. No visible page ever showed the wrong figure.

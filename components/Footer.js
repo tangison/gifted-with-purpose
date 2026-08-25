@@ -10,6 +10,7 @@ export default function Footer() {
         <nav className="ftr-nav" aria-label="Collections">
           <Link href="/shop">Shop all</Link>
           <Link href="/designs">Pick your design</Link>
+          <Link href="/blanks">Blank range</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}
