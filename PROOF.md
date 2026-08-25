@@ -150,3 +150,13 @@ Copy | Homepage rewritten | app/page.js | specificity, Namibian place names, rea
 Copy | Collection blurbs and bullets rewritten | data/site.json | second person, concrete, no marketing abstraction | 5 collections | live | Done
 Copy | Shop, contact, about, how-to-order rewritten | 4 route files | named Geneveve and Windhoek, removed generic phrasing | live | Done
 Audit | Re-audit after card and copy work | live 17 routes | axe wcag2a-21aa + lighthouse | 0 violations, /shop 92 perf, 100 a11y, 100 bp, 100 seo, CLS 0 | lhs.json | Pass
+Build | Download 141 PDFs from filebin | filebin.net/k5nxe7d3pv2i9rjn | curl with verified cookie, one at a time | 141/141 downloaded, 0 failures | convert.log | Done
+Build | Convert every PDF to WebP | public/assets/designs | pdftoppm 150dpi then cwebp, full 1400px q82 plus 560px thumb | 282 files, 126MB of PDF to 20MB of WebP | du | Done
+Verify | Every output is a valid image | 282 files | PIL open and load on each | 141 full plus 141 thumbs valid, 0 zero-byte | check | Pass
+Debug | file(1) flagged design-40.webp as a boot sector | design-40.webp | verified with PIL instead | false positive, valid 1400x1219 WebP | check | Rejected
+Build | Alt text and metadata for all 141 | data/designs.json | wrote from contact-sheet inspection of every image, not from filenames | 141 entries with alt, title, group, category | designs.json | Done
+Build | Pick your design gallery | app/designs | filter tabs, reference codes, lightbox, per-design WhatsApp deep link | 141 cells, 141 with real alt | live | Done
+Build | WhatsApp order form | app/contact/OrderForm.js | structured fields compose a wa.me message, no backend, no stored lead | validates on empty submit, clears when filled | live | Done
+Debug | 141 orphaned list items on /designs | app/designs/DesignGallery.js | axe listitem violation | root cause: role=tabpanel on the ul overrode list semantics | moved role to a wrapper div | axe | Fixed
+Audit | axe across 18 routes after the build | live | wcag2a to wcag21aa | 0 violations | axe | Pass
+Verify | Live asset delivery | live | curl on sample designs | 200 image/webp on all sampled | curl | Pass

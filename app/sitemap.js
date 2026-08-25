@@ -5,6 +5,7 @@ export default function sitemap() {
   const staticRoutes = [
     { url: '/', priority: 1.0, changeFrequency: 'weekly' },
     { url: '/shop', priority: 0.95, changeFrequency: 'weekly' },
+    { url: '/designs', priority: 0.9, changeFrequency: 'weekly' },
     { url: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/how-to-order', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/faq', priority: 0.7, changeFrequency: 'monthly' },

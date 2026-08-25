@@ -9,6 +9,7 @@ export default function Footer() {
       <div className="wrap ftr-in">
         <nav className="ftr-nav" aria-label="Collections">
           <Link href="/shop">Shop all</Link>
+          <Link href="/designs">Pick your design</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}

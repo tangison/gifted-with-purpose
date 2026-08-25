@@ -61,6 +61,9 @@ export default function Header() {
             <Link href="/shop" aria-current={cur('/shop')}>
               Shop
             </Link>
+            <Link href="/designs" aria-current={cur('/designs')}>
+              Designs
+            </Link>
             {collections.map((c) => (
               <Link key={c.slug} href={`/collections/${c.slug}`} aria-current={cur(`/collections/${c.slug}`)}>
                 {c.name}

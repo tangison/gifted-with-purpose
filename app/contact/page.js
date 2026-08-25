@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import { brand, wa, SITE_URL } from '@/lib/site';
+import OrderForm from './OrderForm';
 
 export const metadata = {
   title: 'Contact Us — WhatsApp, Call or Message',
@@ -113,6 +114,15 @@ export default function ContactPage() {
                 <p>Geneveve Gift Shop t/a Gifted with Purpose</p>
               </span>
             </div>
+          </div>
+
+          <div className="ofm-wrap" id="order-form">
+            <h2>Build your order</h2>
+            <p className="ofm-intro">
+              Fill this in and it becomes a WhatsApp message with everything we need. No account, no forms sent to a
+              server, no waiting for an email reply.
+            </p>
+            <OrderForm />
           </div>
 
           <div className="confirm" style={{ marginTop: 26 }} id="social">

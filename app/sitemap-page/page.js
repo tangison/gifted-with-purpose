@@ -49,6 +49,9 @@ export default function SitemapPage() {
               <Link href="/">Home</Link>
             </li>
             <li>
+              <Link href="/designs">Pick your design</Link>
+            </li>
+            <li>
               <Link href="/about">Our Story</Link>
             </li>
             <li>

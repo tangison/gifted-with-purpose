@@ -49,6 +49,14 @@ export default function Drawer({ open, onClose, panelRef, current }) {
             <Chev />
           </Link>
 
+          <Link className="dw-hero" href="/designs" style={{ background: '#1F6F66', marginTop: 'var(--s-2)' }}>
+            <span className="dw-hero-tx">
+              <b>Pick your design</b>
+              <small>141 prints to choose from</small>
+            </span>
+            <Chev />
+          </Link>
+
           <p className="dw-label">Collections</p>
           <nav className="dw-cols" aria-label="Collections">
             {collections.map((c) => {
