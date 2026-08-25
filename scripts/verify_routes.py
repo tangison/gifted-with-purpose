@@ -79,10 +79,10 @@ check("/process", must=["How we make it", "sublimation", "Hand wash only"])
 
 # canonical + robots must point at the real domain, never the vercel host
 _, home = get("/")
-if 'href="https://giftedwithpurpose.net/"' not in home and "giftedwithpurpose.net" not in home:
+if "https://www.giftedwithpurpose.net" not in home:
     fails.append("/: canonical does not use giftedwithpurpose.net")
 _, rb = get("/robots.txt")
-if "giftedwithpurpose.net/sitemap.xml" not in rb:
+if "https://www.giftedwithpurpose.net/sitemap.xml" not in rb:
     fails.append("robots.txt: sitemap does not point at the real domain")
 if "Disallow: /" in rb.split("Sitemap")[0] and "Allow: /" not in rb:
     fails.append("robots.txt: production build is blocking crawlers")
