@@ -5,6 +5,7 @@ import { SITE_URL, brand } from '@/lib/site';
 import {
   blanks,
   designs,
+  shapes,
   designsForBlank,
   blankPriceLabel,
   money,
@@ -134,6 +135,22 @@ export default function ShopPage() {
               </Link>
               <Link href="/create" className="btn btn-ghost">
                 Build it step by step
+              </Link>
+            </p>
+          </div>
+
+          <div className="shop-next">
+            <div>
+              <h2>Looking for a shape we have not listed</h2>
+              <p>
+                Behind these items sits the blank range: {shapes.length} unprinted containers from our supplier, with
+                the real capacity and print area of each. If the shape you want is on that list we can print it. None
+                of them is priced yet, so ask us.
+              </p>
+            </div>
+            <p className="shop-next-cta">
+              <Link href="/blanks" className="btn btn-ghost">
+                See the {shapes.length} blank shapes
               </Link>
             </p>
           </div>

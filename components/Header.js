@@ -64,7 +64,7 @@ export default function Header() {
             <Link href="/designs" aria-current={cur('/designs')}>
               Designs
             </Link>
-            <Link href="/work" aria-current={cur('/work')}>
+<Link href="/work" aria-current={cur('/work')}>
               Our products
             </Link>
             <Link href="/create" aria-current={cur('/create')}>

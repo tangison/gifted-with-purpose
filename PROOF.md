@@ -190,6 +190,42 @@ Verify | Live asset delivery | live | curl on sample designs | 200 image/webp on
 
 ---
 
+## Phase 13 — The blank range from the supplier SKU photographs (25 Aug 2026)
+
+Nine photographs of unlabelled sublimation containers arrived with a WhatsApp list of
+seven sizes. Seven sizes against nine photographs is not a mapping, so nothing was
+guessed: every SKU code visible in the photographs was looked up on the supplier's own
+live site and the specifications were read from there.
+
+| Phase | Action | Target | Command or method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| 13.0 | Read all nine uploads by eye | `/home/user/uploads/IMG-*.jpg` | `read_file` on each | Every image carries a printed SKU label. Codes read: SB8009 F, SB8072 F, SB889 F, SB8000 A, SB890 A, SB8005 A, SB856 F, SB859 A, SB893 F | the nine images | Done |
+| 13.1 | Resolve every SKU against the supplier | titanjet.co.za | `curl --compressed` with a browser UA, `?s=<SKU>` | All 9 resolved to real product pages, HTTP 200. Scrapling was never needed | `/tmp/tj/*.html` | Done |
+| 13.2 | Contradiction: SB893 | search result vs photograph | Compared the returned product to the image | Search first surfaced an "850ml Silver Aluminium Water Bottle", which is **not** the two-handled sippy in the photograph. Re-queried `?s=320ml` and found **320ml White Stainless Steel Straight Baby Sippy Cup**, which matches the image exactly | `/tmp/tj/q320.html` | Fixed |
+| 13.3 | SKU code discrepancy, recorded not hidden | SB893 | Read the product page | The photograph is labelled **SB893 F**; the supplier's page lists **SP893** for the same item. Both are published on the page rather than silently picking one | `shapes.json.supplier_sku_note` | Done |
+| 13.4 | Read real specs, invent none | 9 product pages | Parsed the WooCommerce attribute table | Capacity, dimensions, weight, print area, colour taken verbatim. Example SB8072: `24 × 8 × 8 cm`, `0.373 kg`, print `196x208mm`, product `72x72x232mm` | `data/shapes.json` | Done |
+| 13.5 | The 7-vs-9 size list left unmapped | WhatsApp size list | Judgement | The client's list (320, 300, 355, 200, 600, 355, 400) cannot be mapped onto 9 SKUs without guessing. The supplier's own capacities were used instead and the discrepancy is raised as an open question, not resolved silently | `NEEDS_CONFIRMATION.md` §7 | Deferred |
+| 13.6 | Extract product shots from phone screenshots | 9 JPEGs | PIL: strip browser chrome, luminance-threshold bbox, scale to a shared 900×1100 canvas | 9 consistent images plus 9 `@sm` thumbs, 7.9KB to 41KB each, real dimensions written into the data | `public/assets/blanks/` | Done |
+| 13.7 | Decide the architecture | `/blanks` | Interconnected, not orphaned | A separate page **and** wired in both directions: `/shop` → `/blanks`, `/shop/[blank]` → the matching shape, `/blanks/[shape]` → the nearest priced item and the designs that fit | build log | Done |
+| 13.8 | Zero price invention | all 9 shapes | No shape has a client-confirmed price | Every shape reads **"Price on request"**. The `Product` JSON-LD deliberately carries **no `offers` block**, because an invented offer is worse than an absent one | `data/shapes.json` | Done |
+| 13.9 | Build | `/blanks`, `/blanks/[shape]` ×9 | `next build` | 10 new routes prerendered, 188 checked | build log | Done |
+| 13.10 | **Bug found by the new verifier: sitewide price floor was wrong** | `app/layout.js` | Price assertion on `/blanks/*` | The `LocalBusiness` schema hardcoded `priceRange: 'N$150 - N$250'` while the cheapest confirmed item is the **N$120** mug. Pre-existing, on every page since Phase 9, and telling search engines the entry price was N$30 higher than it is. Now **derived** from `blanks.json` so it cannot drift again | `lib/catalog.js priceRange` | Fixed |
+| 13.11 | Verifier corrected, not the assertion loosened | `scripts/verify_routes.py` | Added `visible()` to strip `<script>`/`<style>` before matching prices | The first failure was the verifier matching JSON-LD, not rendered copy. Fixed the measurement, then kept the assertion strict | `scripts/verify_routes.py` | Fixed |
+| 13.12 | **Bug: `npm run lint` was not reproducible** | `package.json` | `./node_modules/.bin/eslint` missing | `eslint.config.mjs` existed but neither `eslint` nor `eslint-config-next` was in `package.json`. `npx eslint .` silently pulled ESLint 10 and crashed. Pre-existing. Both now saved as devDependencies | `package.json` | Fixed |
+| 13.13 | **Bug: mid-word wrap on `/shop`** | `.blank-name` | Mobile screenshot at 390px | `overflow-wrap:anywhere` also collapses the flex item's min-content width, so "20oz Skinny Tumbler" rendered as "20oz Skinn / y / Tumbl / er" beside the price. Pre-existing. Changed to `break-word` and stacked name above price below 620px | `/home/user/shots/shop-cards.png` | Fixed |
+| 13.14 | Route and content verification | 188 routes | `scripts/verify_routes.py` | Each shape page must render its own SKU label, capacity, dimensions, weight and print area, must read "Price on request", and must expose **no** unexpected N$ figure. Both link directions asserted | `ALL PASS` ×3 | Done |
+| 13.15 | Flow verification | builder + design order | `scripts/verify_flow.py` | `FLOWS PASS` ×3, unchanged by this turn's work | terminal | Done |
+| 13.16 | axe-core and responsive sweep | +4 routes a11y, +3 routes overflow | `scripts/verify_a11y.py` | **0 violations.** The overflow sweep did not originally cover the new pages, which would have hidden a wide-table overflow, so `/blanks`, `/blanks/sb893` and `/blanks/sb8072` were added to it before it was trusted | `A11Y + RESPONSIVE PASS` | Done |
+| 13.17 | Lighthouse mobile, twice | `/blanks`, `/blanks/sb893`, `/shop` | lighthouse 12, simulated throttling | `/blanks` 95 then 98, `/blanks/sb893` 97 twice, `/shop` 97. **100 a11y / 100 BP / 100 SEO, CLS 0** on all three, both runs | `/tmp/lh*.json` | Done |
+| 13.18 | Lint and audit | repo | `./node_modules/.bin/eslint .`, `npm audit --omit=dev` | 0 errors, 0 warnings, **0 vulnerabilities** | terminal | Done |
+
+**Three bugs fixed this turn were pre-existing, not introduced here:** the wrong schema
+price floor (13.10), the unreproducible lint setup (13.12) and the mid-word wrap on
+`/shop` (13.13). The first two were invisible until the new page forced a check.
+
+**Still not fixed:** `/` scores 85 on mobile performance. Unchanged from Phase 12, and
+the cause is still the hero background image.
+
 ## Phase 13 — Domain, products page, process page, search setup (25 Aug 2026)
 
 | Phase | Action | Target | Command or method | Result | Evidence | Status |

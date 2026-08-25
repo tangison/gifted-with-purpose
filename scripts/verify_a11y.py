@@ -7,6 +7,7 @@ AXE = "https://cdn.jsdelivr.net/npm/axe-core@4.10.2/axe.min.js"
 ROUTES = ["/", "/work", "/process", "/shop", "/shop/mug-11oz", "/shop/kids-fliptop", "/shop/frosted-mug",
           "/shop/can-400", "/shop/travel-mug-20oz",
           "/designs", "/designs/design-33", "/designs/sippy-18", "/designs/design-19",
+          "/blanks", "/blanks/sb893", "/blanks/sb8072", "/blanks/sb889",
           "/create", "/about", "/faq", "/contact", "/how-to-order", "/brand",
           "/collections/encourage", "/collections/teacher-appreciation",
           "/legal/privacy", "/sitemap-page"]
@@ -97,7 +98,8 @@ async def main():
         for w in WIDTHS:
             ctx = await br.new_context(viewport={"width": w, "height": 900})
             pg = await ctx.new_page()
-            for r in ["/", "/shop", "/shop/mug-11oz", "/designs", "/designs/design-33", "/create", "/work", "/process"]:
+            for r in ["/", "/shop", "/shop/mug-11oz", "/designs", "/designs/design-33", "/create",
+                      "/work", "/process", "/blanks", "/blanks/sb893", "/blanks/sb8072"]:
                 await pg.goto(B + r, wait_until="networkidle")
                 over = await pg.evaluate(
                     """() => {
