@@ -23,12 +23,28 @@ export default function LightboxProvider({ children }) {
 
   useEffect(() => {
     document.body.style.overflow = item ? 'hidden' : '';
-    if (item) closeRef.current?.focus();
+    // The dialog animates out of visibility:hidden. focus() is a no-op until the
+    // element is actually visible, and one rAF is not always enough, so poll a
+    // few frames and stop as soon as focus lands.
+    let raf;
+    if (item) {
+      let tries = 0;
+      const grab = () => {
+        const el = closeRef.current;
+        if (el && el.offsetParent !== null) {
+          el.focus();
+          if (document.activeElement === el) return;
+        }
+        if (tries++ < 20) raf = requestAnimationFrame(grab);
+      };
+      raf = requestAnimationFrame(grab);
+    }
     const onKey = (e) => {
       if (e.key === 'Escape' && item) close();
     };
     document.addEventListener('keydown', onKey);
     return () => {
+      if (raf) cancelAnimationFrame(raf);
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
@@ -43,6 +59,7 @@ export default function LightboxProvider({ children }) {
         role="dialog"
         aria-modal="true"
         aria-label="Product image"
+        aria-hidden={!item}
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}

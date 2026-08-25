@@ -166,3 +166,59 @@ the business actually works. Confirmed with you on 25 Aug 2026:
 - **Which designs may not be reprinted?** 49 of 141 show third-party characters or brands. They are
   listed generically with a visible independence disclaimer and kept out of all marketing imagery.
   Say the word and I will remove any or all of them.
+
+---
+
+## 7. Domain, products page and process page (added 25 Aug 2026)
+
+### Domain
+The site is built for **giftedwithpurpose.net**. Every canonical tag, sitemap URL,
+JSON-LD id and Open Graph URL now derives from that one origin. Preview deploys
+serve `Disallow: /` and `noindex` so they can never outrank the real domain.
+
+**You still need to:** buy the domain, point it at Vercel, and add it in the Vercel
+project. Until the DNS resolves, the live site stays on the vercel.app address.
+
+### Search engines
+- `robots.txt` allows Google, Bing and GPTBot, and points at the sitemap on the real domain.
+- `sitemap.xml` carries 171 URLs including all 141 designs, 11 items, /work and /process.
+- Verification meta tags are wired to env vars. Give me the two codes and I add them:
+  - `GOOGLE_SITE_VERIFICATION` from Google Search Console
+  - `BING_SITE_VERIFICATION` from Bing Webmaster Tools
+- Submission to both consoles is blocked until the domain resolves.
+
+### Items rebuilt from the supplier
+Specs and SKUs were read directly from titanjet.co.za product pages on 25 Aug 2026,
+not guessed. Capacities are the ones you sent on 24 Aug.
+
+| Item | SKU | Capacity | Price |
+|---|---|---|---|
+| 12oz Coffee Mug | SB8000 | 355ml | N$120.00 |
+| 20oz Skinny Tumbler | SB859 | 600ml | N$250.00 |
+| Kids Sippy Cup | SB893 | 320ml | N$230.00 |
+| Frosted Glass Mug | none | 11oz | N$120.00 |
+| Kids Flip-Top Bottle | SB856 | 300ml | **price needed** |
+| 12oz Gin Tumbler | SB8009 | 355ml | **price needed** |
+| 250ml Can Tumbler | SB889 | 250ml | **price needed** |
+| 400ml Can Tumbler | SB890 | 400ml | **price needed** |
+| 15oz Skinny Tumbler | SB8005 | 450ml | **price needed** |
+| 20oz Travel Tumbler | SB8072 | 600ml | **price needed** |
+| Glass Tumbler, bamboo lid | none | 450ml | **price needed** |
+
+**Seven prices are missing.** Send them and every design page updates on its own.
+
+Two questions I could not answer from the screenshots:
+1. **SB893 capacity.** Your screenshot URL says 320ml but the supplier search returns
+   an 850ml aluminium bottle for that SKU, and the product page 404s. I used 320ml
+   from your URL. Confirm it.
+2. **The 200ml size** you listed has no SKU or screenshot attached to it. Which item is it?
+
+### Photography
+- 9 unprinted blanks converted to WebP, phone chrome cropped off, 116KB total.
+- 44 photographs of real finished work published at `/work`, 4.2MB total.
+- **2 photographs withheld.** Both show a **child's face printed on the cup**
+  (`IMG-20260825-WA0054`, `IMG-20260825-WA0067`). One is also an Instagram screenshot
+  with app UI in frame. Publishing a recognisable child on a public commercial website
+  needs written consent from that parent. Get it and I will add them in minutes.
+- Still missing photography: **Frosted Glass Mug** and **20oz Travel Tumbler** have a
+  blank or a price but no finished-work photo of their own.

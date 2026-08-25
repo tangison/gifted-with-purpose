@@ -17,7 +17,7 @@ async def main():
 
         # ---- flow 1: ready-made design on a chosen item
         await pg.goto(f"{B}/create", wait_until="networkidle")
-        await pg.get_by_role("button", name="11oz Mug", exact=False).first.click()
+        await pg.get_by_role("button", name="12oz Coffee Mug", exact=False).first.click()
         await pg.get_by_role("button", name="Choose a ready-made design").click()
         await pg.fill("#bq", "Grow In Grace")
         await pg.wait_for_timeout(500)
@@ -35,7 +35,7 @@ async def main():
             fails.append("flow1: send button is not a link, so the form did not validate")
         else:
             msg = urllib.parse.unquote_plus(href.split("text=")[1])
-            for need in ["11oz Mug", "N$120.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$360.00"]:
+            for need in ["12oz Coffee Mug", "N$120.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$360.00"]:
                 if need not in msg:
                     fails.append(f"flow1 message missing {need!r}")
             if "wa.me/264814076649" not in href:

@@ -142,6 +142,23 @@ export default async function BlankPage({ params }) {
                 </div>
               </dl>
 
+              {b.blank_photo && (
+                <div className="bp-blank">
+                  <Image
+                    src={`/assets/blanks/${b.blank_photo}@sm.webp`}
+                    alt={`The unprinted ${b.name} before we print it`}
+                    width={b.blank_sw}
+                    height={b.blank_sh}
+                    sizes="88px"
+                  />
+                  <p>
+                    <b>Before we print it</b>
+                    This is the blank {b.short.toLowerCase()} we start from{b.sku ? `, supplier reference ${b.sku}` : ''}. Your
+                    design covers the {b.wrap}.
+                  </p>
+                </div>
+              )}
+
               <ul className="bp-care">
                 {b.care.map((c) => (
                   <li key={c}>{c}</li>

@@ -187,3 +187,30 @@ Verify | Live asset delivery | live | curl on sample designs | 200 image/webp on
 | 12.17 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, 0 warnings, **0 vulnerabilities** | terminal | Done |
 
 **Not fixed, stated plainly:** `/` scores 85 on mobile performance. The cause is the pre-existing hero background image, not this turn's work. Every page built this turn scores 96 or higher.
+
+---
+
+## Phase 13 — Domain, products page, process page, search setup (25 Aug 2026)
+
+| Phase | Action | Target | Command or method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| 13.0 | Download client work photos | filebin c5xnh15f1822451b | verified cookie, one file at a time | 46/46 downloaded, all valid by PIL | `/home/user/fb2/raw` | Done |
+| 13.1 | Review every photo by eye | 46 photographs | 4 contact sheets read individually | Found 2 that must not be published | `/home/user/fb2/sheet-*.png` | Done |
+| 13.2 | Withhold photos of a child | WA0054, WA0067 | Visual inspection | A child's face is printed on the cup. Not published without written parental consent | `sheet-2.png`, `sheet-3.png` | **Withheld** |
+| 13.3 | Verify blank SKUs against the supplier | 9 SKUs | `curl` titanjet.co.za, SKU read from page markup | 8 of 9 confirmed. SB893 page 404s and search returns a different item | terminal | Partial, flagged |
+| 13.4 | Convert both image sets | uploads + fb2 | `scripts/build_media.py` | 9 blanks (116KB) + 44 work photos (4.2MB), phone chrome cropped, all reopened and verified | `ALL VALID` | Done |
+| 13.5 | Rebuild the item layer | `data/blanks.json` | Supplier specs + client capacities | 8 items to 11. 4 priced, 7 explicitly null | `data/blanks.json` | Done |
+| 13.6 | Build /work | `app/work/` | Filterable gallery, lightbox, tag facets | 44 photos, 7 tag filters, links into /create | route 200 | Done |
+| 13.7 | Build /process | `app/process/` | 6 steps, price table, care, HowTo + FAQPage JSON-LD | route 200 | Done |
+| 13.8 | Point the site at the real domain | `lib/site.js`, `app/robots.js` | `SITE_URL` derives one origin; preview hosts get `Disallow: /` and noindex | canonical and sitemap both read giftedwithpurpose.net | served HTML | Done |
+| 13.9 | Bug: env var not in the build | canonical read localhost | Rebuild with `NEXT_PUBLIC_SITE_URL` | `SITE_URL` is baked at build time, not runtime. Added `.env.production` | re-ran the failing check | Fixed |
+| 13.10 | Bug: Escape did not close the work lightbox | `/work` | axe + Playwright | Handler was on a div that never holds focus, so the dialog trapped the user | Moved to a document listener | Fixed |
+| 13.11 | Bug: two `aria-modal` dialogs | `/work` | strict-mode locator violation | My lightbox plus the global provider were both exposed. Added `aria-hidden` when closed | Fixed |
+| 13.12 | Bug: focus never entered either dialog | `/work`, all product pages | Focus probe at 100/300/700/1500ms | `visibility:hidden` makes `focus()` a silent no-op. Poll frames until focus lands. **This was in the original provider too** | `focus: lb-x` | Fixed |
+| 13.13 | Bug: two contrast failures I introduced | `/process`, work lightbox | axe, ratios computed | `.proc-n` 1.24:1 and `.lb-cta` 3.39:1 on the dark backdrop. Now 3.08:1 large-text and 15.76:1 | 0 violations | Fixed |
+| 13.14 | Bug: hero downloaded twice | `/` | Lighthouse network audit | `image-set` 2x fetched the full texture while the preload fetched `@sm`. **96KB wasted on every mobile visit, pre-existing** | Width-based media query | Fixed |
+| 13.15 | Oversized icons | `apple-icon`, `icon-192/512` | PIL recompress | 43KB to 15KB, 65KB to 24KB, 198KB to 74KB | terminal | Fixed |
+| 13.16 | Homepage performance | `/` | Lighthouse mobile ×2 | **79 to 93**, LCP 4.6s to 2.3s, 769KB to 674KB | `/tmp/h.json` | Fixed |
+| 13.17 | Full gate | 182 routes | routes ×3, flows ×3, axe, responsive | ALL PASS ×3, FLOWS PASS ×3, **0 axe violations** across 21 routes × 2 viewports + 8 states, 0 overflow at 7 widths | terminal | Done |
+| 13.18 | Lighthouse | 4 routes | lighthouse 12 mobile | `/process` 98, `/work` 96, `/shop/can-400` 95, `/` 93. All **100 a11y / 100 BP / 100 SEO** | `/tmp/n_*.json` | Done |
+| 13.19 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, **0 vulnerabilities** | terminal | Done |

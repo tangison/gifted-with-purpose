@@ -5,6 +5,7 @@ B = "http://127.0.0.1:3000"
 root = "/home/user/gwp"
 designs = json.load(open(f"{root}/data/designs.json"))["items"]
 blanks = json.load(open(f"{root}/data/blanks.json"))["items"]
+work = json.load(open(f"{root}/data/work.json"))["items"]
 
 
 def get(path):
@@ -33,7 +34,7 @@ def check(path, want=200, must=(), mustnot=()):
     return body
 
 
-static = ["/", "/shop", "/designs", "/create", "/about", "/brand", "/faq", "/contact",
+static = ["/", "/shop", "/designs", "/create", "/work", "/process", "/about", "/brand", "/faq", "/contact",
           "/how-to-order", "/sitemap-page", "/legal/privacy", "/legal/terms", "/legal/cookies",
           "/collections/encourage", "/collections/inspire", "/collections/celebrate",
           "/collections/teacher-appreciation", "/collections/everyday",
@@ -60,11 +61,34 @@ for b in blanks:
 check("/shop", must=["/designs", "/create", "design", "fit this"])
 check("/designs", must=["/create", "Search designs"])
 check("/create", must=["Pick the item", "Pick the design", "Ask us to draw one"])
-check("/", must=["/create", "/designs", "/shop", "How it works"])
+check("/", must=["/create", "/designs", "/shop", "/work", "How it works"])
+check("/work", must=["Browse our products", f"{len(work)}"])
+check("/process", must=["How we make it", "sublimation", "Hand wash only"])
+
+# canonical + robots must point at the real domain, never the vercel host
+_, home = get("/")
+if 'href="https://giftedwithpurpose.net/"' not in home and "giftedwithpurpose.net" not in home:
+    fails.append("/: canonical does not use giftedwithpurpose.net")
+_, rb = get("/robots.txt")
+if "giftedwithpurpose.net/sitemap.xml" not in rb:
+    fails.append("robots.txt: sitemap does not point at the real domain")
+if "Disallow: /" in rb.split("Sitemap")[0] and "Allow: /" not in rb:
+    fails.append("robots.txt: production build is blocking crawlers")
+
+# every published work photo must exist and be referenced
+for w in work[:6]:
+    st, _ = get(f"/assets/work/{w['file']}@sm.webp")
+    if st != 200:
+        fails.append(f"work asset missing: {w['file']}@sm.webp -> {st}")
+for b in blanks:
+    if b.get("blank_photo"):
+        st, _ = get(f"/assets/blanks/{b['blank_photo']}.webp")
+        if st != 200:
+            fails.append(f"blank asset missing: {b['blank_photo']} -> {st}")
 
 # Sitemap must carry the new routes.
 _, sm = get("/sitemap.xml")
-for need in ["/designs/design-33", "/shop/mug-11oz", "/create"]:
+for need in ["/designs/design-33", "/shop/mug-11oz", "/create", "/work", "/process"]:
     if need not in sm:
         fails.append(f"sitemap.xml missing {need}")
 

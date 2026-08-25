@@ -10,6 +10,8 @@ export default function Footer() {
         <nav className="ftr-nav" aria-label="Collections">
           <Link href="/shop">Shop all</Link>
           <Link href="/designs">Pick your design</Link>
+          <Link href="/work">Our products</Link>
+          <Link href="/create">Make your own</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}
@@ -20,6 +22,7 @@ export default function Footer() {
         <nav className="ftr-contact" aria-label="Company">
           <Link href="/about">Our Story</Link>
           <Link href="/how-to-order">How to order</Link>
+          <Link href="/process">How we make it</Link>
           <Link href="/faq">FAQ</Link>
           <Link href="/contact">Contact</Link>
           <a href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
