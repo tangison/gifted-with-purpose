@@ -32,14 +32,9 @@ export default function AboutPage() {
             <span aria-current="page">Our Story</span>
           </nav>
           <p className="sub">About us</p>
-          <h1>
-            A kitchen table,
-            <br />
-            a printer, and your name
-          </h1>
+          <h1>Our Story</h1>
           <p>
-            Gifted with Purpose is a mother and daughter in Windhoek. Everything you see was printed on our own
-            equipment, photographed on our own table.
+            Gifted with Purpose is a personalised gift studio in Windhoek, Namibia, trading as Geneveve Gift Shop.
           </p>
         </div>
       </section>

@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Chev } from '@/components/Icons';
 import DesignGallery from './DesignGallery';
 import { SITE_URL, brand } from '@/lib/site';
-import { designs, blanks, designThemes } from '@/lib/catalog';
+import { designs, blanks, designThemes, priceFloorLabel } from '@/lib/catalog';
 
 export const metadata = {
   title: 'Pick Your Design',
-  description: `Browse all ${designs.length} designs Gifted with Purpose can print on your mug, tumbler or kids cup. Faith, affirmations, Afrikaans, kids, teacher and personalised name designs. From N$120.`,
+  description: `Browse all ${designs.length} designs Gifted with Purpose can print on your mug, tumbler or kids cup. Faith, affirmations, Afrikaans, kids, teacher and personalised name designs. From ${priceFloorLabel}.`,
   alternates: { canonical: '/designs' },
   openGraph: {
     title: 'Pick Your Design | Gifted with Purpose',

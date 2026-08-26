@@ -5,6 +5,11 @@ import { SITE_URL, brand } from '@/lib/site';
 import {
   blanks,
   designs,
+  priceFloorLabel,
+  kidsBlanks,
+  adultBlanks,
+  kidsPriceFloor,
+  shapes,
   designsForBlank,
   blankPriceLabel,
   money,
@@ -13,7 +18,7 @@ import {
 export const metadata = {
   title: 'Shop the Items',
   description:
-    'Mugs, tumblers, kids sippy cups and flip-top bottles, printed to order in Windhoek. Pick the item, then pick any of 141 designs or send us your own. Prices from N$120.',
+    `Mugs, tumblers, kids sippy cups and flip-top bottles, printed to order in Windhoek. Pick the item, then pick any of ${designs.length} designs or send us your own. Prices from ${priceFloorLabel}.`,
   alternates: { canonical: '/shop' },
   openGraph: {
     title: 'Shop the Items | Gifted with Purpose',
@@ -22,7 +27,64 @@ export const metadata = {
   },
 };
 
+function BlankGrid({ items, offset = 0 }) {
+  return (
+    <ul className="blanks">
+      {items.map((b, i) => {
+        const n = designsForBlank(b).length;
+        return (
+          <li key={b.id}>
+            <Link href={`/shop/${b.id}`} className="blank">
+              <span className="blank-media">
+                {b.blank_photo ? (
+                  <Image
+                    src={`/assets/blanks/${b.blank_photo}@sm.webp`}
+                    alt={`${b.name}, ${b.spec}`}
+                    fill
+                    sizes="(min-width:1000px) 300px, 46vw"
+                    priority={offset + i < 2}
+                    style={{ objectFit: 'contain' }}
+                  />
+                ) : b.photo ? (
+                  <Image
+                    src={`/assets/products/${b.photo}@sm.jpg`}
+                    alt={`${b.name}, ${b.spec}`}
+                    fill
+                    sizes="(min-width:1000px) 300px, 46vw"
+                    priority={offset + i < 2}
+                    style={{ objectFit: 'contain' }}
+                  />
+                ) : (
+                  <span className="blank-nophoto">
+                    <Icon name="cup" />
+                    Photo coming soon
+                  </span>
+                )}
+              </span>
+              <span className="blank-body">
+                <span className="blank-top">
+                  <b className="blank-name">{b.name}</b>
+                  <span className={`blank-price${b.price == null ? ' ask' : ''}`}>
+                    {blankPriceLabel(b)}
+                  </span>
+                </span>
+                <span className="blank-spec">{b.spec}</span>
+                <span className="blank-n">
+                  {n} design{n === 1 ? '' : 's'} fit this
+                  <Chev />
+                </span>
+              </span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+
 export default function ShopPage() {
+
   const priced = blanks.filter((b) => b.price != null).map((b) => b.price);
 
   const breadcrumb = {
@@ -77,48 +139,21 @@ export default function ShopPage() {
 
       <section className="sec">
         <div className="wrap">
-          <h2 className="sr-only">Items we print on</h2>
-          <ul className="blanks">
-            {blanks.map((b, i) => {
-              const n = designsForBlank(b).length;
-              return (
-                <li key={b.id}>
-                  <Link href={`/shop/${b.id}`} className="blank">
-                    <span className="blank-media">
-                      {b.photo ? (
-                        <Image
-                          src={`/assets/products/${b.photo}@sm.jpg`}
-                          alt={`${b.name}, ${b.spec}`}
-                          fill
-                          sizes="(min-width:1000px) 300px, 46vw"
-                          priority={i < 2}
-                          style={{ objectFit: b.shot === 'studio' ? 'contain' : 'cover' }}
-                        />
-                      ) : (
-                        <span className="blank-nophoto">
-                          <Icon name="cup" />
-                          Photo coming soon
-                        </span>
-                      )}
-                    </span>
-                    <span className="blank-body">
-                      <span className="blank-top">
-                        <b className="blank-name">{b.name}</b>
-                        <span className={`blank-price${b.price == null ? ' ask' : ''}`}>
-                          {blankPriceLabel(b)}
-                        </span>
-                      </span>
-                      <span className="blank-spec">{b.spec}</span>
-                      <span className="blank-n">
-                        {n} design{n === 1 ? '' : 's'} fit this
-                        <Chev />
-                      </span>
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <h2 className="sec-h2" id="grown-ups">For grown-ups</h2>
+          <p className="sec-lead">
+            Mugs, tumblers and cans. {adultBlanks.length} items, each one printed to order.
+          </p>
+          <BlankGrid items={adultBlanks} />
+
+          <div className="kids-band">
+            <h2 className="sec-h2" id="kids">For kids</h2>
+            <p className="sec-lead">
+              Sippy cups and flip-top bottles, built for small hands and school bags. Kids items start at{' '}
+              {brand.currency}
+              {kidsPriceFloor}.
+            </p>
+            <BlankGrid items={kidsBlanks} offset={adultBlanks.length} />
+          </div>
 
           <div className="shop-next">
             <div>
@@ -134,6 +169,22 @@ export default function ShopPage() {
               </Link>
               <Link href="/create" className="btn btn-ghost">
                 Build it step by step
+              </Link>
+            </p>
+          </div>
+
+          <div className="shop-next">
+            <div>
+              <h2>Looking for a shape we have not listed</h2>
+              <p>
+                Behind these items sits the blank range: {shapes.length} unprinted containers from our supplier, with
+                the real capacity and print area of each. If the shape you want is on that list we can print it. None
+                of them is priced yet, so ask us.
+              </p>
+            </div>
+            <p className="shop-next-cta">
+              <Link href="/blanks" className="btn btn-ghost">
+                See the {shapes.length} blank shapes
               </Link>
             </p>
           </div>
