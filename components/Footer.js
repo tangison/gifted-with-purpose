@@ -10,6 +10,9 @@ export default function Footer() {
         <nav className="ftr-nav" aria-label="Collections">
           <Link href="/shop">Shop all</Link>
           <Link href="/designs">Pick your design</Link>
+<Link href="/work">Our products</Link>
+          <Link href="/create">Make your own</Link>
+          <Link href="/blanks">Blank range</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}
@@ -25,6 +28,7 @@ export default function Footer() {
           <a href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
             WhatsApp {brand.phone_intl}
           </a>
+          <a href={`mailto:${brand.email}`}>{brand.email}</a>
         </nav>
 
         <div className="ftr-soc">

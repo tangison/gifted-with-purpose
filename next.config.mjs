@@ -28,6 +28,13 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   images: { formats: ['image/avif', 'image/webp'] },
+  async redirects() {
+    return [
+      // "How we make it" was consolidated into "How to order" at the client's
+      // request. Permanent so search engines transfer the old URL's equity.
+      { source: '/process', destination: '/how-to-order', permanent: true },
+    ];
+  },
   async headers() {
     return [
       { source: '/:path*', headers: securityHeaders },

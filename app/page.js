@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import ProductCard from '@/components/ProductCard';
 import Disclosure from '@/components/Disclosure';
-import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, SITE_URL } from '@/lib/site';
-import { blanks, designs, blankPriceLabel, money } from '@/lib/catalog';
+import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, priceLabel, SITE_URL } from '@/lib/site';
+import { blanks, designs, work, workMarketingSafe, blankPriceLabel, money } from '@/lib/catalog';
 
 export const metadata = {
   title: 'Personalised Gifts in Namibia — Tumblers, Mugs & Kids’ Cups',
@@ -103,6 +103,42 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec-alt">
+        <div className="wrap">
+          <div className="sec-head center">
+            <span className="eyebrow">Our work</span>
+            <h2>Things we have actually made</h2>
+            <p>
+              {work.length} photographs of real orders, printed here and handed over. Judge the finish before you
+              commit to anything.
+            </p>
+          </div>
+          <ul className="wg wg-strip">
+            {workMarketingSafe()
+              .slice(0, 6)
+              .map((w) => (
+                <li key={w.id}>
+                  <Link href="/work" className="wg-cell">
+                    <Image
+                      src={`/assets/work/${w.file}@sm.webp`}
+                      alt={w.alt}
+                      width={w.sw}
+                      height={w.sh}
+                      sizes="(min-width:1100px) 260px, (min-width:600px) 31vw, 47vw"
+                      loading="lazy"
+                    />
+                  </Link>
+                </li>
+              ))}
+          </ul>
+          <div style={{ textAlign: 'center', marginTop: 26 }}>
+            <Link className="btn btn-ghost" href="/work">
+              Browse our products <Chev />
+            </Link>
           </div>
         </div>
       </section>
@@ -207,7 +243,7 @@ export default function HomePage() {
                 <li>Gift bag</li>
               </ul>
               <div className="price-row">
-                <span className="price">N$150.00</span>
+                <span className="price">{priceLabel(tset) || 'Price on request'}</span>
                 <span style={{ fontSize: 13, color: 'var(--muted)' }}>complete set</span>
               </div>
               <a

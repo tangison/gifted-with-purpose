@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Icon, Chev, NaFlag } from './Icons';
 import { brand, collections, productsIn, products, imgSm, wa } from '@/lib/site';
+import { priceFloorLabel } from '@/lib/catalog';
 
 const ASK = 'Hi Gifted with Purpose! I saw your website and I have a question.';
 
@@ -44,7 +45,7 @@ export default function Drawer({ open, onClose, panelRef, current }) {
           <Link className="dw-hero" href="/shop" aria-current={cur('/shop')}>
             <span className="dw-hero-tx">
               <b>Pick the item</b>
-              <small>Mugs, tumblers and kids cups, from N$120</small>
+              <small>Mugs, tumblers and kids cups, from {priceFloorLabel}</small>
             </span>
             <Chev />
           </Link>
@@ -86,7 +87,9 @@ export default function Drawer({ open, onClose, panelRef, current }) {
           <nav className="dw-links" aria-label="Pages">
             <Link href="/" aria-current={cur('/')}>Home</Link>
             <Link href="/about" aria-current={cur('/about')}>Our Story</Link>
+            <Link href="/work" aria-current={cur('/work')}>Our products</Link>
             <Link href="/create" aria-current={cur('/create')}>Make your own</Link>
+<Link href="/blanks" aria-current={cur('/blanks')}>Blank range</Link>
             <Link href="/how-to-order" aria-current={cur('/how-to-order')}>How to order</Link>
             <Link href="/faq" aria-current={cur('/faq')}>FAQ</Link>
             <Link href="/contact" aria-current={cur('/contact')}>Contact</Link>

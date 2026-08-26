@@ -187,3 +187,106 @@ Verify | Live asset delivery | live | curl on sample designs | 200 image/webp on
 | 12.17 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, 0 warnings, **0 vulnerabilities** | terminal | Done |
 
 **Not fixed, stated plainly:** `/` scores 85 on mobile performance. The cause is the pre-existing hero background image, not this turn's work. Every page built this turn scores 96 or higher.
+
+---
+
+## Phase 13 — The blank range from the supplier SKU photographs (25 Aug 2026)
+
+Nine photographs of unlabelled sublimation containers arrived with a WhatsApp list of
+seven sizes. Seven sizes against nine photographs is not a mapping, so nothing was
+guessed: every SKU code visible in the photographs was looked up on the supplier's own
+live site and the specifications were read from there.
+
+| Phase | Action | Target | Command or method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| 13.0 | Read all nine uploads by eye | `/home/user/uploads/IMG-*.jpg` | `read_file` on each | Every image carries a printed SKU label. Codes read: SB8009 F, SB8072 F, SB889 F, SB8000 A, SB890 A, SB8005 A, SB856 F, SB859 A, SB893 F | the nine images | Done |
+| 13.1 | Resolve every SKU against the supplier | titanjet.co.za | `curl --compressed` with a browser UA, `?s=<SKU>` | All 9 resolved to real product pages, HTTP 200. Scrapling was never needed | `/tmp/tj/*.html` | Done |
+| 13.2 | Contradiction: SB893 | search result vs photograph | Compared the returned product to the image | Search first surfaced an "850ml Silver Aluminium Water Bottle", which is **not** the two-handled sippy in the photograph. Re-queried `?s=320ml` and found **320ml White Stainless Steel Straight Baby Sippy Cup**, which matches the image exactly | `/tmp/tj/q320.html` | Fixed |
+| 13.3 | SKU code discrepancy, recorded not hidden | SB893 | Read the product page | The photograph is labelled **SB893 F**; the supplier's page lists **SP893** for the same item. Both are published on the page rather than silently picking one | `shapes.json.supplier_sku_note` | Done |
+| 13.4 | Read real specs, invent none | 9 product pages | Parsed the WooCommerce attribute table | Capacity, dimensions, weight, print area, colour taken verbatim. Example SB8072: `24 × 8 × 8 cm`, `0.373 kg`, print `196x208mm`, product `72x72x232mm` | `data/shapes.json` | Done |
+| 13.5 | The 7-vs-9 size list left unmapped | WhatsApp size list | Judgement | The client's list (320, 300, 355, 200, 600, 355, 400) cannot be mapped onto 9 SKUs without guessing. The supplier's own capacities were used instead and the discrepancy is raised as an open question, not resolved silently | `NEEDS_CONFIRMATION.md` §7 | Deferred |
+| 13.6 | Extract product shots from phone screenshots | 9 JPEGs | PIL: strip browser chrome, luminance-threshold bbox, scale to a shared 900×1100 canvas | 9 consistent images plus 9 `@sm` thumbs, 7.9KB to 41KB each, real dimensions written into the data | `public/assets/blanks/` | Done |
+| 13.7 | Decide the architecture | `/blanks` | Interconnected, not orphaned | A separate page **and** wired in both directions: `/shop` → `/blanks`, `/shop/[blank]` → the matching shape, `/blanks/[shape]` → the nearest priced item and the designs that fit | build log | Done |
+| 13.8 | Zero price invention | all 9 shapes | No shape has a client-confirmed price | Every shape reads **"Price on request"**. The `Product` JSON-LD deliberately carries **no `offers` block**, because an invented offer is worse than an absent one | `data/shapes.json` | Done |
+| 13.9 | Build | `/blanks`, `/blanks/[shape]` ×9 | `next build` | 10 new routes prerendered, 188 checked | build log | Done |
+| 13.10 | **Bug found by the new verifier: sitewide price floor was wrong** | `app/layout.js` | Price assertion on `/blanks/*` | The `LocalBusiness` schema hardcoded `priceRange: 'N$150 - N$250'` while the cheapest confirmed item is the **N$120** mug. Pre-existing, on every page since Phase 9, and telling search engines the entry price was N$30 higher than it is. Now **derived** from `blanks.json` so it cannot drift again | `lib/catalog.js priceRange` | Fixed |
+| 13.11 | Verifier corrected, not the assertion loosened | `scripts/verify_routes.py` | Added `visible()` to strip `<script>`/`<style>` before matching prices | The first failure was the verifier matching JSON-LD, not rendered copy. Fixed the measurement, then kept the assertion strict | `scripts/verify_routes.py` | Fixed |
+| 13.12 | **Bug: `npm run lint` was not reproducible** | `package.json` | `./node_modules/.bin/eslint` missing | `eslint.config.mjs` existed but neither `eslint` nor `eslint-config-next` was in `package.json`. `npx eslint .` silently pulled ESLint 10 and crashed. Pre-existing. Both now saved as devDependencies | `package.json` | Fixed |
+| 13.13 | **Bug: mid-word wrap on `/shop`** | `.blank-name` | Mobile screenshot at 390px | `overflow-wrap:anywhere` also collapses the flex item's min-content width, so "20oz Skinny Tumbler" rendered as "20oz Skinn / y / Tumbl / er" beside the price. Pre-existing. Changed to `break-word` and stacked name above price below 620px | `/home/user/shots/shop-cards.png` | Fixed |
+| 13.14 | Route and content verification | 188 routes | `scripts/verify_routes.py` | Each shape page must render its own SKU label, capacity, dimensions, weight and print area, must read "Price on request", and must expose **no** unexpected N$ figure. Both link directions asserted | `ALL PASS` ×3 | Done |
+| 13.15 | Flow verification | builder + design order | `scripts/verify_flow.py` | `FLOWS PASS` ×3, unchanged by this turn's work | terminal | Done |
+| 13.16 | axe-core and responsive sweep | +4 routes a11y, +3 routes overflow | `scripts/verify_a11y.py` | **0 violations.** The overflow sweep did not originally cover the new pages, which would have hidden a wide-table overflow, so `/blanks`, `/blanks/sb893` and `/blanks/sb8072` were added to it before it was trusted | `A11Y + RESPONSIVE PASS` | Done |
+| 13.17 | Lighthouse mobile, twice | `/blanks`, `/blanks/sb893`, `/shop` | lighthouse 12, simulated throttling | `/blanks` 95 then 98, `/blanks/sb893` 97 twice, `/shop` 97. **100 a11y / 100 BP / 100 SEO, CLS 0** on all three, both runs | `/tmp/lh*.json` | Done |
+| 13.18 | Lint and audit | repo | `./node_modules/.bin/eslint .`, `npm audit --omit=dev` | 0 errors, 0 warnings, **0 vulnerabilities** | terminal | Done |
+
+**Three bugs fixed this turn were pre-existing, not introduced here:** the wrong schema
+price floor (13.10), the unreproducible lint setup (13.12) and the mid-word wrap on
+`/shop` (13.13). The first two were invisible until the new page forced a check.
+
+**Still not fixed:** `/` scores 85 on mobile performance. Unchanged from Phase 12, and
+the cause is still the hero background image.
+
+## Phase 13 — Domain, products page, process page, search setup (25 Aug 2026)
+
+| Phase | Action | Target | Command or method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| 13.0 | Download client work photos | filebin c5xnh15f1822451b | verified cookie, one file at a time | 46/46 downloaded, all valid by PIL | `/home/user/fb2/raw` | Done |
+| 13.1 | Review every photo by eye | 46 photographs | 4 contact sheets read individually | Found 2 that must not be published | `/home/user/fb2/sheet-*.png` | Done |
+| 13.2 | Withhold photos of a child | WA0054, WA0067 | Visual inspection | A child's face is printed on the cup. Not published without written parental consent | `sheet-2.png`, `sheet-3.png` | **Withheld** |
+| 13.3 | Verify blank SKUs against the supplier | 9 SKUs | `curl` titanjet.co.za, SKU read from page markup | 8 of 9 confirmed. SB893 page 404s and search returns a different item | terminal | Partial, flagged |
+| 13.4 | Convert both image sets | uploads + fb2 | `scripts/build_media.py` | 9 blanks (116KB) + 44 work photos (4.2MB), phone chrome cropped, all reopened and verified | `ALL VALID` | Done |
+| 13.5 | Rebuild the item layer | `data/blanks.json` | Supplier specs + client capacities | 8 items to 11. 4 priced, 7 explicitly null | `data/blanks.json` | Done |
+| 13.6 | Build /work | `app/work/` | Filterable gallery, lightbox, tag facets | 44 photos, 7 tag filters, links into /create | route 200 | Done |
+| 13.7 | Build /process | `app/process/` | 6 steps, price table, care, HowTo + FAQPage JSON-LD | route 200 | Done |
+| 13.8 | Point the site at the real domain | `lib/site.js`, `app/robots.js` | `SITE_URL` derives one origin; preview hosts get `Disallow: /` and noindex | canonical and sitemap both read giftedwithpurpose.net | served HTML | Done |
+| 13.9 | Bug: env var not in the build | canonical read localhost | Rebuild with `NEXT_PUBLIC_SITE_URL` | `SITE_URL` is baked at build time, not runtime. Added `.env.production` | re-ran the failing check | Fixed |
+| 13.10 | Bug: Escape did not close the work lightbox | `/work` | axe + Playwright | Handler was on a div that never holds focus, so the dialog trapped the user | Moved to a document listener | Fixed |
+| 13.11 | Bug: two `aria-modal` dialogs | `/work` | strict-mode locator violation | My lightbox plus the global provider were both exposed. Added `aria-hidden` when closed | Fixed |
+| 13.12 | Bug: focus never entered either dialog | `/work`, all product pages | Focus probe at 100/300/700/1500ms | `visibility:hidden` makes `focus()` a silent no-op. Poll frames until focus lands. **This was in the original provider too** | `focus: lb-x` | Fixed |
+| 13.13 | Bug: two contrast failures I introduced | `/process`, work lightbox | axe, ratios computed | `.proc-n` 1.24:1 and `.lb-cta` 3.39:1 on the dark backdrop. Now 3.08:1 large-text and 15.76:1 | 0 violations | Fixed |
+| 13.14 | Bug: hero downloaded twice | `/` | Lighthouse network audit | `image-set` 2x fetched the full texture while the preload fetched `@sm`. **96KB wasted on every mobile visit, pre-existing** | Width-based media query | Fixed |
+| 13.15 | Oversized icons | `apple-icon`, `icon-192/512` | PIL recompress | 43KB to 15KB, 65KB to 24KB, 198KB to 74KB | terminal | Fixed |
+| 13.16 | Homepage performance | `/` | Lighthouse mobile ×2 | **79 to 93**, LCP 4.6s to 2.3s, 769KB to 674KB | `/tmp/h.json` | Fixed |
+| 13.17 | Full gate | 182 routes | routes ×3, flows ×3, axe, responsive | ALL PASS ×3, FLOWS PASS ×3, **0 axe violations** across 21 routes × 2 viewports + 8 states, 0 overflow at 7 widths | terminal | Done |
+| 13.18 | Lighthouse | 4 routes | lighthouse 12 mobile | `/process` 98, `/work` 96, `/shop/can-400` 95, `/` 93. All **100 a11y / 100 BP / 100 SEO** | `/tmp/n_*.json` | Done |
+| 13.19 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, **0 vulnerabilities** | terminal | Done |
+
+
+
+---
+
+## Phase 14 — Client annotations from marked-up screenshots (26 Aug 2026)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 14.0 | Read every annotation | 14 screenshots | Cropped and enlarged each marked region before acting | 11 distinct instructions extracted | Done |
+| 14.1 | Confirm the price contradiction | 12oz mug | Asked rather than assumed: N$230 conflicted with the N$120 catalogue line | Client confirmed both mugs N$230, N$120 retired | Done |
+| 14.2 | Apply prices | `data/blanks.json` | mug 230, frosted 230, flip-top 230 | 5 of 11 items now priced | Done |
+| 14.3 | Kill the hardcoded floor | 6 files | Replaced literal "N$120" with derived `priceFloorLabel` | Copy can no longer drift from the data | Done |
+| 14.4 | Dedicated kids section | `/shop`, `/create` | Split by `audience` into grown-ups and a boxed kids band | Both render, kids floor stated as N$230 | Done |
+| 14.5 | Blank products in the picker | `/create` step 1, `/shop` grid | Prefer `blank_photo` over the printed example | Unprinted item now shown | Done |
+| 14.6 | Stop cropping | 3 surfaces | `objectFit: cover` to `contain` on white | Whole product visible, verified by screenshot | Done |
+| 14.7 | Consolidate the duplicate page | `/process` to `/how-to-order` | Moved the richer content, deleted the route, added a 301 | `/process` returns 308 to `/how-to-order`, one nav entry | Done |
+| 14.8 | Remove struck copy | 4 places | "What it costs" lead, "costs nothing", "spelling of any name", work disclaimer | All 4 gone from served HTML | Done |
+| 14.9 | Neutralise the About hero | `/about` | Factual placeholder, nothing invented | Awaiting client copy | Blocked |
+| 14.10 | Bug: components created during render | `app/shop/page.js` | eslint `react-hooks/static-components` | I defined `BlankGrid` inside the component, which resets state every render. Hoisted to module scope | Fixed |
+| 14.11 | Bug: stale test expectations | `verify_flow.py` | Test asserted the retired N$120 and used a now-priced item to check the "never invent a price" guard | Updated to N$230/N$690 and retargeted flow2 at the still-unpriced gin tumbler so the guard is genuinely exercised | Fixed |
+| 14.12 | Full gate | 192 routes | routes x3, flows x3, axe, responsive | ALL PASS x3, FLOWS PASS x3, **0 axe violations**, 0 overflow at 7 widths | Done |
+| 14.13 | Lighthouse | 3 changed pages | lighthouse 12 mobile | `/how-to-order` 98, `/shop` 97, `/create` 97, all **100 a11y / 100 BP / 100 SEO** | Done |
+| 14.14 | Lint and audit | repo | eslint, npm audit | 0 errors, **0 vulnerabilities** | Done |
+
+---
+
+## Phase 15 — Stale 2024 pricing, sales email, missing blanks, About bug (26 Aug 2026)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 15.0 | Audit every legacy price | `data/site.json` | Grepped all product prices, not just the N$120 the client named | Found 5 stale: 120 x2, 150, 160, 200 | Done |
+| 15.1 | Retire them | products + catalogue block | Set to null with a dated reason string | Nothing below N$230 anywhere | Done |
+| 15.2 | Bug: hardcoded price bypassing the data | `app/page.js:246` | Served-HTML grep after the data change still showed N$150 | The teacher set price was typed into the homepage. Now driven by `priceLabel(tset)` | Fixed |
+| 15.3 | Add the sales mailbox | brand data | Wired to contact card, footer, order-form fallback, LocalBusiness schema | `sales@giftedwithpurpose.net` live in 4 places | Done |
+| 15.4 | Process the missing blanks | 4 uploads | Trimmed, padded to 4:5 on white, WebP at 2 sizes, reopened to verify | 2 usable products; the other 2 images were duplicates of one | Done |
+| 15.5 | Bug: About badges over headings | `/about` | Reproduced from the client screenshot, then read the CSS | `.step::before` still painted a counter badge; the author had tried to suppress it with inline `counterReset:'none'` + padding, which does not remove the pseudo-element. Added a real `.step-plain` variant | Fixed |
+| 15.6 | Verify the fix in a browser | `/about` | Computed `::before` content on every card | 0 cards render a badge, all 3 headings intact | Done |
+| 15.7 | Full gate | 192 routes | routes x3, flows x3, axe, responsive | ALL PASS x3, FLOWS PASS x3, **0 axe violations**, 0 overflow at 7 widths | Done |
+| 15.8 | Lint and audit | repo | eslint, npm audit | 0 errors, **0 vulnerabilities** | Done |

@@ -1,438 +1,431 @@
 {
-  "brand": {
-    "name": "Gifted with Purpose",
-    "legal": "Geneveve Gift Shop",
-    "tagline": "Thoughtful. Meaningful. Yours.",
-    "subline": "Beautiful personalized gifts made with love.",
-    "location": "Windhoek, Namibia",
-    "made_in": "Made with love in Namibia",
-    "phone_local": "081 407 6649",
-    "phone_raw": "0814076649",
-    "wa_number": "264814076649",
-    "currency": "N$",
-    "phone_intl": "+264 81 407 6649",
-    "city": "Windhoek",
-    "facebook": "https://www.facebook.com/Giftedwithpurpose",
-    "instagram": "https://www.instagram.com/giftedwithpurpose_2024/",
-    "instagram_handle": "@giftedwithpurpose_2024",
-    "facebook_name": "Giftedwithpurpose",
-    "owner": "Geneveve"
+ "brand": {
+  "name": "Gifted with Purpose",
+  "legal": "Geneveve Gift Shop",
+  "tagline": "Thoughtful. Meaningful. Yours.",
+  "subline": "Beautiful personalized gifts made with love.",
+  "location": "Windhoek, Namibia",
+  "made_in": "Made with love in Namibia",
+  "phone_local": "081 407 6649",
+  "phone_raw": "0814076649",
+  "wa_number": "264814076649",
+  "currency": "N$",
+  "phone_intl": "+264 81 407 6649",
+  "city": "Windhoek",
+  "facebook": "https://www.facebook.com/Giftedwithpurpose",
+  "instagram": "https://www.instagram.com/giftedwithpurpose_2024/",
+  "instagram_handle": "@giftedwithpurpose_2024",
+  "facebook_name": "Giftedwithpurpose",
+  "owner": "Geneveve",
+  "email": "sales@giftedwithpurpose.net",
+  "email_note": "Domain mailbox for sales enquiries. Client instruction 26 Aug 2026."
+ },
+ "collections": [
+  {
+   "slug": "encourage",
+   "name": "Encourage",
+   "sub": "Self Love Gifts",
+   "accent": "#E8407A",
+   "accent_soft": "#FFEFF4",
+   "icon": "heart",
+   "blurb": "For the one who is holding a lot right now. Affirmation drinkware she will actually use at her desk, every day, for years.",
+   "bullets": [
+    "Daily reminders",
+    "Something she keeps",
+    "Mental wellness gifts"
+   ],
+   "accent_ink": "#B32359"
   },
-  "collections": [
-    {
-      "slug": "encourage",
-      "name": "Encourage",
-      "sub": "Self Love Gifts",
-      "accent": "#E8407A",
-      "accent_soft": "#FFEFF4",
-      "icon": "heart",
-      "blurb": "For the one who is holding a lot right now. Affirmation drinkware she will actually use at her desk, every day, for years.",
-      "bullets": [
-        "Daily reminders",
-        "Something she keeps",
-        "Mental wellness gifts"
-      ],
-      "accent_ink": "#B32359"
-    },
-    {
-      "slug": "inspire",
-      "name": "Inspire",
-      "sub": "Faith Based Gifts",
-      "accent": "#3FB6A8",
-      "accent_soft": "#EAF8F6",
-      "icon": "cross",
-      "blurb": "Scripture she already knows, on something she reaches for every morning. English and Afrikaans, printed exactly as designed.",
-      "bullets": [
-        "Scripture inspired",
-        "English and Afrikaans",
-        "For every season"
-      ],
-      "accent_ink": "#1F6F66"
-    },
-    {
-      "slug": "celebrate",
-      "name": "Celebrate",
-      "sub": "Kids Gifts",
-      "accent": "#F0A93A",
-      "accent_soft": "#FFF6E6",
-      "icon": "star",
-      "blurb": "His name, her name, printed big. Sippy cups and bottles that survive a school bag and come back for more.",
-      "bullets": [
-        "Their name printed on it",
-        "Made for small hands",
-        "Survives the school bag"
-      ],
-      "accent_ink": "#8A5A05"
-    },
-    {
-      "slug": "teacher-appreciation",
-      "name": "Teacher Appreciation",
-      "sub": "Seasonal Collection",
-      "accent": "#1F4E9C",
-      "accent_soft": "#EAF1FB",
-      "icon": "apple",
-      "seasonal": true,
-      "blurb": "The last week of term, sorted. Glass, pencil case and gift bag in one box, ready to hand over.",
-      "bullets": [
-        "Three pieces, one box",
-        "Ready to hand over",
-        "End of term sorted"
-      ],
-      "accent_ink": "#1F4E9C"
-    },
-    {
-      "slug": "everyday",
-      "name": "Old School Vibes",
-      "sub": "Everyday & Novelty",
-      "accent": "#A64C4E",
-      "accent_soft": "#FBEFEF",
-      "icon": "sparkle",
-      "blurb": "Retro graffiti and loud colour. For the desk, the road trip and the person who does not want a matching set.",
-      "bullets": [
-        "Retro and loud",
-        "Everyday carry",
-        "Just because"
-      ],
-      "accent_ink": "#8A3A3C"
-    }
-  ],
-  "products": [
-    {
-      "id": "god-says-you-are-600ml",
-      "name": "God Says You Are",
-      "collection": "inspire",
-      "price": 250,
-      "spec": "600ml stainless steel tumbler",
-      "image": "studio-god-says-you-are-600ml",
-      "shot": "studio",
-      "featured": true,
-      "desc": "A sunny, illustrated reminder of who God says you are — Special, Never Alone, and more, with scripture references woven right into the artwork."
-    },
-    {
-      "id": "self-love-355ml",
-      "name": "Self Love",
-      "collection": "encourage",
-      "price": 230,
-      "spec": "355ml stainless steel tumbler",
-      "image": "studio-self-love-355ml",
-      "shot": "studio",
-      "featured": true,
-      "desc": "Journal-and-sticker style lettering in bold reds and golds. Love yourself, take care of yourself, and let the mug say it out loud."
-    },
-    {
-      "id": "spreuke-31-wine-355ml",
-      "name": "Sy is beklee met krag",
-      "collection": "inspire",
-      "price": 230,
-      "spec": "355ml stainless steel wine tumbler",
-      "image": "studio-spreuke31-wine-355ml",
-      "shot": "studio",
-      "lang": "Afrikaans",
-      "featured": true,
-      "desc": "Spreuke 31 in soft florals and single-line art: \"Sy is beklee met krag en waarheid.\" Our Afrikaans scripture line, printed exactly as designed."
-    },
-    {
-      "id": "feel-your-feelings-450ml",
-      "name": "It's Okay To Feel Your Feelings",
-      "collection": "encourage",
-      "price": 230,
-      "spec": "450ml stainless steel tumbler",
-      "image": "studio-feel-your-feelings-450ml",
-      "shot": "studio",
-      "desc": "Soft pinks, clouds and hearts around a gentle truth — self-care is empowerment. A kind gift for someone carrying a lot."
-    },
-    {
-      "id": "just-vibin-450ml",
-      "name": "Just Vibin' and Survivin'",
-      "collection": "inspire",
-      "price": 230,
-      "spec": "450ml stainless steel tumbler",
-      "image": "studio-just-vibin-450ml",
-      "shot": "studio",
-      "desc": "Dark floral drama with a wry little motto. For the friend who is holding it together with humour and grace."
-    },
-    {
-      "id": "daily-positive-affirmations-400ml",
-      "name": "Daily Positive Affirmations",
-      "collection": "inspire",
-      "price": 200,
-      "spec": "400ml stainless steel tumbler",
-      "image": "studio-daily-positive-affirmations-400ml",
-      "shot": "studio",
-      "desc": "Rainbows, hearts and a full page of affirmations wrapped around the cup — a small daily reset with every sip."
-    },
-    {
-      "id": "you-are-enough-glass-450ml",
-      "name": "You Are Enough",
-      "collection": "encourage",
-      "price": 160,
-      "spec": "450ml glass tumbler with bamboo lid",
-      "image": "studio-you-are-enough-glass-450ml",
-      "shot": "studio",
-      "featured": true,
-      "desc": "Stacked rainbow affirmations on frosted glass with a warm bamboo lid: Enough. Stronger. Capable. Worthy. Loved. Never alone. Keep going."
-    },
-    {
-      "id": "progress-over-perfection-600ml",
-      "name": "Progress Over Perfection",
-      "collection": "encourage",
-      "price": 250,
-      "spec": "600ml stainless steel tumbler",
-      "image": "studio-progress-over-perfection-600ml",
-      "shot": "studio",
-      "desc": "Notebook-paper doodles, a rainbow and three lines worth repeating: smile it's contagious, progress over perfection, be proud of yourself."
-    },
-    {
-      "id": "pray-on-it-600ml",
-      "name": "Pray On It",
-      "collection": "inspire",
-      "price": 250,
-      "spec": "600ml stainless steel tumbler",
-      "image": "studio-pray-on-it-600ml",
-      "shot": "studio",
-      "featured": true,
-      "desc": "Vintage teal and red signboard lettering framed in poppies: Pray on it. Pray over it. Pray through it."
-    },
-    {
-      "id": "grow-in-grace-600ml",
-      "name": "Grow in Grace",
-      "collection": "inspire",
-      "price": 250,
-      "spec": "600ml stainless steel tumbler",
-      "image": "studio-grow-floral-600ml",
-      "shot": "studio",
-      "desc": "Hand-painted poppies and deep green leaves wrapped around soft script lettering. Quietly beautiful, everyday faith."
-    },
-    {
-      "id": "teacher-appreciation-set",
-      "name": "Teacher Appreciation Gift Set",
-      "collection": "teacher-appreciation",
-      "price": 150,
-      "spec": "Libby glass + pencil case + gift bag",
-      "image": "flyer-teacher-appreciation",
-      "shot": "flyer",
-      "featured": true,
-      "desc": "\"Teachers plant seeds of knowledge that grow forever.\" A complete three-piece set that arrives ready to hand over on the last day of term.",
-      "includes": [
-        "Libby glass",
-        "Pencil case",
-        "Gift bag"
-      ]
-    },
-    {
-      "id": "you-are-loved-mug",
-      "name": "You Are Loved Mug",
-      "collection": "encourage",
-      "price": 120,
-      "spec": "Stainless steel mug",
-      "image": "life-you-are-loved-mug",
-      "shot": "life",
-      "desc": "Sticky-note style lettering in bright primary colours — a desk mug that says the quiet part out loud.",
-      "price_source": "WhatsApp catalogue: 11oz Mug Designs"
-    },
-    {
-      "id": "take-care-of-your-mind-mug",
-      "name": "Take Care Of Your Mind",
-      "collection": "encourage",
-      "price": 120,
-      "spec": "Stainless steel handle mug",
-      "image": "life-take-care-of-your-mind-mug",
-      "shot": "life",
-      "desc": "Retro daisies, lightning bolts and checkerboard hearts around a mental-wellness reminder. You are your home.",
-      "price_source": "WhatsApp catalogue: 11oz Mug Designs"
-    },
-    {
-      "id": "okay-to-make-mistakes",
-      "name": "It's Okay To Make Mistakes",
-      "collection": "encourage",
-      "price": null,
-      "spec": "Stainless steel bottle with flip lid",
-      "image": "life-okay-to-make-mistakes",
-      "shot": "life",
-      "desc": "A colour-blocked list of permissions: make mistakes, ask for help, be yourself, try again, say no, start over."
-    },
-    {
-      "id": "choose-joy",
-      "name": "Choose Joy",
-      "collection": "encourage",
-      "price": null,
-      "spec": "Stainless steel bottle with straw lid",
-      "image": "life-choose-joy",
-      "shot": "life",
-      "desc": "Every day is a fresh start. Bold display lettering with a sunny reminder that every small step forward is still progress."
-    },
-    {
-      "id": "you-are-enough-glass-stickers",
-      "name": "You Are Enough — glass & sticker set",
-      "collection": "encourage",
-      "price": null,
-      "spec": "Glass tumbler with bamboo lid",
-      "image": "life-you-are-enough-glass-stickers",
-      "shot": "life",
-      "desc": "The You Are Enough glass photographed with its matching affirmation sticker sheet."
-    },
-    {
-      "id": "spreuke-31-can",
-      "name": "Spreuke 31 — can tumbler",
-      "collection": "inspire",
-      "price": null,
-      "spec": "Stainless steel can tumbler",
-      "image": "life-spreuke31-can",
-      "shot": "life",
-      "lang": "Afrikaans",
-      "desc": "The Spreuke 31 floral design on our tall can-shape tumbler with a straw lid."
-    },
-    {
-      "id": "spreuke-31-wine-white",
-      "name": "Spreuke 31 — wine tumbler",
-      "collection": "inspire",
-      "price": null,
-      "spec": "Stainless steel wine tumbler",
-      "image": "life-spreuke31-wine-white",
-      "shot": "life",
-      "lang": "Afrikaans",
-      "desc": "The same Afrikaans scripture design on the stemless wine tumbler, photographed at home."
-    },
-    {
-      "id": "spreuke-31-tall-floral",
-      "name": "Spreuke 31 — tall tumbler",
-      "collection": "inspire",
-      "price": null,
-      "spec": "Tall stainless steel tumbler",
-      "image": "life-spreuke31-tall-floral",
-      "shot": "life",
-      "lang": "Afrikaans",
-      "desc": "Our tall skinny tumbler carrying the Spreuke 31 florals, with a straw lid."
-    },
-    {
-      "id": "personalised-name-kitten",
-      "name": "Personalised Name Bottle — kittens",
-      "collection": "celebrate",
-      "price": null,
-      "spec": "Kids stainless steel bottle",
-      "image": "life-personalised-kitten-jay",
-      "shot": "life",
-      "personalised": true,
-      "desc": "Playful kittens and paw prints with your child's name printed large. Tell us the name when you order."
-    },
-    {
-      "id": "personalised-name-cats",
-      "name": "Personalised Name Tumbler — cats",
-      "collection": "celebrate",
-      "price": null,
-      "spec": "Kids stainless steel tumbler",
-      "image": "life-personalised-cats-jayden",
-      "shot": "life",
-      "personalised": true,
-      "desc": "Illustrated cats on a soft pink wrap with a hand-lettered name. Made for lunchboxes and school bags."
-    },
-    {
-      "id": "kids-character-sippy-pastel",
-      "name": "Kids Character Sippy Cup",
-      "collection": "celebrate",
-      "price": 230,
-      "spec": "Kids sippy cup with handles and straw lid",
-      "image": "life-character-kids-bottle-pink",
-      "shot": "life",
-      "licensed": true,
-      "desc": "A printed character design on a pastel-striped kids bottle. Character prints are applied to purchasable blanks.",
-      "price_source": "WhatsApp catalogue: Sippy Cups"
-    },
-    {
-      "id": "kids-character-sippy-learning",
-      "name": "Kids Learning Sippy Cup",
-      "collection": "celebrate",
-      "price": 230,
-      "spec": "Kids sippy cup with handles",
-      "image": "life-character-sippy-learning",
-      "shot": "life",
-      "licensed": true,
-      "desc": "A bright learning-themed character print with rainbows and letters, on a twin-handle sippy cup.",
-      "price_source": "WhatsApp catalogue: Sippy Cups"
-    },
-    {
-      "id": "kids-character-sippy-mouse",
-      "name": "Kids Character Sippy Cup — red bow",
-      "collection": "celebrate",
-      "price": 230,
-      "spec": "Kids sippy cup with handles",
-      "image": "life-character-sippy-mouse",
-      "shot": "life",
-      "licensed": true,
-      "desc": "A classic cartoon character print in red and pink on a twin-handle sippy cup.",
-      "price_source": "WhatsApp catalogue: Sippy Cups"
-    },
-    {
-      "id": "kids-character-can-blue",
-      "name": "Kids Character Can Tumbler",
-      "collection": "celebrate",
-      "price": null,
-      "spec": "Kids can tumbler with straw lid",
-      "image": "life-character-blue-can",
-      "shot": "life",
-      "licensed": true,
-      "desc": "A bold blue character print on our small can-shape tumbler — a good size for little hands."
-    },
-    {
-      "id": "weekly-goals-can",
-      "name": "Weekly Goals Can Tumbler",
-      "collection": "celebrate",
-      "price": null,
-      "spec": "Can tumbler with straw lid",
-      "image": "life-weekly-goals-can",
-      "shot": "life",
-      "desc": "Gold stars, crayons and \"Great Job\" stamps — a classroom-themed tumbler that doubles as a teacher gift."
-    },
-    {
-      "id": "old-school-vibes-pair",
-      "name": "Old School Vibes",
-      "collection": "everyday",
-      "price": null,
-      "spec": "Stainless steel tumblers",
-      "image": "life-old-school-vibes-pair",
-      "shot": "life",
-      "featured": true,
-      "desc": "Retro 80s graffiti in electric colour, shown here as a matching pair. Loud, fun and completely unbothered."
-    }
-  ],
-  "coming_soon": {
-    "note": "Confirmed by the client as the next product lines, no photography supplied yet.",
-    "items": [
-      "T-shirts",
-      "Caps",
-      "Bags",
-      "Wallets",
-      "Mousepads",
-      "Deskpads"
-    ]
+  {
+   "slug": "inspire",
+   "name": "Inspire",
+   "sub": "Faith Based Gifts",
+   "accent": "#3FB6A8",
+   "accent_soft": "#EAF8F6",
+   "icon": "cross",
+   "blurb": "Scripture she already knows, on something she reaches for every morning. English and Afrikaans, printed exactly as designed.",
+   "bullets": [
+    "Scripture inspired",
+    "English and Afrikaans",
+    "For every season"
+   ],
+   "accent_ink": "#1F6F66"
   },
-  "catalogue_prices": {
-    "note": "Read from the client's own WhatsApp Business catalogue, 22 Aug 2026.",
-    "items": [
-      {
-        "name": "Sippy Cups",
-        "price": 230
-      },
-      {
-        "name": "20oz Skinny Tumbler Designs",
-        "price": 250
-      },
-      {
-        "name": "11oz Mug Designs",
-        "price": 120
-      },
-      {
-        "name": "Mother's Day Tumblers",
-        "price": 250
-      },
-      {
-        "name": "Mother's Day Mugs",
-        "price": 120
-      },
-      {
-        "name": "Frosted Mugs",
-        "price": 120
-      }
-    ]
+  {
+   "slug": "celebrate",
+   "name": "Celebrate",
+   "sub": "Kids Gifts",
+   "accent": "#F0A93A",
+   "accent_soft": "#FFF6E6",
+   "icon": "star",
+   "blurb": "His name, her name, printed big. Sippy cups and bottles that survive a school bag and come back for more.",
+   "bullets": [
+    "Their name printed on it",
+    "Made for small hands",
+    "Survives the school bag"
+   ],
+   "accent_ink": "#8A5A05"
+  },
+  {
+   "slug": "teacher-appreciation",
+   "name": "Teacher Appreciation",
+   "sub": "Seasonal Collection",
+   "accent": "#1F4E9C",
+   "accent_soft": "#EAF1FB",
+   "icon": "apple",
+   "seasonal": true,
+   "blurb": "The last week of term, sorted. Glass, pencil case and gift bag in one box, ready to hand over.",
+   "bullets": [
+    "Three pieces, one box",
+    "Ready to hand over",
+    "End of term sorted"
+   ],
+   "accent_ink": "#1F4E9C"
+  },
+  {
+   "slug": "everyday",
+   "name": "Old School Vibes",
+   "sub": "Everyday & Novelty",
+   "accent": "#A64C4E",
+   "accent_soft": "#FBEFEF",
+   "icon": "sparkle",
+   "blurb": "Retro graffiti and loud colour. For the desk, the road trip and the person who does not want a matching set.",
+   "bullets": [
+    "Retro and loud",
+    "Everyday carry",
+    "Just because"
+   ],
+   "accent_ink": "#8A3A3C"
   }
+ ],
+ "products": [
+  {
+   "id": "god-says-you-are-600ml",
+   "name": "God Says You Are",
+   "collection": "inspire",
+   "price": 250,
+   "spec": "600ml stainless steel tumbler",
+   "image": "studio-god-says-you-are-600ml",
+   "shot": "studio",
+   "featured": true,
+   "desc": "A sunny, illustrated reminder of who God says you are — Special, Never Alone, and more, with scripture references woven right into the artwork."
+  },
+  {
+   "id": "self-love-355ml",
+   "name": "Self Love",
+   "collection": "encourage",
+   "price": 230,
+   "spec": "355ml stainless steel tumbler",
+   "image": "studio-self-love-355ml",
+   "shot": "studio",
+   "featured": true,
+   "desc": "Journal-and-sticker style lettering in bold reds and golds. Love yourself, take care of yourself, and let the mug say it out loud."
+  },
+  {
+   "id": "spreuke-31-wine-355ml",
+   "name": "Sy is beklee met krag",
+   "collection": "inspire",
+   "price": 230,
+   "spec": "355ml stainless steel wine tumbler",
+   "image": "studio-spreuke31-wine-355ml",
+   "shot": "studio",
+   "lang": "Afrikaans",
+   "featured": true,
+   "desc": "Spreuke 31 in soft florals and single-line art: \"Sy is beklee met krag en waarheid.\" Our Afrikaans scripture line, printed exactly as designed."
+  },
+  {
+   "id": "feel-your-feelings-450ml",
+   "name": "It's Okay To Feel Your Feelings",
+   "collection": "encourage",
+   "price": 230,
+   "spec": "450ml stainless steel tumbler",
+   "image": "studio-feel-your-feelings-450ml",
+   "shot": "studio",
+   "desc": "Soft pinks, clouds and hearts around a gentle truth — self-care is empowerment. A kind gift for someone carrying a lot."
+  },
+  {
+   "id": "just-vibin-450ml",
+   "name": "Just Vibin' and Survivin'",
+   "collection": "inspire",
+   "price": 230,
+   "spec": "450ml stainless steel tumbler",
+   "image": "studio-just-vibin-450ml",
+   "shot": "studio",
+   "desc": "Dark floral drama with a wry little motto. For the friend who is holding it together with humour and grace."
+  },
+  {
+   "id": "daily-positive-affirmations-400ml",
+   "name": "Daily Positive Affirmations",
+   "collection": "inspire",
+   "price": null,
+   "spec": "400ml stainless steel tumbler",
+   "image": "studio-daily-positive-affirmations-400ml",
+   "shot": "studio",
+   "desc": "Rainbows, hearts and a full page of affirmations wrapped around the cup — a small daily reset with every sip.",
+   "price_source": "Retired 26 Aug 2026: 2024 flyer price, no longer valid. Current floor is N$230."
+  },
+  {
+   "id": "you-are-enough-glass-450ml",
+   "name": "You Are Enough",
+   "collection": "encourage",
+   "price": null,
+   "spec": "450ml glass tumbler with bamboo lid",
+   "image": "studio-you-are-enough-glass-450ml",
+   "shot": "studio",
+   "featured": true,
+   "desc": "Stacked rainbow affirmations on frosted glass with a warm bamboo lid: Enough. Stronger. Capable. Worthy. Loved. Never alone. Keep going.",
+   "price_source": "Retired 26 Aug 2026: 2024 flyer price, no longer valid. Current floor is N$230."
+  },
+  {
+   "id": "progress-over-perfection-600ml",
+   "name": "Progress Over Perfection",
+   "collection": "encourage",
+   "price": 250,
+   "spec": "600ml stainless steel tumbler",
+   "image": "studio-progress-over-perfection-600ml",
+   "shot": "studio",
+   "desc": "Notebook-paper doodles, a rainbow and three lines worth repeating: smile it's contagious, progress over perfection, be proud of yourself."
+  },
+  {
+   "id": "pray-on-it-600ml",
+   "name": "Pray On It",
+   "collection": "inspire",
+   "price": 250,
+   "spec": "600ml stainless steel tumbler",
+   "image": "studio-pray-on-it-600ml",
+   "shot": "studio",
+   "featured": true,
+   "desc": "Vintage teal and red signboard lettering framed in poppies: Pray on it. Pray over it. Pray through it."
+  },
+  {
+   "id": "grow-in-grace-600ml",
+   "name": "Grow in Grace",
+   "collection": "inspire",
+   "price": 250,
+   "spec": "600ml stainless steel tumbler",
+   "image": "studio-grow-floral-600ml",
+   "shot": "studio",
+   "desc": "Hand-painted poppies and deep green leaves wrapped around soft script lettering. Quietly beautiful, everyday faith."
+  },
+  {
+   "id": "teacher-appreciation-set",
+   "name": "Teacher Appreciation Gift Set",
+   "collection": "teacher-appreciation",
+   "price": null,
+   "spec": "Libby glass + pencil case + gift bag",
+   "image": "flyer-teacher-appreciation",
+   "shot": "flyer",
+   "featured": true,
+   "desc": "\"Teachers plant seeds of knowledge that grow forever.\" A complete three-piece set that arrives ready to hand over on the last day of term.",
+   "includes": [
+    "Libby glass",
+    "Pencil case",
+    "Gift bag"
+   ],
+   "price_source": "Retired 26 Aug 2026: 2024 flyer price, no longer valid. Current floor is N$230."
+  },
+  {
+   "id": "you-are-loved-mug",
+   "name": "You Are Loved Mug",
+   "collection": "encourage",
+   "price": null,
+   "spec": "Stainless steel mug",
+   "image": "life-you-are-loved-mug",
+   "shot": "life",
+   "desc": "Sticky-note style lettering in bright primary colours — a desk mug that says the quiet part out loud.",
+   "price_source": "Retired 26 Aug 2026: 2024 flyer price, no longer valid. Current floor is N$230."
+  },
+  {
+   "id": "take-care-of-your-mind-mug",
+   "name": "Take Care Of Your Mind",
+   "collection": "encourage",
+   "price": null,
+   "spec": "Stainless steel handle mug",
+   "image": "life-take-care-of-your-mind-mug",
+   "shot": "life",
+   "desc": "Retro daisies, lightning bolts and checkerboard hearts around a mental-wellness reminder. You are your home.",
+   "price_source": "Retired 26 Aug 2026: 2024 flyer price, no longer valid. Current floor is N$230."
+  },
+  {
+   "id": "okay-to-make-mistakes",
+   "name": "It's Okay To Make Mistakes",
+   "collection": "encourage",
+   "price": null,
+   "spec": "Stainless steel bottle with flip lid",
+   "image": "life-okay-to-make-mistakes",
+   "shot": "life",
+   "desc": "A colour-blocked list of permissions: make mistakes, ask for help, be yourself, try again, say no, start over."
+  },
+  {
+   "id": "choose-joy",
+   "name": "Choose Joy",
+   "collection": "encourage",
+   "price": null,
+   "spec": "Stainless steel bottle with straw lid",
+   "image": "life-choose-joy",
+   "shot": "life",
+   "desc": "Every day is a fresh start. Bold display lettering with a sunny reminder that every small step forward is still progress."
+  },
+  {
+   "id": "you-are-enough-glass-stickers",
+   "name": "You Are Enough — glass & sticker set",
+   "collection": "encourage",
+   "price": null,
+   "spec": "Glass tumbler with bamboo lid",
+   "image": "life-you-are-enough-glass-stickers",
+   "shot": "life",
+   "desc": "The You Are Enough glass photographed with its matching affirmation sticker sheet."
+  },
+  {
+   "id": "spreuke-31-can",
+   "name": "Spreuke 31 — can tumbler",
+   "collection": "inspire",
+   "price": null,
+   "spec": "Stainless steel can tumbler",
+   "image": "life-spreuke31-can",
+   "shot": "life",
+   "lang": "Afrikaans",
+   "desc": "The Spreuke 31 floral design on our tall can-shape tumbler with a straw lid."
+  },
+  {
+   "id": "spreuke-31-wine-white",
+   "name": "Spreuke 31 — wine tumbler",
+   "collection": "inspire",
+   "price": null,
+   "spec": "Stainless steel wine tumbler",
+   "image": "life-spreuke31-wine-white",
+   "shot": "life",
+   "lang": "Afrikaans",
+   "desc": "The same Afrikaans scripture design on the stemless wine tumbler, photographed at home."
+  },
+  {
+   "id": "spreuke-31-tall-floral",
+   "name": "Spreuke 31 — tall tumbler",
+   "collection": "inspire",
+   "price": null,
+   "spec": "Tall stainless steel tumbler",
+   "image": "life-spreuke31-tall-floral",
+   "shot": "life",
+   "lang": "Afrikaans",
+   "desc": "Our tall skinny tumbler carrying the Spreuke 31 florals, with a straw lid."
+  },
+  {
+   "id": "personalised-name-kitten",
+   "name": "Personalised Name Bottle — kittens",
+   "collection": "celebrate",
+   "price": null,
+   "spec": "Kids stainless steel bottle",
+   "image": "life-personalised-kitten-jay",
+   "shot": "life",
+   "personalised": true,
+   "desc": "Playful kittens and paw prints with your child's name printed large. Tell us the name when you order."
+  },
+  {
+   "id": "personalised-name-cats",
+   "name": "Personalised Name Tumbler — cats",
+   "collection": "celebrate",
+   "price": null,
+   "spec": "Kids stainless steel tumbler",
+   "image": "life-personalised-cats-jayden",
+   "shot": "life",
+   "personalised": true,
+   "desc": "Illustrated cats on a soft pink wrap with a hand-lettered name. Made for lunchboxes and school bags."
+  },
+  {
+   "id": "kids-character-sippy-pastel",
+   "name": "Kids Character Sippy Cup",
+   "collection": "celebrate",
+   "price": 230,
+   "spec": "Kids sippy cup with handles and straw lid",
+   "image": "life-character-kids-bottle-pink",
+   "shot": "life",
+   "licensed": true,
+   "desc": "A printed character design on a pastel-striped kids bottle. Character prints are applied to purchasable blanks.",
+   "price_source": "WhatsApp catalogue: Sippy Cups"
+  },
+  {
+   "id": "kids-character-sippy-learning",
+   "name": "Kids Learning Sippy Cup",
+   "collection": "celebrate",
+   "price": 230,
+   "spec": "Kids sippy cup with handles",
+   "image": "life-character-sippy-learning",
+   "shot": "life",
+   "licensed": true,
+   "desc": "A bright learning-themed character print with rainbows and letters, on a twin-handle sippy cup.",
+   "price_source": "WhatsApp catalogue: Sippy Cups"
+  },
+  {
+   "id": "kids-character-sippy-mouse",
+   "name": "Kids Character Sippy Cup — red bow",
+   "collection": "celebrate",
+   "price": 230,
+   "spec": "Kids sippy cup with handles",
+   "image": "life-character-sippy-mouse",
+   "shot": "life",
+   "licensed": true,
+   "desc": "A classic cartoon character print in red and pink on a twin-handle sippy cup.",
+   "price_source": "WhatsApp catalogue: Sippy Cups"
+  },
+  {
+   "id": "kids-character-can-blue",
+   "name": "Kids Character Can Tumbler",
+   "collection": "celebrate",
+   "price": null,
+   "spec": "Kids can tumbler with straw lid",
+   "image": "life-character-blue-can",
+   "shot": "life",
+   "licensed": true,
+   "desc": "A bold blue character print on our small can-shape tumbler — a good size for little hands."
+  },
+  {
+   "id": "weekly-goals-can",
+   "name": "Weekly Goals Can Tumbler",
+   "collection": "celebrate",
+   "price": null,
+   "spec": "Can tumbler with straw lid",
+   "image": "life-weekly-goals-can",
+   "shot": "life",
+   "desc": "Gold stars, crayons and \"Great Job\" stamps — a classroom-themed tumbler that doubles as a teacher gift."
+  },
+  {
+   "id": "old-school-vibes-pair",
+   "name": "Old School Vibes",
+   "collection": "everyday",
+   "price": null,
+   "spec": "Stainless steel tumblers",
+   "image": "life-old-school-vibes-pair",
+   "shot": "life",
+   "featured": true,
+   "desc": "Retro 80s graffiti in electric colour, shown here as a matching pair. Loud, fun and completely unbothered."
+  }
+ ],
+ "coming_soon": {
+  "note": "Confirmed by the client as the next product lines, no photography supplied yet.",
+  "items": [
+   "T-shirts",
+   "Caps",
+   "Bags",
+   "Wallets",
+   "Mousepads",
+   "Deskpads"
+  ]
+ },
+ "catalogue_prices": {
+  "note": "Read from the client's own WhatsApp Business catalogue, 22 Aug 2026. Lines below N$230 were withdrawn by the client on 26 Aug 2026 as out-of-date 2024 pricing.",
+  "items": [
+   {
+    "name": "Sippy Cups",
+    "price": 230
+   },
+   {
+    "name": "20oz Skinny Tumbler Designs",
+    "price": 250
+   },
+   {
+    "name": "Mother's Day Tumblers",
+    "price": 250
+   }
+  ]
+ }
 }

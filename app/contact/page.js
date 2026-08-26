@@ -96,6 +96,16 @@ export default function ContactPage() {
               </span>
             </a>
 
+            <a className="ccard" href={`mailto:${brand.email}`}>
+              <span className="ci" style={{ background: 'var(--season-accent)' }}>
+                <Icon name="mail" />
+              </span>
+              <span>
+                <h3>Email us</h3>
+                <p>{brand.email}</p>
+              </span>
+            </a>
+
             <div className="ccard">
               <span className="ci" style={{ background: 'var(--cat-teal)' }}>
                 <Icon name="pin" />

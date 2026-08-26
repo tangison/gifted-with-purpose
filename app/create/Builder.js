@@ -7,6 +7,8 @@ import { Icon } from '@/components/Icons';
 import { brand } from '@/lib/site';
 import {
   blanks,
+  adultBlanks,
+  kidsBlanks,
   designs,
   designsForBlank,
   designById,
@@ -101,8 +103,10 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
               <span className="bld-n">1</span> Pick the item
             </h2>
             <p className="bld-hint">This is what sets the price.</p>
+
+            <p className="bld-group">For grown-ups</p>
             <ul className="bld-items">
-              {blanks.map((b) => (
+              {adultBlanks.map((b) => (
                 <li key={b.id}>
                   <button
                     type="button"
@@ -111,13 +115,61 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
                     onClick={() => chooseItem(b.id)}
                   >
                     <span className="bld-item-media">
-                      {b.photo ? (
+                      {b.blank_photo ? (
+                        <Image
+                          src={`/assets/blanks/${b.blank_photo}@sm.webp`}
+                          alt=""
+                          fill
+                          sizes="160px"
+                          style={{ objectFit: 'contain' }}
+                        />
+                      ) : b.photo ? (
                         <Image
                           src={`/assets/products/${b.photo}@sm.jpg`}
                           alt=""
                           fill
-                          sizes="120px"
-                          style={{ objectFit: b.shot === 'studio' ? 'contain' : 'cover' }}
+                          sizes="160px"
+                          style={{ objectFit: 'contain' }}
+                        />
+                      ) : (
+                        <Icon name="cup" />
+                      )}
+                    </span>
+                    <span className="bld-item-name">{b.name}</span>
+                    <span className={`bld-item-price${b.price == null ? ' ask' : ''}`}>
+                      {blankPriceLabel(b)}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <p className="bld-group">For kids</p>
+            <ul className="bld-items">
+              {kidsBlanks.map((b) => (
+                <li key={b.id}>
+                  <button
+                    type="button"
+                    className="bld-item"
+                    aria-pressed={itemId === b.id}
+                    onClick={() => chooseItem(b.id)}
+                  >
+                    <span className="bld-item-media">
+                      {b.blank_photo ? (
+                        <Image
+                          src={`/assets/blanks/${b.blank_photo}@sm.webp`}
+                          alt=""
+                          fill
+                          sizes="160px"
+                          style={{ objectFit: 'contain' }}
+                        />
+                      ) : b.photo ? (
+                        <Image
+                          src={`/assets/products/${b.photo}@sm.jpg`}
+                          alt=""
+                          fill
+                          sizes="160px"
+                          style={{ objectFit: 'contain' }}
                         />
                       ) : (
                         <Icon name="cup" />

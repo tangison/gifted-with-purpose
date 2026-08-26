@@ -166,3 +166,177 @@ the business actually works. Confirmed with you on 25 Aug 2026:
 - **Which designs may not be reprinted?** 49 of 141 show third-party characters or brands. They are
   listed generically with a visible independence disclaimer and kept out of all marketing imagery.
   Say the word and I will remove any or all of them.
+
+---
+
+## 7. The blank range (added 25 Aug 2026)
+
+You sent nine photographs of unlabelled containers and a list of seven sizes. All nine are now
+on the site at **/blanks**, each with its own page, linked into the shop in both directions.
+
+### What I did with the size list, and why
+
+Your list read: `320ml, 300ml, 355ml, 200ml, 600ml, 355ml, 400ml`. That is **seven sizes against
+nine photographs**, and the order does not line up with the codes printed on the images. Rather
+than guess, I read the SKU code off each photograph and looked every one up on Titan-Jet's own
+site. The capacities below are the maker's published figures.
+
+| Photograph | Code on image | What it actually is (maker's own name) | Capacity |
+|---|---|---|---|
+| Handled mug, clear slide lid | SB8000 A | 12oz White Stainless Steel Coffee Mug | 12oz |
+| Squat rounded tumbler | SB8009 F | 12oz White Stainless Steel Gin Tumblers | 12oz |
+| Straight tumbler, domed lid | SB8005 A | 15oz White Stainless Steel Skinny Tumbler | 15oz |
+| Tall slim tumbler, clear lid | SB859 A | 20oz White Stainless Steel Skinny Tumbler | 20oz |
+| Tall slim tumbler, black flip lid | SB8072 F | 20oz White Stainless Steel Hot and Cold Skinny Tumbler | 20oz |
+| Small soda can, ring pull | SB889 F | 250ml White Stainless Steel Can | 250ml |
+| Tall can, ring pull | SB890 A | 400ml White Stainless Steel Can | 400ml |
+| Kids bottle, blue and yellow lid | SB856 F | 300ml Yellow Cap Stainless Steel Sippy Cup | 300ml |
+| Kids cup, two clear handles | SB893 F | 320ml White Stainless Steel Straight Baby Sippy Cup | 320ml |
+
+**Two things I need you to confirm:**
+
+1. **The sizes do not match your list.** Your list has 355ml, 200ml and 600ml, and none of the
+   nine containers is any of those. It also has 300ml, 320ml and 400ml, which do match. Were the
+   355 / 200 / 600 sizes meant for **different** containers you have not sent photographs of? Or
+   were some of those numbers approximate?
+2. **SB893 has two codes.** Your photograph is labelled **SB893 F**. The maker's own product page
+   lists the same cup as **SP893**. I have published both on the page so nobody orders the wrong
+   thing. Tell me which one you quote to customers and I will lead with it.
+
+### No prices are published for any of them
+
+**None of these nine has a price on the site.** Every one reads "Price on request" and the
+enquiry button opens WhatsApp pre-filled with the shape, the code and the size. I have not
+guessed a single figure, and I have not marked up the supplier's trade price.
+
+**Send me your selling price for any of the nine and that page starts quoting it immediately.**
+
+### One thing worth knowing about SB8072
+
+The maker states it ships with a **plastic** straw, not a metal one, and the straw has to be
+pushed into the lid for the mouthpiece to work. That is printed on the page so nobody is
+surprised. Tell me if your stock differs.
+
+### A pricing error this work uncovered
+
+While building the blank pages I found that the site's structured data had been telling Google
+the business price range was **"N$150 - N$250"** since well before this turn. Your cheapest
+confirmed item is the **N$120** mug, so the entry price was being overstated by N$30 in search
+results. It is now calculated from your real catalogue instead of typed in, so it cannot drift
+again. No visible page ever showed the wrong figure.
+
+## 7. Domain, products page and process page (added 25 Aug 2026)
+
+### Domain
+The site is built for **giftedwithpurpose.net**. Every canonical tag, sitemap URL,
+JSON-LD id and Open Graph URL now derives from that one origin. Preview deploys
+serve `Disallow: /` and `noindex` so they can never outrank the real domain.
+
+**You still need to:** buy the domain, point it at Vercel, and add it in the Vercel
+project. Until the DNS resolves, the live site stays on the vercel.app address.
+
+### Search engines
+- `robots.txt` allows Google, Bing and GPTBot, and points at the sitemap on the real domain.
+- `sitemap.xml` carries 171 URLs including all 141 designs, 11 items, /work and /process.
+- Verification meta tags are wired to env vars. Give me the two codes and I add them:
+  - `GOOGLE_SITE_VERIFICATION` from Google Search Console
+  - `BING_SITE_VERIFICATION` from Bing Webmaster Tools
+- Submission to both consoles is blocked until the domain resolves.
+
+### Items rebuilt from the supplier
+Specs and SKUs were read directly from titanjet.co.za product pages on 25 Aug 2026,
+not guessed. Capacities are the ones you sent on 24 Aug.
+
+| Item | SKU | Capacity | Price |
+|---|---|---|---|
+| 12oz Coffee Mug | SB8000 | 355ml | N$120.00 |
+| 20oz Skinny Tumbler | SB859 | 600ml | N$250.00 |
+| Kids Sippy Cup | SB893 | 320ml | N$230.00 |
+| Frosted Glass Mug | none | 11oz | N$120.00 |
+| Kids Flip-Top Bottle | SB856 | 300ml | **price needed** |
+| 12oz Gin Tumbler | SB8009 | 355ml | **price needed** |
+| 250ml Can Tumbler | SB889 | 250ml | **price needed** |
+| 400ml Can Tumbler | SB890 | 400ml | **price needed** |
+| 15oz Skinny Tumbler | SB8005 | 450ml | **price needed** |
+| 20oz Travel Tumbler | SB8072 | 600ml | **price needed** |
+| Glass Tumbler, bamboo lid | none | 450ml | **price needed** |
+
+**Seven prices are missing.** Send them and every design page updates on its own.
+
+Two questions I could not answer from the screenshots:
+1. **SB893 capacity.** Your screenshot URL says 320ml but the supplier search returns
+   an 850ml aluminium bottle for that SKU, and the product page 404s. I used 320ml
+   from your URL. Confirm it.
+2. **The 200ml size** you listed has no SKU or screenshot attached to it. Which item is it?
+
+### Photography
+- 9 unprinted blanks converted to WebP, phone chrome cropped off, 116KB total.
+- 44 photographs of real finished work published at `/work`, 4.2MB total.
+- **2 photographs withheld.** Both show a **child's face printed on the cup**
+  (`IMG-20260825-WA0054`, `IMG-20260825-WA0067`). One is also an Instagram screenshot
+  with app UI in frame. Publishing a recognisable child on a public commercial website
+  needs written consent from that parent. Get it and I will add them in minutes.
+- Still missing photography: **Frosted Glass Mug** and **20oz Travel Tumbler** have a
+  blank or a price but no finished-work photo of their own.
+
+
+
+---
+
+## 8. Client annotations applied 26 Aug 2026
+
+Every marked-up screenshot was read and applied.
+
+| # | Your instruction | What changed | Status |
+|---|---|---|---|
+| 1 | N$120 struck out, **230** written on the 12oz Coffee Mug | Mug is now **N$230**. You confirmed both mugs move to N$230 and the N$120 line is retired, so the Frosted Glass Mug is N$230 too. **Zero N$120 remain anywhere on the site.** | Done |
+| 2 | "kids prices start from N$230, not N$120" | Kids Flip-Top Bottle set to **N$230** (was "price on request"). | Done |
+| 3 | "we must also have a dedicated kids section" | `/shop` is now split into **For grown-ups** (9 items) and a boxed **For kids** band (sippy cup, flip-top). The builder on `/create` is grouped the same way. | Done |
+| 4 | "by pick your item we must put the blank products" | Step 1 of the builder and the `/shop` grid now show the **unprinted blank**, not a printed example. | Done |
+| 5 | "pictures must not be cut off, the entire picture must show" | Every item frame changed from `cover` to `contain` on white. Nothing is cropped on `/shop`, `/shop/[item]` or `/create`. | Done |
+| 6 | "replace how we make it with how to order" | `/process` deleted, its richer content moved onto `/how-to-order`. Nav, footer, drawer and sitemap carry **one** entry. `/process` **301-redirects** so no shared link breaks. | Done |
+| 7 | "What it costs" paragraph struck out | Removed. | Done |
+| 8 | "Choosing a different design costs nothing" struck out | Removed from step 1. | Done |
+| 9 | "the spelling of any name" struck out | Removed from step 2. | Done |
+| 10 | Independence disclaimer X'd, "remove" | Removed from `/work`. | Done |
+| 11 | About hero X'd, "i will tell you what to write here" | Replaced with a neutral factual heading. **Waiting on your copy.** | Placeholder |
+
+### Two things I need from you
+
+1. **The About page copy.** Currently reads "Our Story" with one factual line. Send the heading and paragraph you want.
+2. **A disclaimer decision.** You removed the independence disclaimer from `/work`. An identical one still sits at the bottom of `/designs`. You did not mark that page, so I left it. Tell me whether to remove that one too. It is the notice saying we are not affiliated with the character brands, so it is worth a deliberate decision rather than me guessing.
+
+### Still outstanding from before
+
+Six items remain "Price on request": 12oz Gin Tumbler, 250ml Can, 400ml Can, 15oz Skinny Tumbler, 20oz Travel Tumbler, Glass Tumbler with Bamboo Lid.
+
+---
+
+## 9. Fixes applied 26 Aug 2026 (second round)
+
+| Your instruction | What changed | Status |
+|---|---|---|
+| "the other flyers with 120 prices must be disregarded and removed, those are things from 2024" | Retired **five** stale prices, not just the N$120 ones: N$120 x2, N$150, N$160, N$200. All now read "Price on request". **Zero prices below N$230 remain anywhere on the site.** | Done |
+| "230 is the starting price" | Confirmed. The floor is derived from the data, so copy cannot drift from it. | Done |
+| "sales@ourdomain is the email" | **sales@giftedwithpurpose.net** added to the contact page, the footer, the order form as an alternative to WhatsApp, and the LocalBusiness schema. | Done |
+| "the other two mugs that are missing the blank" | Added blanks for the **Frosted Glass Mug** and the **Glass Tumbler with Bamboo Lid**. All 11 items now have a blank photo. | Done |
+| About page numbered badges overlapping the headings | Fixed. The cards were reusing the numbered-step component and the author tried to hide the counter inline, which left a pink "1" painted over each heading. Proper unnumbered variant added. | Done |
+| "all whatsapp CTAs are perfect" | Left untouched. | No change |
+
+### Note on the teacher set
+
+The Teacher Appreciation Gift Set price (N$150) was **hardcoded directly in the homepage**, bypassing the data
+file. Retiring it in the data would not have removed it from the page. It is now driven by the product record
+like everything else, so it reads "Price on request" until you give me a current figure.
+
+### Two blanks you sent were the same product
+
+Of the four images, two showed the same handled glass mug at different resolutions. I kept the sharper one and
+used it for the Glass Tumbler with Bamboo Lid. The frosted mug image became the Frosted Glass Mug blank.
+
+### Still needed from you
+
+1. **The About page copy.** Still the neutral placeholder.
+2. **The `/designs` disclaimer decision** from the last round.
+3. **Six prices**, now including the teacher set: gin tumbler, 250ml can, 400ml can, 15oz skinny tumbler, 20oz travel tumbler, glass tumbler, and the Teacher Appreciation Gift Set.
+4. **The mailbox itself.** I have put `sales@giftedwithpurpose.net` on the site, but the mailbox has to exist at your domain host and be able to receive mail. Set that up and send yourself a test.
