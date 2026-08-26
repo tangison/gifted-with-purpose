@@ -275,6 +275,8 @@ the cause is still the hero background image.
 | 14.13 | Lighthouse | 3 changed pages | lighthouse 12 mobile | `/how-to-order` 98, `/shop` 97, `/create` 97, all **100 a11y / 100 BP / 100 SEO** | Done |
 | 14.14 | Lint and audit | repo | eslint, npm audit | 0 errors, **0 vulnerabilities** | Done |
 
+
+
 ---
 
 ## Phase 15 — Stale 2024 pricing, sales email, missing blanks, About bug (26 Aug 2026)
