@@ -251,6 +251,8 @@ the cause is still the hero background image.
 | 13.18 | Lighthouse | 4 routes | lighthouse 12 mobile | `/process` 98, `/work` 96, `/shop/can-400` 95, `/` 93. All **100 a11y / 100 BP / 100 SEO** | `/tmp/n_*.json` | Done |
 | 13.19 | Lint and audit | repo | `npx eslint .`, `npm audit --omit=dev` | 0 errors, **0 vulnerabilities** | terminal | Done |
 
+
+
 ---
 
 ## Phase 14 — Client annotations from marked-up screenshots (26 Aug 2026)

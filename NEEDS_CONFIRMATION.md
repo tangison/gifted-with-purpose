@@ -279,6 +279,8 @@ Two questions I could not answer from the screenshots:
 - Still missing photography: **Frosted Glass Mug** and **20oz Travel Tumbler** have a
   blank or a price but no finished-work photo of their own.
 
+
+
 ---
 
 ## 8. Client annotations applied 26 Aug 2026
