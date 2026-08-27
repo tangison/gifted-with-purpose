@@ -47,7 +47,7 @@ export default function Header() {
           <Link className="brand" href="/">
             <Image
               src="/assets/logos/gifted-with-purpose-logo.svg"
-              alt="Gifted with Purpose — Thoughtful, Meaningful, Yours"
+              alt="Gifted with Purpose. Thoughtful, Meaningful, Yours"
               width={84}
               height={84}
               priority
@@ -63,6 +63,9 @@ export default function Header() {
             </Link>
             <Link href="/designs" aria-current={cur('/designs')}>
               Designs
+            </Link>
+<Link href="/work" aria-current={cur('/work')}>
+              Our products
             </Link>
             <Link href="/create" aria-current={cur('/create')}>
               Make your own

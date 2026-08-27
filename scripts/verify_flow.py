@@ -16,8 +16,8 @@ async def main():
         pg.on("pageerror", lambda e: console.append(f"pageerror: {e}"))
 
         # ---- flow 1: ready-made design on a chosen item
-        await pg.goto(f"{B}/create", wait_until="networkidle")
-        await pg.get_by_role("button", name="11oz Mug", exact=False).first.click()
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
+        await pg.get_by_role("button", name="12oz Coffee Mug", exact=False).first.click()
         await pg.get_by_role("button", name="Choose a ready-made design").click()
         await pg.fill("#bq", "Grow In Grace")
         await pg.wait_for_timeout(500)
@@ -27,23 +27,23 @@ async def main():
         await pg.wait_for_timeout(300)
 
         total = await pg.locator(".bld-total").inner_text()
-        if "360.00" not in total:
-            fails.append(f"flow1 total wrong: {total!r} (3 x N$120 should be N$360.00)")
+        if "690.00" not in total:
+            fails.append(f"flow1 total wrong: {total!r} (3 x N$230 should be N$690.00)")
 
         href = await pg.locator("a.bld-send").get_attribute("href")
         if not href:
             fails.append("flow1: send button is not a link, so the form did not validate")
         else:
             msg = urllib.parse.unquote_plus(href.split("text=")[1])
-            for need in ["11oz Mug", "N$120.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$360.00"]:
+            for need in ["12oz Coffee Mug", "N$230.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$690.00"]:
                 if need not in msg:
                     fails.append(f"flow1 message missing {need!r}")
             if "wa.me/264814076649" not in href:
                 fails.append("flow1: wrong WhatsApp number")
 
         # ---- flow 2: custom brief, unpriced item
-        await pg.goto(f"{B}/create", wait_until="networkidle")
-        await pg.get_by_role("button", name="Kids Flip-Top Bottle", exact=False).first.click()
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
+        await pg.get_by_role("button", name="12oz Gin Tumbler", exact=False).first.click()
         await pg.get_by_role("button", name="Ask us to draw one").click()
         await pg.fill("#brief", "A protea wreath with my mother's name in Afrikaans script")
         await pg.wait_for_timeout(300)
@@ -64,7 +64,7 @@ async def main():
                 fails.append(f"flow2: invented a price for an unpriced item: {msg2!r}")
 
         # ---- flow 3: validation actually blocks
-        await pg.goto(f"{B}/create", wait_until="networkidle")
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
         await pg.locator("button.bld-send").click()
         await pg.wait_for_timeout(300)
         errs = await pg.locator(".bld-errs li").count()
@@ -72,7 +72,7 @@ async def main():
             fails.append(f"flow3: empty submit showed only {errs} errors")
 
         # ---- flow 4: design page price table joins to the blank
-        await pg.goto(f"{B}/designs/sippy-18", wait_until="networkidle")
+        await pg.goto(f"{B}/designs/sippy-18", wait_until="domcontentloaded")
         fits = await pg.locator(".fit-name").all_inner_texts()
         if "Kids Sippy Cup" not in fits:
             fails.append(f"flow4: sippy design does not offer the sippy cup: {fits}")
@@ -85,7 +85,7 @@ async def main():
                 fails.append(f"flow4 message missing {need!r}")
 
         # ---- flow 5: gallery search + theme filter
-        await pg.goto(f"{B}/designs", wait_until="networkidle")
+        await pg.goto(f"{B}/designs", wait_until="domcontentloaded")
         await pg.fill("#dq", "afrikaans")
         await pg.wait_for_timeout(700)
         n = await pg.locator(".dg li").count()

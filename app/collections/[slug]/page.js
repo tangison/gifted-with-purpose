@@ -23,11 +23,11 @@ export async function generateMetadata({ params }) {
   const priced = ps.filter((p) => p.price).map((p) => p.price);
   const from = priced.length ? ` From ${brand.currency}${Math.min(...priced).toFixed(2)}.` : '';
   return {
-    title: `${c.name} — ${c.sub}`,
+    title: `${c.name}: ${c.sub}`,
     description: `${c.blurb}${from} Personalised ${c.sub.toLowerCase()} made with love in Namibia. Order on WhatsApp.`,
     alternates: { canonical: `/collections/${c.slug}` },
     openGraph: {
-      title: `${c.name} — ${c.sub} | Gifted with Purpose`,
+      title: `${c.name}: ${c.sub} | Gifted with Purpose`,
       description: c.blurb,
       url: `${SITE_URL}/collections/${c.slug}`,
       images: [{ url: `/assets/products/${ps[0]?.image}.jpg` }],
@@ -43,7 +43,7 @@ const EXTRA = {
   },
   everyday: {
     title: 'More novelty designs coming soon',
-    body: 'New retro and everyday designs are added regularly — ask us what’s on the shelf.',
+    body: 'New retro and everyday designs are added regularly. Ask us what is on the shelf.',
     msg: 'Hi Gifted with Purpose! What novelty / Old School Vibes designs do you have right now?',
   },
   'teacher-appreciation': {
@@ -61,7 +61,6 @@ export default async function CollectionPage({ params }) {
   const ps = productsIn(c.slug);
   const priced = ps.filter((p) => p.price).map((p) => p.price);
   const extra = EXTRA[c.slug];
-  const hasLicensed = ps.some((p) => p.licensed);
 
   const breadcrumb = {
     '@context': 'https://schema.org',
@@ -77,7 +76,7 @@ export default async function CollectionPage({ params }) {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `${c.name} — ${c.sub}`,
+    name: `${c.name}: ${c.sub}`,
     numberOfItems: ps.length,
     itemListElement: ps.map((p, i) => ({
       '@type': 'ListItem',
@@ -152,20 +151,6 @@ export default async function CollectionPage({ params }) {
                 <p style={{ color: '#274E86' }}>
                   This set is offered around the school calendar. Message us to check current availability before term
                   ends.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {hasLicensed && (
-            <div className="confirm" style={{ marginBottom: 22 }}>
-              <Icon name="sparkle" />
-              <div>
-                <h2>About our character designs</h2>
-                <p>
-                  Character artwork shown in this collection is printed onto purchasable blank cups. Gifted with Purpose
-                  is an independent small business and is not affiliated with, endorsed by, or licensed by any character
-                  or entertainment brand.
                 </p>
               </div>
             </div>

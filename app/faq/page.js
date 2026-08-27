@@ -16,7 +16,7 @@ export const FAQS = [
   },
   {
     q: 'Can I put a name on it?',
-    a: 'Yes — that is what we do. Tell us the name, spelling and any wording you would like when you message us, and we will confirm the design before we print.',
+    a: 'Yes, that is what we do. Tell us the name, spelling and any wording you would like when you message us, and we will confirm the design before we print.',
   },
   {
     q: 'What sizes are available?',
@@ -32,7 +32,7 @@ export const FAQS = [
   },
   {
     q: 'Do you make Afrikaans designs?',
-    a: 'Ons doen — yes. Our Spreuke 31 line is printed in Afrikaans exactly as designed, and we are happy to discuss other Afrikaans wording.',
+    a: 'Ons doen, yes. Our Spreuke 31 line is printed in Afrikaans exactly as designed, and we are happy to discuss other Afrikaans wording.',
   },
   {
     q: 'How do I pay?',
@@ -96,7 +96,7 @@ export default function FaqPage() {
 
           <div className="soon-wrap" style={{ marginTop: 34 }}>
             <h2 style={{ fontSize: 23 }}>Still not sure?</h2>
-            <p>Ask us anything — we would rather answer a question than have you guess.</p>
+            <p>Ask us anything. We would rather answer a question than have you guess.</p>
             <a
               className="btn btn-wa"
               href={wa('Hi Gifted with Purpose! I have a question about your products.')}

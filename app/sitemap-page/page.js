@@ -33,7 +33,7 @@ export default function SitemapPage() {
               return (
                 <li key={c.slug}>
                   <Link href={`/collections/${c.slug}`}>
-                    {c.name} — {c.sub}
+                    {c.name}: {c.sub}
                   </Link>{' '}
                   <small style={{ color: 'var(--muted)' }}>
                     ({n} design{n !== 1 ? 's' : ''})
@@ -50,6 +50,9 @@ export default function SitemapPage() {
             </li>
             <li>
               <Link href="/designs">Pick your design</Link>
+            </li>
+            <li>
+              <Link href="/blanks">The blank range</Link>
             </li>
             <li>
               <Link href="/about">Our Story</Link>

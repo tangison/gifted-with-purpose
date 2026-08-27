@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   const p = priceFromDesign(d);
   const price = p == null ? 'Price on request.' : `From ${money(p)}.`;
   return {
-    title: `${d.name} — design ${d.id.toUpperCase()}`,
+    title: `${d.name}: design ${d.id.toUpperCase()}`,
     description: `${d.alt}. ${price} Printed to order in Windhoek on a mug, tumbler or kids cup. Reference ${d.id.toUpperCase()}.`,
     alternates: { canonical: `/designs/${d.id}` },
     openGraph: {
@@ -63,7 +63,7 @@ export default async function DesignPage({ params }) {
   const product = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: `${d.name} — printed to order`,
+    name: `${d.name}, printed to order`,
     description: d.alt,
     sku: d.id.toUpperCase(),
     image: `${SITE_URL}/assets/designs/${d.file}.webp`,
@@ -139,8 +139,8 @@ export default async function DesignPage({ params }) {
               )}
               {d.licensed && (
                 <p className="dp-note dp-note-flag">
-                  This design shows a character or brand owned by someone else. Gifted with Purpose is an independent
-                  print studio and is not affiliated with, endorsed by or connected to any rights holder.
+                  This design shows a character or brand owned by someone else. See our{' '}
+                  <Link href="/legal/terms">terms</Link> for the full position.
                 </p>
               )}
 

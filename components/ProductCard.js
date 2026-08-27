@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Icon, Expand } from './Icons';
 import { collectionBySlug, priceLabel, waProduct, img, imgSm } from '@/lib/site';
 import { useLightbox } from './LightboxProvider';
@@ -97,8 +98,7 @@ export default function ProductCard({ product: p, priority = false, index = 0 })
           <p>{p.desc}</p>
           {p.licensed && (
             <p style={{ marginTop: 8 }}>
-              Character artwork is printed onto a purchasable blank cup. We are not affiliated with, or endorsed by,
-              any character brand.
+              Character artwork printed onto a blank cup. See our <Link href="/legal/terms">terms</Link>.
             </p>
           )}
         </Disclosure>

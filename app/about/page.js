@@ -4,7 +4,7 @@ import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import { collections, wa, SITE_URL } from '@/lib/site';
 
 export const metadata = {
-  title: 'Our Story — A Mother–Daughter Team in Namibia',
+  title: 'Our Story: A Mother and Daughter Team in Namibia',
   description:
     'Gifted with Purpose is a proud mother–daughter team in Namibia creating personalized gifts made with love and purpose. Registered as Geneveve Gift Shop.',
   alternates: { canonical: '/about' },
@@ -32,14 +32,9 @@ export default function AboutPage() {
             <span aria-current="page">Our Story</span>
           </nav>
           <p className="sub">About us</p>
-          <h1>
-            A kitchen table,
-            <br />
-            a printer, and your name
-          </h1>
+          <h1>Our Story</h1>
           <p>
-            Gifted with Purpose is a mother and daughter in Windhoek. Everything you see was printed on our own
-            equipment, photographed on our own table.
+            Gifted with Purpose is a personalised gift studio in Windhoek, Namibia, trading as Geneveve Gift Shop.
           </p>
         </div>
       </section>
@@ -75,7 +70,7 @@ export default function AboutPage() {
               sippy cups, in English and Afrikaans.
             </p>
             <p>
-              <strong>Thank you for supporting our business!</strong>
+              <strong>Thank you for supporting our business.</strong>
             </p>
             <ul className="about-pills">
               <li>
@@ -101,19 +96,19 @@ export default function AboutPage() {
             <h2>Thoughtful. Meaningful. Yours.</h2>
             <p>Three words on our logo, and the actual brief for every design we print.</p>
           </div>
-          <div className="steps" style={{ counterReset: 'none' }}>
-            <div className="step" style={{ paddingLeft: 20 }}>
+          <div className="steps">
+            <div className="step step-plain">
               <h3>Thoughtful</h3>
               <p>
                 A gift should sound like the person giving it. We&rsquo;ll help you get the wording right before
                 anything is printed.
               </p>
             </div>
-            <div className="step" style={{ paddingLeft: 20 }}>
+            <div className="step step-plain">
               <h3>Meaningful</h3>
-              <p>Affirmations, scripture, names, inside jokes — the things people keep on their desk for years.</p>
+              <p>Affirmations, scripture, names, inside jokes. The things people keep on their desk for years.</p>
             </div>
-            <div className="step" style={{ paddingLeft: 20 }}>
+            <div className="step step-plain">
               <h3>Yours</h3>
               <p>Printed to order, one at a time. Not something they&rsquo;ll see on a shelf somewhere else.</p>
             </div>

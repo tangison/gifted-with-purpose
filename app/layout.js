@@ -7,12 +7,13 @@ import CartProvider from '@/components/CartProvider';
 import CartDrawer from '@/components/CartDrawer';
 import ScrollTop from '@/components/ScrollTop';
 import SiteEffects, { StickyWa } from '@/components/SiteEffects';
-import { SITE_URL, brand, products } from '@/lib/site';
+import { SITE_URL, IS_PRODUCTION_HOST, brand, products } from '@/lib/site';
+import { blanks, designs, work, priceRange } from '@/lib/catalog';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Gifted with Purpose — Personalised Gifts in Namibia',
+    default: 'Gifted with Purpose: Personalised Gifts in Namibia',
     template: '%s | Gifted with Purpose',
   },
   description:
@@ -34,17 +35,27 @@ export const metadata = {
     'gifts Windhoek',
   ],
   alternates: { canonical: '/' },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  robots: IS_PRODUCTION_HOST
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+      }
+    : { index: false, follow: false, nocache: true },
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? { other: { 'msvalidate.01': process.env.BING_SITE_VERIFICATION } }
+      : {}),
   },
   openGraph: {
     type: 'website',
     locale: 'en_NA',
     url: SITE_URL,
     siteName: 'Gifted with Purpose',
-    title: 'Gifted with Purpose — Personalised Gifts in Namibia',
+    title: 'Gifted with Purpose: Personalised Gifts in Namibia',
     description:
       'Personalised tumblers, mugs and kids’ cups made with love in Namibia. Order on WhatsApp.',
     images: [
@@ -52,13 +63,13 @@ export const metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Gifted with Purpose — personalised gifts made with love in Namibia',
+        alt: 'Gifted with Purpose, personalised gifts made with love in Namibia',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gifted with Purpose — Personalised Gifts in Namibia',
+    title: 'Gifted with Purpose: Personalised Gifts in Namibia',
     description: 'Personalised tumblers, mugs and kids’ cups made with love in Namibia.',
     images: ['/og-image.jpg'],
   },
@@ -82,7 +93,7 @@ export const viewport = {
 /**
  * Structured data. Only facts verified from the client's own assets are emitted:
  * name, legal name, tagline, Namibia location, WhatsApp/phone, currency.
- * No address, no opening hours, no ratings, no reviews — none were supplied.
+ * No address, no opening hours, no ratings, no reviews. None were supplied.
  */
 function schema() {
   const org = {
@@ -96,13 +107,30 @@ function schema() {
     slogan: brand.tagline,
     url: SITE_URL,
     telephone: `+${brand.wa_number}`,
+    email: brand.email,
     logo: `${SITE_URL}/assets/logos/gifted-with-purpose-logo.svg`,
     image: `${SITE_URL}/assets/products/studio-god-says-you-are-600ml.jpg`,
-    priceRange: 'N$150 - N$250',
+    priceRange,
     currenciesAccepted: 'NAD',
-    address: { '@type': 'PostalAddress', addressCountry: 'NA' },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: brand.city,
+      addressRegion: 'Khomas',
+      addressCountry: 'NA',
+    },
     areaServed: { '@type': 'Country', name: 'Namibia' },
     knowsLanguage: ['en', 'af'],
+    sameAs: [brand.facebook, brand.instagram],
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Personalised sublimation printing',
+        description: `Any of ${designs.length} designs printed onto your choice of ${blanks.length} drinkware items, or custom artwork quoted per job.`,
+      },
+      areaServed: { '@type': 'City', name: brand.city },
+      priceCurrency: 'NAD',
+    },
   };
 
   const website = {
@@ -117,13 +145,13 @@ function schema() {
   const catalogue = {
     '@type': 'ItemList',
     '@id': `${SITE_URL}/#catalogue`,
-    name: 'Gifted with Purpose catalogue',
-    numberOfItems: products.length,
-    itemListElement: products.slice(0, 20).map((p, i) => ({
+    name: 'Items we print on',
+    numberOfItems: blanks.length,
+    itemListElement: blanks.map((b, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      name: p.name,
-      url: `${SITE_URL}/collections/${p.collection}`,
+      name: b.name,
+      url: `${SITE_URL}/shop/${b.id}`,
     })),
   };
 

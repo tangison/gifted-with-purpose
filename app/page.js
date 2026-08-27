@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { Icon, Chev, Check, NaFlag } from '@/components/Icons';
 import ProductCard from '@/components/ProductCard';
 import Disclosure from '@/components/Disclosure';
-import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, SITE_URL } from '@/lib/site';
-import { blanks, designs, blankPriceLabel, money } from '@/lib/catalog';
+import { brand, collections, featured, products, productsIn, comingSoon, wa, waProduct, priceLabel, SITE_URL } from '@/lib/site';
+import { blanks, designs, work, workMarketingSafe, blankPriceLabel, money } from '@/lib/catalog';
 
 export const metadata = {
-  title: 'Personalised Gifts in Namibia — Tumblers, Mugs & Kids’ Cups',
+  title: 'Personalised Gifts in Namibia: Tumblers, Mugs and Kids Cups',
   description:
     'Beautiful personalized gifts made with love in Namibia. Affirmation tumblers, faith-based drinkware, kids’ cups and teacher gifts from a mother–daughter team. Order on WhatsApp.',
   alternates: { canonical: '/' },
@@ -107,6 +107,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="sec sec-alt">
+        <div className="wrap">
+          <div className="sec-head center">
+            <span className="eyebrow">Our work</span>
+            <h2>Things we have actually made</h2>
+            <p>
+              {work.length} photographs of real orders, printed here and handed over. Judge the finish before you
+              commit to anything.
+            </p>
+          </div>
+          <ul className="wg wg-strip">
+            {workMarketingSafe()
+              .slice(0, 6)
+              .map((w) => (
+                <li key={w.id}>
+                  <Link href="/work" className="wg-cell">
+                    <Image
+                      src={`/assets/work/${w.file}@sm.webp`}
+                      alt={w.alt}
+                      width={w.sw}
+                      height={w.sh}
+                      sizes="(min-width:1100px) 260px, (min-width:600px) 31vw, 47vw"
+                      loading="lazy"
+                    />
+                  </Link>
+                </li>
+              ))}
+          </ul>
+          <div style={{ textAlign: 'center', marginTop: 26 }}>
+            <Link className="btn btn-ghost" href="/work">
+              Browse our products <Chev />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="sec pat pat-confetti pat-fade" id="collections">
         <div className="wrap">
           <div className="sec-head center">
@@ -164,7 +200,7 @@ export default function HomePage() {
           </div>
           <div className="rail-head">
             <p className="rail-hint">Swipe to browse</p>
-            <Link href="/shop">View all {products.length} &rarr;</Link>
+            <Link href="/work">View all {work.length} &rarr;</Link>
           </div>
           <div className="rail">
             {feat.map((p, i) => (
@@ -173,7 +209,7 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: 'center', marginTop: 26 }}>
             <Link className="btn btn-ghost" href="/shop">
-              Shop all {products.length} designs <Chev />
+              See all {work.length} pieces we have made <Chev />
             </Link>
           </div>
         </div>
@@ -192,7 +228,7 @@ export default function HomePage() {
             <div className="pic">
               <Image
                 src="/assets/products/flyer-teacher-appreciation.jpg"
-                alt="Teacher Appreciation Gift set — Libby glass, pencil case and gift bag"
+                alt="Teacher Appreciation Gift set: Libby glass, pencil case and gift bag"
                 width={854}
                 height={1281}
                 sizes="(min-width:600px) 50vw, 100vw"
@@ -207,7 +243,7 @@ export default function HomePage() {
                 <li>Gift bag</li>
               </ul>
               <div className="price-row">
-                <span className="price">N$150.00</span>
+                <span className="price">{priceLabel(tset) || 'Price on request'}</span>
                 <span style={{ fontSize: 13, color: 'var(--muted)' }}>complete set</span>
               </div>
               <a
@@ -258,7 +294,7 @@ export default function HomePage() {
                 it is chosen for one specific person. That is the whole point.
               </p>
               <p style={{ marginTop: 8 }}>
-                <strong>Thank you for supporting our business!</strong>
+                <strong>Thank you for supporting our business.</strong>
               </p>
             </Disclosure>
             <ul className="about-pills">
@@ -292,7 +328,10 @@ export default function HomePage() {
             <div className="step">
               <h3>Choose the design</h3>
               <Disclosure summary="What this means">
-                <p>Browse all 27 designs, or tell us the wording you want and we will check what is possible.</p>
+                <p>
+                  Browse all {designs.length} designs, or tell us the wording you want and we will check what is
+                  possible.
+                </p>
               </Disclosure>
             </div>
             <div className="step">
@@ -362,7 +401,7 @@ export default function HomePage() {
               </span>
               <span>
                 <h3>WhatsApp</h3>
-                <p>{brand.phone_intl} — fastest way to reach us</p>
+                <p>{brand.phone_intl}, fastest way to reach us</p>
               </span>
             </a>
             <a className="ccard" href={`tel:+${brand.wa_number}`}>
@@ -380,7 +419,7 @@ export default function HomePage() {
               </span>
               <span>
                 <h3>Where we are</h3>
-                <p>{brand.location} — made with love, right here</p>
+                <p>{brand.location}, made with love right here</p>
               </span>
             </div>
             <Link className="ccard" href="/faq">

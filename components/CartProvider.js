@@ -35,7 +35,7 @@ const Ctx = createContext(null);
 export const useCart = () => useContext(Ctx);
 
 export default function CartProvider({ children }) {
-  // lines: [{ id, qty }] — product facts always resolved from site.json, never stored stale
+  // lines: [{ id, qty }]. Product facts always resolved from site.json, never stored stale
   const hydrated = useHydrated();
   const [stored, setStored] = useState(null);
   const lines = useMemo(() => (hydrated ? stored ?? readStored() : []), [hydrated, stored]);

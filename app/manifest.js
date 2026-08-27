@@ -2,7 +2,7 @@ import { brand } from '@/lib/site';
 
 export default function manifest() {
   return {
-    name: `${brand.name} — Personalised Gifts in Namibia`,
+    name: `${brand.name}: Personalised Gifts in Namibia`,
     short_name: brand.name,
     description:
       'Personalised tumblers, mugs and kids’ cups made with love in Namibia. Order on WhatsApp.',

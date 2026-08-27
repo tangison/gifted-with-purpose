@@ -4,8 +4,10 @@ from playwright.async_api import async_playwright
 
 B = "http://127.0.0.1:3000"
 AXE = "https://cdn.jsdelivr.net/npm/axe-core@4.10.2/axe.min.js"
-ROUTES = ["/", "/shop", "/shop/mug-11oz", "/shop/kids-fliptop", "/shop/frosted-mug",
+ROUTES = ["/", "/work", "/how-to-order", "/shop", "/shop/mug-11oz", "/shop/kids-fliptop", "/shop/frosted-mug",
+          "/shop/can-400", "/shop/travel-mug-20oz",
           "/designs", "/designs/design-33", "/designs/sippy-18", "/designs/design-19",
+          "/blanks", "/blanks/sb893", "/blanks/sb8072", "/blanks/sb889",
           "/create", "/about", "/faq", "/contact", "/how-to-order", "/brand",
           "/collections/encourage", "/collections/teacher-appreciation",
           "/legal/privacy", "/sitemap-page"]
@@ -40,7 +42,7 @@ async def main():
             ctx = await br.new_context(viewport={"width": vw, "height": 900})
             pg = await ctx.new_page()
             for r in ROUTES:
-                await pg.goto(B + r, wait_until="networkidle")
+                await pg.goto(B + r, wait_until="domcontentloaded")
                 n = await run_axe(pg, f"{r}[{tag}]")
                 print(f"  {tag} {r}: {n} violations")
             await ctx.close()
@@ -49,8 +51,8 @@ async def main():
         ctx = await br.new_context(viewport={"width": 1280, "height": 900})
         pg = await ctx.new_page()
 
-        await pg.goto(f"{B}/create", wait_until="networkidle")
-        await pg.get_by_role("button", name="11oz Mug", exact=False).first.click()
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
+        await pg.get_by_role("button", name="12oz Coffee Mug", exact=False).first.click()
         await pg.get_by_role("button", name="Choose a ready-made design").click()
         await pg.wait_for_timeout(600)
         print("  state builder-library:", await run_axe(pg, "create[library]"), "violations")
@@ -59,12 +61,12 @@ async def main():
         await pg.wait_for_timeout(400)
         print("  state builder-custom:", await run_axe(pg, "create[custom]"), "violations")
 
-        await pg.goto(f"{B}/create", wait_until="networkidle")
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
         await pg.locator("button.bld-send").click()
         await pg.wait_for_timeout(400)
         print("  state builder-errors:", await run_axe(pg, "create[errors]"), "violations")
 
-        await pg.goto(f"{B}/designs", wait_until="networkidle")
+        await pg.goto(f"{B}/designs", wait_until="domcontentloaded")
         await pg.get_by_role("button", name="Faith", exact=False).first.click()
         await pg.wait_for_timeout(500)
         print("  state designs-filtered:", await run_axe(pg, "designs[theme]"), "violations")
@@ -73,18 +75,32 @@ async def main():
         await pg.wait_for_timeout(700)
         print("  state designs-empty:", await run_axe(pg, "designs[empty]"), "violations")
 
-        await pg.goto(f"{B}/shop/kids-fliptop", wait_until="networkidle")
+        await pg.goto(f"{B}/shop/kids-fliptop", wait_until="domcontentloaded")
         await pg.locator(".dg-more button").first.click()
         await pg.wait_for_timeout(600)
         print("  state blank-showmore:", await run_axe(pg, "shop/kids-fliptop[more]"), "violations")
+
+        await pg.goto(f"{B}/work", wait_until="domcontentloaded")
+        await pg.locator(".wg-cell").first.click()
+        await pg.wait_for_timeout(700)
+        print("  state work-lightbox:", await run_axe(pg, "work[lightbox]"), "violations")
+        await pg.keyboard.press("Escape")
+        await pg.wait_for_timeout(500)
+        st = await pg.locator('.lb[aria-label="Photograph of finished work"]').get_attribute("data-open")
+        if st != "false":
+            fails.append(f"work lightbox did not close on Escape (data-open={st})")
+        await pg.get_by_role("button", name="Kids", exact=False).first.click()
+        await pg.wait_for_timeout(500)
+        print("  state work-filtered:", await run_axe(pg, "work[filter]"), "violations")
         await ctx.close()
 
         # responsive overflow
         for w in WIDTHS:
             ctx = await br.new_context(viewport={"width": w, "height": 900})
             pg = await ctx.new_page()
-            for r in ["/", "/shop", "/shop/mug-11oz", "/designs", "/designs/design-33", "/create"]:
-                await pg.goto(B + r, wait_until="networkidle")
+            for r in ["/", "/shop", "/shop/mug-11oz", "/designs", "/designs/design-33", "/create",
+                      "/work", "/how-to-order", "/blanks", "/blanks/sb893", "/blanks/sb8072"]:
+                await pg.goto(B + r, wait_until="domcontentloaded")
                 over = await pg.evaluate(
                     """() => {
                         const d = document.documentElement;

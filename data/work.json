@@ -1,0 +1,668 @@
+{
+ "note": "Photographs of real finished orders, supplied by the client 25 Aug 2026. Alt text written from visual inspection of each photograph. Two further photographs were withheld because a child's face is printed on the item; those need written parental consent before publication.",
+ "withheld": 2,
+ "items": [
+  {
+   "id": "work-01",
+   "n": 1,
+   "file": "work-01",
+   "alt": "Stainless steel mug printed You Are Loved in bright colour-block lettering",
+   "tags": [
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 584,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1227
+  },
+  {
+   "id": "work-02",
+   "n": 2,
+   "file": "work-02",
+   "alt": "White gin tumbler printed Sy is beklee met krag en waarheid, Spreuke 31, with orange florals",
+   "tags": [
+    "faith",
+    "afrikaans"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-03",
+   "n": 3,
+   "file": "work-03",
+   "alt": "Navy can tumbler printed with a blue cartoon hedgehog character",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-04",
+   "n": 4,
+   "file": "work-04",
+   "alt": "Teal can tumbler printed Weekly Goals with Great Job and Excellent reward stickers",
+   "tags": [
+    "kids",
+    "school"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-05",
+   "n": 5,
+   "file": "work-05",
+   "alt": "Kids sippy cup with two handles printed with a learning presenter, a rainbow and toy blocks",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-06",
+   "n": 6,
+   "file": "work-06",
+   "alt": "White handled mug printed Take Care Of Your Mind with a daisy, lightning bolt and I Matter",
+   "tags": [
+    "selfcare",
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-07",
+   "n": 7,
+   "file": "work-07",
+   "alt": "Tall can tumbler printed with ginger kittens and the name JAYN in blue",
+   "tags": [
+    "kids",
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 462,
+   "h": 1000,
+   "sw": 462,
+   "sh": 1000
+  },
+  {
+   "id": "work-08",
+   "n": 8,
+   "file": "work-08",
+   "alt": "Round self-love sticker sheet printed with hearts, flowers and affirmation words",
+   "tags": [
+    "selfcare",
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-09",
+   "n": 9,
+   "file": "work-09",
+   "alt": "Frosted glass tumbler with bamboo lid printed She Is Fearfully And Wonderfully Made, Wise and Brave",
+   "tags": [
+    "faith",
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 462,
+   "h": 1000,
+   "sw": 462,
+   "sh": 1000
+  },
+  {
+   "id": "work-10",
+   "n": 10,
+   "file": "work-10",
+   "alt": "Kids sippy cup with two handles printed with cartoon racing cars and a truck",
+   "tags": [
+    "kids",
+    "characters",
+    "vehicles"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-11",
+   "n": 11,
+   "file": "work-11",
+   "alt": "Kids flip-top bottle with a pink lid printed with a fashion doll in a tiara",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-12",
+   "n": 12,
+   "file": "work-12",
+   "alt": "Tall tumbler printed Sy is beklee met krag en waarheid, Spreuke 31, with a line-art face and wildflowers",
+   "tags": [
+    "faith",
+    "afrikaans",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-13",
+   "n": 13,
+   "file": "work-13",
+   "alt": "White gin tumbler printed in Afrikaans Jy is gemaak om spore te los, Sterker as die storm, with bright flowers",
+   "tags": [
+    "affirmations",
+    "afrikaans",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-14",
+   "n": 14,
+   "file": "work-14",
+   "alt": "Kids sippy cup with two handles printed with a bow-wearing cartoon mouse on pink polka dots",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-15",
+   "n": 15,
+   "file": "work-15",
+   "alt": "Kids sippy cup with two handles printed with street puppet characters and a 123 sign",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-16",
+   "n": 16,
+   "file": "work-16",
+   "alt": "Three tumblers side by side printed Choose Joy, Spreuke 31 and It Is Okay affirmations",
+   "tags": [
+    "affirmations",
+    "faith"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-17",
+   "n": 17,
+   "file": "work-17",
+   "alt": "Frosted glass water bottle printed Sometimes amazing people forget how amazing they are",
+   "tags": [
+    "affirmations",
+    "selfcare"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-18",
+   "n": 18,
+   "file": "work-18",
+   "alt": "Kids sippy cup with two handles printed with a blue cartoon dog family and paw prints",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-19",
+   "n": 19,
+   "file": "work-19",
+   "alt": "Frosted glass tumbler with bamboo lid printed with a soft floral monogram",
+   "tags": [
+    "floral",
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-20",
+   "n": 20,
+   "file": "work-20",
+   "alt": "Tall skinny tumbler printed with six illustrated cocktail recipes including Margarita and Pina Colada",
+   "tags": [
+    "fun",
+    "recipes"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-21",
+   "n": 21,
+   "file": "work-21",
+   "alt": "Glass tumbler with bamboo lid printed You Are Enough, Stronger Than You Think, Never Alone",
+   "tags": [
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-22",
+   "n": 22,
+   "file": "work-22",
+   "alt": "Kids sippy cup with two handles printed with a mermaid and an underwater scene",
+   "tags": [
+    "kids"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-23",
+   "n": 23,
+   "file": "work-23",
+   "alt": "Two tumblers printed with retro Old School Vibes graffiti and cassette tape artwork",
+   "tags": [
+    "retro",
+    "fun"
+   ],
+   "licensed": false,
+   "w": 462,
+   "h": 1000,
+   "sw": 462,
+   "sh": 1000
+  },
+  {
+   "id": "work-24",
+   "n": 24,
+   "file": "work-24",
+   "alt": "Insulated mug printed Jesus Fills My Cup, Psalm 23:5, with rainbows and doodle flowers",
+   "tags": [
+    "faith",
+    "retro"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-25",
+   "n": 25,
+   "file": "work-25",
+   "alt": "Tall tumbler printed It's Okay To Feel Your Feelings and Self-care Is Empowering",
+   "tags": [
+    "selfcare",
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-26",
+   "n": 26,
+   "file": "work-26",
+   "alt": "Tall bottle printed Daily Positive Affirmations with a rainbow and pastel quote cards",
+   "tags": [
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-27",
+   "n": 27,
+   "file": "work-27",
+   "alt": "Glass tumbler with bamboo lid printed You Are Enough in stacked colour blocks",
+   "tags": [
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-28",
+   "n": 28,
+   "file": "work-28",
+   "alt": "Kids flip-top bottle in pastel stripes printed with a cartoon rescue puppy",
+   "tags": [
+    "kids",
+    "characters"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-29",
+   "n": 29,
+   "file": "work-29",
+   "alt": "Kids flip-top bottle printed with the name Duan Richard Moritz over a wheat field",
+   "tags": [
+    "kids",
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-30",
+   "n": 30,
+   "file": "work-30",
+   "alt": "Frosted glass mug printed Trust In Him with scripture and small stars",
+   "tags": [
+    "faith"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-31",
+   "n": 31,
+   "file": "work-31",
+   "alt": "Tall tumbler printed Faith Does Not Make Things Easy It Makes Them Possible with butterflies",
+   "tags": [
+    "faith",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-32",
+   "n": 32,
+   "file": "work-32",
+   "alt": "Tall skinny tumbler printed Best Mom In The World inside a floral wreath",
+   "tags": [
+    "floral",
+    "occasions"
+   ],
+   "licensed": false,
+   "w": 1200,
+   "h": 1600,
+   "sw": 560,
+   "sh": 747
+  },
+  {
+   "id": "work-33",
+   "n": 33,
+   "file": "work-33",
+   "alt": "Red-lined mug printed Self-loving affirmations with My Happiness Comes From Within",
+   "tags": [
+    "selfcare",
+    "affirmations"
+   ],
+   "licensed": false,
+   "w": 720,
+   "h": 1280,
+   "sw": 560,
+   "sh": 996
+  },
+  {
+   "id": "work-34",
+   "n": 34,
+   "file": "work-34",
+   "alt": "Gift box holding a frosted glass tumbler printed with the name Riekie and a matching flower coaster",
+   "tags": [
+    "personalised",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 720,
+   "h": 1280,
+   "sw": 560,
+   "sh": 996
+  },
+  {
+   "id": "work-35",
+   "n": 35,
+   "file": "work-35",
+   "alt": "Gift box holding a frosted glass tumbler printed with the name Luche beside a Brave Capable coaster",
+   "tags": [
+    "personalised",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 720,
+   "h": 1280,
+   "sw": 560,
+   "sh": 996
+  },
+  {
+   "id": "work-36",
+   "n": 36,
+   "file": "work-36",
+   "alt": "Frosted glass tumbler printed with the name Luche in bold type, packed in its gift box",
+   "tags": [
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 720,
+   "h": 1280,
+   "sw": 560,
+   "sh": 996
+  },
+  {
+   "id": "work-37",
+   "n": 37,
+   "file": "work-37",
+   "alt": "Tall skinny tumbler printed in Afrikaans Droom groot, Vlieg hoog, Jy is mooi with a bold flower",
+   "tags": [
+    "affirmations",
+    "afrikaans",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 563,
+   "h": 1000,
+   "sw": 560,
+   "sh": 995
+  },
+  {
+   "id": "work-38",
+   "n": 38,
+   "file": "work-38",
+   "alt": "Frosted glass mug printed with an Afrikaans Spreuke 31 verse above a wildflower border",
+   "tags": [
+    "faith",
+    "afrikaans",
+    "floral"
+   ],
+   "licensed": false,
+   "w": 720,
+   "h": 1280,
+   "sw": 560,
+   "sh": 996
+  },
+  {
+   "id": "work-39",
+   "n": 39,
+   "file": "work-39",
+   "alt": "Tall travel tumbler printed as a classic red cola label",
+   "tags": [
+    "retro",
+    "brands"
+   ],
+   "licensed": true,
+   "w": 1080,
+   "h": 1080,
+   "sw": 560,
+   "sh": 560
+  },
+  {
+   "id": "work-40",
+   "n": 40,
+   "file": "work-40",
+   "alt": "Kids sippy cup with two handles printed with cartoon racing cars and the name JADON",
+   "tags": [
+    "kids",
+    "characters",
+    "personalised"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-41",
+   "n": 41,
+   "file": "work-41",
+   "alt": "Kids sippy cup with two handles printed with a blue truck in a desert canyon and the name Asher B",
+   "tags": [
+    "kids",
+    "vehicles",
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-42",
+   "n": 42,
+   "file": "work-42",
+   "alt": "Kids sippy cup with two handles printed with a cartoon rescue puppy badge and the name JUAN",
+   "tags": [
+    "kids",
+    "characters",
+    "personalised"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-43",
+   "n": 43,
+   "file": "work-43",
+   "alt": "Kids sippy cup with two handles printed with cartoon racing cars and the name JADON on pink",
+   "tags": [
+    "kids",
+    "characters",
+    "personalised"
+   ],
+   "licensed": true,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  },
+  {
+   "id": "work-44",
+   "n": 44,
+   "file": "work-44",
+   "alt": "Kids sippy cup with two handles printed with a red spiderweb pattern and a name",
+   "tags": [
+    "kids",
+    "personalised"
+   ],
+   "licensed": false,
+   "w": 591,
+   "h": 1280,
+   "sw": 560,
+   "sh": 1213
+  }
+ ]
+}

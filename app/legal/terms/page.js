@@ -66,9 +66,29 @@ export default function Terms() {
 
       <h2>Character and third-party designs</h2>
       <p>
-        Some products show character artwork printed onto purchasable blank items. Gifted with Purpose is an
-        independent small business and is not affiliated with, endorsed by, sponsored by or licensed by any character,
-        entertainment or brand owner. All trade marks remain the property of their respective owners.
+        Some designs in our library show characters, logos or brands owned by other people. Those designs are printed
+        onto purchasable blank items at a customer&rsquo;s request and are listed by description only. Gifted with
+        Purpose is an independent print studio in Windhoek and is not affiliated with, endorsed by, sponsored by or
+        licensed by any character, entertainment or brand owner. All trade marks remain the property of their
+        respective owners.
+      </p>
+      <p>
+        If you are a rights holder and object to a design being offered, contact us at{' '}
+        <a href={`mailto:${brand.email}`}>{brand.email}</a> and we will remove it.
+      </p>
+
+      <h2>Custom artwork</h2>
+      <p>
+        Custom artwork is quoted per job. We show you the quote before anything is drawn or printed. By sending us a
+        photo, name, logo or wording to print, you confirm you have the right to use it. We may decline a request if we
+        believe printing it would infringe someone else&rsquo;s rights.
+      </p>
+
+      <h2>Ordering and payment</h2>
+      <p>
+        There is no checkout on this site. No account is created, no card details are taken anywhere on this site, and
+        nothing you type into a form here is stored by us. Every order is confirmed with you on WhatsApp before it is
+        made, including the final price and the exact spelling of anything personalised.
       </p>
 
       <h2>Our content</h2>

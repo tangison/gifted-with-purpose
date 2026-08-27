@@ -1,5 +1,5 @@
 import { SITE_URL, collections } from '@/lib/site';
-import { designs, blanks } from '@/lib/catalog';
+import { designs, blanks, shapes } from '@/lib/catalog';
 
 export default function sitemap() {
   const now = new Date();
@@ -7,7 +7,9 @@ export default function sitemap() {
     { url: '/', priority: 1.0, changeFrequency: 'weekly' },
     { url: '/shop', priority: 0.95, changeFrequency: 'weekly' },
     { url: '/designs', priority: 0.9, changeFrequency: 'weekly' },
+    { url: '/blanks', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/create', priority: 0.9, changeFrequency: 'monthly' },
+    { url: '/work', priority: 0.9, changeFrequency: 'weekly' },
     { url: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/how-to-order', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/faq', priority: 0.7, changeFrequency: 'monthly' },
@@ -36,6 +38,12 @@ export default function sitemap() {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
+    })),
+    ...shapes.map((s) => ({
+      url: `${SITE_URL}/blanks/${s.id}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     })),
     ...designs.map((d) => ({
       url: `${SITE_URL}/designs/${d.id}`,

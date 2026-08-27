@@ -10,6 +10,9 @@ export default function Footer() {
         <nav className="ftr-nav" aria-label="Collections">
           <Link href="/shop">Shop all</Link>
           <Link href="/designs">Pick your design</Link>
+<Link href="/work">Our products</Link>
+          <Link href="/create">Make your own</Link>
+          <Link href="/blanks">Blank range</Link>
           {collections.map((c) => (
             <Link key={c.slug} href={`/collections/${c.slug}`}>
               {c.name}
@@ -25,6 +28,7 @@ export default function Footer() {
           <a href={wa('Hi Gifted with Purpose!')} target="_blank" rel="noopener noreferrer">
             WhatsApp {brand.phone_intl}
           </a>
+          <a href={`mailto:${brand.email}`}>{brand.email}</a>
         </nav>
 
         <div className="ftr-soc">
@@ -49,7 +53,7 @@ export default function Footer() {
         <Image
           className="ftr-mark"
           src="/assets/logos/gifted-with-purpose-logo.svg"
-          alt="Gifted with Purpose — Thoughtful, Meaningful, Yours"
+          alt="Gifted with Purpose. Thoughtful, Meaningful, Yours"
           width={640}
           height={634}
           sizes="(min-width:900px) 640px, 92vw"

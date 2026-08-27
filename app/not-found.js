@@ -28,7 +28,7 @@ export default function NotFound() {
             We couldn&rsquo;t find that page
           </h1>
           <p style={{ color: 'var(--muted)', fontSize: '15.5px', marginBottom: 24 }}>
-            The link may be old or mistyped. Nothing is lost — here is the way back.
+            The link may be old or mistyped. Nothing is lost, here is the way back.
           </p>
           <div className="hero-cta" style={{ marginInline: 'auto', justifyContent: 'center' }}>
             <Link className="btn btn-pink" href="/">

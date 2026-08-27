@@ -186,6 +186,10 @@ export default function OrderForm() {
         This opens WhatsApp with your answers already written out. Nothing is sent or stored anywhere until you press
         send in WhatsApp yourself.
       </p>
+      <p className="ofm-note">
+        Prefer email? Write to{' '}
+        <a href={`mailto:${brand.email}`}>{brand.email}</a>.
+      </p>
     </form>
   );
 }

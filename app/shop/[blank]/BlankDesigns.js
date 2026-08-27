@@ -59,7 +59,8 @@ export default function BlankDesigns({ blank, designs }) {
       </div>
 
       <p className="shop-count" aria-live="polite">
-        Showing {visible.length} of {list.length} designs
+        Showing {visible.length} of {list.length} design{list.length === 1 ? '' : 's'} that fit the{' '}
+        {blank.short.toLowerCase()}
       </p>
 
       <ul className="dg">

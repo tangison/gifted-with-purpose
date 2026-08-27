@@ -4,7 +4,7 @@ import { brand, wa, SITE_URL } from '@/lib/site';
 import OrderForm from './OrderForm';
 
 export const metadata = {
-  title: 'Contact Us — WhatsApp, Call or Message',
+  title: 'Contact Us: WhatsApp, Call or Message',
   description:
     'Contact Gifted with Purpose in Namibia. WhatsApp or call 081 407 6649 to order personalised tumblers, mugs and kids’ cups. We answer our own messages.',
   alternates: { canonical: '/contact' },
@@ -82,7 +82,7 @@ export default function ContactPage() {
               </span>
               <span>
                 <h3>WhatsApp us</h3>
-                <p>{brand.phone_intl} — tap to open a chat</p>
+                <p>{brand.phone_intl}, tap to open a chat</p>
               </span>
             </a>
 
@@ -93,6 +93,16 @@ export default function ContactPage() {
               <span>
                 <h3>Call us</h3>
                 <p>{brand.phone_intl}</p>
+              </span>
+            </a>
+
+            <a className="ccard" href={`mailto:${brand.email}`}>
+              <span className="ci" style={{ background: 'var(--season-accent)' }}>
+                <Icon name="mail" />
+              </span>
+              <span>
+                <h3>Email us</h3>
+                <p>{brand.email}</p>
               </span>
             </a>
 
