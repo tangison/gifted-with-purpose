@@ -339,3 +339,32 @@ the cause is still the hero background image.
 | 17.15 | Bug: my own new gate was wrong | `verify_kids_gallery.py` | Reported 6 broken thumbnails | It measured lazy images before they loaded. All 14 assets serve 200 raw and through `next/image`. Gate now scrolls and waits | Fixed |
 | 17.16 | Full gate | 192 routes | routes x1, flows, axe, responsive, both auditors | **ALL PASS**, FLOWS PASS, **0 axe violations**, 0 overflow at 7 widths, **0 copy issues, 0 data-point findings** | Done |
 | 17.17 | Lint and build | repo | `eslint .`, `next build` | 0 problems, 186 static pages generated | Done |
+
+
+---
+
+## Phase 18 — Deploy to production (27 Aug 2026)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 18.0 | Commit the work | `main` | `git add -A` + descriptive commit | Commit `1a67f4a` | Done |
+| 18.1 | Push to origin | `github.com/tangison/gifted-with-purpose` | `git push` over HTTPS with the PAT | `2d9019c..1a67f4a  main -> main` | Done |
+| 18.2 | Trigger the Vercel build | Vercel API `v13/deployments` | Created a production deployment from commit `1a67f4a` | `dpl_E1z66GnYiPbMtjYoEobR1wUK24kt` | Done |
+| 18.3 | Wait for build | same | Polled `readyState` | `BUILDING` -> **`READY`** in ~40s | Done |
+| 18.4 | Verify live (vercel.app) | `https://gifted-with-purpose.vercel.app` | curl + content assertions | `/collections/kids-selection` shows "Kids Selection" x39 + "Sippy Cups & Bottles" x4; `/about` shows the verbatim Our Story ("made with intention, heart and purpose" x2, "GIFTED WITH PURPOSE" x4, sign-off x6); `/collections/celebrate` returns **308 to /collections/kids-selection** | Done |
+| 18.5 | Verify live (custom .net) | `giftedwithpurpose.net` / `www.giftedwithpurpose.net` | curl + content assertions | Both serve the new app ("Kids Selection" x8 on www); `/collections/celebrate` 308s to `/kids-selection` | Done |
+| 18.6 | Capture live proof | production URLs | Playwright screenshots | `/home/user/proof-live/L1-kids-selection-mobile.png`, `L2-lightbox-whatsapp.png`, `L3-about-our-story-mobile.png`, `L4-kids-selection-desktop.png` | Done |
+| 18.7 | Note the `.com` | `giftedwithpurpose.com` | curl + Vercel domains API | The `.com` is **NOT assigned** to this Vercel project (only `.net` + the `.vercel.app` are). It serves an old parked "/lander" page from a different host. Flagged for the owner; outside this repo and not caused by this work | Flagged |
+
+## Phase 19 — Rotate the exposed tokens (27 Aug 2026)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 19.0 | Rotate the Vercel token | Vercel account `gemsweb-digital` | Created a replacement token `gwp-deploy-rotate-2026-08-27` (prefix `vcp_…`, suffix `1GqwaK`), then **deleted the exposed "GLM" token `9lAie3l3ybMF7Dc6KY1LSABp9rTtinJmEJBYpqAcpVXPtyp5`** | `GLM` no longer in the token list (`GLM present? False`); the leaked `vcp_…H27FfEG` is dead. **Note:** API token creation returns only a prefix/suffix and not the full secret, so the new token's full value is only visible at creation time in the Vercel dashboard; treat it as a placeholder and generate a real one there if needed | Done |
+| 19.1 | Rotate the GitHub PAT | GitHub user `tangison` | Attempted via API (`/user/tokens`, `/user/authorizations`) | GitHub's API does not expose or revoke a PAT from the token itself (endpoints return 404). **Cannot be revoked programmatically** | Needs owner action |
+| 19.2 | Owner action required | GitHub `tangison` | Log in to github.com -> Settings -> Developer settings -> Personal access tokens -> find `ghp_…We3v` -> Revoke | Token still valid until the owner revokes it | Action required |
+
+> Security note: both tokens were exposed in chat. The Vercel token is now revoked. The GitHub PAT
+> `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` must be revoked by the owner at
+> https://github.com/settings/tokens (or settings -> applications). Until then it is live and should
+> be treated as compromised.
