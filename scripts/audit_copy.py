@@ -2,17 +2,19 @@
 Copy consistency audit. Looks for the same idea expressed in conflicting ways
 across pages: product naming, currency format, phone format, tone slips.
 """
-import re, sys, json, urllib.request, collections
+import re, sys, os, json, urllib.request, collections
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3000"
-ROOT = "/home/user/gwp"
+# Derived from this file's own location. It was hardcoded to one checkout path,
+# so the audit could not run from a clone anywhere else.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 site = json.load(open(f"{ROOT}/data/site.json"))
 brand = site["brand"]
 
 ROUTES = ["/", "/shop", "/designs", "/create", "/work", "/blanks", "/how-to-order",
           "/about", "/faq", "/contact", "/brand", "/sitemap-page",
           "/legal/privacy", "/legal/terms", "/legal/cookies",
-          "/collections/encourage", "/collections/celebrate",
+          "/collections/encourage", "/collections/kids-selection",
           "/shop/mug-11oz", "/shop/sippy-cup", "/designs/design-33"]
 
 
@@ -60,11 +62,16 @@ for r, t in pages.items():
     for m in re.finditer(r'\+?264[\s\-]?\d{2}[\s\-]?\d{3}[\s\-]?\d{4}|0\d{2}\s?\d{3}\s?\d{4}', t):
         phone_variants[m.group(0).strip()].add(r)
 
-# 3. em dashes are against house style
+# 3. em dashes are against house style.
+# One exception: the client supplied the Our Story copy with an em dash in it.
+# Client-approved wording is not rewritten to satisfy our own style rule, so
+# that exact phrase is allowlisted. Anything else still reports.
+CLIENT_EM_DASH = 'made with intention, heart and purpose — because we believe'
 for r, t in pages.items():
-    if '—' in t:
-        i = t.index('—')
-        issues.append(("EM_DASH", r, f"...{t[max(0,i-60):i+60]}..."))
+    scan = t.replace(CLIENT_EM_DASH, '')
+    if '—' in scan:
+        i = scan.index('—')
+        issues.append(("EM_DASH", r, f"...{scan[max(0,i-60):i+60]}..."))
 
 # 4. exclamation points
 for r, t in pages.items():

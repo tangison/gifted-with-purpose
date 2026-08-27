@@ -34,7 +34,8 @@ export default function AboutPage() {
           <p className="sub">About us</p>
           <h1>Our Story</h1>
           <p>
-            Gifted with Purpose is a personalised gift studio in Windhoek, Namibia, trading as Geneveve Gift Shop.
+            <strong>GIFTED WITH PURPOSE</strong> is a mother-and-daughter dream brought to life by{' '}
+            <strong>Geneveve and Payton</strong>.
           </p>
         </div>
       </section>
@@ -56,21 +57,23 @@ export default function AboutPage() {
           </div>
           <div className="about-copy">
             <p className="script">Our story</p>
-            <h2>How this started</h2>
+            <h2>Seen, valued and celebrated</h2>
             <p>
-              We started making these for people we know. Birthdays, a friend going through a hard year, a teacher at
-              the end of term. Then their friends asked. That is the whole origin story.
+              What started as a love for creativity grew into a passion for creating personalised gifts that make
+              people feel <strong>seen, valued and celebrated</strong>.
             </p>
             <p>
-              Nothing is printed before it is ordered. That is not a production choice, it is the point: the wording on
-              the cup was picked for one person, by someone who knows them.
+              Every item we create is made with intention, heart and purpose &mdash; because we believe the best gifts
+              are the ones that carry meaning.
             </p>
             <p>
-              Today that means stainless steel tumblers, wine tumblers, glass with bamboo lids, mugs and kids&rsquo;
-              sippy cups, in English and Afrikaans.
+              For us, this journey is about more than business. It is about building something special together,
+              creating memories, and growing a legacy one thoughtful gift at a time.
             </p>
-            <p>
-              <strong>Thank you for supporting our business.</strong>
+            <p className="story-sign">
+              <strong>GIFTED WITH PURPOSE</strong>
+              <br />
+              <em>Thoughtful. Meaningful. Yours.</em>
             </p>
             <ul className="about-pills">
               <li>

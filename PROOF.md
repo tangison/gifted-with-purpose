@@ -313,3 +313,29 @@ the cause is still the hero background image.
 | 16.9 | Bug: flow test timing out | `verify_flow.py` | `networkidle` never settled on `/designs/sippy-18` | Next prefetches the 3 dynamic routes and `next start` aborts those RSC requests. **Production returns 200 for all three**, so it is a local-only artifact. Switched 12 waits to `domcontentloaded` | Fixed |
 | 16.10 | Full gate | 192 routes | routes x3, flows x3, both auditors x3, axe, responsive | ALL PASS x3, FLOWS PASS x3, **0 findings**, **0 issues**, **0 axe violations**, 0 overflow | Done |
 | 16.11 | Lint and audit | repo | eslint, npm audit | 0 errors, **0 vulnerabilities** | Done |
+
+
+---
+
+## Phase 17 — Kids Selection rename, kids photo gallery, client's Our Story copy (27 Aug 2026)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 17.0 | Read the annotations | 6 screenshots, 9 images from filebin | OCR at psm 4 on each, cross-read against the WhatsApp transcript | 3 actionable instructions extracted, 1 deferred by the client | Done |
+| 17.1 | Rename the collection | `data/site.json` | `Celebrate` to **Kids Selection**, slug `celebrate` to `kids-selection`, sub to "Sippy Cups & Bottles" | Card, page, title and breadcrumb all read Kids Selection | Done |
+| 17.2 | Repoint the products | `data/site.json` | All 7 products in that collection moved to the new slug | 7 of 7 moved, 0 references to `celebrate` remain in any source file | Done |
+| 17.3 | Keep the old URL alive | `next.config.mjs` | Permanent redirect, same pattern as `/process` | `/collections/celebrate` returns **308 to /collections/kids-selection** | Done |
+| 17.4 | Tag the kids photographs | `data/work.json` | Explicit `kids_item` field, not an alt-text match, so re-wording a caption cannot drop a photo | **14 tagged: 11 sippy cups, 3 flip-top bottles** | Done |
+| 17.5 | Build the gallery | `app/collections/[slug]/KidsGallery.js` | New client component, reuses the layout's existing lightbox rather than adding a second one | All 14 render at once, no "show more" that would hide them | Done |
+| 17.6 | Honour "nothing cut off" | `app/site.css` | `.wg-contain` variant, `contain` on white instead of `cover` | Verified in-browser: computed `object-fit` is `contain` | Done |
+| 17.7 | Apply the Our Story copy | `/about` | Client's 27 Aug text used verbatim: 4 paragraphs plus the sign-off | Placeholder from Phase 14.9 is gone, **Blocked item now closed** | Done |
+| 17.8 | Apply it on the homepage | `app/page.js` `#about` | Opening 2 paragraphs plus the sign-off, linking to the full story | Invented "Two people, one printer" heading and disclosure removed | Done |
+| 17.9 | Bug: my own copy contradicted the data | `/collections/kids-selection` | `audit_datapoints.py` | I wrote "All 14 photographs", which the auditor reads as a claim about the 44 total. Reworded to "14 of our 44 photographs", matching the Phase 16.3 subset rule | Fixed |
+| 17.10 | Bug: `edit_file` reported success without writing | same file | Re-grepped the source after every edit instead of trusting the tool | The eyebrow and paragraph were still the old text. Rewritten with an asserted exact-match replace, then re-verified | Fixed |
+| 17.11 | Bug: new style failed colour contrast | `.story-sign em` | `verify_a11y.py` axe run | `--cat-pink` on the section background measures **3.86:1**, below AA for normal text. Changed to `#B32359` at **6.36:1** | Fixed |
+| 17.12 | Bug: audit scripts were unrunnable | 4 scripts | Ran them | `ROOT` was hardcoded to one checkout path, and two scripts used `os` without importing it. Now derived from `__file__` | Fixed |
+| 17.13 | Extend the a11y sweep | `verify_a11y.py` | Added `/collections/kids-selection` to the route list | The new interactive surface is now inside the gate | Done |
+| 17.14 | New gate for the new surface | `scripts/verify_kids_gallery.py` | Data set, redirect, served HTML, then a real browser: 14 thumbnails decode, lightbox opens, caption matches, WhatsApp link names the item and quotes N$230, Escape closes | **KIDS GALLERY PASS**, 0 console errors | Done |
+| 17.15 | Bug: my own new gate was wrong | `verify_kids_gallery.py` | Reported 6 broken thumbnails | It measured lazy images before they loaded. All 14 assets serve 200 raw and through `next/image`. Gate now scrolls and waits | Fixed |
+| 17.16 | Full gate | 192 routes | routes x1, flows, axe, responsive, both auditors | **ALL PASS**, FLOWS PASS, **0 axe violations**, 0 overflow at 7 widths, **0 copy issues, 0 data-point findings** | Done |
+| 17.17 | Lint and build | repo | `eslint .`, `next build` | 0 problems, 186 static pages generated | Done |

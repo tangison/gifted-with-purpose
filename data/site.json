@@ -52,9 +52,9 @@
    "accent_ink": "#1F6F66"
   },
   {
-   "slug": "celebrate",
-   "name": "Celebrate",
-   "sub": "Kids Gifts",
+   "slug": "kids-selection",
+   "name": "Kids Selection",
+   "sub": "Sippy Cups & Bottles",
    "accent": "#F0A93A",
    "accent_soft": "#FFF6E6",
    "icon": "star",
@@ -312,7 +312,7 @@
   {
    "id": "personalised-name-kitten",
    "name": "Personalised Name Bottle: kittens",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": null,
    "spec": "Kids stainless steel bottle",
    "image": "life-personalised-kitten-jay",
@@ -323,7 +323,7 @@
   {
    "id": "personalised-name-cats",
    "name": "Personalised Name Tumbler: cats",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": null,
    "spec": "Kids stainless steel tumbler",
    "image": "life-personalised-cats-jayden",
@@ -334,7 +334,7 @@
   {
    "id": "kids-character-sippy-pastel",
    "name": "Kids Character Sippy Cup",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": 230,
    "spec": "Kids sippy cup with handles and straw lid",
    "image": "life-character-kids-bottle-pink",
@@ -346,7 +346,7 @@
   {
    "id": "kids-character-sippy-learning",
    "name": "Kids Learning Sippy Cup",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": 230,
    "spec": "Kids sippy cup with handles",
    "image": "life-character-sippy-learning",
@@ -358,7 +358,7 @@
   {
    "id": "kids-character-sippy-mouse",
    "name": "Kids Character Sippy Cup: red bow",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": 230,
    "spec": "Kids sippy cup with handles",
    "image": "life-character-sippy-mouse",
@@ -370,7 +370,7 @@
   {
    "id": "kids-character-can-blue",
    "name": "Kids Character Can Tumbler",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": null,
    "spec": "Kids can tumbler with straw lid",
    "image": "life-character-blue-can",
@@ -381,7 +381,7 @@
   {
    "id": "weekly-goals-can",
    "name": "Weekly Goals Can Tumbler",
-   "collection": "celebrate",
+   "collection": "kids-selection",
    "price": null,
    "spec": "Can tumbler with straw lid",
    "image": "life-weekly-goals-can",

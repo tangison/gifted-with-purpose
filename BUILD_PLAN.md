@@ -23,7 +23,7 @@ Full build. Not a demo. Deployed to production on Vercel with client authorisati
 18 public, all verified 200 live, plus a real 404.
 
 Home, About, How to order, FAQ, Contact, Brand guide, Human sitemap.
-Collections: Encourage, Inspire, Celebrate, Teacher Appreciation, Old School Vibes.
+Collections: Encourage, Inspire, Kids Selection, Teacher Appreciation, Old School Vibes.
 Legal: Privacy, Terms, Cookies.
 Machine: robots.txt, sitemap.xml, manifest.webmanifest.
 
@@ -53,6 +53,13 @@ no auth, no session and no admin surface.
    disclaimer, never in hero imagery. Confirmed with the client.
 5. **Prices** use every figure legible in the client's own ad artwork. Confirmed with the client.
    Everything else says "Price on request".
+6. **"Remove celebrate and replace with kids selection"** was applied as a rename of the existing
+   collection, not a deletion and rebuild. That collection was already the kids one (`sub: "Kids
+   Gifts"`), so its 7 products, artwork and accent colour carry over untouched. The slug moved to
+   `kids-selection` and the old URL redirects permanently, because it was already live and indexed.
+7. **"Add all the photos of the flip top and sippy cups"** was read as the 14 photographs of those
+   two items already in `data/work.json`, 11 sippy cups and 3 flip-top bottles. They are now shown
+   on the collection page as well as on `/work`. No new photograph was invented or generated.
 
 ## Verification gate applied to each slice
 

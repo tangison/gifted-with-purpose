@@ -12,7 +12,7 @@ Every factual claim traces to a supplied asset:
 | Content | Source | Status |
 |---|---|---|
 | Business name, tagline, phone, location | Logo, flyer, product ads | Verified |
-| Team story | Flyer "About Us", used near-verbatim | Verified |
+| Team story | **Client's own Our Story copy, sent 27 Aug 2026, used verbatim** | Verified |
 | Collection names and bullets | Flyer section headers | Verified |
 | 11 prices | Legible in the client's own studio ads | Verified |
 | Product sizes | Lavender spec pill in each ad | Verified |
@@ -26,7 +26,7 @@ Every factual claim traces to a supplied asset:
 | Page | Status |
 |---|---|
 | Home | Written, brand-derived |
-| About | Near-verbatim from the flyer, team-of-two claim preserved |
+| About | **The client's Our Story copy, verbatim.** Hero carries the opening line, body carries the remaining 3 paragraphs and the sign-off |
 | Collections | Blurbs written per collection, product copy from artwork |
 | How to order | Written, describes the real WhatsApp flow |
 | FAQ | 8 questions, delivery and returns answered honestly as unconfirmed |
@@ -42,7 +42,9 @@ requested.
 
 ## Tone rules applied
 
-No em dashes. No invented metrics or testimonials. No "revolutionary", "seamless" or "elevate".
+No em dashes in copy we write. One exception: the client's own Our Story copy contains an em dash,
+and client-approved wording is not rewritten to satisfy our style rule, so `audit_copy.py`
+allowlists that exact phrase and still reports every other one. No invented metrics or testimonials. No "revolutionary", "seamless" or "elevate".
 Short affirming headlines. Specific claims over marketing language. Every price either real or
 openly marked unconfirmed.
 

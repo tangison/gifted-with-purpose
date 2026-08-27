@@ -2,10 +2,10 @@
 Crawl the live site and extract every user-visible number/claim, then diff them
 against the single source of truth in data/. Finds copy that contradicts itself.
 """
-import json, re, sys, urllib.request, collections
+import json, os, re, sys, urllib.request, collections
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3000"
-ROOT = "/home/user/gwp"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 blanks = json.load(open(f"{ROOT}/data/blanks.json"))["items"]
 designs = json.load(open(f"{ROOT}/data/designs.json"))["items"]
@@ -35,7 +35,7 @@ TRUTH = {
 ROUTES = ["/", "/shop", "/designs", "/create", "/work", "/blanks", "/how-to-order",
           "/about", "/faq", "/contact", "/brand", "/sitemap-page",
           "/legal/privacy", "/legal/terms", "/legal/cookies",
-          "/collections/encourage", "/collections/inspire", "/collections/celebrate",
+          "/collections/encourage", "/collections/inspire", "/collections/kids-selection",
           "/collections/teacher-appreciation", "/collections/everyday",
           "/shop/mug-11oz", "/shop/sippy-cup", "/designs/design-33"]
 

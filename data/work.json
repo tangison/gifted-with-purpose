@@ -66,6 +66,7 @@
    "n": 5,
    "file": "work-05",
    "alt": "Kids sippy cup with two handles printed with a learning presenter, a rainbow and toy blocks",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters"
@@ -141,6 +142,7 @@
    "n": 10,
    "file": "work-10",
    "alt": "Kids sippy cup with two handles printed with cartoon racing cars and a truck",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters",
@@ -157,6 +159,7 @@
    "n": 11,
    "file": "work-11",
    "alt": "Kids flip-top bottle with a pink lid printed with a fashion doll in a tiara",
+   "kids_item": "fliptop",
    "tags": [
     "kids",
     "characters"
@@ -204,6 +207,7 @@
    "n": 14,
    "file": "work-14",
    "alt": "Kids sippy cup with two handles printed with a bow-wearing cartoon mouse on pink polka dots",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters"
@@ -219,6 +223,7 @@
    "n": 15,
    "file": "work-15",
    "alt": "Kids sippy cup with two handles printed with street puppet characters and a 123 sign",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters"
@@ -264,6 +269,7 @@
    "n": 18,
    "file": "work-18",
    "alt": "Kids sippy cup with two handles printed with a blue cartoon dog family and paw prints",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters"
@@ -323,6 +329,7 @@
    "n": 22,
    "file": "work-22",
    "alt": "Kids sippy cup with two handles printed with a mermaid and an underwater scene",
+   "kids_item": "sippy",
    "tags": [
     "kids"
    ],
@@ -410,6 +417,7 @@
    "n": 28,
    "file": "work-28",
    "alt": "Kids flip-top bottle in pastel stripes printed with a cartoon rescue puppy",
+   "kids_item": "fliptop",
    "tags": [
     "kids",
     "characters"
@@ -425,6 +433,7 @@
    "n": 29,
    "file": "work-29",
    "alt": "Kids flip-top bottle printed with the name Duan Richard Moritz over a wheat field",
+   "kids_item": "fliptop",
    "tags": [
     "kids",
     "personalised"
@@ -590,6 +599,7 @@
    "n": 40,
    "file": "work-40",
    "alt": "Kids sippy cup with two handles printed with cartoon racing cars and the name JADON",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters",
@@ -606,6 +616,7 @@
    "n": 41,
    "file": "work-41",
    "alt": "Kids sippy cup with two handles printed with a blue truck in a desert canyon and the name Asher B",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "vehicles",
@@ -622,6 +633,7 @@
    "n": 42,
    "file": "work-42",
    "alt": "Kids sippy cup with two handles printed with a cartoon rescue puppy badge and the name JUAN",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters",
@@ -638,6 +650,7 @@
    "n": 43,
    "file": "work-43",
    "alt": "Kids sippy cup with two handles printed with cartoon racing cars and the name JADON on pink",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "characters",
@@ -654,6 +667,7 @@
    "n": 44,
    "file": "work-44",
    "alt": "Kids sippy cup with two handles printed with a red spiderweb pattern and a name",
+   "kids_item": "sippy",
    "tags": [
     "kids",
     "personalised"

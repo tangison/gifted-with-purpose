@@ -380,3 +380,45 @@ These are now read from the data files, so copy cannot drift from reality again.
 ### House style
 26 em dashes removed sitewide, plus 2 exclamation points. WhatsApp greetings keep theirs, since you
 said the CTAs are right as they are.
+
+
+---
+
+## 11. Applied 27 Aug 2026: Kids Selection and Our Story
+
+| Your instruction | What changed | Status |
+|---|---|---|
+| "here you remove celebrate and replace with kids selection" | The **Celebrate** collection is now **Kids Selection**, sub-titled "Sippy Cups & Bottles". It was already your kids collection, so I renamed it rather than deleting it: all 7 products, the artwork and the gold accent carry over. The card on the homepage, the page itself, the browser tab title and the breadcrumb all read Kids Selection. The old link `/collections/celebrate` **redirects** to the new one, so nothing you have already shared breaks. | Done |
+| "then you add all the photos of the flip top and sippy cups that i have sent" | **All 14** are now on the Kids Selection page: **11 sippy cups and 3 flip-top bottles**. Every photo shows in full, nothing cropped. Tap one and it opens large with an **Order this on WhatsApp** button that already names the item and quotes N$230. | Done |
+| "only use this part for.....our story/about us" plus the Our Story text you sent at 6:56 AM | Used **word for word**, nothing rewritten. The full four paragraphs and the **GIFTED WITH PURPOSE / Thoughtful. Meaningful. Yours.** sign-off are on the **Our Story** page. The homepage About section carries the opening two paragraphs and the sign-off, then links through to the full story. The placeholder you crossed out is gone. | Done |
+| "this section i will let you know what to right" | **Left exactly as it is, waiting for you.** I have not guessed at it. | Waiting on you |
+
+### One thing I could not tell from the screenshots
+
+Your 5:47 PM note **"this section i will let you know what to right"** and your 5:48 PM note
+**"remove this and replace with our story"** were both drawn onto screenshots, and I cannot see which
+band each arrow points at with enough certainty to act on it. Since you then sent the Our Story copy
+and said it was for "our story/about us", I put that copy on the **Our Story page and the homepage
+About section**, which is the reading I can defend.
+
+If either arrow was pointing at a different band, tell me which one and I will move it. The two
+candidates are the homepage **"You message us. We do the rest."** three-step band, and the
+**"Build it step by step / the blank range"** band at the bottom of the shop page.
+
+### Two files in the filebin were not yours
+
+`IMG-20260826-WA0024.jpg` and `IMG-20260826-WA0025.jpg` are **Emerald Spa and Wellness Centre**
+gift voucher artwork. I have not published them anywhere. Worth knowing in case they were forwarded
+to the wrong chat.
+
+### Still outstanding, unchanged from before
+
+1. **The `/designs` disclaimer decision.** You removed the independence notice from `/work`. The full
+   wording now lives only in the terms page, and product pages keep a one-line pointer to it. Confirm
+   that is what you want.
+2. **Six prices:** 12oz Gin Tumbler, 250ml Can, 400ml Can, 15oz Skinny Tumbler, 20oz Travel Tumbler,
+   Glass Tumbler with Bamboo Lid, plus the Teacher Appreciation Gift Set.
+3. **The mailbox.** `sales@giftedwithpurpose.net` is on the site, but the mailbox still has to exist
+   at your domain host. This is the email setup you mentioned.
+4. **The two withheld photographs** showing a child's face printed on a cup, which need that parent's
+   written consent before they can go on a public commercial site.

@@ -371,6 +371,13 @@ ul{margin:0;padding:0;list-style:none}
 .about-copy h2{font-size:clamp(25px,6.2vw,36px);margin-bottom:14px}
 .about-copy p{color:var(--muted);margin-bottom:13px;font-size:15.5px}
 .about-copy p strong{color:var(--body)}
+/* The client's sign-off at the end of Our Story: brand mark then tagline. */
+.about-copy .story-sign{margin-top:18px;margin-bottom:0;color:var(--body);line-height:1.7}
+.about-copy .story-sign strong{letter-spacing:.05em}
+/* Not --cat-pink: at this size it measures 3.86:1 on the section background,
+   which fails WCAG AA for normal text. This is the darker pink ink already used
+   for links elsewhere, at 6.36:1. */
+.about-copy .story-sign em{color:#B32359;font-style:italic}
 .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .about-pills li{
   display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;
@@ -1502,6 +1509,9 @@ a.ccard:hover{border-color:var(--taupe)}
 }
 .wg-cell:hover{border-color:var(--ink);box-shadow:0 10px 26px -16px rgba(60,40,45,.5)}
 .wg-cell img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
+/* Product galleries must show the whole item: the client asked for nothing to
+   be cropped, so these cells letterbox on white instead of filling the frame. */
+.wg-contain .wg-cell img{object-fit:contain;background:#fff}
 @media(min-width:600px){.wg{grid-template-columns:repeat(3,1fr);gap:var(--s-3)}}
 @media(min-width:1100px){.wg{grid-template-columns:repeat(4,1fr)}}
 

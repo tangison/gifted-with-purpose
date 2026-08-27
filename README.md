@@ -43,7 +43,7 @@ To mark a product as unpriced: set `"price": null` and it renders "Price on requ
 | Route | Purpose |
 |---|---|
 | `/` | Hero, collections, featured, teacher set, about, how it works, coming soon, contact |
-| `/collections/[slug]` | 5 collections: encourage, inspire, celebrate, teacher-appreciation, everyday |
+| `/collections/[slug]` | 5 collections: encourage, inspire, kids-selection, teacher-appreciation, everyday |
 | `/about` | Our story |
 | `/how-to-order` | Ordering guide, HowTo schema |
 | `/faq` | 8 questions, FAQPage schema |

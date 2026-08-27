@@ -1,8 +1,8 @@
 """Route + served-content verification. Checks the HTML body, not just the status."""
-import json, re, sys, urllib.request
+import json, os, re, sys, urllib.request
 
 B = "http://127.0.0.1:3000"
-root = "/home/user/gwp"
+root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 designs = json.load(open(f"{root}/data/designs.json"))["items"]
 blanks = json.load(open(f"{root}/data/blanks.json"))["items"]
 work = json.load(open(f"{root}/data/work.json"))["items"]
@@ -47,7 +47,7 @@ def check(path, want=200, must=(), mustnot=()):
 static = ["/", "/shop", "/designs", "/create", "/work", "/about", "/brand", "/faq", "/contact",
           "/how-to-order", "/sitemap-page", "/legal/privacy", "/legal/terms", "/legal/cookies",
           "/blanks",
-          "/collections/encourage", "/collections/inspire", "/collections/celebrate",
+          "/collections/encourage", "/collections/inspire", "/collections/kids-selection",
           "/collections/teacher-appreciation", "/collections/everyday",
           "/robots.txt", "/sitemap.xml", "/manifest.webmanifest"]
 for p in static:

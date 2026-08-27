@@ -33,6 +33,10 @@ const nextConfig = {
       // "How we make it" was consolidated into "How to order" at the client's
       // request. Permanent so search engines transfer the old URL's equity.
       { source: '/process', destination: '/how-to-order', permanent: true },
+      // The "Celebrate" collection was renamed "Kids Selection" at the client's
+      // request. The old URL was live and indexed, so it redirects rather than
+      // 404s, for the same reason as above.
+      { source: '/collections/celebrate', destination: '/collections/kids-selection', permanent: true },
     ];
   },
   async headers() {

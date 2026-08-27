@@ -9,7 +9,7 @@ ROUTES = ["/", "/work", "/how-to-order", "/shop", "/shop/mug-11oz", "/shop/kids-
           "/designs", "/designs/design-33", "/designs/sippy-18", "/designs/design-19",
           "/blanks", "/blanks/sb893", "/blanks/sb8072", "/blanks/sb889",
           "/create", "/about", "/faq", "/contact", "/how-to-order", "/brand",
-          "/collections/encourage", "/collections/teacher-appreciation",
+          "/collections/encourage", "/collections/teacher-appreciation", "/collections/kids-selection",
           "/legal/privacy", "/sitemap-page"]
 WIDTHS = [320, 375, 414, 768, 1024, 1280, 1440]
 

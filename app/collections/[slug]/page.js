@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Icon, Chev } from '@/components/Icons';
 import ProductCard, { SoonCard } from '@/components/ProductCard';
+import KidsGallery from './KidsGallery';
 import { collections, collectionBySlug, productsIn, brand, wa, SITE_URL } from '@/lib/site';
+import { kidsWork, sippyWork, fliptopWork, work } from '@/lib/catalog';
 
 export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
@@ -36,7 +38,7 @@ export async function generateMetadata({ params }) {
 }
 
 const EXTRA = {
-  celebrate: {
+  'kids-selection': {
     title: 'More kids designs coming soon',
     body: "We're photographing more personalised kids' cups. Message us for what's available today.",
     msg: "Hi Gifted with Purpose! What kids' designs do you have available right now?",
@@ -183,6 +185,28 @@ export default async function CollectionPage({ params }) {
           </div>
         </div>
       </section>
+
+      {/*
+        The client asked for every flip-top and sippy-cup photograph to sit in
+        this collection. They are the real finished orders, so they belong next
+        to the priced items rather than only on /work.
+      */}
+      {c.slug === 'kids-selection' && (
+        <section className="sec sec-blush">
+          <div className="wrap">
+            <div className="sec-head center">
+              <span className="eyebrow">The kids range</span>
+              <h2>Flip-top bottles and sippy cups</h2>
+              <p>
+                Every one we have printed and handed over: {sippyWork.length} sippy cups and {fliptopWork.length}{' '}
+                flip-top bottles, {kidsWork.length} of our {work.length} photographs. Tap any photo to see the print up
+                close and order that one.
+              </p>
+            </div>
+            <KidsGallery />
+          </div>
+        </section>
+      )}
 
       <section className="sec sec-alt">
         <div className="wrap">

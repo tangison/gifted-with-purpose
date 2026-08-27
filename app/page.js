@@ -282,21 +282,21 @@ export default function HomePage() {
             </span>
           </div>
           <div className="about-copy">
-            <p className="script">About us</p>
-            <h2>Two people, one printer, every order checked twice</h2>
+            <p className="script">Our story</p>
+            <h2>A mother-and-daughter dream</h2>
             <p>
-              We are a <strong>mother and daughter in Windhoek</strong>. This started as gifts for people we know, and
-              the orders kept coming, so now we make them for you too.
+              <strong>GIFTED WITH PURPOSE</strong> is a mother-and-daughter dream brought to life by{' '}
+              <strong>Geneveve and Payton</strong>.
             </p>
-            <Disclosure summary="More about how we work">
-              <p>
-                Every tumbler, mug and cup is printed to order, which means the name, the verse or the affirmation on
-                it is chosen for one specific person. That is the whole point.
-              </p>
-              <p style={{ marginTop: 8 }}>
-                <strong>Thank you for supporting our business.</strong>
-              </p>
-            </Disclosure>
+            <p>
+              What started as a love for creativity grew into a passion for creating personalised gifts that make
+              people feel <strong>seen, valued and celebrated</strong>.
+            </p>
+            <p className="story-sign">
+              <strong>GIFTED WITH PURPOSE</strong>
+              <br />
+              <em>Thoughtful. Meaningful. Yours.</em>
+            </p>
             <ul className="about-pills">
               <li>
                 <NaFlag /> Made with love in Namibia
