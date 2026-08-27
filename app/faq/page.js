@@ -28,7 +28,15 @@ export const FAQS = [
   },
   {
     q: 'Do you deliver?',
-    a: 'Delivery details are being confirmed. Please ask us on WhatsApp and we will tell you exactly what is possible for your area.',
+    a: 'Yes, we deliver across Namibia for an extra cost. The exact amount depends on where you are, so we confirm it with you on WhatsApp when we confirm your order. Message us your area and we will quote delivery before anything is made.',
+  },
+  {
+    q: 'Can I return a personalised item?',
+    a: 'Because personalised items are made specifically for you, please check the spelling and wording with us before you approve. Once you have approved the proof and made payment, the order goes to production and cannot be changed or cancelled, so we confirm every detail with you first.',
+  },
+  {
+    q: 'Are the cups dishwasher safe?',
+    a: 'They are dishwasher safe. That said, warm water and a soft cloth is all they really need, and gentle hand washing keeps the print looking its best for longer.',
   },
   {
     q: 'Do you make Afrikaans designs?',

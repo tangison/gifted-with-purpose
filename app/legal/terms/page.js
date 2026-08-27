@@ -59,9 +59,15 @@ export default function Terms() {
 
       <h2>Payment, delivery and returns</h2>
       <p>
-        Payment terms are agreed with you directly. Delivery areas, costs and timeframes, and our returns and exchange
-        terms, are not yet published on this site and are confirmed per order over WhatsApp. Ask us before you order if
-        any of these matter to your decision.
+        Payment is agreed with you directly over WhatsApp. Delivery is available across Namibia for an extra cost, which
+        we confirm with you when we confirm your order. Delivery areas, costs and timeframes, and our returns and
+        exchange terms, are confirmed per order, so please ask us before you order if any of these matter to your
+        decision.
+      </p>
+      <p>
+        Once you have approved the proof and made payment, your order goes into production and cannot be changed or
+        cancelled. That is why we confirm the design, spelling, price and delivery with you in writing before anything is
+        made.
       </p>
 
       <h2>Character and third-party designs</h2>

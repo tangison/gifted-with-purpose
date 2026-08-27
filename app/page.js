@@ -143,77 +143,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sec pat pat-confetti pat-fade" id="collections">
-        <div className="wrap">
-          <div className="sec-head center">
-            <span className="eyebrow">
-              Shop by collection
-            </span>
-            <h2>Or start from who it is for</h2>
-            <p>
-              Five collections of pieces we have already made and photographed. Pick the person and we will show you
-              what fits.
-            </p>
-          </div>
-          <div className="cats">
-            {collections.map((c) => {
-              const n = productsIn(c.slug).length;
-              return (
-                <Link
-                  key={c.slug}
-                  className="cat"
-                  style={{ '--c': c.accent, '--cs': c.accent_soft, '--ci': c.accent_ink }}
-                  href={`/collections/${c.slug}`}
-                >
-                  <span className="count">
-                    {n} design{n !== 1 ? 's' : ''}
-                  </span>
-                  <div className="cat-ico">
-                    <Icon name={c.icon} />
-                  </div>
-                  <h3>{c.name}</h3>
-                  <div className="sub">{c.sub}</div>
-                  <p>{c.blurb}</p>
-                  <ul>
-                    {c.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                  <span className="go">
-                    Browse {c.name} <Chev />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      
 
-      <section className="sec sec-alt">
-        <div className="wrap">
-          <div className="sec-head center">
-            <span className="eyebrow">
-              Most loved
-            </span>
-            <h2>What people order most</h2>
-            <p>Photographed on our own table, not a stock library. Tap any photo to see the print up close.</p>
-          </div>
-          <div className="rail-head">
-            <p className="rail-hint">Swipe to browse</p>
-            <Link href="/work">View all {work.length} &rarr;</Link>
-          </div>
-          <div className="rail">
-            {feat.map((p, i) => (
-              <ProductCard key={p.id} product={p} priority={i < 2} index={i} />
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: 26 }}>
-            <Link className="btn btn-ghost" href="/shop">
-              See all {work.length} pieces we have made <Chev />
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="sec season">
         <div className="wrap">
