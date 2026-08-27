@@ -343,6 +343,8 @@ used it for the Glass Tumbler with Bamboo Lid. The frosted mug image became the 
 3. **Six prices**, now including the teacher set: gin tumbler, 250ml can, 400ml can, 15oz skinny tumbler, 20oz travel tumbler, glass tumbler, and the Teacher Appreciation Gift Set.
 4. **The mailbox itself.** I have put `sales@giftedwithpurpose.net` on the site, but the mailbox has to exist at your domain host and be able to receive mail. Set that up and send yourself a test.
 
+
+
 ---
 
 ## 10. Disclaimers and data points, 26 Aug 2026

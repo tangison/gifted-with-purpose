@@ -293,6 +293,8 @@ the cause is still the hero background image.
 | 15.7 | Full gate | 192 routes | routes x3, flows x3, axe, responsive | ALL PASS x3, FLOWS PASS x3, **0 axe violations**, 0 overflow at 7 widths | Done |
 | 15.8 | Lint and audit | repo | eslint, npm audit | 0 errors, **0 vulnerabilities** | Done |
 
+
+
 ---
 
 ## Phase 16 — Disclaimer consolidation and sitewide data-point reconciliation (26 Aug 2026)
