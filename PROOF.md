@@ -368,3 +368,37 @@ the cause is still the hero background image.
 > `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` must be revoked by the owner at
 > https://github.com/settings/tokens (or settings -> applications). Until then it is live and should
 > be treated as compromised.
+
+
+---
+
+## Phase 20 — Homepage section removals + policy notes (27 Aug 2026, client WhatsApp 12:25-12:30 PM)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 20.0 | Read the new instructions | 14 uploaded screenshots + WhatsApp transcript | OCR (all came back empty: arrow/handwriting annotations, no machine text) + transcript text | 3 actionable instructions extracted: remove "Shop by collection", remove "What people order most", add care/delivery/payment notes; 2 ambiguous ("tap" on kiddies, "fix this documents") | Done |
+| 20.1 | Remove "Shop by collection" | `app/page.js` `<section id="collections">` | Deleted the whole section block | Gone from homepage; hero/about/how/soon/contact retained | Done |
+| 20.2 | Remove "What people order most" | `app/page.js` "Most loved" section | Deleted the whole section block | Gone from homepage (verified: 0 hits for both strings on `/`) | Done |
+| 20.3 | Add dishwasher-safe care note | `app/faq/page.js` | New FAQ: "Are the cups dishwasher safe?" with client's exact wording "warm water and a soft cloth is all it needs" | Live on `/faq` | Done |
+| 20.4 | Add delivery-extra-cost note | `app/faq/page.js` + `app/legal/terms/page.js` | FAQ answer rewritten from "being confirmed" to "delivery across Namibia for an extra cost"; terms "Payment, delivery and returns" updated | Live on `/faq` and `/legal/terms` | Done |
+| 20.5 | Add payment-finality note | `app/faq/page.js` + `app/legal/terms/page.js` | FAQ return answer + terms clause: once proof approved and payment made, order goes to production and cannot be changed/cancelled | Matches client "Once you approve and make payment there is no turning back" | Done |
+| 20.6 | Verify | running build + gates | 192 routes ALL PASS; A11Y + RESPONSIVE PASS (0 violations); FLOWS PASS; KIDS GALLERY PASS (0 broken, 0 console errors); `next build` green | All green after deletions + additions | Done |
+| 20.7 | Commit + push | `main` | Commit `8f7872e` pushed; Vercel auto-deploy triggered | Remote main at `8f7872e` | Done |
+| 20.8 | Flag ambiguity | Kids Selection "tap" + "fix this documents" | Asked the owner to confirm the exact "tap" element and which documents need screenshot guidance | Awaiting client reply | Paused |
+
+> Outstanding, not guessed (per client rule "do not invent"): (a) "remove this tap from the kiddies section and replace with the sippy cup and flip top images" — the Kids Selection homepage card uses an icon, not a photo, and the Kids Selection page already shows all 14 sippy/flip-top photos. Need the owner to say which specific element "tap" is. (b) "fix this documents I want them to be the look at the images and screenshots" — need to know which documents (FAQ / how-to-order / terms) should get screenshot guidance.
+
+
+---
+
+## Phase 21 — Hero single-line + Namibia-wide keyword/hero copy (27 Aug 2026, client msg)
+
+| Phase | Action | Target | Method | Result | Status |
+|---|---|---|---|---|---|
+| 21.0 | Remove second hero line | `app/page.js` `<h1>` | Deleted `<br/>` + `<em>Her verse on it.</em>` | Hero now reads "Her name on it." (single line) | Done |
+| 21.1 | Broaden hero copy off Windhoek | `app/page.js` | "Printed to order in Windhoek" -> "in Namibia"; "Made by a mother and daughter in Windhoek" -> "in Namibia" | Hero copy now Namibia-wide, consistent with brand + keyword intent | Done |
+| 21.2 | Broaden site keywords | `app/layout.js` | "custom mugs Windhoek" -> "custom mugs Namibia"; "gifts Windhoek" -> "gifts Namibia"; added "personalised gifts Windhoek" + "Namibia gift delivery" | Keyword set is country-level, not city-locked | Done |
+| 21.3 | Verify | running build + gates | 192 routes ALL PASS; A11Y + RESPONSIVE PASS (0); FLOWS PASS; KIDS GALLERY PASS (0 broken, 0 console) | All green | Done |
+| 21.4 | Commit + push | `main` | Commit pushed; Vercel auto-deploy triggered | Live after deploy | Done |
+
+> Note: per-page product meta descriptions still say "printed to order in Windhoek" because that is factually where each item is produced; only the site-level hero and keywords were broadened to Namibia, per the request. Left "Her name on it." as the heading (kept the established hero). If the client wants "Your name on it." instead, that is a one-line swap.

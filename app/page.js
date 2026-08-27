@@ -24,13 +24,11 @@ export default function HomePage() {
           <div className="hero-copy">
             <h1>
               Her name on it.
-              <br />
-              <em>Her verse on it.</em>
             </h1>
-            <p className="hero-tag">Printed to order in Windhoek</p>
+            <p className="hero-tag">Printed to order in Namibia</p>
             <p className="hero-sub">
               Pick the cup. Pick the design. We print it. {designs.length} designs ready to go, or we draw you a new
-              one. Made by a mother and daughter in Windhoek, from {brand.currency}
+              one. Made by a mother and daughter in Namibia, from {brand.currency}
               {Math.min(...blanks.filter((b) => b.price != null).map((b) => b.price))}.
             </p>
             <div className="hero-cta">

@@ -25,14 +25,16 @@ export const metadata = {
   keywords: [
     'personalised gifts Namibia',
     'personalized tumblers Namibia',
-    'custom mugs Windhoek',
+    'custom mugs Namibia',
     'affirmation tumblers',
     'faith based gifts Namibia',
     'kids sippy cups Namibia',
     'teacher appreciation gifts Namibia',
+      'personalised gifts Windhoek',
+      'Namibia gift delivery',
     'Afrikaans scripture tumbler',
     'Spreuke 31 beker',
-    'gifts Windhoek',
+    'gifts Namibia',
   ],
   alternates: { canonical: '/' },
   robots: IS_PRODUCTION_HOST
