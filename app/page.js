@@ -23,9 +23,9 @@ export default function HomePage() {
         <div className="wrap hero-in">
           <div className="hero-copy">
             <h1>
-              Her name on it.
+              Your name on it.
             </h1>
-            <p className="hero-tag">Printed to order in Namibia</p>
+            <p className="hero-tag">Printed on order in Namibia</p>
             <p className="hero-sub">
               Pick the cup. Pick the design. We print it. {designs.length} designs ready to go, or we draw you a new
               one. Made by a mother and daughter in Namibia, from {brand.currency}

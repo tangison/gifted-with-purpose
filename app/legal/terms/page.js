@@ -43,7 +43,7 @@ export default function Terms() {
 
       <h2>Products and personalisation</h2>
       <p>
-        Our items are printed to order. Because screens differ, colours you see here may vary slightly from the printed
+        Our items are printed on order. Because screens differ, colours you see here may vary slightly from the printed
         item. Product photographs show real items we have produced.
       </p>
       <p>

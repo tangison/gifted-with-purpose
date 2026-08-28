@@ -18,11 +18,11 @@ import {
 export const metadata = {
   title: 'Shop the Items',
   description:
-    `Mugs, tumblers, kids sippy cups and flip-top bottles, printed to order in Windhoek. Pick the item, then pick any of ${designs.length} designs or send us your own. Prices from ${priceFloorLabel}.`,
+    `Mugs, tumblers, kids sippy cups and flip-top bottles, printed on order in Windhoek. Pick the item, then pick any of ${designs.length} designs or send us your own. Prices from ${priceFloorLabel}.`,
   alternates: { canonical: '/shop' },
   openGraph: {
     title: 'Shop the Items | Gifted with Purpose',
-    description: 'Pick the item, then pick the design. Printed to order in Windhoek.',
+    description: 'Pick the item, then pick the design. Printed on order in Windhoek.',
     url: `${SITE_URL}/shop`,
   },
 };
@@ -69,10 +69,7 @@ function BlankGrid({ items, offset = 0 }) {
                   </span>
                 </span>
                 <span className="blank-spec">{b.spec}</span>
-                <span className="blank-n">
-                  {n} design{n === 1 ? '' : 's'} fit this
-                  <Chev />
-                </span>
+                
               </span>
             </Link>
           </li>
@@ -141,7 +138,7 @@ export default function ShopPage() {
         <div className="wrap">
           <h2 className="sec-h2" id="grown-ups">For grown-ups</h2>
           <p className="sec-lead">
-            Mugs, tumblers and cans. {adultBlanks.length} of our {blanks.length} items, each one printed to order.
+            Mugs, tumblers and cans. {adultBlanks.length} of our {blanks.length} items, each one printed on order.
           </p>
           <BlankGrid items={adultBlanks} />
 

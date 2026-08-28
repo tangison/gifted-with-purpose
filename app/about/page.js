@@ -83,7 +83,7 @@ export default function AboutPage() {
                 <Check /> A team of two
               </li>
               <li>
-                <Check /> Printed to order
+                <Check /> Printed on order
               </li>
             </ul>
           </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
             </div>
             <div className="step step-plain">
               <h3>Yours</h3>
-              <p>Printed to order, one at a time. Not something they&rsquo;ll see on a shelf somewhere else.</p>
+              <p>Printed on order, one at a time. Not something they&rsquo;ll see on a shelf somewhere else.</p>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 30 }}>

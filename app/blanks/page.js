@@ -121,10 +121,7 @@ export default function BlanksPage() {
                           <span className="blank-spec">
                             {s.capacity} &middot; {s.material}
                           </span>
-                          <span className="blank-n">
-                            {n} design{n === 1 ? '' : 's'} fit this
-                            <Chev />
-                          </span>
+                          
                         </span>
                       </Link>
                     </li>

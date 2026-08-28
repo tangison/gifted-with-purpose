@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useMemo, useState, useDeferredValue } from 'react';
+import { useLightbox } from '@/components/LightboxProvider';
+import { wa } from '@/lib/site';
 import { Icon } from '@/components/Icons';
 import {
   designs,
@@ -25,6 +27,7 @@ export default function DesignGallery({ initialTheme = 'all' }) {
   const [group, setGroup] = useState('all');
   const [theme, setTheme] = useState(initialTheme);
   const [q, setQ] = useState('');
+  const { open } = useLightbox();
   const [shown, setShown] = useState(STEP);
   const [allThemes, setAllThemes] = useState(false);
   const dq = useDeferredValue(q);
@@ -170,7 +173,7 @@ export default function DesignGallery({ initialTheme = 'all' }) {
               <ul className="dg">
                 {visible.map((d, i) => (
                   <li key={d.id}>
-                    <Link href={`/designs/${d.id}`} className="dg-cell">
+                    <Link href={`/designs/${d.id}`} className="dg-cell" onClick={(e) => { e.preventDefault(); open({ img: `/assets/designs/${d.file}.webp`, title: d.name, spec: d.id.toUpperCase(), wa: wa(`Hi Gifted with Purpose! I would like to order design ${d.id.toUpperCase()} (${d.name}).`) }); }}>
                       <Image
                         src={`/assets/designs/${d.file}@sm.webp`}
                         alt={d.alt}

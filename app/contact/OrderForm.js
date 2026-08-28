@@ -49,7 +49,10 @@ export default function OrderForm() {
     if (f.product) L.push(`Product: ${f.product}`);
     if (f.collection) L.push(`Collection: ${f.collection}`);
     if (f.design.trim()) L.push(`Design reference: ${f.design.trim()}`);
-    if (f.personalise.trim()) L.push(`Personalisation to print: ${f.personalise.trim()}`);
+    if (f.personalise.trim()) {
+      L.push(`Personalisation to print: ${f.personalise.trim()}`);
+      L.push('Personalisation adds N$20 to the price.');
+    }
     if (f.qty && f.qty !== '1') L.push(`Quantity: ${f.qty}`);
     if (f.notes.trim()) L.push(`Notes: ${f.notes.trim()}`);
     L.push('');

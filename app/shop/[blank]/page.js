@@ -28,11 +28,11 @@ export async function generateMetadata({ params }) {
   const price = b.price == null ? 'Price on request.' : `${money(b.price)}.`;
   return {
     title: b.name,
-    description: `${b.spec}. ${price} Choose from ${n} designs or send us your own. Printed to order in Windhoek by Gifted with Purpose.`,
+    description: `${b.spec}. ${price} Printed on order in Windhoek by Gifted with Purpose.`,
     alternates: { canonical: `/shop/${b.id}` },
     openGraph: {
       title: `${b.name} | Gifted with Purpose`,
-      description: `${b.spec}. ${price} ${n} designs fit this item.`,
+      description: `${b.spec}. ${price} Choose a design or send us your own.`,
       url: `${SITE_URL}/shop/${b.id}`,
       ...(b.photo ? { images: [{ url: `/assets/products/${b.photo}.jpg` }] } : {}),
     },
@@ -62,7 +62,7 @@ export default async function BlankPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: b.name,
-    description: `${b.spec}. Printed to order with any of ${fits.length} designs.`,
+    description: `${b.spec}. Printed on order with any of ${fits.length} designs.`,
     sku: b.id,
     brand: { '@type': 'Brand', name: brand.name },
     ...(b.photo ? { image: `${SITE_URL}/assets/products/${b.photo}.jpg` } : {}),
@@ -192,8 +192,7 @@ export default async function BlankPage({ params }) {
         <div className="wrap">
           <h2 className="dp-h2">Designs that fit the {b.short.toLowerCase()}</h2>
           <p className="dp-lead">
-            {fits.length} of our {designs.length} designs fit this item, and every one of them prints at{' '}
-            {blankPriceLabel(b).toLowerCase()}. Pick one, or send us your own idea and we quote the artwork per job.
+            Pick one of the designs below, or send us your own idea and we quote the artwork per job.
           </p>
           <BlankDesigns blank={b} designs={fits} />
         </div>

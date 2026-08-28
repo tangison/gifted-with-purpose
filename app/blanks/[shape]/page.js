@@ -66,7 +66,7 @@ export default async function ShapePage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: s.name,
-    description: `${s.material}, ${s.capacity}. Unprinted sublimation blank, printed to order in Windhoek.`,
+    description: `${s.material}, ${s.capacity}. Unprinted sublimation blank, printed on order in Windhoek.`,
     sku: s.sku,
     color: s.colour,
     material: s.material,
@@ -193,7 +193,7 @@ export default async function ShapePage({ params }) {
         <div className="wrap">
           <h2 className="dp-h2">What can go on it</h2>
           <p className="dp-lead">
-            {fits.length} design{fits.length === 1 ? '' : 's'} in the library suit this shape, and you can also send us
+            You can also send us
             your own idea, which we quote per job. Here are six to start with.
           </p>
           <ul className="dg dg-rel">

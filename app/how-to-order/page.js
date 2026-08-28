@@ -11,7 +11,7 @@ export const metadata = {
   alternates: { canonical: '/how-to-order' },
   openGraph: {
     title: 'How to Order | Gifted with Purpose',
-    description: 'From your message to a finished gift, printed to order in Windhoek.',
+    description: 'From your message to a finished gift, printed on order in Windhoek.',
     url: `${SITE_URL}/how-to-order`,
   },
 };
@@ -136,7 +136,7 @@ export default function HowToOrderPage() {
             <p className="sub">Start to finish</p>
             <h1>How to order</h1>
             <p>
-              Six steps between your first message and a finished gift. Printed to order in Windhoek, checked by hand,
+              Six steps between your first message and a finished gift. Printed on order in Windhoek, checked by hand,
               packed to hand over.
             </p>
           </div>

@@ -388,6 +388,8 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
               ? 'Pick an item to see the price.'
               : item.price == null
                 ? `${item.name}: price on request.`
+                : name.trim()
+                ? `${money(item.price)} each + ${money(NAME_FEE)} for the name. Item total ${money(total)}.`
                 : `${money(item.price)} each. Item total ${money(total)}.`}
           </p>
           {mode === 'custom' && <p className="bld-plus">Plus artwork, quoted per job.</p>}

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
   const price = p == null ? 'Price on request.' : `From ${money(p)}.`;
   return {
     title: `${d.name}: design ${d.id.toUpperCase()}`,
-    description: `${d.alt}. ${price} Printed to order in Windhoek on a mug, tumbler or kids cup. Reference ${d.id.toUpperCase()}.`,
+    description: `${d.alt}. ${price} Printed on order in Windhoek on a mug, tumbler or kids cup. Reference ${d.id.toUpperCase()}.`,
     alternates: { canonical: `/designs/${d.id}` },
     openGraph: {
       title: `${d.name} | Gifted with Purpose`,
@@ -63,7 +63,7 @@ export default async function DesignPage({ params }) {
   const product = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: `${d.name}, printed to order`,
+    name: `${d.name}, printed on order`,
     description: d.alt,
     sku: d.id.toUpperCase(),
     image: `${SITE_URL}/assets/designs/${d.file}.webp`,
