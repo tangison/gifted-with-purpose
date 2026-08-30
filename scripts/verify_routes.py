@@ -7,6 +7,7 @@ designs = json.load(open(f"{root}/data/designs.json"))["items"]
 blanks = json.load(open(f"{root}/data/blanks.json"))["items"]
 work = json.load(open(f"{root}/data/work.json"))["items"]
 shapes = json.load(open(f"{root}/data/shapes.json"))["shapes"]
+confirmed_prices = sorted({float(b["price"]) for b in blanks if b.get("price") is not None})
 
 
 def get(path):
@@ -70,7 +71,7 @@ for b in blanks:
     check(f"/shop/{b['id']}", must=[b["name"], b["spec"], want_price, "Designs that fit"])
 
 # The two halves must link to each other.
-check("/shop", must=["/designs", "/create", "design", "fit this"])
+check("/shop", must=["/designs", "/create", "design"], mustnot=["fit this"])
 check("/designs", must=["/create", "Search designs"])
 check("/create", must=["Pick the item", "Pick the design", "Ask us to draw one"])
 check("/", must=["/create", "/designs", "/shop", "/work", "How it works"])
@@ -116,7 +117,7 @@ for sh in shapes:
         for m in set(re.findall(r"N\$(\d+(?:\.\d\d)?)", visible(body))):
             # The only money allowed on a shape page is the confirmed price of
             # the printed item it links across to.
-            if float(m) not in {120.0, 230.0, 250.0}:
+            if float(m) not in set(confirmed_prices):
                 fails.append(f"/blanks/{sh['id']}: unexpected price N${m}")
         if sh["print_area"] and sh["print_area"] not in body:
             fails.append(f"/blanks/{sh['id']}: missing print area {sh['print_area']!r}")
@@ -152,7 +153,7 @@ if want_range not in home:
     fails.append(f"layout: priceRange is not {want_range!r}")
 
 # No invented prices: catalogue-confirmed values only.
-allowed = {120.0, 230.0, 250.0, 150.0, 160.0, 200.0}
+allowed = set(confirmed_prices)
 _, shop = get("/shop")
 for m in set(re.findall(r"N\$(\d+(?:\.\d\d)?)", visible(shop))):
     if float(m) not in allowed:
