@@ -22,6 +22,15 @@ import {
 const STEP = 18;
 
 /**
+ * The surcharge for printing a name, confirmed by the client on 28 Aug 2026.
+ * This was referenced in the summary without ever being defined, which threw
+ * ReferenceError: NAME_FEE is not defined and crashed the whole builder the
+ * moment a customer typed a name into step three. It lives here, next to the
+ * only place it is used, so it cannot be referenced without being imported.
+ */
+const NAME_FEE = 20;
+
+/**
  * The whole business model in one flow: few items, many designs, plus a
  * custom route. Nothing invents a price. Custom artwork is always
  * "quoted per job", never a number.
@@ -62,7 +71,10 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
 
   const ready = errors.length === 0;
 
-  const total = item && item.price != null && qty > 0 ? item.price * Number(qty) : null;
+  const total =
+    item && item.price != null && qty > 0
+      ? item.price * Number(qty) + (name.trim() ? NAME_FEE : 0)
+      : null;
 
   const message = useMemo(() => {
     const l = ['Hi Gifted with Purpose, I would like to order:', ''];
@@ -77,7 +89,12 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
       if (brief.trim()) l.push(`What I am picturing: ${brief.trim()}`);
     }
     if (Number(qty) > 1) l.push(`Quantity: ${qty}`);
-    if (total != null) l.push(`Item total: ${money(total)}${mode === 'custom' ? ' plus artwork' : ''}`);
+    if (total != null)
+      l.push(
+        `Item total: ${money(total)}${name.trim() ? ' (includes the name print)' : ''}${
+          mode === 'custom' ? ' plus artwork' : ''
+        }`,
+      );
     if (name.trim()) l.push(`Name to print: ${name.trim()}`);
     if (note.trim()) l.push(`Note: ${note.trim()}`);
     return l.join('\n');

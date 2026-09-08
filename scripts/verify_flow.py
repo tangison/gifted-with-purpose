@@ -16,6 +16,9 @@ async def main():
         pg.on("pageerror", lambda e: console.append(f"pageerror: {e}"))
 
         # ---- flow 1: ready-made design on a chosen item
+        # Exercises all three step-3 fields: name (+N$20), quantity and note.
+        # This flow is the regression test for the NAME_FEE crash of 7 Sep:
+        # typing any name used to throw ReferenceError and unmount the builder.
         await pg.goto(f"{B}/create", wait_until="domcontentloaded")
         await pg.get_by_role("button", name="12oz Coffee Mug", exact=False).first.click()
         await pg.get_by_role("button", name="Choose a ready-made design").click()
@@ -24,26 +27,34 @@ async def main():
         await pg.locator(".bld-pick").first.click()
         await pg.fill("#bname", "Geneveve")
         await pg.fill("#bqty", "3")
+        await pg.fill("#bnote", "Needed before the 12th, pink if possible")
         await pg.wait_for_timeout(300)
 
         total = await pg.locator(".bld-total").inner_text()
-        if "690.00" not in total:
-            fails.append(f"flow1 total wrong: {total!r} (3 x N$230 should be N$690.00)")
+        if "710.00" not in total:
+            fails.append(f"flow1 total wrong: {total!r} (3 x N$230 + N$20 name should be N$710.00)")
+        if "+ N$20.00 for the name" not in total:
+            fails.append(f"flow1: name surcharge line missing from total: {total!r}")
+        sum_name = await pg.locator(".bld-sum dd").all_inner_texts()
+        if "Geneveve" not in sum_name:
+            fails.append(f"flow1: name not shown in the summary panel: {sum_name!r}")
 
         href = await pg.locator("a.bld-send").get_attribute("href")
         if not href:
             fails.append("flow1: send button is not a link, so the form did not validate")
         else:
             msg = urllib.parse.unquote_plus(href.split("text=")[1])
-            for need in ["12oz Coffee Mug", "N$230.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$690.00"]:
+            for need in ["12oz Coffee Mug", "N$230.00", "DESIGN-33", "Grow In Grace", "Geneveve", "Quantity: 3", "N$710.00", "Name to print: Geneveve", "Note: Needed before the 12th"]:
                 if need not in msg:
                     fails.append(f"flow1 message missing {need!r}")
             if "wa.me/264814076649" not in href:
                 fails.append("flow1: wrong WhatsApp number")
 
         # ---- flow 2: custom brief, unpriced item
+        # The travel tumbler is the one item the client has not priced yet,
+        # so it must keep asking instead of quoting a number.
         await pg.goto(f"{B}/create", wait_until="domcontentloaded")
-        await pg.get_by_role("button", name="12oz Gin Tumbler", exact=False).first.click()
+        await pg.get_by_role("button", name="20oz Hot and Cold Travel Tumbler", exact=False).first.click()
         await pg.get_by_role("button", name="Ask us to draw one").click()
         await pg.fill("#brief", "A protea wreath with my mother's name in Afrikaans script")
         await pg.wait_for_timeout(300)
