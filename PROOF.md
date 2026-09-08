@@ -402,3 +402,28 @@ the cause is still the hero background image.
 | 21.4 | Commit + push | `main` | Commit pushed; Vercel auto-deploy triggered | Live after deploy | Done |
 
 > Note: per-page product meta descriptions still say "printed to order in Windhoek" because that is factually where each item is produced; only the site-level hero and keywords were broadened to Namibia, per the request. Left "Her name on it." as the heading (kept the established hero). If the client wants "Your name on it." instead, that is a one-line swap.
+
+## Round of 7 Sep 2026 — client WhatsApp fix backlog (P0 form crash, prices, photos, lightboxes, kids link, copy)
+
+Client feedback arrived as WhatsApp screenshots (filebin bin 6rw3hwmml73um40f). Every item below was
+verified against the live production site after deploy, not against the local build. Deploy:
+commit 89c575bb, Vercel production, GitHub status "Deployment has completed".
+
+| Item | Action | Target | Method | Result | Evidence | Status |
+|---|---|---|---|---|---|---|
+| P0.1 | Root cause of the step 3 crash | `app/create/Builder.js` | Live repro in Chromium at 390x844: picked mug, picked design, typed one name | `ReferenceError: NAME_FEE is not defined` unmounted the whole builder; the constant was referenced once, defined nowhere, introduced 28 Aug with the +N$20 name line, and the fee was also missing from the total arithmetic | agent-browser session log, pageerror | Done |
+| P0.2 | Fix + regression test | `Builder.js`, `scripts/verify_flow.py` | Defined `NAME_FEE = 20` beside its only use, added it to the item total and the WhatsApp message; flow 1 now exercises name + quantity + note end to end | FLOWS PASS locally and on production; typing a name no longer throws; 2 x N$230 + N$20 = N$480.00 with "(includes the name print)" in the message | `python3 scripts/verify_flow.py https://www.giftedwithpurpose.net` -> FLOWS PASS | Done |
+| P1.2a | Bamboo lid price | `data/blanks.json` glass-tumbler | Set price 160 with the client's own words as `price_source` | /shop and the builder quote N$160.00; schema priceRange now N$160 - N$250 | live /shop visible text | Done |
+| P1.2b | Can tumbler correction | `data/blanks.json` can-250, `data/shapes.json` sb889 | Renamed 250ml -> 200ml Can Tumbler (name, short, spec, capacity, capacity_ml), price 180, supplier's 250ml listing kept as the supplier record with a `capacity_note` | Live /shop: "200ml Can Tumbler" + "N$180.00" present, "250ml Can Tumbler" zero hits; 191 routes ALL PASS | `python3 scripts/verify_routes.py https://www.giftedwithpurpose.net` -> ALL PASS | Done |
+| P1.2c | Travel tumbler left open | `data/blanks.json` travel-mug-20oz | No price was given by the client, so none was invented | Still reads "Price on request" (the only one left) | live /shop | Open - needs client price |
+| P1.3 | No cropped photos | `components/ProductCard.js`, `app/site.css` | Product cards always render contain; design grid cells letterbox (object-fit contain) instead of a 4:3 cover trim; cover remains only on decorative 72px drawer thumbs | Pray On It / Grow in Grace show the whole bottle incl. the top; every collection card letterboxes on white | screenshots `verify_shots/inspire_cards_contain.png` | Done |
+| P2.5 | Tap the photo to enlarge | `ProductCard.js` | The photo itself is now a real button (`.tkt-hit`) opening the shared lightbox with the full image, spec, price and WhatsApp link; the small zoom badge still works | Live: tap -> lightbox with "God Says You Are - 600ml stainless steel tumbler - N$250.00" + order CTA | screenshot `verify_shots/LIVE_product_lightbox.png` | Done |
+| P2.4 | Builder designs open full size | `app/create/Builder.js`, `components/LightboxProvider.js` | Tap a design in step 2: it opens full size and stays selected; the CTA renders only when the lightbox item carries a WhatsApp link, so the builder preview has no dead button | Live: tap -> preview, Escape -> still selected; verify flow 6 asserts this | screenshot `verify_shots/LIVE_kids_design_lightbox.png` equivalent on /create; FLOWS PASS | Done |
+| P2.6 | Kids Selection lands on the kids designs | `app/collections/[slug]/page.js`, new `KidsDesigns.js`, `lib/catalog.js` | The page now leads with the whole kids design library: 42 sippy + 30 flip-top wraps, tap -> full size + WhatsApp link naming the design and the N$230 price; photographed examples keep their section below | Live: 72 cells, lightbox caption "Yellow Sponge - SIPPY-01 - for the sippy cup", wa.me link names the design | screenshots `verify_shots/LIVE_kids_design_lightbox3.png`; KIDS GALLERY PASS x2 on production | Done |
+| P3.7 | draw -> create sitewide | hero, steps, shop, designs, builder, how-to-order, create metadata, terms | Replaced every "we draw it" usage with "create"; the logo's "never redrawn" note untouched; verifier strings re-pointed | Live: zero `\bdraw\b` hits on /, /shop, /designs, /create, /legal/terms | curl + visible-text scan | Done |
+| Gate | Full verifier suite on production | `scripts/*.py` | routes + flows + kids gallery + a11y + datapoints + copy against https://www.giftedwithpurpose.net | ALL PASS / PASS / PASS / PASS / 0 findings / 0 issues | verifier stdout, this session | Done |
+
+Open item carried to the client: the 20oz Hot and Cold Travel Tumbler still has no price ("pls add
+prices for all" gave numbers only for the bamboo lid and the can). Send the figure and it goes live in
+one data line. Also noted, no action taken: the re-sent photos that did not open on her phone were
+forwarding artefacts, not site defects.

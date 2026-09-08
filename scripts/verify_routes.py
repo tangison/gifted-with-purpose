@@ -1,7 +1,7 @@
 """Route + served-content verification. Checks the HTML body, not just the status."""
 import json, os, re, sys, urllib.request
 
-B = "http://127.0.0.1:3000"
+B = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3000"
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 designs = json.load(open(f"{root}/data/designs.json"))["items"]
 blanks = json.load(open(f"{root}/data/blanks.json"))["items"]

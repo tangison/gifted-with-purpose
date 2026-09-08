@@ -2,7 +2,7 @@
 import asyncio, sys, urllib.parse
 from playwright.async_api import async_playwright
 
-B = "http://127.0.0.1:3000"
+B = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3000"
 fails = []
 console = []
 
