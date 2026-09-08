@@ -422,3 +422,32 @@ to the wrong chat.
    at your domain host. This is the email setup you mentioned.
 4. **The two withheld photographs** showing a child's face printed on a cup, which need that parent's
    written consent before they can go on a public commercial site.
+
+---
+
+## 12. Applied 7-8 Sep 2026, from your WhatsApp messages
+
+Every "pls attend" item from your 7 Sep messages is done and verified on the live site (full evidence
+in `PROOF.md`, round of 7 Sep):
+
+- The step 3 form is fixed. A crash was found the moment anyone typed a name (the site's own bug since
+  the 28 Aug update, exactly as you saw it). The N$20 name print is now also actually added to the
+  total, which it never was before, and it is written out in the WhatsApp message.
+- Prices: Glass Tumbler with Bamboo Lid **N$160**, and the can is now the **200ml Can Tumbler at
+  N$180** everywhere (your correction beats the supplier's 250ml listing, which is kept only as a
+  supplier record note).
+- No photo is cropped anywhere any more: the product cards show the whole bottle including the top,
+  and the design grid letterboxes instead of trimming.
+- Pressing a product photo opens it big. Pressing a design in the builder opens it big so you can read
+  it. Pressing a design on the designs page already opened big (that one shipped on 28 Aug).
+- Kids Selection now opens on the kids designs: all 42 sippy cup wraps and 30 flip-top bottle wraps,
+  tap any one to read it and order it with the name printed.
+- Every "we draw it" now reads "we create it", sitewide.
+
+### Still needed from you
+
+1. **The 20oz Hot and Cold Travel Tumbler price.** Your "pls add prices for all" gave numbers for the
+   bamboo lid and the can only. That one item still reads "Price on request" rather than us guessing.
+2. Everything older in this file that is still marked waiting (the mailbox for
+   sales@giftedwithpurpose.net, and the two kids photos needing a parent's written consent) is
+   unchanged.
