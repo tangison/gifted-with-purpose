@@ -57,7 +57,7 @@ async def main():
         await pg.wait_for_timeout(600)
         print("  state builder-library:", await run_axe(pg, "create[library]"), "violations")
 
-        await pg.get_by_role("button", name="Ask us to draw one").click()
+        await pg.get_by_role("button", name="Ask us to create one").click()
         await pg.wait_for_timeout(400)
         print("  state builder-custom:", await run_axe(pg, "create[custom]"), "violations")
 

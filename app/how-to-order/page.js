@@ -21,7 +21,7 @@ const STEPS = [
     n: 1,
     name: 'You choose',
     text: 'Pick the item and the design on the website, or just send us a photo of what you have in mind. The item sets the price.',
-    detail: `${blanks.length} items, ${designs.length} ready-made designs, or something drawn from scratch.`,
+    detail: `${blanks.length} items, ${designs.length} ready-made designs, or something created from scratch.`,
   },
   {
     n: 2,

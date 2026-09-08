@@ -76,7 +76,10 @@ export default function LightboxProvider({ children }) {
             <b>{item?.title}</b>
             <span>{item?.spec}</span>
           </figcaption>
-          {item && (
+          {/* Only an item that carries its own WhatsApp deep link shows the
+              order CTA. Previews opened from inside the builder omit it, so
+              the button is never a dead link there. */}
+          {item?.wa && (
             <a className="btn btn-wa lb-cta" href={item.wa} target="_blank" rel="noopener noreferrer">
               <Icon name="wa" /> Order this on WhatsApp
             </a>

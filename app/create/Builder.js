@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState, useDeferredValue } from 'react';
 import { Icon } from '@/components/Icons';
+import { useLightbox } from '@/components/LightboxProvider';
 import { brand } from '@/lib/site';
 import {
   blanks,
@@ -55,6 +56,7 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
   const dq = useDeferredValue(q);
   const item = itemId ? blankById(itemId) : null;
   const design = designId ? designById(designId) : null;
+  const { open } = useLightbox();
 
   // Without an item chosen we still show the whole library, so the custom
   // option and the designs are both reachable (and crawlable) from step one.
@@ -64,7 +66,7 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
 
   const errors = [];
   if (!item) errors.push('Choose an item in step one.');
-  if (mode === null) errors.push('Choose a design in step two, or ask us to draw one.');
+  if (mode === null) errors.push('Choose a design in step two, or ask us to create one.');
   if (mode === 'library' && !design) errors.push('Pick a design from the library.');
   if (mode === 'custom' && brief.trim().length < 10)
     errors.push('Describe your custom design in step two, at least a sentence.');
@@ -234,7 +236,7 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
                     aria-pressed={mode === 'custom'}
                     onClick={() => setMode('custom')}
                   >
-                    <b>Ask us to draw one</b>
+                    <b>Ask us to create one</b>
                     <span>Your photo, name, verse or idea. Artwork quoted per job.</span>
                   </button>
                 </div>
@@ -258,7 +260,7 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
                     />
                     <p className="shop-count" aria-live="polite">
                       {list.length === 0
-                        ? 'Nothing matches that. Try another word, or ask us to draw it.'
+                        ? 'Nothing matches that. Try another word, or ask us to create it.'
                         : `${visible.length} of ${list.length} shown`}
                     </p>
                     <ul className="bld-picks">
@@ -268,12 +270,24 @@ export default function Builder({ initialItem = null, initialDesign = null }) {
                             type="button"
                             className="bld-pick"
                             aria-pressed={designId === d.id}
+                            aria-label={`View ${d.name} full size and choose it`}
                             onClick={() => {
                               setDesignId(d.id);
                               if (!itemId) {
                                 const fit = blanks.find((b) => b.accepts.includes(d.group));
                                 if (fit) setItemId(fit.id);
                               }
+                              /* The client asked (7 Sep) for a tap on a design
+                                 to open it large enough to read. The design
+                                 stays selected underneath, so closing the
+                                 preview lands you one tap further down the
+                                 same flow. No WhatsApp CTA in here: the order
+                                 message is composed by this builder. */
+                              open({
+                                img: `/assets/designs/${d.file}.webp`,
+                                title: d.name,
+                                spec: `${d.id.toUpperCase()} · selected`,
+                              });
                             }}
                           >
                             <Image

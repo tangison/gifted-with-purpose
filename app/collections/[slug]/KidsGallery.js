@@ -18,7 +18,7 @@ export default function KidsGallery() {
   const { open } = useLightbox();
 
   return (
-    <ul className="wg wg-contain">
+    <ul className="wg wg-contain kg-grid">
       {kidsWork.map((w, i) => {
         const b = kidsWorkBlank(w);
         return (

@@ -23,24 +23,39 @@ export default function ProductCard({ product: p, priority = false, index = 0 })
   const { open } = useLightbox();
   const { add, items } = useCart();
   const inBag = items.some((i) => i.id === p.id);
-  const contain = p.shot === 'studio' || p.shot === 'flyer';
+
+  /*
+   * Nothing on this card is cropped. The client has asked twice (26 Aug for
+   * the item grid, 7 Sep for these cards: "remove all the photos that are
+   * cut off") for the whole photo to show, so the image always renders
+   * contain, and tapping the photo itself opens the full-size lightbox.
+   */
+  const enlarge = () =>
+    open({
+      img: img(p.image),
+      title: p.name,
+      spec: `${p.spec}${pl ? ` · ${pl}` : ' · Price on request'}`,
+      wa: waProduct(p),
+    });
 
   return (
     <article
       className="tkt"
       style={{ '--accent': c.accent, '--accent-soft': c.accent_soft, '--accent-ink': c.accent_ink }}
     >
-      <div className={`tkt-media${contain ? ' contain' : ''}`}>
-        <div className="ar">
-          <Image
-            src={imgSm(p.image)}
-            alt={`${p.name}, ${p.spec}`}
-            fill
-            sizes="(min-width:900px) 360px, 50vw"
-            priority={priority}
-            style={{ objectFit: contain ? 'contain' : 'cover' }}
-          />
-        </div>
+      <div className="tkt-media contain">
+        <button type="button" className="tkt-hit" onClick={enlarge} aria-label={`Enlarge photo of ${p.name}`}>
+          <div className="ar">
+            <Image
+              src={imgSm(p.image)}
+              alt={`${p.name}, ${p.spec}`}
+              fill
+              sizes="(min-width:900px) 360px, 50vw"
+              priority={priority}
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+        </button>
 
         <span className="tkt-spine" aria-hidden="true">
           {c.name}
@@ -61,19 +76,7 @@ export default function ProductCard({ product: p, priority = false, index = 0 })
           {p.personalised && <span className="flag-pers">Add a name</span>}
         </div>
 
-        <button
-          className="zoom"
-          type="button"
-          onClick={() =>
-            open({
-              img: img(p.image),
-              title: p.name,
-              spec: `${p.spec}${pl ? ` · ${pl}` : ' · Price on request'}`,
-              wa: waProduct(p),
-            })
-          }
-          aria-label={`Enlarge photo of ${p.name}`}
-        >
+        <button className="zoom" type="button" onClick={enlarge} aria-label={`Enlarge photo of ${p.name}`}>
           <Expand />
         </button>
       </div>

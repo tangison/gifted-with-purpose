@@ -157,7 +157,7 @@ export default function ShopPage() {
             <div>
               <h2>Then pick the design</h2>
               <p>
-                Every design in the library can go on the item you choose. If you have something else in mind, we draw
+                Every design in the library can go on the item you choose. If you have something else in mind, we create
                 it for you and quote the artwork per job.
               </p>
             </div>

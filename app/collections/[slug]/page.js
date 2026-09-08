@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { Icon, Chev } from '@/components/Icons';
 import ProductCard, { SoonCard } from '@/components/ProductCard';
 import KidsGallery from './KidsGallery';
+import KidsDesigns from './KidsDesigns';
 import { collections, collectionBySlug, productsIn, brand, wa, SITE_URL } from '@/lib/site';
-import { kidsWork, sippyWork, fliptopWork, work } from '@/lib/catalog';
+import { kidsWork, sippyWork, fliptopWork, work, kidsDesigns, sippyDesigns, fliptopDesigns } from '@/lib/catalog';
 
 export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
@@ -125,7 +126,9 @@ export default async function CollectionPage({ params }) {
           <p>{c.blurb}</p>
           <ul className="stats">
             <li>
-              {ps.length} design{ps.length !== 1 ? 's' : ''}
+              {c.slug === 'kids-selection'
+                ? `${kidsDesigns.length} designs`
+                : `${ps.length} print${ps.length !== 1 ? 's' : ''}`}
             </li>
             {priced.length > 0 && (
               <li>
@@ -139,6 +142,27 @@ export default async function CollectionPage({ params }) {
           </ul>
         </div>
       </section>
+
+      {/*
+        The client's instruction of 7 Sep: pressing Kids Selection must land on
+        "the images of the kids bottles all the designs", so the design library
+        for the two kids items comes before the printed examples.
+      */}
+      {c.slug === 'kids-selection' && (
+        <section className="sec" style={{ paddingTop: 'var(--s-3)' }}>
+          <div className="wrap">
+            <div className="sec-head center">
+              <span className="eyebrow">Pick the design</span>
+              <h2>Every kids design, ready to print</h2>
+              <p>
+                {sippyDesigns.length} sippy cup wraps and {fliptopDesigns.length} flip-top bottle wraps. Any of them
+                on either item, name printed big, no extra cost for the design. Tap one to read it properly.
+              </p>
+            </div>
+            <KidsDesigns />
+          </div>
+        </section>
+      )}
 
       <section className="sec">
         <div className="wrap">

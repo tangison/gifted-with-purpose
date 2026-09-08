@@ -73,10 +73,24 @@ for b in blanks:
 # The two halves must link to each other.
 check("/shop", must=["/designs", "/create", "design"], mustnot=["fit this"])
 check("/designs", must=["/create", "Search designs"])
-check("/create", must=["Pick the item", "Pick the design", "Ask us to draw one"])
+check("/create", must=["Pick the item", "Pick the design", "Ask us to create one"])
 check("/", must=["/create", "/designs", "/shop", "/work", "How it works"])
 check("/work", must=["Browse our products", f"{len(work)}"])
 check("/how-to-order", must=["How to order", "sublimation", "Hand wash only"])
+
+# Kids Selection must lead with the whole kids design library (client 7 Sep:
+# pressing Kids Selection must land on "the images of the kids bottles all
+# the designs"), with the corrected catalogue prices in its grid.
+_, kids = get("/collections/kids-selection")
+for need in ("Every kids design, ready to print", "flip-top bottle wraps"):
+    if need not in visible(kids):
+        fails.append(f"/collections/kids-selection: missing {need!r}")
+_, shop2 = get("/shop")
+for need in ("200ml Can Tumbler", "N$180.00", "N$160.00"):
+    if need not in visible(shop2):
+        fails.append(f"/shop: missing corrected catalogue entry {need!r}")
+if "250ml Can Tumbler" in visible(shop2):
+    fails.append("/shop: still shows the old 250ml Can Tumbler name")
 
 # canonical + robots must point at the real domain, never the vercel host
 _, home = get("/")

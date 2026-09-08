@@ -55,7 +55,7 @@ export default async function DesignsPage({ searchParams }) {
             <h1>Pick the design</h1>
             <p>
               Any design here can go on any item that fits it. The item sets the price, so switching designs costs
-              nothing. If it is not here, we draw it.
+              nothing. If it is not here, we create it.
             </p>
           </div>
           <p className="cblock-cta">

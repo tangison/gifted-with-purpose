@@ -27,7 +27,7 @@ export default function HomePage() {
             </h1>
             <p className="hero-tag">Printed on order in Namibia</p>
             <p className="hero-sub">
-              Pick the cup. Pick the design. We print it. {designs.length} designs ready to go, or we draw you a new
+              Pick the cup. Pick the design. We print it. {designs.length} designs ready to go, or we create you a new
               one. Made by a mother and daughter in Namibia, from {brand.currency}
               {Math.min(...blanks.filter((b) => b.price != null).map((b) => b.price))}.
             </p>
@@ -73,7 +73,7 @@ export default function HomePage() {
               <span className="h2-n">2</span>
               <h3>Pick the design</h3>
               <p>
-                {designs.length} ready-made designs, filtered by what fits your item. Or describe your own and we draw
+                {designs.length} ready-made designs, filtered by what fits your item. Or describe your own and we create
                 it, quoted per job.
               </p>
               <Link href="/designs">Browse the designs <Chev /></Link>

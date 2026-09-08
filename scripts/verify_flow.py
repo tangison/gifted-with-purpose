@@ -55,7 +55,7 @@ async def main():
         # so it must keep asking instead of quoting a number.
         await pg.goto(f"{B}/create", wait_until="domcontentloaded")
         await pg.get_by_role("button", name="20oz Hot and Cold Travel Tumbler", exact=False).first.click()
-        await pg.get_by_role("button", name="Ask us to draw one").click()
+        await pg.get_by_role("button", name="Ask us to create one").click()
         await pg.fill("#brief", "A protea wreath with my mother's name in Afrikaans script")
         await pg.wait_for_timeout(300)
         total2 = await pg.locator(".bld-total").inner_text()
@@ -97,6 +97,7 @@ async def main():
 
         # ---- flow 5: gallery search + theme filter
         await pg.goto(f"{B}/designs", wait_until="domcontentloaded")
+        await pg.wait_for_timeout(600)
         await pg.fill("#dq", "afrikaans")
         await pg.wait_for_timeout(700)
         n = await pg.locator(".dg li").count()
@@ -108,6 +109,67 @@ async def main():
         cnt = await pg.locator(".shop-count").inner_text()
         if "Showing" not in cnt:
             fails.append(f"flow5: theme filter broke the count: {cnt!r}")
+
+        # ---- flow 6: tapping a design in the builder opens it full size
+        # (client 7 Sep: "when you press on the designs it must open up so
+        # that you can clearly read the design"), stays selected underneath,
+        # and the preview carries no WhatsApp CTA because the builder itself
+        # composes the order message.
+        await pg.goto(f"{B}/create", wait_until="domcontentloaded")
+        await pg.wait_for_timeout(600)
+        await pg.get_by_role("button", name="12oz Coffee Mug", exact=False).first.click()
+        await pg.get_by_role("button", name="Choose a ready-made design").click()
+        await pg.wait_for_timeout(400)
+        await pg.locator(".bld-pick").first.click()
+        await pg.wait_for_timeout(400)
+        if await pg.locator('.lb[data-open="true"]').count() != 1:
+            fails.append("flow6: builder design tap did not open the full-size preview")
+        if await pg.locator(".lb-cta").count() != 0:
+            fails.append("flow6: builder preview must not carry a WhatsApp order CTA")
+        cap = await pg.locator(".lb figcaption").inner_text()
+        if "DESIGN" not in cap.upper() and "SIPPY" not in cap.upper() and "FLIPTOP" not in cap.upper():
+            fails.append(f"flow6: preview caption missing the design reference: {cap!r}")
+        await pg.keyboard.press("Escape")
+        await pg.wait_for_timeout(300)
+        if await pg.locator('.lb[data-open="true"]').count() != 0:
+            fails.append("flow6: Escape did not close the builder preview")
+        if await pg.locator(".bld-pick[aria-pressed='true']").count() != 1:
+            fails.append("flow6: the tapped design did not stay selected after the preview")
+
+        # ---- flow 7: tapping a product photo opens it full size with the
+        # order CTA (client 7 Sep: "weh you press on the image the image must
+        # open up so the person can see the whole bottle"), and the photo is
+        # not cropped: the card renders contain, so the whole bottle shows.
+        await pg.goto(f"{B}/collections/inspire", wait_until="domcontentloaded")
+        await pg.wait_for_timeout(800)
+        if await pg.locator(".tkt-hit").count() < 2:
+            fails.append("flow7: product photos are not tappable on the collection page")
+        await pg.locator(".tkt-hit").first.click()
+        await pg.wait_for_timeout(400)
+        if await pg.locator('.lb[data-open="true"]').count() != 1:
+            fails.append("flow7: product photo tap did not open the full-size view")
+        if await pg.locator(".lb-cta").count() != 1:
+            fails.append("flow7: product lightbox is missing the WhatsApp order CTA")
+        await pg.keyboard.press("Escape")
+        await pg.wait_for_timeout(300)
+
+        # ---- flow 8: Kids Selection lands on the kids design library
+        await pg.goto(f"{B}/collections/kids-selection", wait_until="domcontentloaded")
+        await pg.wait_for_timeout(800)
+        kid_cells = await pg.locator(".wg-contain .wg-cell").count()
+        if kid_cells < 60:
+            fails.append(f"flow8: kids design gallery shows only {kid_cells} cells, expected the full sippy+flip-top library")
+        await pg.locator(".wg-contain .wg-cell").first.click()
+        await pg.wait_for_timeout(400)
+        if await pg.locator('.lb[data-open="true"]').count() != 1:
+            fails.append("flow8: kids design tap did not open the full-size view")
+        if await pg.locator(".lb-cta").count() != 1:
+            fails.append("flow8: kids design lightbox is missing the WhatsApp order CTA")
+        cap8 = await pg.locator(".lb figcaption").inner_text()
+        if "sippy" not in cap8.lower() and "flip" not in cap8.lower():
+            fails.append(f"flow8: kids design caption does not name the kids item: {cap8!r}")
+        await pg.keyboard.press("Escape")
+        await pg.wait_for_timeout(200)
 
         await br.close()
 

@@ -164,7 +164,7 @@ export default function DesignGallery({ initialTheme = 'all' }) {
 
           {list.length === 0 ? (
             <p className="dg-empty">
-              We can also draw something from scratch. Tell us what you are picturing and we will quote the artwork.{' '}
+              We can also create something from scratch. Tell us what you are picturing and we will quote the artwork.{' '}
               <Link href="/create">Start a custom design</Link>.
             </p>
           ) : (
@@ -206,7 +206,7 @@ export default function DesignGallery({ initialTheme = 'all' }) {
             <div>
               <h2>Not in the library</h2>
               <p>
-                We draw custom designs too: a photo, a name, a verse, an inside joke. Artwork is quoted per job, and the
+                We create custom designs too: a photo, a name, a verse, an inside joke. Artwork is quoted per job, and the
                 item price stays the same.
               </p>
             </div>

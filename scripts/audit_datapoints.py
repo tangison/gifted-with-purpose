@@ -30,6 +30,9 @@ TRUTH = {
     "collections": len(site["collections"]),
     "products": len(products),
     "themes": len(json.load(open(f"{ROOT}/data/designs.json"))["themes"]),
+    # The Kids Selection page leads with the kids subset of the library
+    # (sippy + flip-top wraps), so that exact count is also truth there.
+    "kids_designs": len([d for d in designs if d.get("group") in ("sippy", "fliptop")]),
 }
 
 ROUTES = ["/", "/shop", "/designs", "/create", "/work", "/blanks", "/how-to-order",
@@ -88,6 +91,10 @@ for r in ROUTES:
         for m in re.finditer(pat, txt, re.I):
             n = int(m.group(1))
             seen[label].add((n, r))
+            # The Kids Selection page legitimately leads with the kids subset
+            # of the design library, so its own count is truth there.
+            if r == "/collections/kids-selection" and n == TRUTH["kids_designs"]:
+                continue
             if n != TRUTH[key]:
                 ctx = txt[max(0, m.start() - 70):m.end() + 50].strip()
                 findings.append(("MISMATCH", r, f"{label}: page says {n}, truth is {TRUTH[key]} | ...{ctx}..."))

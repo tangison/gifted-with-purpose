@@ -129,7 +129,7 @@ export default async function DesignPage({ params }) {
 
               {d.personalisable && (
                 <p className="dp-note">
-                  <b>Add a name.</b> This design is drawn with space for a name. Tell us the exact spelling when you order.
+                  <b>Add a name.</b> This design is created with space for a name. Tell us the exact spelling when you order.
                 </p>
               )}
               {d.photo_upload && (

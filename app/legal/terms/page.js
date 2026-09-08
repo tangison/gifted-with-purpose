@@ -85,7 +85,7 @@ export default function Terms() {
 
       <h2>Custom artwork</h2>
       <p>
-        Custom artwork is quoted per job. We show you the quote before anything is drawn or printed. By sending us a
+        Custom artwork is quoted per job. We show you the quote before anything is created or printed. By sending us a
         photo, name, logo or wording to print, you confirm you have the right to use it. We may decline a request if we
         believe printing it would infringe someone else&rsquo;s rights.
       </p>
